@@ -63,25 +63,25 @@
 
 ### 📊 Benchmark
 
-| 论文 | ArXiv | 说明 |
-|------|-------|------|
-| Generative AI in Vision | [2402.16369](https://arxiv.org/abs/2402.16369) | 生成式AI视觉综述，覆盖扩散模型、GAN等 |
-| Watermarking Diffusion Model | [2305.12502](https://arxiv.org/abs/2305.12502) | 首个DM水印方案 |
-| Image-to-Image Translation with Conditional GANs | [1611.07004](https://arxiv.org/abs/1611.07004) | Pix2Pix奠基性论文 |
+| 论文 | 年份 | 会议 | 核心贡献 | 详情 |
+|------|------|------|----------|------|
+| Generative AI in Vision | 2024 | arXiv | 生成式AI视觉综述，覆盖扩散模型、GAN等 | [📄](./categories/i2i/papers/2402.16369_generative_ai_in_vision.md) |
+| Watermarking Diffusion Model | 2023 | arXiv | 首个DM水印方案 | [📄](./categories/i2i/papers/2305.12502_watermarking_diffusion.md) |
+| Pix2Pix | 2017 | CVPR | 图像翻译奠基性论文，CGAN经典应用 | [📄](./categories/i2i/papers/1611.07004_pix2pix.md) |
 
 ### 🔴 Attack
 
-| 论文 | ArXiv | 核心创新 |
-|------|-------|----------|
-| Adv-Diffusion | [GitHub](https://github.com/kopper-xdu/Adv-Diffusion) | 基于潜在扩散模型的不可感知对抗人脸身份攻击 |
-| TAIGen | [2508.15020](https://arxiv.org/abs/2508.15020) | 无需训练的对抗图像生成，采样步数减少10倍 |
-| Backdoor Attacks on Face Detection | [2508.00620](https://arxiv.org/abs/2508.00620) | 人脸检测系统的后门攻击 |
+| 论文 | 年份 | 会议 | 核心创新 | 详情 |
+|------|------|------|----------|------|
+| Adv-Diffusion | - | - | 基于潜在扩散模型的不可感知对抗人脸身份攻击 | - |
+| TAIGen | 2025 | arXiv | 无需训练的对抗图像生成，采样步数减少10倍 | - |
+| Backdoor Attacks on Face Detection | 2025 | arXiv | 人脸检测系统的后门攻击 | - |
 
 ### 🟢 Defense
 
-| 论文 | ArXiv | 核心创新 |
-|------|-------|----------|
-| Watermarking Diffusion Model | [2305.12502](https://arxiv.org/abs/2305.12502) | 扩散模型水印保护 |
+| 论文 | 年份 | 会议 | 核心创新 | 详情 |
+|------|------|------|----------|------|
+| Watermarking Diffusion Model | 2023 | arXiv | 扩散模型水印保护 | [📄](./categories/i2i/papers/2305.12502_watermarking_diffusion.md) |
 
 [← Back to Top](#table-of-contents)
 
@@ -93,25 +93,25 @@
 
 ### 📊 Benchmark
 
-| 论文 | ArXiv | 说明 |
-|------|-------|------|
-| AnyV2V | [2403.14468](https://arxiv.org/abs/2403.14468) | 无调优视频编辑框架 |
-| FrameBridge | [2410.15371](https://arxiv.org/abs/2410.15371) | 桥接模型改善I2V生成质量 |
-| MobileI2V | [2511.21475](https://arxiv.org/abs/2511.21475) | 移动端高效I2V生成方案 |
+| 论文 | 年份 | 会议 | 核心贡献 | 详情 |
+|------|------|------|----------|------|
+| AnyV2V | 2024 | arXiv | 无调优视频编辑框架 | [📄](./categories/i2v/papers/2403.14468_anyv2v.md) |
+| FrameBridge | 2024 | arXiv | 桥接模型改善I2V生成质量 | - |
+| MobileI2V | 2025 | arXiv | 移动端高效I2V生成方案 | [📄](./categories/i2v/papers/2511.21475_mobilei2v.md) |
 
 ### 🔴 Attack
 
-| 论文 | ArXiv | 核心创新 |
-|------|-------|----------|
-| Vulnerability of Face Recognition to Deepfakes | [2311.17655](https://arxiv.org/abs/2311.17655) | 首个逼真音视频深度伪造数据库SWAN-DF |
-| Adversarial Attacks on Deepfake Detectors | [ACM MM 2025](https://iplab.dmi.unict.it/mfs/acm-aadd-challenge-2025/) | AADD-2025挑战赛对抗攻击研究 |
+| 论文 | 年份 | 会议 | 核心创新 | 详情 |
+|------|------|------|----------|------|
+| SWAN-DF Deepfake Vulnerability | 2023 | arXiv | 首个逼真音视频深度伪造数据库SWAN-DF | [📄](./categories/i2v/papers/2311.17655_deepfake_vulnerability.md) |
+| Adversarial Attacks on Deepfake Detectors | 2025 | ACM MM | AADD-2025挑战赛对抗攻击研究 | - |
 
 ### 🟢 Defense
 
-| 论文 | ArXiv | 核心创新 |
-|------|-------|----------|
-| Deepfake Detection | [2001.00179](https://arxiv.org/abs/2001.00179) | 深度伪造检测技术综述 |
-| Cross-Modal Fusion for WS-VAD | [CVPR 2024](https://blog.csdn.net/L1783516140/article/details/140087932) | 多模态弱监督视频异常检测框架 |
+| 论文 | 年份 | 会议 | 核心创新 | 详情 |
+|------|------|------|----------|------|
+| DeepFakes and Beyond | 2020 | arXiv | 深度伪造检测技术综述 | [📄](./categories/i2v/papers/2001.00179_deepfakes_survey.md) |
+| Cross-Modal Fusion for WS-VAD | 2024 | CVPR | 多模态弱监督视频异常检测框架 | - |
 
 [← Back to Top](#table-of-contents)
 
@@ -123,32 +123,32 @@
 
 ### 📊 Benchmark
 
-| 论文 | ArXiv | 说明 |
-|------|-------|------|
-| From LLMs to MLLMs to Agents | [2506.15170](https://arxiv.org/abs/2506.15170) | 系统综述越狱攻击与防御范式演进 |
-| PandaGuard | [2505.13862](https://arxiv.org/abs/2505.13862) | 统一模块化框架，19种攻击+12种防御 |
-| A Survey of Large Language Models | [2303.18223](https://arxiv.org/abs/2303.18223) | LLM领域奠基性综述 |
+| 论文 | 年份 | 会议 | 核心贡献 | 详情 |
+|------|------|------|----------|------|
+| From LLMs to MLLMs to Agents | 2025 | arXiv | 系统综述越狱攻击与防御范式演进 | [📄](./categories/t2t/papers/2506.15170_from_llms_to_mllms.md) |
+| PandaGuard | 2025 | arXiv | 统一模块化框架，19种攻击+12种防御 | [📄](./categories/t2t/papers/2505.13862_pandaguard.md) |
+| A Survey of Large Language Models | 2023 | arXiv | LLM领域奠基性综述，持续更新 | [📄](./categories/t2t/papers/2303.18223_survey_llm.md) |
 
 ### 🔴 Attack
 
-| 论文 | ArXiv | 核心创新 |
-|------|-------|----------|
-| DeepInception | [2311.03191](https://arxiv.org/abs/2311.03191) | 利用嵌套场景诱导LLM越狱 |
-| PISmith | [2603.13026](https://arxiv.org/abs/2603.13026) | GRPO + 自适应熵正则化，ASR@10 达 100% |
-| FlipAttack | [2410.02832](https://arxiv.org/abs/2410.02832) | 利用 LLM 自回归特性，1 次查询 ASR 约 98% |
-| Paper Summary Attack | [2507.13474](https://arxiv.org/abs/2507.13474) | 利用 LLM 对权威来源的信任倾向 |
-| InfoFlood | [2506.12274](https://arxiv.org/abs/2506.12274) | 通过信息过载淹没安全注意力机制 |
-| Red Teaming the Mind of the Machine | [2505.04806](https://arxiv.org/abs/2505.04806) | 1400+ 对抗性提示的系统性红队测试 |
-| Adversarial Attack-Defense Co-Evolution | [2511.19218](https://arxiv.org/abs/2511.19218) | 攻防协同进化框架 |
+| 论文 | 年份 | 会议 | 核心创新 | 详情 |
+|------|------|------|----------|------|
+| DeepInception | 2023 | arXiv | 利用嵌套场景诱导LLM越狱 | [📄](./categories/t2t/papers/2311.03191_deepinception.md) |
+| PISmith | 2026 | arXiv | GRPO + 自适应熵正则化，ASR@10 达 100% | [📄](./categories/t2t/papers/2603.13026_pismith.md) |
+| FlipAttack | 2024 | arXiv | 利用 LLM 自回归特性，1次查询 ASR 约 98% | [📄](./categories/t2t/papers/2410.02832_flipattack.md) |
+| Paper Summary Attack | 2025 | arXiv | 利用 LLM 对权威来源的信任倾向 | - |
+| InfoFlood | 2025 | arXiv | 通过信息过载淹没安全注意力机制 | - |
+| Red Teaming the Mind of the Machine | 2025 | arXiv | 1400+ 对抗性提示的系统性红队测试 | - |
+| Adversarial Attack-Defense Co-Evolution | 2025 | arXiv | 攻防协同进化框架 | - |
 
 ### 🟢 Defense
 
-| 论文 | ArXiv | 核心创新 |
-|------|-------|----------|
-| PandaGuard | [2505.13862](https://arxiv.org/abs/2505.13862) | 评测基准框架 |
-| AutoDefense | [2403.04783](https://arxiv.org/abs/2403.04783) | 多智能体协作防御，降低误判率 30%+ |
-| KG-DF | [2511.07480](https://arxiv.org/abs/2511.07480) | 基于知识图谱的语义关系网络检测 |
-| DOOR | [2503.03710](https://arxiv.org/abs/2503.03710) | 双重优化目标，同时提升安全性和任务效用 |
+| 论文 | 年份 | 会议 | 核心创新 | 详情 |
+|------|------|------|----------|------|
+| PandaGuard | 2025 | arXiv | 评测基准框架 | [📄](./categories/t2t/papers/2505.13862_pandaguard.md) |
+| AutoDefense | 2024 | arXiv | 多智能体协作防御，降低误判率 30%+ | - |
+| KG-DF | 2025 | arXiv | 基于知识图谱的语义关系网络检测 | - |
+| DOOR | 2025 | arXiv | 双重优化目标，同时提升安全性和任务效用 | - |
 
 [← Back to Top](#table-of-contents)
 
@@ -160,23 +160,23 @@
 
 ### 📊 Benchmark
 
-| 论文 | ArXiv | 说明 |
-|------|-------|------|
-| Generative AI in Vision | [2402.16369](https://arxiv.org/abs/2402.16369) | 生成式AI视觉综述 |
-| FRAP | [2408.11706](https://arxiv.org/abs/2408.11706) | 自适应提示权重改善文本-图像对齐 |
-| Adversarial Text-to-Image Synthesis | [1910.09399](https://arxiv.org/abs/1910.09399) | GAN时代文生图综述 |
+| 论文 | 年份 | 会议 | 核心贡献 | 详情 |
+|------|------|------|----------|------|
+| Generative AI in Vision | 2024 | arXiv | 生成式AI视觉综述 | [📄](./categories/i2i/papers/2402.16369_generative_ai_in_vision.md) |
+| FRAP | 2024 | arXiv | 自适应提示权重改善文本-图像对齐 | [📄](./categories/t2i/papers/2408.11706_frap.md) |
+| Adversarial T2I Synthesis | 2019 | arXiv | GAN时代文生图综述 | [📄](./categories/t2i/papers/1910.09399_adversarial_t2i_survey.md) |
 
 ### 🔴 Attack
 
-| 论文 | ArXiv | 核心创新 |
-|------|-------|----------|
-| SneakyPrompt | [2305.12082](https://arxiv.org/abs/2305.12082) | 首个自动化越狱T2I模型，绕过DALL·E 2安全过滤器 |
+| 论文 | 年份 | 会议 | 核心创新 | 详情 |
+|------|------|------|----------|------|
+| SneakyPrompt | 2023 | IEEE S&P | 首个自动化越狱T2I模型，绕过DALL·E 2安全过滤器 | [📄](./categories/t2i/papers/2305.12082_sneakyprompt.md) |
 
 ### 🟢 Defense
 
-| 论文 | ArXiv | 核心创新 |
-|------|-------|----------|
-| Watermarking Diffusion Model | [2305.12502](https://arxiv.org/abs/2305.12502) | 扩散模型水印保护 |
+| 论文 | 年份 | 会议 | 核心创新 | 详情 |
+|------|------|------|----------|------|
+| Watermarking Diffusion Model | 2023 | arXiv | 扩散模型水印保护 | [📄](./categories/i2i/papers/2305.12502_watermarking_diffusion.md) |
 
 [← Back to Top](#table-of-contents)
 
@@ -188,24 +188,24 @@
 
 ### 📊 Benchmark
 
-| 论文 | ArXiv | 说明 |
-|------|-------|------|
-| Bottom-Up and Top-Down Attention | [1707.07998](https://arxiv.org/abs/1707.07998) | VQA和图像描述奠基性工作 |
-| Multimodal ArXiv | [2404.10739](https://arxiv.org/abs/2404.10739) | MLLM科学理解评测数据集 |
-| CapRL | [2509.22647](https://arxiv.org/abs/2509.22647) | 强化学习激发密集图像描述能力 |
+| 论文 | 年份 | 会议 | 核心贡献 | 详情 |
+|------|------|------|----------|------|
+| Bottom-Up and Top-Down Attention | 2018 | CVPR (Oral) | VQA和图像描述奠基性工作 | [📄](./categories/i2t/papers/1707.07998_bottom_up_attention.md) |
+| Multimodal ArXiv | 2024 | arXiv | MLLM科学理解评测数据集ArXivQA/ArXivCap | [📄](./categories/i2t/papers/2404.10739_multimodal_arxiv.md) |
+| CapRL | 2025 | arXiv | 强化学习激发密集图像描述能力 | - |
 
 ### 🔴 Attack
 
-| 论文 | ArXiv | 核心创新 |
-|------|-------|----------|
-| Generative Bias in VQA | [2208.00690](https://arxiv.org/abs/2208.00690) | VQA模型数据集偏置研究 |
+| 论文 | 年份 | 会议 | 核心创新 | 详情 |
+|------|------|------|----------|------|
+| Generative Bias in VQA | 2022 | arXiv | VQA模型数据集偏置研究 | - |
 
 ### 🟢 Defense
 
-| 论文 | ArXiv | 核心创新 |
-|------|-------|----------|
-| Unified Hallucination Mitigation | [2310.00754](https://arxiv.org/abs/2310.00754) | 统一幻觉缓解框架 |
-| Semantic Refocused Tuning | [2409.16278](https://arxiv.org/abs/2409.16278) | 语义重聚焦调优改善VLM |
+| 论文 | 年份 | 会议 | 核心创新 | 详情 |
+|------|------|------|----------|------|
+| Object Hallucination Mitigation | 2023 | arXiv | 统一幻觉缓解框架 | [📄](./categories/i2t/papers/2310.00754_hallucination_mitigation.md) |
+| Semantic Refocused Tuning | 2024 | arXiv | 语义重聚焦调优改善VLM | [📄](./categories/i2t/papers/2409.16278_semantic_refocused.md) |
 
 [← Back to Top](#table-of-contents)
 
@@ -217,23 +217,23 @@
 
 ### 📊 Benchmark
 
-| 论文 | ArXiv | 说明 |
-|------|-------|------|
-| Generative AI in Vision | [2402.16369](https://arxiv.org/abs/2402.16369) | 生成式AI视觉综述 |
-| AnyV2V | [2403.14468](https://arxiv.org/abs/2403.14468) | 无调优视频编辑 |
-| Noise Rectification | [2403.02827](https://arxiv.org/abs/2403.02827) | 高保真度I2V生成的噪声校正方法 |
+| 论文 | 年份 | 会议 | 核心贡献 | 详情 |
+|------|------|------|----------|------|
+| Generative AI in Vision | 2024 | arXiv | 生成式AI视觉综述，涵盖视频生成扩散模型 | [📄](./categories/i2i/papers/2402.16369_generative_ai_in_vision.md) |
+| AnyV2V | 2024 | arXiv | 无调优视频编辑 | [📄](./categories/i2v/papers/2403.14468_anyv2v.md) |
+| Noise Rectification | 2024 | arXiv | 高保真度I2V生成的噪声校正方法 | [📄](./categories/t2v/papers/2403.02827_noise_rectification.md) |
 
 ### 🔴 Attack
 
-| 论文 | ArXiv | 核心创新 |
-|------|-------|----------|
-| Vulnerability of Face Recognition to Deepfakes | [2311.17655](https://arxiv.org/abs/2311.17655) | 音视频深度伪造攻击研究 |
+| 论文 | 年份 | 会议 | 核心创新 | 详情 |
+|------|------|------|----------|------|
+| SWAN-DF Deepfake Vulnerability | 2023 | arXiv | 音视频深度伪造攻击研究 | [📄](./categories/i2v/papers/2311.17655_deepfake_vulnerability.md) |
 
 ### 🟢 Defense
 
-| 论文 | ArXiv | 核心创新 |
-|------|-------|----------|
-| Deepfake Detection | [2001.00179](https://arxiv.org/abs/2001.00179) | 深度伪造检测技术综述 |
+| 论文 | 年份 | 会议 | 核心创新 | 详情 |
+|------|------|------|----------|------|
+| DeepFakes and Beyond | 2020 | arXiv | 深度伪造检测技术综述 | [📄](./categories/i2v/papers/2001.00179_deepfakes_survey.md) |
 
 [← Back to Top](#table-of-contents)
 
@@ -276,12 +276,33 @@ ai-security-daily/
 │   ├── i2i/           # 图生图
 │   │   ├── benchmark/
 │   │   ├── attack/
-│   │   └── defense/
+│   │   ├── defense/
+│   │   └── papers/    # 详细论文分析
 │   ├── i2v/           # 图生视频
+│   │   ├── benchmark/
+│   │   ├── attack/
+│   │   ├── defense/
+│   │   └── papers/
 │   ├── t2t/           # 文生文
+│   │   ├── benchmark/
+│   │   ├── attack/
+│   │   ├── defense/
+│   │   └── papers/
 │   ├── t2i/           # 文生图
+│   │   ├── benchmark/
+│   │   ├── attack/
+│   │   ├── defense/
+│   │   └── papers/
 │   ├── i2t/           # 图生文
+│   │   ├── benchmark/
+│   │   ├── attack/
+│   │   ├── defense/
+│   │   └── papers/
 │   └── t2v/           # 文生视频
+│       ├── benchmark/
+│       ├── attack/
+│       ├── defense/
+│       └── papers/
 ├── daily-reports/
 │   └── 2026-03/
 └── scripts/
