@@ -8,96 +8,60 @@
   <a href="https://img.shields.io/badge/Reports-Today-blue.svg">
     <img src="https://img.shields.io/badge/Reports-Today-blue.svg" alt="Reports Today"/>
   </a>
-  <a href="https://img.shields.io/badge/Papers-100+-green.svg">
-    <img src="https://img.shields.io/badge/Papers-100+-green.svg" alt="Total Papers"/>
+  <a href="https://img.shields.io/badge/Papers-10+-green.svg">
+    <img src="https://img.shields.io/badge/Papers-10+-green.svg" alt="Total Papers"/>
   </a>
   <a href="https://img.shields.io/badge/Last-Update-2026--03--23-orange.svg">
     <img src="https://img.shields.io/badge/Last-Update-2026--03--23-orange.svg" alt="Last Update"/>
   </a>
 </p>
 
-> 每日 AI 安全论文深度情报调研，自动追踪 ArXiv 最新论文，按攻击/防御/评测分类整理
+> 每日 AI 安全论文深度情报调研，自动追踪 ArXiv 最新论文，按模态类型和攻击/防御/评测分类整理
+
+## 📂 模态分类
+
+| 模态 | 说明 | 子类别 |
+|------|------|--------|
+| 🖼️→🖼️ i2i | 图生图 | [benchmark](./categories/i2i/benchmark/) · [attack](./categories/i2i/attack/) · [defense](./categories/i2i/defense/) |
+| 🎬 i2v | 图生视频 | [benchmark](./categories/i2v/benchmark/) · [attack](./categories/i2v/attack/) · [defense](./categories/i2v/defense/) |
+| 📝 t2t | 文生文 | [benchmark](./categories/t2t/benchmark/) · [attack](./categories/t2t/attack/) · [defense](./categories/t2t/defense/) |
+| 🎨 t2i | 文生图 | [benchmark](./categories/t2i/benchmark/) · [attack](./categories/t2i/attack/) · [defense](./categories/t2i/defense/) |
+| 📖 i2t | 图生文 | [benchmark](./categories/i2t/benchmark/) · [attack](./categories/i2t/attack/) · [defense](./categories/i2t/defense/) |
+| 🎥 t2v | 文生视频 | [benchmark](./categories/t2v/benchmark/) · [attack](./categories/t2v/attack/) · [defense](./categories/t2v/defense/) |
+
+---
 
 ## 📋 最新报告
 
 | 日期 | 报告 | 论文数 | 链接 |
 |------|------|--------|------|
 | 2026-03-23 | AI安全每日深度情报 | 9 篇 | [📄](./daily-reports/2026-03/2026-03-23_AI安全每日深度情报.md) |
-| 2026-03-20 | AI安全每日深度情报 | 4 篇 | [📄](./daily-reports/2026-03/2026-03-20_AI安全每日深度情报.md) |
-
-**[📑 完整报告列表](./daily-reports/)** | **[📊 月度索引](./daily-reports/2026-03/)**
 
 ---
 
-## 🔴 攻击类 (Attacks)
+## 🔴 文生文攻击类论文
 
-### 概述
-攻击类论文涵盖 LLM 越狱（Jailbreak）、提示注入（Prompt Injection）、对抗样本等研究方向。
+### 2026-03-23
 
-### 最新论文
-
-#### 2026-03-23
-- **PISmith**: Reinforcement Learning-based Red Teaming for Prompt Injection Defenses
-  - ArXiv: [2603.13026](https://arxiv.org/abs/2603.13026)
-  - 核心: GRPO + 自适应熵正则化，ASR@10 达 100%
-
-- **FlipAttack**: Jailbreaking LLMs via Flipping
-  - ArXiv: [2410.02832](https://arxiv.org/abs/2410.02832)
-  - 核心: 利用 LLM 自回归特性，1 次查询 ASR 约 98%
-
-- **Paper Summary Attack**: Jailbreaking LLMs through LLM Safety Papers
-  - ArXiv: [2507.13474](https://arxiv.org/abs/2507.13474)
-  - 核心: 利用 LLM 对权威来源的信任倾向
-
-- **InfoFlood**: Jailbreaking Large Language Models with Information Overload
-  - ArXiv: [2506.12274](https://arxiv.org/abs/2506.12274)
-  - 核心: 通过信息过载淹没安全注意力机制
-
-[📂 更多攻击类论文](./categories/attacks/)
+| 论文 | ArXiv | 核心创新 |
+|------|-------|----------|
+| PISmith | [2603.13026](https://arxiv.org/abs/2603.13026) | GRPO + 自适应熵正则化，ASR@10 达 100% |
+| FlipAttack | [2410.02832](https://arxiv.org/abs/2410.02832) | 利用 LLM 自回归特性，1 次查询 ASR 约 98% |
+| Paper Summary Attack | [2507.13474](https://arxiv.org/abs/2507.13474) | 利用 LLM 对权威来源的信任倾向 |
+| InfoFlood | [2506.12274](https://arxiv.org/abs/2506.12274) | 通过信息过载淹没安全注意力机制 |
+| Red Teaming the Mind of the Machine | [2505.04806](https://arxiv.org/abs/2505.04806) | 1400+ 对抗性提示的系统性红队测试 |
 
 ---
 
-## 🟢 防御类 (Defenses)
+## 🟢 文生文防御类论文
 
-### 概述
-防御类论文涵盖安全对齐（Safety Alignment）、越狱防御、对抗训练等研究方向。
+### 2026-03-23
 
-### 最新论文
-
-#### 2026-03-23
-- **AutoDefense**: Multi-Agent LLM Defense against Jailbreak Attacks
-  - ArXiv: 待查
-  - 核心: 多智能体协作防御，降低误判率 30%+
-
-- **KG-DF**: A Black-box Defense Framework against Jailbreak Attacks Based on Knowledge Graphs
-  - ArXiv: [2511.07480](https://arxiv.org/abs/2511.07480)
-  - 核心: 基于知识图谱的语义关系网络检测
-
-- **DOOR**: Improving LLM Safety Alignment with Dual-Objective Optimization
-  - ArXiv: [2503.03710](https://arxiv.org/abs/2503.03710)
-  - 核心: 双重优化目标，同时提升安全性和任务效用
-
-[📂 更多防御类论文](./categories/defenses/)
-
----
-
-## 🔵 评测类 (Evaluation/Benchmarks)
-
-### 概述
-评测类论文涵盖安全基准（Benchmark）、红队测试（Red Teaming）、攻防评测等研究方向。
-
-### 最新论文
-
-#### 2026-03-23
-- **Red Teaming the Mind of the Machine**: A Systematic Evaluation of Prompt Injection and Jailbreak Vulnerabilities
-  - ArXiv: [2505.04806](https://arxiv.org/abs/2505.04806)
-  - 核心: 1400+ 对抗性提示的系统性红队测试
-
-- **Adversarial Attack-Defense Co-Evolution**: Dynamic Balance Between Attack Optimization and Defense Enhancement
-  - ArXiv: [2511.19218](https://arxiv.org/abs/2511.19218)
-  - 核心: 攻防协同进化框架
-
-[📂 更多评测类论文](./categories/evaluation/)
+| 论文 | ArXiv | 核心创新 |
+|------|-------|----------|
+| AutoDefense | 待查 | 多智能体协作防御，降低误判率 30%+ |
+| KG-DF | [2511.07480](https://arxiv.org/abs/2511.07480) | 基于知识图谱的语义关系网络检测 |
+| DOOR | [2503.03710](https://arxiv.org/abs/2503.03710) | 双重优化目标，同时提升安全性和任务效用 |
 
 ---
 
@@ -106,16 +70,12 @@
 ### 攻击侧
 - **黑盒单步攻击崛起**: FlipAttack、InfoFlood 等方法证明，通过深刻理解 LLM 认知特性，可在极低成本（1 次查询）实现高 ASR
 - **学术包装攻击**: Paper Summary Attack 揭示了 LLM 对权威来源的信任倾向
-- **多模态扩展**: JPS 等工作开始探索视觉-文本联合越狱
+- **攻防协同进化**: 动态攻防博弈成为新趋势
 
 ### 防御侧
 - **多智能体协作**: AutoDefense 证明了分工协作在安全检测中的优势
 - **知识图谱应用**: KG-DF 将结构化知识引入越狱检测
 - **效用-鲁棒性平衡**: DOOR 等工作开始关注安全与效用的双重优化
-
-### 评测侧
-- **攻防协同进化**: 动态评测替代静态评测
-- **细粒度分类**: 攻击类别效果差异明显，指向安全对齐的结构性弱点
 
 ---
 
@@ -129,7 +89,6 @@
 ### Idea 2: 针对学术包装攻击的防御框架
 - **动机**: Paper Summary Attack 揭示了 LLM 对学术文本的信任倾向
 - **方法**: 设计学术文本检测器，识别包装为学术摘要的越狱提示
-- **验证计划**: 在 Paper Summary Attack 测试集上验证防御效果
 
 ---
 
@@ -137,15 +96,16 @@
 
 本项目由自动化任务驱动，每天 00:00 自动执行：
 
-1. 搜索 ArXiv (cs.CR, cs.CL, cs.LG) 最新论文
-2. 筛选高质量论文（4-6 篇）
-3. 生成深度分析报告
-4. 更新 GitHub 仓库
+1. 搜索 ArXiv (cs.CR, cs.CL, cs.LG, cs.CV) 最新论文
+2. 按模态分类（i2i, i2v, t2t, t2i, i2t, t2v）
+3. 按子类别分类（benchmark, attack, defense）
+4. **去重检查**：确保不重复已收录的论文
 
 ### 数据来源
 - [ArXiv cs.CR](https://arxiv.org/list/cs.CR/recent) - 计算机安全
 - [ArXiv cs.CL](https://arxiv.org/list/cs.CL/recent) - 计算语言学
 - [ArXiv cs.LG](https://arxiv.org/list/cs.LG/recent) - 机器学习
+- [ArXiv cs.CV](https://arxiv.org/list/cs.CV/recent) - 计算机视觉
 
 ---
 
@@ -154,18 +114,21 @@
 ```
 ai-security-daily/
 ├── README.md
+├── LICENSE
 ├── assets/
-│   └── logo.png
+├── categories/
+│   ├── i2i/           # 图生图
+│   │   ├── benchmark/
+│   │   ├── attack/
+│   │   └── defense/
+│   ├── i2v/           # 图生视频
+│   ├── t2t/           # 文生文
+│   ├── t2i/           # 文生图
+│   ├── i2t/           # 图生文
+│   └── t2v/           # 文生视频
 ├── daily-reports/
 │   └── 2026-03/
-│       ├── 2026-03-23_AI安全每日深度情报.md
-│       └── 2026-03-20_AI安全每日深度情报.md
-├── categories/
-│   ├── attacks/
-│   ├── defenses/
-│   └── evaluation/
 └── scripts/
-    └── update.sh
 ```
 
 ---
@@ -174,11 +137,11 @@ ai-security-daily/
 
 | 指标 | 数量 |
 |------|------|
-| 总报告数 | 2 篇 |
-| 总论文数 | 13 篇 |
-| 攻击类 | 8 篇 |
-| 防御类 | 3 篇 |
-| 评测类 | 2 篇 |
+| 总报告数 | 1 篇 |
+| 总论文数 | 9 篇 |
+| 文生文-攻击 | 5 篇 |
+| 文生文-防御 | 3 篇 |
+| 文生文-评测 | 1 篇 |
 
 ---
 
@@ -194,7 +157,7 @@ ai-security-daily/
 
 ## 📝 License
 
-本项目仅供研究学习使用。
+MIT License
 
 ---
 
