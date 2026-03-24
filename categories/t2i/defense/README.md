@@ -20,34 +20,23 @@
 
 | 论文 | 年份 | 会议 | 核心创新 | 详情 |
 |------|------|------|----------|------|
-| **ESD** | 2023 | ICCV | 从扩散模型中擦除概念 | - |
-| **Concept Ablation** | 2023 | ICCV | T2I扩散模型的概念消融 | - |
-| **Unified Concept Editing** | 2024 | WACV | 统一的扩散模型概念编辑 | - |
-| **R.A.C.E.** | 2024 | ECCV | 鲁棒对抗概念擦除 | - |
-| **Receler** | 2024 | ECCV | 轻量级可靠概念擦除 | - |
-| **SafeGen** | 2024 | ACM CCS | 缓解不安全性内容生成 | - |
-| **Forget-Me-Not** | 2024 | CVPRW | 遗忘学习框架 | - |
-| **Forget-FL** | 2024 | NeurIPS | 利用灾难性遗忘开发安全扩散模型 | - |
-| **AntiRed** | 2024 | NeurIPS | 对抗重学习攻击的遗忘 | - |
+| **ESD** | 2023 | ICCV | 从扩散模型中擦除概念（永久擦除，非推理时修改） | [📄](./papers/2303.07345_esd.md) |
+| **Concept Ablation** | 2023 | ICCV | CLIP空间对齐的概念消融方法 | [📄](./papers/2303.13516_concept_ablation.md) |
+| **UCE** | 2024 | WACV | 统一概念编辑，支持并发去偏/风格擦除/内容审核 | [📄](./papers/2308.14761_uce.md) |
+| **R.A.C.E.** | 2024 | ECCV | 鲁棒对抗概念擦除，降低ASR 30个百分点 | [📄](./papers/2405.16341_race.md) |
+| **Receler** | 2024 | ECCV | 轻量级可靠概念擦除，3秒完成 | [📄](./papers/2407.12383_receler.md) |
+| **SafeGen** | 2024 | ACM CCS | 文本无关的NSFW内容缓解，99.4%移除率 | [📄](./papers/2404.06666_safegen.md) |
+| **Forget-Me-Not** | 2024 | CVPRW | 遗忘学习框架，M-Score评估 | [📄](./papers/2303.17591_forget_me_not.md) |
+| **Safe Latent Diffusion** | 2023 | CVPR | 潜在空间安全干预，无需训练 | [📄](./papers/2211.05105_sld.md) |
 
 ### 🛡️ 安全过滤 (Safety Filtering)
 
 | 论文 | 年份 | 会议 | 核心创新 | 详情 |
 |------|------|------|----------|------|
-| **Latent Guard** | 2024 | ECCV | T2I安全的潜在空间防护框架 | - |
-| **GuardT2I** | 2024 | NeurIPS | 对抗提示防御 | - |
-| **Safe Latent Diffusion** | 2023 | CVPR | 缓解不当内容生成 | - |
-| **SEGA** | 2023 | NeurIPS | 语义引导的T2I生成 | - |
-| **SafetyDPO** | 2024 | arXiv | T2I生成的安全对齐 | - |
-| **PromptOptimizer** | 2024 | NAACL | 安全T2I的统一提示优化 | - |
-| **SAFREE** | 2025 | ICLR | 无训练自适应安全守卫 | - |
-
-### 💧 水印保护 (Watermarking)
-
-| 论文 | 年份 | 会议 | 核心创新 | 详情 |
-|------|------|------|----------|------|
-| **Watermarking Diffusion** | 2023 | arXiv | 扩散模型水印保护 | [📄](../i2i/papers/2305.12502_watermarking_diffusion.md) |
-| **Stable Signature** | 2023 | ICCV | 图像水印与模型签名 | - |
+| **Latent Guard** | 2024 | ECCV | T2I安全的潜在空间防护框架，LLM辅助数据生成 | [📄](./papers/2404.08031_latent_guard.md) |
+| **GuardT2I** | 2024 | NeurIPS | 对抗提示防御，优于OpenAI-Moderation | [📄](./papers/2403.01446_guardt2i.md) |
+| **SEGA** | 2023 | NeurIPS | 语义引导的T2I生成控制 | [📄](./papers/2301.12247_sega.md) |
+| **Stable Signature** | 2023 | ICCV | 图像水印与模型签名（Facebook） | [📄](./papers/2303.15435_stable_signature.md) |
 
 ### 📊 后门检测 (Backdoor Detection)
 

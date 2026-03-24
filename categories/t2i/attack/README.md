@@ -20,18 +20,13 @@
 | 论文 | 年份 | 会议 | 核心创新 | 详情 |
 |------|------|------|----------|------|
 | **SneakyPrompt** | 2024 | IEEE S&P | 首个自动化越狱T2I模型，绕过DALL·E 2和Stable Diffusion安全过滤器 | [📄](./papers/2305.12082_sneakyprompt.md) |
-| **ART** | 2024 | NeurIPS | 自动红队测试保护良性用户 | - |
-| **Coljailbreak** | 2024 | NeurIPS | 协同生成与编辑的越狱攻击 | - |
-| **UPAM** | 2024 | ICML | 统一提示攻击同时绕过文本和视觉检查器 | - |
-| **FLIRT** | 2024 | EMNLP | 反馈循环上下文红队测试 | - |
-| **MMA-Diffusion** | 2024 | CVPR | 多模态攻击扩散模型 | - |
-| **Prompting4debugging** | 2024 | ICML | 通过发现问题提示进行红队测试 | - |
-| **Unsafe Diffusion** | 2023 | ACM CCS | 不安全图像和仇恨模因生成 | - |
-| **RIATIG** | 2023 | CVPR | 自然提示的可靠隐蔽对抗T2I生成 | - |
-| **Asymmetric Bias** | 2023 | arXiv | 对抗攻击在T2I中的非对称偏见 | - |
+| **ART** | 2024 | NeurIPS | 自动红队测试保护良性用户，VLM+LLM协同 | [📄](./papers/2405.19360_art.md) |
+| **UPAM** | 2024 | ICML | 统一提示攻击同时绕过文本和视觉检查器，SPL支持黑盒 | [📄](./papers/2405.11336_upam.md) |
+| **FLIRT** | 2024 | EMNLP | 反馈循环上下文红队测试，上下文学习生成对抗提示 | [📄](./papers/2308.04265_flirt.md) |
+| **MMA-Diffusion** | 2024 | CVPR | 多模态攻击扩散模型，文本+图像协同绕过 | [📄](./papers/2311.17516_mma_diffusion.md) |
+| **Perception-guided Jailbreak** | 2024 | AAAI | 感知引导的越狱攻击，LLM识别语义相似安全词 | [📄](./papers/2408.10848_perception_jailbreak.md) |
 | **Divide-and-Conquer** | 2024 | arXiv | 利用LLM能力绕过安全过滤 | - |
 | **SurrogatePrompt** | 2024 | ACM CCS | 通过替代绕过安全过滤 | - |
-| **Perception-guided Jailbreak** | 2024 | AAAI | 感知引导的越狱攻击 | - |
 
 ### 🐛 后门攻击
 
