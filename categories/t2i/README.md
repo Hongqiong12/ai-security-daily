@@ -55,6 +55,7 @@
 | **DiffZOO** | [2408.11071](https://arxiv.org/abs/2408.11071) | NAACL | 零阶优化黑盒攻击 | [详情](./papers/2408.11071_diffzoo.md) |
 | **SneakyPrompt** | [2305.12082](https://arxiv.org/abs/2305.12082) | IEEE S&P | 强化学习越狱攻击 | [详情](./papers/2305.12082_sneakyprompt.md) |
 | **Perception Jailbreak** | [2408.10848](https://arxiv.org/abs/2408.10848) | arXiv | 感知层越狱攻击 | [详情](./papers/2408.10848_perception_jailbreak.md) |
+| **When Understanding Becomes a Risk** | [2603.24079](https://arxiv.org/abs/2603.24079) | CVPR 2026 | MLLM 图像生成安全风险评估 | [详情](./papers/2603.24079_mllm_safety_risk.md) |
 
 ### 🟢 防御类
 
@@ -65,6 +66,7 @@
 | **Concept Pinpoint Eraser** | [2506.22806](https://arxiv.org/abs/2506.22806) | ICLR | 精准概念移除 | [详情](./papers/2506.22806_concept_pinpoint_eraser.md) |
 | **SafeGuider** | [2510.05173](https://arxiv.org/abs/2510.05173) | ACM CCS | 内容安全控制 | [详情](./papers/2510.05173_safeguider.md) |
 | **SAFREE** | [2410.12761](https://arxiv.org/abs/2410.12761) | arXiv | 无训练安全守卫 | [详情](./papers/2410.12761_safree.md) |
+| **Z-Erase** | [2603.25074](https://arxiv.org/abs/2603.25074) | arXiv | 单流扩散 Transformer 概念擦除 | [详情](./papers/2603.25074_z_erase.md) |
 
 ## 📊 数据统计
 
