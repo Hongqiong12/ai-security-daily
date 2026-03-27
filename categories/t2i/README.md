@@ -31,24 +31,40 @@
 | **水印保护** | 保护生成内容版权 | Watermarking Diffusion |
 | **后门检测** | 识别模型中的后门 | DAA |
 
-## 📋 最新论文 (2025)
+## 📋 最新论文 (2026-03)
+
+### 🔴 2026-03-25 新增
+
+| 论文 | ArXiv ID | 会议 | 核心贡献 | 详情 |
+|------|----------|------|----------|------|
+| **MacPrompt** | [2601.07141](https://arxiv.org/abs/2601.07141) | AAAI 2026 | 跨语言字符越狱，SD Safety Checker 绕过率 100% | [详情](./papers/2601.07141_macprompt.md) |
+
+---
+
+## 📋 已收录论文 (2025)
 
 ### 🔴 攻击类
 
-- **Reason2Attack** (AAAI 2026) - LLM推理驱动的越狱攻击
-- **JailLLM** (EACL 2026) - 微调LLM生成越狱提示
-- **GenBreak** (arXiv 2025) - LLM红队测试框架
-- **Modifier Unlocked** (IEEE S&P 2025) - 修饰符机制漏洞
-- **JailFuzzer** (IEEE S&P 2025) - 自动化越狱测试
-- **DiffZOO** (NAACL 2025) - 零阶优化黑盒攻击
+| 论文 | ArXiv ID | 会议 | 核心贡献 | 详情 |
+|------|----------|------|----------|------|
+| **Reason2Attack** | [2503.17987](https://arxiv.org/abs/2503.17987) | AAAI 2026 | LLM推理驱动的越狱攻击 | [详情](./papers/2503.17987_reason2attack.md) |
+| **JailLLM** | [2503.01839](https://arxiv.org/abs/2503.01839) | EACL 2026 | 微调LLM生成越狱提示 | [详情](./papers/2503.01839_jailbreaking_via_llm.md) |
+| **GenBreak** | [2506.10047](https://arxiv.org/abs/2506.10047) | arXiv | LLM红队测试框架 | [详情](./papers/2506.10047_genbreak.md) |
+| **Modifier Unlocked** | [1102.3413](https://arxiv.org/abs/1102.3413) | IEEE S&P | 修饰符机制漏洞 | [详情](./papers/11023413_modifier_unlocked.md) |
+| **JailFuzzer** | [2408.00523](https://arxiv.org/abs/2408.00523) | IEEE S&P | 自动化越狱测试 | [详情](./papers/2408.00523_jailfuzzer.md) |
+| **DiffZOO** | [2408.11071](https://arxiv.org/abs/2408.11071) | NAACL | 零阶优化黑盒攻击 | [详情](./papers/2408.11071_diffzoo.md) |
+| **SneakyPrompt** | [2305.12082](https://arxiv.org/abs/2305.12082) | IEEE S&P | 强化学习越狱攻击 | [详情](./papers/2305.12082_sneakyprompt.md) |
+| **Perception Jailbreak** | [2408.10848](https://arxiv.org/abs/2408.10848) | arXiv | 感知层越狱攻击 | [详情](./papers/2408.10848_perception_jailbreak.md) |
 
 ### 🟢 防御类
 
-- **SPEED** (arXiv 2025) - 高效概念擦除
-- **TRCE** (ICCV 2025) - 可靠恶意概念擦除
-- **Concept Pinpoint Eraser** (ICLR 2025) - 精准概念移除
-- **SafeGuider** (ACM CCS 2025) - 内容安全控制
-- **SAFREE** (ICLR 2025) - 无训练安全守卫
+| 论文 | ArXiv ID | 会议 | 核心贡献 | 详情 |
+|------|----------|------|----------|------|
+| **SPEED** | [2503.07392](https://arxiv.org/abs/2503.07392) | arXiv | 高效概念擦除 | [详情](./papers/2503.07392_speed.md) |
+| **TRCE** | [2503.07389](https://arxiv.org/abs/2503.07389) | ICCV | 可靠恶意概念擦除 | [详情](./papers/2503.07389_trce.md) |
+| **Concept Pinpoint Eraser** | [2506.22806](https://arxiv.org/abs/2506.22806) | ICLR | 精准概念移除 | [详情](./papers/2506.22806_concept_pinpoint_eraser.md) |
+| **SafeGuider** | [2510.05173](https://arxiv.org/abs/2510.05173) | ACM CCS | 内容安全控制 | [详情](./papers/2510.05173_safeguider.md) |
+| **SAFREE** | [2410.12761](https://arxiv.org/abs/2410.12761) | arXiv | 无训练安全守卫 | [详情](./papers/2410.12761_safree.md) |
 
 ## 📊 数据统计
 
@@ -67,4 +83,4 @@ t2i 类目论文统计 (截至 2026-03)
 
 ---
 
-[← 返回主目录](../README.md)
+[← 返回主目录](../../README.md)

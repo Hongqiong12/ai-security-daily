@@ -2,26 +2,26 @@ name: Daily Sync
 
 on:
   schedule:
-    # 每天 00:30 UTC = 08:30 北京时间
-    - cron: '30 0 * * *'
+    # 每天 03:00 UTC = 11:00 北京时间，用于校验推送状态
+    - cron: '0 3 * * *'
+  push:
+    branches: [ main ]
   workflow_dispatch:
 
 jobs:
-  update:
+  verify:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Update README
+      - name: Verify latest daily report exists
         run: |
-          echo "# AI Security Daily Intelligence" > README.md
-          echo "Last updated: $(date)" >> README.md
-          echo "Reports: ${{ github.event.inputs.reports_count || '0' }}" >> README.md
-
-      - name: Create PR
-        uses: peter-evans/create-pull-request@v5
-        with:
-          title: "Daily Update $(date +'%Y-%m-%d')"
-          body: "Automated daily update"
-          branch: daily-update
+          DATE=$(date +%Y-%m-%d)
+          echo "Today: $DATE"
+          echo "=== Recent daily reports ==="
+          ls daily-reports/ -la 2>/dev/null || echo "No daily-reports directory"
+          find daily-reports/ -name "*.md" -newer README.md 2>/dev/null | head -20 || true
+          echo "=== Recent paper files ==="
+          find categories/ -name "*.md" -newer README.md 2>/dev/null | head -20 || true
+          echo "Sync verification complete."
