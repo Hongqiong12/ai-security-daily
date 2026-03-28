@@ -10,6 +10,16 @@
 
 ## 📋 论文列表
 
+### 2026-03-28（补充）
+
+| 论文 | ArXiv | 类别 | 核心创新 | 详情 |
+|------|-------|------|----------|------|
+| Cognitive Firewall | [2603.23791](https://arxiv.org/abs/2603.23791) | 防御 | 边缘-云分割计算三层防御，浏览器代理 ASR < 1%，延迟优势~17000× | [详情](./papers/2603.23791_cognitive_firewall.md) |
+| LLMSE SEO Attack | [2603.25500](https://arxiv.org/abs/2603.25500) | 基准 | SEO-Bench 首次评估 LLMSE 安全性，LLMSEO 攻击将操纵率提升~2× | [详情](./papers/2603.25500_llmse_seo_attack.md) |
+| Near-Verbatim Extraction | [2603.24917](https://arxiv.org/abs/2603.24917) | 基准 | 解码约束束搜索以~20采样当量估计近逐字提取风险确定性下界 | [详情](./papers/2603.24917_near_verbatim_extraction.md) |
+
+---
+
 ### 2026-03-25
 
 | 论文 | ArXiv | 类别 | 核心创新 | 详情 |
