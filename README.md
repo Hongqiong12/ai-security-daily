@@ -8,11 +8,11 @@
   <a href="https://img.shields.io/badge/Reports-Today-blue.svg">
     <img src="https://img.shields.io/badge/Reports-Today-blue.svg" alt="Reports Today"/>
   </a>
-  <a href="https://img.shields.io/badge/Papers-100+-green.svg">
-    <img src="https://img.shields.io/badge/Papers-100+-green.svg" alt="Total Papers"/>
+  <a href="https://img.shields.io/badge/Papers-110+-green.svg">
+    <img src="https://img.shields.io/badge/Papers-110+-green.svg" alt="Total Papers"/>
   </a>
-  <a href="https://img.shields.io/badge/Last-Update-2026--03--23-orange.svg">
-    <img src="https://img.shields.io/badge/Last-Update-2026--03--23-orange.svg" alt="Last Update"/>
+  <a href="https://img.shields.io/badge/Last-Update-2026--03--28-orange.svg">
+    <img src="https://img.shields.io/badge/Last-Update-2026--03--28-orange.svg" alt="Last Update"/>
   </a>
 </p>
 
@@ -28,8 +28,8 @@
 
 | 模态 | 英文名称 | 中文名称 | 研究重点 | 论文数 |
 |------|----------|----------|----------|--------|
-| **T2T** | Text-to-Text | 文生文 | LLM 越狱、安全对齐、提示注入、防御机制 | 15+ 篇 |
-| **T2I** | Text-to-Image | 文生图 | T2I 越狱、概念擦除、内容安全过滤、水印保护 | 55+ 篇 |
+| **T2T** | Text-to-Text | 文生文 | LLM 越狱、安全对齐、提示注入、防御机制 | 22+ 篇 |
+| **T2I** | Text-to-Image | 文生图 | T2I 越狱、概念擦除、内容安全过滤、水印保护 | 56+ 篇 |
 
 ---
 
@@ -270,6 +270,9 @@
 
 | 日期 | 报告 | 论文数 | 链接 |
 |------|------|--------|------|
+| 2026-03-28 | AI安全每日深度情报 | 8 篇 | [📄](./daily-reports/2026-03/2026-03-28_AI安全每日深度情报.md) |
+| 2026-03-28 | T2T 专项情报 | 7 篇 | [📄](./daily-reports/t2t/2026-03/2026-03-28_t2t_每日情报.md) |
+| 2026-03-28 | T2I/VLM 专项情报 | 1 篇 | [📄](./daily-reports/t2i/2026-03/2026-03-28_t2i_每日情报.md) |
 | 2026-03-24 | AI安全每日深度情报 | - | [📄](./daily-reports/2026-03/2026-03-24_AI安全每日深度情报.md) |
 | 2026-03-23 | AI安全每日深度情报 | 9 篇 | [📄](./daily-reports/2026-03/2026-03-23_AI安全每日深度情报_v2.md) |
 | 2026-03-20 | AI安全每日深度情报 | - | [📄](./daily-reports/2026-03/2026-03-20_AI安全每日深度情报.md) |
@@ -278,12 +281,13 @@
 
 ## 🤖 Automation
 
-本项目由自动化任务驱动，每天 00:00 自动执行：
+本项目由自动化任务驱动，每天 **08:00** 自动执行：
 
 1. 搜索 ArXiv (cs.CR, cs.CL, cs.LG, cs.CV) 最新论文
-2. 按模态分类（i2i, i2v, t2t, t2i, i2t, t2v）
-3. 按子类别分类（benchmark, attack, defense）
+2. 深度阅读并生成六模块论文解读文档
+3. 按分类（benchmark / attack / defense）整理
 4. **去重检查**：确保不重复已收录的论文
+5. 生成综合日报和 T2T / T2I 专项报告并推送至 GitHub
 
 ### 数据来源
 
