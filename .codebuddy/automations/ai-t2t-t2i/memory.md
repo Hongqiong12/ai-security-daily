@@ -2,6 +2,22 @@
 
 ## 执行历史
 
+### 2026-03-28（晚间补充，19:13）
+- **日期**: 2026-03-28（第二次执行）
+- **执行时间**: 19:13
+- **论文数量**: 3篇（全部 T2T 方向）
+- **Commit Hash**: b8bf19e
+- **状态**: 成功
+
+**新增论文**:
+1. 2603.23791 - The Cognitive Firewall: Browser AI Agent IPI Defense (Defense)
+2. 2603.25500 - LLMSE Black-Hat SEO Resilience Evaluation, SEO-Bench (Benchmark)
+3. 2603.24917 - Near-Verbatim Extraction Risk Estimation via Beam Search (Benchmark)
+
+**备注**: 今日共两次执行，累计收录11篇（早晨8次+晚间3次）。晚间补充发现了浏览器代理防御、LLM搜索引擎安全评估、训练数据隐私风险量化三个新方向。
+
+---
+
 ### 2026-03-28
 - **日期**: 2026-03-28
 - **论文数量**: 8篇（T2T: 7篇, T2I/VLM: 1篇）

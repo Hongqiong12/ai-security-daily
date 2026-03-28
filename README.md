@@ -14,11 +14,26 @@
   <a href="https://img.shields.io/badge/Last-Update-2026--03--28-orange.svg">
     <img src="https://img.shields.io/badge/Last-Update-2026--03--28-orange.svg" alt="Last Update"/>
   </a>
+  <a href="https://img.shields.io/badge/Insights-Survey-purple.svg">
+    <img src="https://img.shields.io/badge/Insights-Survey-purple.svg" alt="Insights & Survey"/>
+  </a>
 </p>
 
 > 每日 AI 安全论文深度情报调研，自动追踪 ArXiv 最新论文
 >
 > **专项关注**: Text-to-Text (T2T) 大语言模型安全 + Text-to-Image (T2I) 文生图安全
+
+---
+
+## 🔭 研究洞察与前沿 Survey
+
+> 基于本项目 75+ 篇论文的系统性综合分析，提供 AI 安全领域的深度洞察、研究趋势判断与未来方向前瞻。
+
+| 文档 | 内容 | 更新日期 |
+|------|------|----------|
+| [AI 大模型安全前沿洞察](./insights/AI_Security_Landscape_2026.md) | 宏观格局 · 五大 2026 热点信号 · 跨领域趋势分析 · 未来 8 大研究方向 | 2026-03-28 |
+| [T2T LLM 安全 Survey](./insights/t2t-survey.md) | 越狱四代演进 · Agent 攻击 · MCP 提示注入 · 机制可解释性防御 · 31 篇论文索引 | 2026-03-28 |
+| [T2I 文生图安全 Survey](./insights/t2i-survey.md) | 概念擦除七年演进 · 单流 DiT 安全挑战 · 水印溯源技术 · 44 篇论文索引 | 2026-03-28 |
 
 ---
 
@@ -28,13 +43,14 @@
 
 | 模态 | 英文名称 | 中文名称 | 研究重点 | 论文数 |
 |------|----------|----------|----------|--------|
-| **T2T** | Text-to-Text | 文生文 | LLM 越狱、安全对齐、提示注入、防御机制 | 22+ 篇 |
-| **T2I** | Text-to-Image | 文生图 | T2I 越狱、概念擦除、内容安全过滤、水印保护 | 56+ 篇 |
+| **T2T** | Text-to-Text | 文生文 | LLM 越狱、安全对齐、提示注入、防御机制 | 31+ 篇 |
+| **T2I** | Text-to-Image | 文生图 | T2I 越狱、概念擦除、内容安全过滤、水印保护 | 44+ 篇 |
 
 ---
 
 ## Table of Contents
 
+- [🔭 研究洞察与前沿 Survey](#-研究洞察与前沿-survey)
 - [📖 Overview](#-overview)
 - [🖼️ Image-to-Image (i2i)](#-image-to-image-i2i)
 - [🎬 Image-to-Video (i2v)](#-image-to-video-i2v)
