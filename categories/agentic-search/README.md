@@ -1,0 +1,29 @@
+# 🤖 Agentic Search Model 安全与能力研究
+
+Agentic Search Model 是指具备自主规划（Plan）、动态检索（Search）和生成回复（Generate）能力的大模型系统。
+与传统 RAG 不同，Agentic Search Model 在回复前会主动分解问题、调用工具、迭代搜索，直至收集到足够信息再合成最终答案。
+
+典型代表：Perplexity AI、GPT Search（SearchGPT）、Gemini Deep Research、Grok Search、Kimi Search、天工 AI、
+以及基于 ReAct / Self-RAG / WebGPT / Search-o1 / DeepSearch 等框架构建的系统。
+
+| 子类别 | 说明 |
+|--------|------|
+| [benchmark](./benchmark/) | 评测集与评估框架：端到端检索-生成评测、幻觉率、引用准确率 |
+| [attack](./attack/) | 攻击类：检索污染、对抗性 SEO 注入、工具调用劫持、规划层攻击 |
+| [defense](./defense/) | 防御类：可信检索验证、引用归因、规划过程安全审计 |
+
+---
+
+## 📋 论文列表
+
+<!-- 每次新增论文后在此追加，按日期倒序 -->
+
+### 研究方向速览
+
+| 维度 | 核心问题 |
+|------|----------|
+| **Planning 安全** | Agentic 规划链是否被恶意查询或注入劫持？ |
+| **Search 安全** | 检索结果中的对抗性内容能否影响最终答案？ |
+| **Generation 安全** | 基于检索内容生成的答案是否产生幻觉或引用伪造？ |
+| **工具调用安全** | 调用搜索 API / 代码解释器时是否存在提示注入风险？ |
+| **隐私泄露** | 多轮检索-生成过程中是否泄露用户意图或个人信息？ |

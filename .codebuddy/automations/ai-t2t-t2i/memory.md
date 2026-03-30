@@ -2,7 +2,35 @@
 
 ## 执行历史
 
-### 2026-03-28（晚间补充，19:13）
+### 2026-03-30
+- **日期**: 2026-03-30
+- **执行时间**: 08:00（自动化任务）
+- **论文数量**: 6 篇（T2T: 4 篇, T2I: 2 篇）
+- **Commit Hash**: 05e4d88
+- **状态**: 成功
+
+**新增论文**:
+1. 2603.26221 - Clawed and Dangerous: Open Agentic Systems Security (Benchmark/Survey)
+2. 2603.25056 - The System Prompt Is the Attack Surface (Attack)
+3. 2603.25861 - Why Safety Probes Catch Liars But Miss Fanatics (Defense)
+4. 2603.26045 - H-Node Attack and Defense in LLMs (Attack+Defense)
+5. 2603.26328 - Verify T2I Models via BPO (Benchmark, CVPR 2026)
+6. 2603.26316 - SALMUBench: Multimodal Unlearning Benchmark (Benchmark, CVPR 2026)
+
+**Survey 更新**:
+- t2t-survey.md: 31→35 篇，新增 3.3 代理安全治理章节和 4.6 探测边界章节
+- t2i-survey.md: 44→46 篇，新增 7.2 T2I 模型生命周期安全章节
+- AI_Security_Landscape_2026.md: 75+→81+ 篇，新增热点六（代理安全治理化）和热点七（T2I 生命周期安全）
+
+**关键发现**:
+- "狂热者效应"：RLHF 对齐可能无意间训练出对探测完全不可见的一致性错位模型
+- 代理安全研究从"攻防"走向"治理"，系统提示设计是核心安全变量
+- CVPR 2026 双收录论文标志 T2I 安全进入生命周期管理阶段
+- H-Node 幻觉节点机制分析是 LLM 可靠性安全的重要突破
+
+---
+
+
 - **日期**: 2026-03-28（第二次执行）
 - **执行时间**: 19:13
 - **论文数量**: 3篇（全部 T2T 方向）

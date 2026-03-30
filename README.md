@@ -21,7 +21,7 @@
 
 > 每日 AI 安全论文深度情报调研，自动追踪 ArXiv 最新论文
 >
-> **专项关注**: Text-to-Text (T2T) 大语言模型安全 + Text-to-Image (T2I) 文生图安全
+> **专项关注**: Text-to-Text (T2T) 大语言模型安全 + Text-to-Image (T2I) 文生图安全 + **Agentic Search Model** 安全与能力
 
 ---
 
@@ -34,8 +34,9 @@
 | 综合日报 | 6 篇 | [📄 阅读](./daily-reports/2026-03/2026-03-30_AI安全每日深度情报.md) |
 | T2T 专项 | 4 篇 | [📄 阅读](./daily-reports/t2t/2026-03/2026-03-30_t2t_每日情报.md) |
 | T2I 专项 | 2 篇 | [📄 阅读](./daily-reports/t2i/2026-03/2026-03-30_t2i_每日情报.md) |
+| Agentic Search 专项 | — | [📂 目录](./daily-reports/agentic-search/) |
 
-> 📂 历史报告目录: [`daily-reports/`](./daily-reports/) · [`daily-reports/t2t/`](./daily-reports/t2t/) · [`daily-reports/t2i/`](./daily-reports/t2i/)
+> 📂 历史报告目录: [`daily-reports/`](./daily-reports/) · [`daily-reports/t2t/`](./daily-reports/t2t/) · [`daily-reports/t2i/`](./daily-reports/t2i/) · [`daily-reports/agentic-search/`](./daily-reports/agentic-search/)
 
 ---
 
@@ -48,17 +49,19 @@
 | [AI 大模型安全前沿洞察](./insights/AI_Security_Landscape_2026.md) | 宏观格局 · 七大 2026 热点信号 · 跨领域趋势分析 · 未来 8 大研究方向 | 2026-03-30 |
 | [T2T LLM 安全 Survey](./insights/t2t-survey.md) | 越狱四代演进 · Agent 攻击 · MCP 提示注入 · 机制可解释性防御 · 代理治理 · 35 篇论文索引 | 2026-03-30 |
 | [T2I 文生图安全 Survey](./insights/t2i-survey.md) | 概念擦除七年演进 · 单流 DiT 安全挑战 · 水印溯源技术 · 模型生命周期安全 · 46 篇论文索引 | 2026-03-30 |
+| [Agentic Search 安全与能力 Survey](./insights/agentic-search-survey.md) | 领域定义 · Plan→Search→Generate 五大安全维度 · 与 T2T/Agent 交叉 · 五大研究空白 · 持续收录中 | 2026-03-30 |
 
 ---
 
-## ⭐ 专项聚焦：T2T & T2I
+## ⭐ 专项聚焦：T2T & T2I & Agentic Search
 
-本项目**每日重点追踪**以下两个核心模态的 AI 安全研究：
+本项目**每日重点追踪**以下三个核心方向的 AI 安全研究：
 
-| 模态 | 英文名称 | 中文名称 | 研究重点 | 论文数 |
-|------|----------|----------|----------|--------|
-| **T2T** | Text-to-Text | 文生文 | LLM 越狱、安全对齐、提示注入、防御机制 | 31+ 篇 |
-| **T2I** | Text-to-Image | 文生图 | T2I 越狱、概念擦除、内容安全过滤、水印保护 | 44+ 篇 |
+| 方向 | 英文名称 | 研究重点 | 论文数 |
+|------|----------|----------|--------|
+| **T2T** | Text-to-Text | LLM 越狱、安全对齐、提示注入、防御机制 | 35+ 篇 |
+| **T2I** | Text-to-Image | T2I 越狱、概念擦除、内容安全过滤、水印保护 | 46+ 篇 |
+| **AS** | Agentic Search | Plan→Search→Generate 安全、检索污染、工具调用劫持、引用归因 | 收录中 |
 
 ---
 
@@ -66,7 +69,7 @@
 
 - [📅 今日报告](#-今日报告)
 - [🔭 研究洞察与前沿 Survey](#-研究洞察与前沿-survey)
-- [⭐ 专项聚焦](#-专项聚焦t2t--t2i)
+- [⭐ 专项聚焦](#-专项聚焦t2t--t2i--agentic-search)
 - [📖 Overview](#-overview)
 - [🖼️ Image-to-Image (i2i)](#-image-to-image-i2i)
 - [🎬 Image-to-Video (i2v)](#-image-to-video-i2v)
@@ -74,6 +77,7 @@
 - [🎨 Text-to-Image (t2i)](#-text-to-image-t2i)
 - [📖 Image-to-Text (i2t)](#-image-to-text-i2t)
 - [🎥 Text-to-Video (t2v)](#-text-to-video-t2v)
+- [🤖 Agentic Search (agentic-search)](#-agentic-search)
 - [🤖 Automation](#-automation)
 
 ---
@@ -304,21 +308,41 @@
 
 ---
 
+## 🤖 Agentic Search
+
+具备自主规划（Plan）、动态检索（Search）与综合生成（Generate）能力的大模型系统的安全与能力研究。
+
+> 代表系统：Perplexity AI · SearchGPT · Gemini Deep Research · Kimi Search  
+> 学术框架：ReAct · Self-RAG · WebGPT · Search-o1 · DeepSearch · IRCoT
+
+| 子类别 | 说明 | 链接 |
+|--------|------|------|
+| 📊 Benchmark | 端到端检索-生成评测、幻觉率、引用准确率 | [查看](./categories/agentic-search/benchmark/) |
+| 🔴 Attack | 检索污染、对抗性 SEO 注入、工具调用劫持、规划层攻击 | [查看](./categories/agentic-search/attack/) |
+| 🟢 Defense | 可信检索验证、引用归因、规划过程安全审计、幻觉检测 | [查看](./categories/agentic-search/defense/) |
+
+> 📄 详细 Survey: [Agentic Search 安全与能力 Survey](./insights/agentic-search-survey.md)  
+> 📂 论文目录: [categories/agentic-search/](./categories/agentic-search/)
+
+[← Back to Top](#table-of-contents)
+
+---
+
 ## 🤖 Automation
 
-> 自动化任务 `ai-t2t-t2i` 每天 **08:00** 自动执行
+> 自动化任务 `ai-t2t-t2i` 每天 **09:30** 自动执行
 
 **执行流程**：
 
-1. **搜索** → ArXiv (cs.CR, cs.CL, cs.LG, cs.CV) 过去 7 天论文
-2. **筛选** → 去重检查，选取 3–8 篇高质量论文
+1. **搜索** → ArXiv (cs.CR, cs.LG, cs.CV, cs.IR) 过去 7 天论文（T2T + T2I + Agentic Search）
+2. **筛选** → 去重检查，选取 4–10 篇高质量论文（三方向各至少 1 篇）
 3. **深度阅读** → 六模块论文解读（背景、方法、实验、局限等）
-4. **分类归档** → 按模态（t2t/t2i）和类型（attack/defense/benchmark）存入 `categories/`
-5. **报告生成** → 综合日报 + T2T/T2I 专项报告 → `daily-reports/`
+4. **分类归档** → 按方向（t2t / t2i / agentic-search）和类型（attack/defense/benchmark）存入 `categories/`
+5. **报告生成** → 综合日报 + T2T / T2I / Agentic Search 专项报告 → `daily-reports/`
 6. **Survey 更新** → 增量追加新论文至 `insights/` 前沿洞察文档
 7. **发布** → Git add → commit → push 至 origin/main
 
-**数据来源**：[cs.CR](https://arxiv.org/list/cs.CR/recent) · [cs.CL](https://arxiv.org/list/cs.CL/recent) · [cs.LG](https://arxiv.org/list/cs.LG/recent) · [cs.CV](https://arxiv.org/list/cs.CV/recent)
+**数据来源**：[cs.CR](https://arxiv.org/list/cs.CR/recent) · [cs.LG](https://arxiv.org/list/cs.LG/recent) · [cs.CV](https://arxiv.org/list/cs.CV/recent) · [cs.IR](https://arxiv.org/list/cs.IR/recent) · [cs.CL](https://arxiv.org/list/cs.CL/recent)
 
 ---
 
@@ -331,37 +355,34 @@ ai-security-daily/
 ├── assets/
 ├── categories/
 │   ├── i2i/           # 图生图
-│   │   ├── benchmark/
-│   │   ├── attack/
-│   │   ├── defense/
-│   │   └── papers/    # 详细论文分析
 │   ├── i2v/           # 图生视频
+│   ├── t2t/           # 文生文（T2T LLM 安全）
 │   │   ├── benchmark/
 │   │   ├── attack/
 │   │   ├── defense/
 │   │   └── papers/
-│   ├── t2t/           # 文生文
-│   │   ├── benchmark/
-│   │   ├── attack/
-│   │   ├── defense/
-│   │   └── papers/
-│   ├── t2i/           # 文生图
+│   ├── t2i/           # 文生图（T2I 扩散模型安全）
 │   │   ├── benchmark/
 │   │   ├── attack/
 │   │   ├── defense/
 │   │   └── papers/
 │   ├── i2t/           # 图生文
-│   │   ├── benchmark/
-│   │   ├── attack/
-│   │   ├── defense/
-│   │   └── papers/
-│   └── t2v/           # 文生视频
+│   ├── t2v/           # 文生视频
+│   └── agentic-search/ # Agentic Search 安全与能力（新增）
 │       ├── benchmark/
 │       ├── attack/
 │       ├── defense/
 │       └── papers/
 ├── daily-reports/
-│   └── 2026-03/
+│   ├── 2026-03/           # 综合日报
+│   ├── t2t/               # T2T 专项
+│   ├── t2i/               # T2I 专项
+│   └── agentic-search/    # Agentic Search 专项（新增）
+├── insights/
+│   ├── AI_Security_Landscape_2026.md
+│   ├── t2t-survey.md
+│   ├── t2i-survey.md
+│   └── agentic-search-survey.md   # 新增
 └── scripts/
 ```
 
