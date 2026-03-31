@@ -42,4 +42,16 @@
 
 ---
 
+### 2026-03-31
+
+| 论文 | ArXiv | 类别 | 核心创新 | 详情 |
+|------|-------|------|----------|------|
+| Steganographic Canaries | [2603.28655](https://arxiv.org/abs/2603.28655) | 防御 | 隐写标记文件框架，混合模式Tier 3对抗下97%恢复率，拦截LLM勒索软件 | [详情](./papers/2603.28655_steganographic_canaries_llm.md) |
+| Kill-Chain Canaries | [2603.28013](https://arxiv.org/abs/2603.28013) | 防御 | 四阶段攻击链追踪，Claude 0% ASR vs GPT-4o-mini 53% ASR | [详情](./papers/2603.28013_kill_chain_canaries.md) |
+| SafetyDrift | [2603.27148](https://arxiv.org/abs/2603.27148) | 防御 | 吸收马尔可夫链预测代理违规，94.7%检测率，提前3.7步预警 | [详情](./papers/2603.27148_safetydrift.md) |
+| MLLM Adversarial Survey | [2603.27918](https://arxiv.org/abs/2603.27918) | 基准 | 37页综合综述，TMLR接收，统一攻击分类法和漏洞中心分析 | [详情](./papers/2603.27918_mllm_adversarial_survey.md) |
+| OpenClaw Taxonomy | [2603.27517](https://arxiv.org/abs/2603.27517) | 基准 | 190个漏洞双轴分类，发现完整RCE链和结构性弱点 | [详情](./papers/2603.27517_openclaw_taxonomy.md) |
+
+---
+
 [← 返回主目录](../../README.md)
