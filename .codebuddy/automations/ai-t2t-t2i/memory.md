@@ -102,3 +102,34 @@
 - MCP协议、边缘部署、动态预处理等新攻击面浮现
 - 复合攻击（PIDP-Attack）和精细化攻击（TIP、CLIQ）技术持续演进
 - 统一威胁分类法框架为系统性安全研究提供新视角
+
+---
+
+### 2026-04-01
+- **日期**: 2026-04-01
+- **执行时间**: 12:01（自动化任务，每月第一天含Survey更新）
+- **论文数量**: 7 篇（T2T: 4 篇, T2I: 2 篇, Agentic Search: 1 篇）
+- **Commit Hash**: 8334727
+- **状态**: 成功
+
+**新增论文**:
+1. 2603.29038 - Trojan-Speak: Bypassing Constitutional Classifiers via Adversarial Finetuning (Attack)
+2. 2603.28817 - GUARD-SLM: Token Activation-Based Defense for Small Language Models (Defense)
+3. 2603.29403 - Security in LLM-as-a-Judge: A Comprehensive SoK (SoK/Benchmark)
+4. 2603.30016 - Architecting Secure AI Agents: System-Level Defenses Against IPI (Defense)
+5. 2603.27522 - Hidden Ads: Behavior Triggered Semantic Backdoors in VLMs (T2I Attack)
+6. 2603.29742 - SHIFT: Stochastic Hidden-Trajectory Deflection for Removing Diffusion Watermark (T2I Attack)
+7. 2603.29665 - Near-Miss: Latent Policy Failure Detection in Agentic Workflows (Agentic Search, Benchmark)
+
+**Survey 更新（每月第一天额外任务）**:
+- t2t-survey.md: 35→39 篇，新增 GUARD-SLM/Secure-AI-Agents 防御章节，LaaJ SoK 基准章节
+- t2i-survey.md: 46→48 篇，新增 Hidden Ads/SHIFT 两篇攻击论文
+- agentic-search-survey.md: 0→2 篇，填充 PROClaim 和 Near-Miss 论文索引
+- AI_Security_Landscape_2026.md: 81+→90+ 篇，更新论文分布图
+
+**关键发现**:
+- 微调API武器化：Trojan-Speak首次系统证明微调API是顶级Constitutional AI的攻击面（零越狱税）
+- 水印安全危机：SHIFT揭示扩散水印共同弱点（轨迹依赖），95-100% ASR，无训练、无水印知识
+- VLM后门语义化：Hidden Ads通过用户自然行为触发广告注入，现有防御失效
+- Agent评估盲点：Near-Miss发现8-17%执行轨迹存在隐性策略失败，当前Benchmark系统性高估可靠性
+
