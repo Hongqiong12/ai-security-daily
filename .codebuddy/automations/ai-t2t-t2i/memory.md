@@ -30,6 +30,28 @@
 
 ---
 
+### 2026-03-31
+- **日期**: 2026-03-31
+- **执行时间**: 09:45（手动触发）
+- **论文数量**: 6 篇（T2T: 5 篇, Agentic Search: 1 篇）
+- **Commit Hash**: e9fa55c
+- **状态**: 成功
+
+**新增论文**:
+1. 2603.28655 - Safeguarding LLMs Against Misuse and AI-Driven Malware Using Steganographic Canaries (Defense)
+2. 2603.28013 - Kill-Chain Canaries: Stage-Level Tracking of Prompt Injection (Defense)
+3. 2603.27148 - SafetyDrift: Predicting When AI Agents Cross the Line (Defense)
+4. 2603.27918 - Adversarial Attacks on MLLMs: A Comprehensive Survey (Benchmark, TMLR)
+5. 2603.27517 - A Systematic Taxonomy of Security Vulnerabilities in OpenClaw (Benchmark)
+6. 2603.28488 - PROClaim: Courtroom-Style Multi-Agent Debate with Progressive RAG (Defense, Agentic Search首篇)
+
+**关键发现**:
+- "预测与追踪"成为防御技术新趋势：SafetyDrift通过吸收马尔可夫链提前3.7步预警，Kill-Chain Canaries精确定位防御失效阶段
+- Claude在write_memory阶段有效剥离注入（0% ASR），而GPT-4o-mini传播金丝雀无损失（53% ASR）
+- OpenClaw结构性弱点：每层独立信任执行使跨层攻击难以防范
+- Agentic Search方向首篇论文收录：PROClaim展示渐进式RAG在多智能体验证中的强大能力
+
+---
 
 - **日期**: 2026-03-28（第二次执行）
 - **执行时间**: 19:13
