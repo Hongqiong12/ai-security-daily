@@ -105,6 +105,29 @@
 
 ---
 
+### 2026-04-02
+- **日期**: 2026-04-02
+- **执行时间**: 09:42（用户手动继续完成，定时任务因 API 500 错误失败）
+- **论文数量**: 6 篇（T2T: 3 篇, T2I/T2V: 1 篇, Agentic Search: 2 篇）
+- **Commit Hash**: ae4a876
+- **状态**: 成功（手动完成）
+
+**新增论文**:
+1. 2604.01194 - AgentWatcher: A Rule-based Prompt Injection Monitor (T2T, Defense)
+2. 2604.01039 - Automated Framework to Harden LLM System Instructions against Encoding Attacks (T2T, Attack+Defense)
+3. 2604.00627 - TrojanMerge: Exploiting Latent Vulnerabilities in LLM Fusion (T2T, Attack)
+4. 2603.21547 - PROBE: Diagnosing Residual Concept Capacity in Erased T2V Diffusion Models (T2I/T2V, Benchmark)
+5. 2604.00865 - Doctor-RAG: Failure-Aware Repair for Agentic RAG (Agentic Search, Capability)
+6. 2604.01195 - ORBIT: Scalable Data Generation for Search Agents (Agentic Search, Capability)
+
+**关键发现**:
+- 模型融合供应链攻击：TrojanMerge揭示即使所有源模型通过安全审查，精心构造的参与者仍可在融合后激活隐藏攻击向量
+- 编码迷彩突破系统指令：JSON/XML序列化请求可绕过拒绝式防御，ASR >70%，大量已部署LLM应用存在系统性信息泄露风险
+- T2V时序残余幽灵：PROBE发现"时间性重现"现象，擦除概念在视频5-10帧后重新出现，帧级评估完全失效
+- Agentic RAG可靠性工程成熟：Doctor-RAG（局部修复）+ ORBIT（低成本数据）为可靠搜索Agent部署奠定基础
+
+---
+
 ### 2026-04-01
 - **日期**: 2026-04-01
 - **执行时间**: 12:01（自动化任务，每月第一天含Survey更新）
