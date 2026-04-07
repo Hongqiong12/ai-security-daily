@@ -47,6 +47,7 @@
 | 文档 | 内容 | 更新日期 |
 |------|------|----------|
 | [AI 大模型安全前沿洞察](./insights/AI_Security_Landscape_2026.md) | 宏观格局 · 七大 2026 热点信号 · 跨领域趋势分析 · 未来 8 大研究方向 | 2026-03-30 |
+| [安全范式转移：Abliteration 与概念擦除](./insights/alignment-paradigm-shift-abliteration.md) | 行为审查的脆弱性 · 定向消融(Abliteration)攻击原理 · MLE风险 · 新范式探索 | 2026-04-07 |
 | [T2T LLM 安全 Survey](./insights/t2t-survey.md) | 越狱四代演进 · Agent 攻击 · MCP 提示注入 · 机制可解释性防御 · 代理治理 · 35 篇论文索引 | 2026-03-30 |
 | [T2I 文生图安全 Survey](./insights/t2i-survey.md) | 概念擦除七年演进 · 单流 DiT 安全挑战 · 水印溯源技术 · 模型生命周期安全 · 46 篇论文索引 | 2026-03-30 |
 | [Agentic Search 安全与能力 Survey](./insights/agentic-search-survey.md) | 领域定义 · Plan→Search→Generate 五大安全维度 · 与 T2T/Agent 交叉 · 五大研究空白 · 持续收录中 | 2026-03-30 |
