@@ -105,6 +105,26 @@
 
 ---
 
+### 2026-04-07
+- **日期**: 2026-04-07
+- **执行时间**: 09:55（用户要求继续完成）
+- **论文数量**: 4 篇（T2T: 3 篇, T2I: 1 篇）
+- **Commit Hash**: 待提交
+- **状态**: 成功
+
+**新增论文**:
+1. 2604.04060 - CoopGuard: Stateful Cooperative Agents Safeguarding LLMs Against Evolving Multi-Round Attacks (T2T, Defense)
+2. 2604.03870 - Your Agent is More Brittle Than You Think: Uncovering Indirect Injection Vulnerabilities in Agentic LLMs (T2T, Attack)
+3. 2604.03598 - AttackEval: A Systematic Empirical Study of Prompt Injection Attack Effectiveness Against Large Language Models (T2T, Benchmark)
+4. 2604.01888 - Low-Effort Jailbreak Attacks Against Text-to-Image Safety Filters (T2I, Attack)
+
+**关键发现**:
+- 攻击与防御向“系统与Agentic化”演进：CoopGuard 引入多智能体协作追踪多轮攻击，Agentic 智能体在面对 IPI 攻击时表现出极度脆弱性，但在执行越权动作前会出现异常“决策熵”，可用于 RepE 提前拦截。
+- “混淆编码+情绪操纵”复合攻击（AttackEval）能够以 97.6% 的高成功率击穿多级意图防御系统。
+- 简单的自然语言伪装（艺术重构、教科书插图）即可对最先进的 T2I 系统造成大规模越狱（74.47% ASR），凸显表面词汇过滤的无效性。
+
+---
+
 ### 2026-04-02
 - **日期**: 2026-04-02
 - **执行时间**: 09:42（用户手动继续完成，定时任务因 API 500 错误失败）
