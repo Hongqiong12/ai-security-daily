@@ -47,7 +47,7 @@
 |------|------|----------|
 | 🏆 **[2026 AI 大模型安全前沿洞察](./insights/AI_Security_Landscape_2026.md)** | 宏观格局分析 · 七大最新热点信号 · 未来八个极具潜力的研究方向 | 2026-03-30 |
 | 🛡️ **[T2T LLM 安全全局图谱](./insights/t2t-survey.md)** | 越狱攻击四代演进史 · MCP 提示注入防御 · 代理机制治理 | 2026-03-30 |
-| 🖼️ **[T2I 文生图安全七年演进](./insights/t2i-survey.md)** | 概念擦除对抗 · 单流 DiT 挑战 · 水印溯源技术 | 2026-03-30 |
+| 🖼️ **[T2I 文生图安全七年演进](./insights/t2i-survey.md)** | 概念擦除对抗 · 单流 DiT 挑战 · **铭文式越狱 (NEW)** | 2026-04-08 |
 | 🤖 **[Agentic Search 攻防全景](./insights/agentic-search-survey.md)** | 搜索引擎投毒 · 工具调用劫持 · Plan->Search->Generate 链路安全 | 持续更新中 |
 | 🔪 **[Abliteration 与概念擦除范式](./insights/alignment-paradigm-shift-abliteration.md)** | 剖析大模型对齐的脆弱性，以及定向消融攻击的底层逻辑 | 2026-04-07 |
 
