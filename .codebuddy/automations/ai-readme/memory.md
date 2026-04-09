@@ -1,6 +1,2 @@
-## 2026-04-09 Execution Summary
-- Fetched 4 papers across T2T, T2I, and Agentic Search.
-- Generated 6-module deep reading for GCD (2604.05179), Exclusive Unlearning (2604.06154), SafeCtrl (2604.03941), TraceSafe (2604.07223).
-- Updated T2T, T2I, Agentic Search surveys with novel paradigms (Exclusive Unlearning, Region-aware DPO, Structural Bottleneck).
-- Updated README.md badges (Papers-126+) and links to today's report.
-- Git push to main branch successful (commit 297ac03).
+# Automation Execution Memory
+- **2026-04-09**: Successfully fetched 6 recent arXiv papers covering T2T, T2I, and Agentic Search. Completed 6-module deep readings for each paper and filed them into respective `categories/` folders. Incrementally updated `insights/t2t-survey.md`, `insights/t2i-survey.md`, and `insights/agentic-search-survey.md` with new findings (e.g., Think-Well-Answer-Wrong, Detect-Then-Suppress, SkillTrojan). Synchronized `README.md` to reflect 132+ papers and updated the Daily Report links. Finally, executed Git commit and successfully pushed changes to remote `origin main`.
