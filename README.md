@@ -13,11 +13,11 @@
   <a href="https://img.shields.io/badge/Reports-Today-blue.svg">
     <img src="https://img.shields.io/badge/Reports-Today-blue.svg" alt="Reports Today"/>
   </a>
-  <a href="https://img.shields.io/badge/Papers-122+-green.svg">
-    <img src="https://img.shields.io/badge/Papers-122+-green.svg" alt="Total Papers"/>
+  <a href="https://img.shields.io/badge/Papers-126+-green.svg">
+    <img src="https://img.shields.io/badge/Papers-126+-green.svg" alt="Total Papers"/>
   </a>
-  <a href="https://img.shields.io/badge/Last-Update-2026--04--08-orange.svg">
-    <img src="https://img.shields.io/badge/Last-Update-2026--04--08-orange.svg" alt="Last Update"/>
+  <a href="https://img.shields.io/badge/Last-Update-2026--04--09-orange.svg">
+    <img src="https://img.shields.io/badge/Last-Update-2026--04--09-orange.svg" alt="Last Update"/>
   </a>
   <a href="https://github.com/ageisliu/ai-security-daily/stargazers">
     <img src="https://img.shields.io/github/stars/ageisliu/ai-security-daily.svg?style=social&label=Star" alt="GitHub stars"/>
@@ -26,14 +26,14 @@
 
 ---
 
-## 🔥 今日最具破坏力论文评测 (2026-04-08)
+## 🔥 今日最具破坏力论文评测 (2026-04-09)
 
 > **为什么要关注本仓库？** 每天 08:00，我们的自动化 Agent 会拦截 ArXiv 最新 AI 安全论文，不仅提取摘要，更执行**端到端深度解读（攻击原理、实验复现、防御建议）**。
 
 | 核心威胁领域 | 🚨 破局级论文推荐 | 一句话快评 | 深度拆解 |
 |---|---|---|---|
-| **Text-to-Text (T2T)** | [InfoFlood：信息过载攻击机制探讨](./categories/t2t/papers/2506.12274_infoflood.md) | 通过海量信息淹没LLM的安全注意力，揭示了长上下文窗口下的新型安全隐患。 | [📄 立即阅读](./daily-reports/t2t/2026-04/2026-04-08_t2t_llm_security.md) |
-| **Text-to-Image (T2I)** | [Reason2Attack：LLM推理驱动的越狱](./categories/t2i/papers/2503.17987_reason2attack.md) | 突破传统模版限制，利用推理模型动态生成针对文生图模型的越狱指令。 | [📄 立即阅读](./daily-reports/t2i/2026-04/2026-04-08_t2i_safety.md) |
+| **Text-to-Text (T2T)** | [Exclusive Unlearning](./categories/t2t/papers/2604.06154_exclusive_unlearning.md) | 提出颠覆性的白名单排他性机器遗忘，从根本上收敛长尾漏洞攻击面。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-09_AI安全每日深度情报.md) |
+| **Text-to-Image (T2I)** | [SafeCtrl: Region-Aware Safety Control](./categories/t2i/papers/2604.03941_safectrl_region_aware.md) | 先检测后抑制，结合区域 DPO 实现局部风险擦除，避免无辜背景损耗。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-09_AI安全每日深度情报.md) |
 
 *(每日自动更新。如果觉得这些解读为你节省了时间，请给一个 ⭐ 支持！)*
 
@@ -46,9 +46,9 @@
 | 研究洞察精华 | 解决的核心问题 | 更新状态 |
 |------|------|----------|
 | 🏆 **[2026 AI 大模型安全前沿洞察](./insights/AI_Security_Landscape_2026.md)** | 宏观格局分析 · 七大最新热点信号 · 未来八个极具潜力的研究方向 | 2026-03-30 |
-| 🛡️ **[T2T LLM 安全全局图谱](./insights/t2t-survey.md)** | 越狱攻击四代演进史 · MCP 提示注入防御 · 代理机制治理 | 2026-03-30 |
-| 🖼️ **[T2I 文生图安全七年演进](./insights/t2i-survey.md)** | 概念擦除对抗 · 单流 DiT 挑战 · **铭文式越狱 (NEW)** | 2026-04-08 |
-| 🤖 **[Agentic Search 攻防全景](./insights/agentic-search-survey.md)** | 搜索引擎投毒 · 工具调用劫持 · Plan->Search->Generate 链路安全 | 持续更新中 |
+| 🛡️ **[T2T LLM 安全全局图谱](./insights/t2t-survey.md)** | 越狱攻击四代演进史 · 白名单排他性遗忘 (NEW) · 代理机制治理 | 2026-04-09 |
+| 🖼️ **[T2I 文生图安全七年演进](./insights/t2i-survey.md)** | 局部 DPO 安全控制 (NEW) · 单流 DiT 挑战 · 铭文式越狱 | 2026-04-09 |
+| 🤖 **[Agentic Search 攻防全景](./insights/agentic-search-survey.md)** | 结构化解析瓶颈 (NEW) · 搜索引擎投毒 · Plan->Search->Generate 链路安全 | 2026-04-09 |
 | 🔪 **[Abliteration 与概念擦除范式](./insights/alignment-paradigm-shift-abliteration.md)** | 剖析大模型对齐的脆弱性，以及定向消融攻击的底层逻辑 | 2026-04-07 |
 
 ---
