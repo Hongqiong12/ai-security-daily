@@ -359,6 +359,13 @@ T2I 水印研究围绕三个核心应用场景：
 
 ---
 
+### 5.5 双重鲁棒水印的崛起 (2026-04-09 新增)
+
+**Towards Robust Content Watermarking Against Removal and Forgery Attacks**（[2604.06662](https://arxiv.org/abs/2604.06662)）：
+现有水印容易被 JPEG 压缩洗掉（Removal），也容易被重放攻击利用（Forgery）。
+- 机制：频域双频段分离注入冗余水印，结合密码学感知哈希绑定生成图像特征。
+- 结论：在抵抗移除与防伪造的综合测试中取得了极高鲁棒性，预示水印安全将向密码学与隐写术的深度融合发展。
+
 ## 6. 基准评测
 
 ### 6.1 T2I 安全专用 Benchmark
@@ -582,6 +589,7 @@ Flux 和 SD3 已经成为 2025–2026 年的主流 T2I 架构，但截至本 Sur
 | Stable Signature | [2303.15435](https://arxiv.org/abs/2303.15435) | 2023/Meta FAIR | VAE 解码器端水印 |
 | Modular LoRA | [2412.00357](https://arxiv.org/abs/2412.00357) | 2024 | 模块化安全适配器 |
 | SAEUron | [2501.18052](https://arxiv.org/abs/2501.18052) | 2025 | SAE 神经元水印 |
+| RobustWatermark | [2604.06662](https://arxiv.org/abs/2604.06662) | 2026 | 双重鲁棒频域水印 |
 | FRAP | [2408.11706](https://arxiv.org/abs/2408.11706) | 2024 | 鲁棒提示自适应水印 |
 
 ### 基准/多模态（8 篇）

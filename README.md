@@ -33,7 +33,7 @@
 | 核心威胁领域 | 🚨 破局级论文推荐 | 一句话快评 | 深度拆解 |
 |---|---|---|---|
 | **Text-to-Text (T2T)** | [Exclusive Unlearning](./categories/t2t/papers/2604.06154_exclusive_unlearning.md) | 提出颠覆性的白名单排他性机器遗忘，从根本上收敛长尾漏洞攻击面。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-09_AI安全每日深度情报.md) |
-| **Text-to-Image (T2I)** | [SafeCtrl: Region-Aware Safety Control](./categories/t2i/papers/2604.03941_safectrl_region_aware.md) | 先检测后抑制，结合区域 DPO 实现局部风险擦除，避免无辜背景损耗。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-09_AI安全每日深度情报.md) |
+| **Text-to-Image (T2I)** | [SafeCtrl: Region-Aware Safety Control](./categories/t2i/papers/2604.03941v1_SafeCtrl.md) | 先检测后抑制，结合区域 DPO 实现局部风险擦除，避免无辜背景损耗。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-09_AI安全每日深度情报.md) |
 
 *(每日自动更新。如果觉得这些解读为你节省了时间，请给一个 ⭐ 支持！)*
 
