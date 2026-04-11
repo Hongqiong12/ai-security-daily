@@ -13,11 +13,11 @@
   <a href="https://img.shields.io/badge/Reports-Today-blue.svg">
     <img src="https://img.shields.io/badge/Reports-Today-blue.svg" alt="Reports Today"/>
   </a>
-  <a href="https://img.shields.io/badge/Papers-134+-green.svg">
-    <img src="https://img.shields.io/badge/Papers-134+-green.svg" alt="Total Papers"/>
+  <a href="https://img.shields.io/badge/Papers-142+-green.svg">
+    <img src="https://img.shields.io/badge/Papers-142+-green.svg" alt="Total Papers"/>
   </a>
-  <a href="https://img.shields.io/badge/Last-Update-2026--04--10-orange.svg">
-    <img src="https://img.shields.io/badge/Last-Update-2026--04--10-orange.svg" alt="Last Update"/>
+  <a href="https://img.shields.io/badge/Last-Update-2026--04--12-orange.svg">
+    <img src="https://img.shields.io/badge/Last-Update-2026--04--12-orange.svg" alt="Last Update"/>
   </a>
   <a href="https://github.com/ageisliu/ai-security-daily/stargazers">
     <img src="https://img.shields.io/github/stars/ageisliu/ai-security-daily.svg?style=social&label=Star" alt="GitHub stars"/>
@@ -26,15 +26,17 @@
 
 ---
 
-## 🔥 今日最具破坏力论文评测 (2026-04-10)
+## 🔥 今日最具破坏力论文评测 (2026-04-12)
 
 > **为什么要关注本仓库？** 每天 08:00，我们的自动化 Agent 会拦截 ArXiv 最新 AI 安全论文，不仅提取摘要，更执行**端到端深度解读（攻击原理、实验复现、防御建议）**。
 
 | 核心威胁领域 | 🚨 破局级论文推荐 | 一句话快评 | 深度拆解 |
 |---|---|---|---|
-| **Text-to-Text (T2T)** | [CRA: 表示消融越狱](./categories/t2t/papers/2604.07835_cra_jailbreak.md) | 零训练动态消融低秩拒绝子空间，从几何层面"手术式切除"模型安全约束，ASR~91%。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-10_AI安全每日深度情报.md) |
-| **Text-to-Text (理论)** | [Defense Trilemma](./categories/t2t/papers/2604.06436_defense_trilemma.md) | Lean 4 形式化证明输入侧防御封装存在理论天花板——连续性、效用、安全三者不可兼得。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-10_AI安全每日深度情报.md) |
-| **Agentic Search** | [TraceSafe](./categories/agentic-search/papers/2604.07223v1_TraceSafe.md) | 首个中间轨迹安全基准：护栏效能取决于JSON解析能力(ρ=0.79)而非语义对齐(ρ≈0)。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-10_AI安全每日深度情报.md) |
+| **T2T (供应链)** | [Your Agent Is Mine](./categories/t2t/papers/2604.08407_your_agent_is_mine.md) | 首次实测 LLM API Router 中间人攻击：9/428 个 Router 有活跃恶意行为，17 个触达 AWS 凭证。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-12_AI安全每日深度情报.md) |
+| **T2T (微调安全)** | [Art of (Mis)alignment](./categories/t2t/papers/2604.07754_art_of_misalignment.md) | ORPO 是最强越狱武器，DPO 是最强救火工具但牺牲实用性——攻防存在显著不对称性。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-12_AI安全每日深度情报.md) |
+| **T2T (解码防御)** | [TrajGuard](./categories/t2t/papers/2604.07727_trajguard.md) | 免训练！隐藏状态轨迹检测实现 95% 防御率 + 5.2ms 延迟，发现解码信号远强于输入/输出。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-12_AI安全每日深度情报.md) |
+| **T2I (生成检测)** | [FlowGuard](./categories/t2i/papers/2604.07879_flowguard.md) | 线性潜在解码 + 课程学习实现扩散模型 NSFW 生成中检测：F1+30%, 显存降 97%。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-12_AI安全每日深度情报.md) |
+| **Agentic (MAS)** | [ACIArena](./categories/agentic-search/papers/2604.07775_aciarena.md) | 首个 ACI 统一评估（1356 案例）：拓扑隔离不足保障 MAS 安全，角色设计才是关键防线。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-12_AI安全每日深度情报.md) |
 
 *(每日自动更新。如果觉得这些解读为你节省了时间，请给一个 ⭐ 支持！)*
 
@@ -47,9 +49,9 @@
 | 研究洞察精华 | 解决的核心问题 | 更新状态 |
 |------|------|----------|
 | 🏆 **[2026 AI 大模型安全前沿洞察](./insights/AI_Security_Landscape_2026.md)** | 宏观格局分析 · 七大最新热点信号 · 未来八个极具潜力的研究方向 | 2026-03-30 |
-| 🛡️ **[T2T LLM 安全全局图谱](./insights/t2t-survey.md)** | 越狱攻击四代演进史 · 内部瓦解范式(NEW) · 双曲几何防御(NEW) · 形式化三难困境(NEW) | 2026-04-10 |
-| 🖼️ **[T2I 文生图安全七年演进](./insights/t2i-survey.md)** | 局部 DPO 安全控制 (NEW) · 单流 DiT 挑战 · 铭文式越狱 | 2026-04-09 |
-| 🤖 **[Agentic Search 攻防全景](./insights/agentic-search-survey.md)** | 结构化解析瓶颈 (NEW) · 技能代码后门(NEW) · 搜索引擎投毒 · Plan->Search->Generate 链路安全 | 2026-04-10 |
+| 🛡️ **[T2T LLM 安全全局图谱](./insights/t2t-survey.md)** | 越狱攻击四代演进史 · 内部瓦解范式 · 双曲几何防御 · 形式化三难困境 · 微调攻防不对称性(NEW) | 2026-04-12 |
+| 🖼️ **[T2I 文生图安全七年演进](./insights/t2i-survey.md)** | 局部 DPO 安全控制 · 单流 DiT 挑战 · 铭文式越狱 · FlowGuard 生成中检测(NEW) | 2026-04-12 |
+| 🤖 **[Agentic Search 攻防全景](./insights/agentic-search-survey.md)** | 结构化解析瓶颈 · 技能代码后门 · 搜索引擎投毒 · ACI 级联注入评估(NEW) · 视觉注意力攻击(NEW) | 2026-04-12 |
 | 🔪 **[Abliteration 与概念擦除范式](./insights/alignment-paradigm-shift-abliteration.md)** | 剖析大模型对齐的脆弱性，以及定向消融攻击的底层逻辑 | 2026-04-07 |
 
 ---
