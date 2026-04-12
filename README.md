@@ -13,8 +13,8 @@
   <a href="https://img.shields.io/badge/Reports-Today-blue.svg">
     <img src="https://img.shields.io/badge/Reports-Today-blue.svg" alt="Reports Today"/>
   </a>
-  <a href="https://img.shields.io/badge/Papers-142+-green.svg">
-    <img src="https://img.shields.io/badge/Papers-142+-green.svg" alt="Total Papers"/>
+  <a href="https://img.shields.io/badge/Papers-146+-green.svg">
+    <img src="https://img.shields.io/badge/Papers-146+-green.svg" alt="Total Papers"/>
   </a>
   <a href="https://img.shields.io/badge/Last-Update-2026--04--12-orange.svg">
     <img src="https://img.shields.io/badge/Last-Update-2026--04--12-orange.svg" alt="Last Update"/>
