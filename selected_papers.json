@@ -1,0 +1,122 @@
+[
+  {
+    "id": "2604.08297v1",
+    "title": "Towards Identification and Intervention of Safety-Critical Parameters in Large Language Models",
+    "summary": "Ensuring Large Language Model (LLM) safety is crucial, yet the lack of a clear understanding about safety mechanisms hinders the development of precise and reliable methodologies for safety intervention across diverse tasks. To better understand and control LLM safety, we propose the Expected Safety Impact (ESI) framework for quantifying how different parameters affect LLM safety. Based on ESI, we reveal distinct safety-critical patterns across different LLM architectures: In dense LLMs, many safety-critical parameters are located in value matrices (V) and MLPs in middle layers, whereas in Mixture-of-Experts (MoE) models, they shift to the late-layer MLPs. Leveraging ESI, we further introduce two targeted intervention paradigms for safety enhancement and preservation, i.e., Safety Enhancement Tuning (SET) and Safety Preserving Adaptation (SPA). SET can align unsafe LLMs by updating only a few safety-critical parameters, effectively enhancing safety while preserving original performance. SPA safeguards well-aligned LLMs during capability-oriented intervention (e.g., instruction tuning) by preventing disruption of safety-critical weights, allowing the LLM to acquire new abilities and maintain safety capabilities. Extensive evaluations on different LLMs demonstrate that SET can reduce the attack success rates of unaligned LLMs by over 50% with only a 100-iteration update on 1% of model weights. SPA can limit the safety degradation of aligned LLMs within 1% after a 1,000-iteration instruction fine-tuning on different tasks. Our code is available at: https://github.com/ZJU-LLM-Safety/SafeWeights-ACL.",
+    "published": "2026-04-09",
+    "url": "http://arxiv.org/abs/2604.08297v1",
+    "authors": [
+      "Weiwei Qi",
+      "Zefeng Wu",
+      "Tianhang Zheng",
+      "Zikang Zhang",
+      "Xiaojun Jia",
+      "Zhan Qin",
+      "Kui Ren"
+    ]
+  },
+  {
+    "id": "2604.08291v1",
+    "title": "VCAO: Verifier-Centered Agentic Orchestration for Strategic OS Vulnerability Discovery",
+    "summary": "We formulate operating-system vulnerability discovery as a \\emph{repeated Bayesian Stackelberg search game} in which a Large Reasoning Model (LRM) orchestrator allocates analysis budget across kernel files, functions, and attack paths while external verifiers -- static analyzers, fuzzers, and sanitizers -- provide evidence. At each round, the orchestrator selects a target component, an analysis method, and a time budget; observes tool outputs; updates Bayesian beliefs over latent vulnerability states; and re-solves the game to minimize the strategic attacker's expected payoff. We introduce \\textsc{VCAO} (\\textbf{V}erifier-\\textbf{C}entered \\textbf{A}gentic \\textbf{O}rchestration), a six-layer architecture comprising surface mapping, intra-kernel attack-graph construction, game-theoretic file/function ranking, parallel executor agents, cascaded verification, and a safety governor. Our DOBSS-derived MILP allocates budget optimally across heterogeneous analysis tools under resource constraints, with formal $\\tilde{O}(\\sqrt{T})$ regret bounds from online Stackelberg learning. Experiments on five Linux kernel subsystems -- replaying 847 historical CVEs and running live discovery on upstream snapshots -- show that \\textsc{VCAO} discovers $2.7\\times$ more validated vulnerabilities per unit budget than coverage-only fuzzing, $1.9\\times$ more than static-analysis-only baselines, and $1.4\\times$ more than non-game-theoretic multi-agent pipelines, while reducing false-positive rates reaching human reviewers by 68\\%. We release our simulation framework, synthetic attack-graph generator, and evaluation harness as open-source artifacts.",
+    "published": "2026-04-09",
+    "url": "http://arxiv.org/abs/2604.08291v1",
+    "authors": [
+      "Suyash Mishra"
+    ]
+  },
+  {
+    "id": "2604.07831v1",
+    "title": "Are GUI Agents Focused Enough? Automated Distraction via Semantic-level UI Element Injection",
+    "summary": "Existing red-teaming studies on GUI agents have important limitations. Adversarial perturbations typically require white-box access, which is unavailable for commercial systems, while prompt injection is increasingly mitigated by stronger safety alignment. To study robustness under a more practical threat model, we propose Semantic-level UI Element Injection, a red-teaming setting that overlays safety-aligned and harmless UI elements onto screenshots to misdirect the agent's visual grounding. Our method uses a modular Editor-Overlapper-Victim pipeline and an iterative search procedure that samples multiple candidate edits, keeps the best cumulative overlay, and adapts future prompt strategies based on previous failures. Across five victim models, our optimized attacks improve attack success rate by up to 4.4x over random injection on the strongest victims. Moreover, elements optimized on one source model transfer effectively to other target models, indicating model-agnostic vulnerabilities. After the first successful attack, the victim still clicks the attacker-controlled element in more than 15% of later independent trials, versus below 1% for random injection, showing that the injected element acts as a persistent attractor rather than simple visual clutter.",
+    "published": "2026-04-09",
+    "url": "http://arxiv.org/abs/2604.07831v1",
+    "authors": [
+      "Wenkui Yang",
+      "Chao Jin",
+      "Haisu Zhu",
+      "Weilin Luo",
+      "Derek Yuen",
+      "Kun Shao",
+      "Huaibo Huang",
+      "Junxian Duan",
+      "Jie Cao",
+      "Ran He"
+    ]
+  },
+  {
+    "id": "2604.08405v1",
+    "title": "SyncBreaker:Stage-Aware Multimodal Adversarial Attacks on Audio-Driven Talking Head Generation",
+    "summary": "Diffusion-based audio-driven talking-head generation enables realistic portrait animation, but also introduces risks of misuse, such as fraud and misinformation. Existing protection methods are largely limited to a single modality, and neither image-only nor audio-only attacks can effectively suppress speech-driven facial dynamics. To address this gap, we propose SyncBreaker, a stage-aware multimodal protection framework that jointly perturbs portrait and audio inputs under modality-specific perceptual constraints. Our key contributions are twofold. First, for the image stream, we introduce nullifying supervision with Multi-Interval Sampling (MIS) across diffusion stages to steer the generation toward the static reference portrait by aggregating guidance from multiple denoising intervals. Second, for the audio stream, we propose Cross-Attention Fooling (CAF), which suppresses interval-specific audio-conditioned cross-attention responses. Both streams are optimized independently and combined at inference time to enable flexible deployment. We evaluate SyncBreaker in a white-box proactive protection setting. Extensive experiments demonstrate that SyncBreaker more effectively degrades lip synchronization and facial dynamics than strong single-modality baselines, while preserving input perceptual quality and remaining robust under purification. Code: https://github.com/kitty384/SyncBreaker.",
+    "published": "2026-04-09",
+    "url": "http://arxiv.org/abs/2604.08405v1",
+    "authors": [
+      "Wenli Zhang",
+      "Xianglong Shi",
+      "Sirui Zhao",
+      "Xinqi Chen",
+      "Guo Cheng",
+      "Yifan Xu",
+      "Tong Xu",
+      "Yong Liao"
+    ]
+  },
+  {
+    "id": "2604.05296v1",
+    "title": "From Measurement to Mitigation: Quantifying and Reducing Identity Leakage in Image Representation Encoders with Linear Subspace Removal",
+    "summary": "Frozen visual embeddings (e.g., CLIP, DINOv2/v3, SSCD) power retrieval and integrity systems, yet their use on face-containing data is constrained by unmeasured identity leakage and a lack of deployable mitigations. We take an attacker-aware view and contribute: (i) a benchmark of visual embeddings that reports open-set verification at low false-accept rates, a calibrated diffusion-based template inversion check, and face-context attribution with equal-area perturbations; and (ii) propose a one-shot linear projector that removes an estimated identity subspace while preserving the complementary space needed for utility, which for brevity we denote as the identity sanitization projection ISP. Across CelebA-20 and VGGFace2, we show that these encoders are robust under open-set linear probes, with CLIP exhibiting relatively higher leakage than DINOv2/v3 and SSCD, robust to template inversion, and are context-dominant. In addition, we show that ISP drives linear access to near-chance while retaining high non-biometric utility, and transfers across datasets with minor degradation. Our results establish the first attacker-calibrated facial privacy audit of non-FR encoders and demonstrate that linear subspace removal achieves strong privacy guarantees while preserving utility for visual search and retrieval.",
+    "published": "2026-04-07",
+    "url": "http://arxiv.org/abs/2604.05296v1",
+    "authors": [
+      "Daniel George",
+      "Charles Yeh",
+      "Daniel Lee",
+      "Yifei Zhang"
+    ]
+  },
+  {
+    "id": "2604.04630v1",
+    "title": "Multimodal Backdoor Attack on VLMs for Autonomous Driving via Graffiti and Cross-Lingual Triggers",
+    "summary": "Visual language model (VLM) is rapidly being integrated into safety-critical systems such as autonomous driving, making it an important attack surface for potential backdoor attacks. Existing backdoor attacks mainly rely on unimodal, explicit, and easily detectable triggers, making it difficult to construct both covert and stable attack channels in autonomous driving scenarios. GLA introduces two naturalistic triggers: graffiti-based visual patterns generated via stable diffusion inpainting, which seamlessly blend into urban scenes, and cross-language text triggers, which introduce distributional shifts while maintaining semantic consistency to build robust language-side trigger signals. Experiments on DriveVLM show that GLA requires only a 10\\% poisoning ratio to achieve a 90\\% Attack Success Rate (ASR) and a 0\\% False Positive Rate (FPR). More insidiously, the backdoor does not weaken the model on clean tasks, but instead improves metrics such as BLEU-1, making it difficult for traditional performance-degradation-based detection methods to identify the attack. This study reveals underestimated security threats in self-driving VLMs and provides a new attack paradigm for backdoor evaluation in safety-critical multimodal systems.",
+    "published": "2026-04-06",
+    "url": "http://arxiv.org/abs/2604.04630v1",
+    "authors": [
+      "Jiancheng Wang",
+      "Lidan Liang",
+      "Yong Wang",
+      "Zengzhen Su",
+      "Haifeng Xia",
+      "Yuanting Yan",
+      "Wei Wang"
+    ]
+  },
+  {
+    "id": "2604.08178v1",
+    "title": "Aligning Agents via Planning: A Benchmark for Trajectory-Level Reward Modeling",
+    "summary": "In classical Reinforcement Learning from Human Feedback (RLHF), Reward Models (RMs) serve as the fundamental signal provider for model alignment. As Large Language Models evolve into agentic systems capable of autonomous tool invocation and complex reasoning, the paradigm of reward modeling faces unprecedented challenges--most notably, the lack of benchmarks specifically designed to assess RM capabilities within tool-integrated environments. To address this gap, we present Plan-RewardBench, a trajectory-level preference benchmark designed to evaluate how well judges distinguish preferred versus distractor agent trajectories in complex tool-using scenarios. Plan-RewardBench covers four representative task families -- (i) Safety Refusal, (ii) Tool-Irrelevance / Unavailability, (iii) Complex Planning, and (iv) Robust Error Recovery -- comprising validated positive trajectories and confusable hard negatives constructed via multi-model natural rollouts, rule-based perturbations, and minimal-edit LLM perturbations. We benchmark representative RMs (generative, discriminative, and LLM-as-Judge) under a unified pairwise protocol, reporting accuracy trends across varying trajectory lengths and task categories. Furthermore, we provide diagnostic analyses of prevalent failure modes. Our results reveal that all three evaluator families face substantial challenges, with performance degrading sharply on long-horizon trajectories, underscoring the necessity for specialized training in agentic, trajectory-level reward modeling. Ultimately, Plan-RewardBench aims to serve as both a practical evaluation suite and a reusable blueprint for constructing agentic planning preference data.",
+    "published": "2026-04-09",
+    "url": "http://arxiv.org/abs/2604.08178v1",
+    "authors": [
+      "Jiaxuan Wang",
+      "Yulan Hu",
+      "Wenjin Yang",
+      "Zheng Pan",
+      "Xin Li",
+      "Lan-Zhe Guo"
+    ]
+  },
+  {
+    "id": "2604.07799v1",
+    "title": "Learning Without Losing Identity: Capability Evolution for Embodied Agents",
+    "summary": "Embodied agents are expected to operate persistently in dynamic physical environments, continuously acquiring new capabilities over time. Existing approaches to improving agent performance often rely on modifying the agent itself -- through prompt engineering, policy updates, or structural redesign -- leading to instability and loss of identity in long-lived systems. In this work, we propose a capability-centric evolution paradigm for embodied agents. We argue that a robot should maintain a persistent agent as its cognitive identity, while enabling continuous improvement through the evolution of its capabilities. Specifically, we introduce the concept of Embodied Capability Modules (ECMs), which represent modular, versioned units of embodied functionality that can be learned, refined, and composed over time. We present a unified framework in which capability evolution is decoupled from agent identity. Capabilities evolve through a closed-loop process involving task execution, experience collection, model refinement, and module updating, while all executions are governed by a runtime layer that enforces safety and policy constraints. We demonstrate through simulated embodied tasks that capability evolution improves task success rates from 32.4% to 91.3% over 20 iterations, outperforming both agent-modification baselines and established skill-learning methods (SPiRL, SkiMo), while preserving zero policy drift and zero safety violations. Our results suggest that separating agent identity from capability evolution provides a scalable and safe foundation for long-term embodied intelligence.",
+    "published": "2026-04-09",
+    "url": "http://arxiv.org/abs/2604.07799v1",
+    "authors": [
+      "Xue Qin",
+      "Simin Luan",
+      "John See",
+      "Cong Yang",
+      "Zhijun Li"
+    ]
+  }
+]

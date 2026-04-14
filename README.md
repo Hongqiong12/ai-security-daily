@@ -32,11 +32,12 @@
 
 | 核心威胁领域 | 🚨 破局级论文推荐 | 一句话快评 | 深度拆解 |
 |---|---|---|---|
-| **T2I (水印鲁棒性)** | [AR Watermark Robustness](./categories/t2i/papers/2604.11720_ar_watermark_robustness.md) | 首次系统揭示自回归图像生成水印在 removal / forgery / radioactive filtering 间的结构性三难。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-14_AI安全每日深度情报.md) |
-| **T2T (推理层后门防御)** | [Critical-CoT](./categories/t2t/papers/2604.10681_critical_cot.md) | 用 CTCoT + SFT + DPO 同时压制 ICL/FT 型推理层后门，ASRr 接近 0。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-14_AI安全每日深度情报.md) |
-| **T2T (内部几何攻击)** | [Nullspace Steering](./categories/t2t/papers/2604.10326_nullspace_steering.md) | 从 prompt 搜索升级到 attention 子空间操纵：KL 归因 + 零空间 steering，ACQ≈2。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-14_AI安全每日深度情报.md) |
-| **Agentic (运行时防护)** | [ClawGuard](./categories/agentic-search/papers/2604.11790_clawguard.md) | 把防御点下沉到 tool-call boundary：对间接提示注入做可审计的最小权限拦截。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-14_AI安全每日深度情报.md) |
-| **Agentic (轨迹仓库审计)** | [Meerkat](./categories/agentic-search/papers/2604.11806_meerkat.md) | 从单轨迹 monitor 升级到 witness 搜索：在海量 agent traces 中定位作弊与 reward hacking。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-14_AI安全每日深度情报.md) |
+| **T2T (有害机制解剖)** | [Harmful Unified Mechanism](./categories/t2t/papers/2604.09544_harmful_unified_mechanism.md) | 首次证明LLM有害生成依赖<1%紧凑权重且跨域共享，对齐"压缩效应"解释涌现性错位根因。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-14_AI安全每日深度情报.md) |
+| **T2T (CoT劫持)** | [Unreal Thinking](./categories/t2t/papers/2604.09235_unreal_thinking.md) | 两阶段后门CoT劫持(HSR>90%)，MRTS反向树搜索解决恶意思维链数据稀缺，推理中间层是新前线。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-14_AI安全每日深度情报.md) |
+| **T2I (闭源VLM越狱)** | [Mosaic](./categories/t2i/papers/2604.09253_mosaic.md) | 多代理集成+多视图优化消除"代理依赖"，闭源VLM越狱ASR从31.5%→68.2%(+37pp)。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-14_AI安全每日深度情报.md) |
+| **T2I (视觉隐私保护)** | [ImageProtector](./categories/t2i/papers/2604.09024_imageprotector.md) | VPI攻击翻转为隐私工具(ACL 2026)，6个MLLM上91%保护率，对抗训练仅降至48%。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-14_AI安全每日深度情报.md) |
+| **Agentic (技能供应链)** | [BadSkill](./categories/agentic-search/papers/2604.09378_badskill.md) | Model-in-Skill后门ASR达99.5%，仅需3%毒化率，Agent技能生态的新型供应链风险。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-14_AI安全每日深度情报.md) |
+| **Agentic (编排组合攻击)** | [SIF 语义意图碎片化](./categories/agentic-search/papers/2604.08608_semantic_intent_fragmentation.md) | 单次请求使GPT-20B编排器71%违规：子任务全通过安检但组合违反策略(AAAAI'26)。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-14_AI安全每日深度情报.md) |
 
 *(每日自动更新。如果觉得这些解读为你节省了时间，请给一个 ⭐ 支持！)*
 
@@ -49,9 +50,9 @@
 | 研究洞察精华 | 解决的核心问题 | 更新状态 |
 |------|------|----------|
 | 🏆 **[2026 AI 大模型安全前沿洞察](./insights/AI_Security_Landscape_2026.md)** | 宏观格局分析 · 七大最新热点信号 · 未来八个极具潜力的研究方向 | 2026-03-30 |
-| 🛡️ **[T2T LLM 安全全局图谱](./insights/t2t-survey.md)** | 越狱攻击四代演进史 · 内部瓦解范式 · 双曲几何防御 · 形式化三难困境 · 推理层后门防御(NEW) · 零空间子空间攻击(NEW) | 2026-04-14 |
-| 🖼️ **[T2I 文生图安全七年演进](./insights/t2i-survey.md)** | 局部 DPO 安全控制 · 单流 DiT 挑战 · 铭文式越狱 · FlowGuard 生成中检测 · AR 水印三难困境(NEW) | 2026-04-14 |
-| 🤖 **[Agentic Search 攻防全景](./insights/agentic-search-survey.md)** | 结构化解析瓶颈 · 技能代码后门 · 搜索引擎投毒 · ACI 级联注入评估 · repository-level 轨迹审计(NEW) · tool-call runtime guard(NEW) | 2026-04-14 |
+| 🛡️ **[T2T LLM 安全全局图谱](./insights/t2t-survey.md)** | 越狱攻击四代演进史 · 内部瓦解范式 · 双曲几何防御 · 形式化三难困境 · CoT劫持后门(NEW) · 有害统一机制解剖(NEW) | 2026-04-14 |
+| 🖼️ **[T2I 文生图安全七年演进](./insights/t2i-survey.md)** | 局部 DPO 安全控制 · 单流 DiT 挑战 · 铭文式越狱 · Mosaic闭源VLM越狱(NEW) · ImageProtector VPI隐私保护(NEW) | 2026-04-14 |
+| 🤖 **[Agentic Search 攻防全景](./insights/agentic-search-survey.md)** | 结构化解析瓶颈 · 技能代码后门 · 搜索引擎投毒 · BadSkill Model-in-Skill后门(NEW) · SIF语义碎片化攻击(NEW) | 2026-04-14 |
 | 🔪 **[Abliteration 与概念擦除范式](./insights/alignment-paradigm-shift-abliteration.md)** | 剖析大模型对齐的脆弱性，以及定向消融攻击的底层逻辑 | 2026-04-07 |
 
 ---
