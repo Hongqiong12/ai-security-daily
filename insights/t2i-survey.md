@@ -1,8 +1,8 @@
 # T2I 文生图安全 Survey：攻防前沿与概念擦除技术演进
 
 > **Survey 类型**: 基于项目论文库的系统性综述（Literature-Grounded Survey）  
-> **数据基础**: 本项目收录的 **57** 篇 T2I 安全论文（2019–2026）  
-> **更新日期**: 2026-04-13
+> **数据基础**: 本项目收录的 **58** 篇 T2I 安全论文（2019–2026）  
+> **更新日期**: 2026-04-14
 > **关联文档**: [前瞻总览](./AI_Security_Landscape_2026.md) · [T2T Survey](./t2t-survey.md)
 
 ---
@@ -396,6 +396,14 @@ T2I 水印研究围绕三个核心应用场景：
 现有水印容易被 JPEG 压缩洗掉（Removal），也容易被重放攻击利用（Forgery）。
 - 机制：频域双频段分离注入冗余水印，结合密码学感知哈希绑定生成图像特征。
 - 结论：在抵抗移除与防伪造的综合测试中取得了极高鲁棒性，预示水印安全将向密码学与隐写术的深度融合发展。
+
+### 5.6 自回归图像生成水印的三难困境 (2026-04-14 新增)
+
+**On the Robustness of Watermarking for Autoregressive Image Generation**（[2604.11720](https://arxiv.org/abs/2604.11720)）首次系统指出：AR watermark 的问题不只是“够不够鲁棒”，而是**去除、伪造、radioactive filtering 三个目标难以兼得**。
+
+- **对 token-based watermark**：VQ-Regen 与 LatentOpt 证明其在黑盒或灰盒条件下就会出现明显退化，说明 AR token 量化边界本身就是攻击面。
+- **对 BitMark**：常规 removal 很难，但一旦攻击者转向 bit-level removal 或频域伪造，系统会暴露新的脆弱性；更严重的是，若把检测阈值调低以支持 radioactive data filtering，又会明显放大 forgery 通过率。
+- **意义**：这意味着 T2I 安全的来源证明体系不能只看“是否带 watermark”，而必须进一步思考 watermark 自身是否会反过来污染数据治理链路。对于开放式生成生态，这是一条非常值得持续追踪的新研究线。
 
 ## 6. 基准评测
 

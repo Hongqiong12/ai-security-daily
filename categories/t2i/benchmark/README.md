@@ -17,6 +17,7 @@
 | 论文 | 年份 | 会议 | 核心贡献 | 详情 |
 |------|------|------|----------|------|
 | **Adversarial T2I Synthesis** | 2019 | arXiv | GAN时代文生图攻击综述，奠定安全研究基础 | [📄](../papers/1910.09399_adversarial_t2i_survey.md) |
+| **AR Watermark Robustness** | 2026 | arXiv | 系统评估自回归图像生成水印的 removal / forgery / radioactive filtering 三难 | [📄](../papers/2604.11720_ar_watermark_robustness.md) |
 | **JailbreakBench** | 2024 | NeurIPS | T2I越狱攻击标准化评测基准，100种行为数据集 | [📄](../papers/2404.01318_jailbreakbench.md) |
 | **SafetyBench** | 2024 | arXiv | T2I安全对齐多维评测 | - |
 

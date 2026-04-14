@@ -4,6 +4,7 @@
 
 | 论文 | ArXiv | 核心创新 |
 |------|-------|----------|
+| Nullspace Steering | [2604.10326](https://arxiv.org/abs/2604.10326) | KL 因果归因 + 零空间 steering 的机制级白盒越狱 |
 | **【基础综述】** From LLMs to MLLMs to Agents | [2506.15170](https://arxiv.org/abs/2506.15170) | 系统综述越狱攻击与防御范式演进 |
 | DeepInception | [2311.03191](https://arxiv.org/abs/2311.03191) | 利用嵌套场景诱导LLM自我迷失，持续越狱 |
 | PISmith | [2603.13026](https://arxiv.org/abs/2603.13026) | GRPO + 自适应熵正则化，ASR@10 达 100% |

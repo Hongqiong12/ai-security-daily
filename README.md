@@ -13,11 +13,11 @@
   <a href="https://img.shields.io/badge/Reports-Today-blue.svg">
     <img src="https://img.shields.io/badge/Reports-Today-blue.svg" alt="Reports Today"/>
   </a>
-  <a href="https://img.shields.io/badge/Papers-152+-green.svg">
-    <img src="https://img.shields.io/badge/Papers-152+-green.svg" alt="Total Papers"/>
+  <a href="https://img.shields.io/badge/Papers-158+-green.svg">
+    <img src="https://img.shields.io/badge/Papers-158+-green.svg" alt="Total Papers"/>
   </a>
-  <a href="https://img.shields.io/badge/Last-Update-2026--04--13-orange.svg">
-    <img src="https://img.shields.io/badge/Last-Update-2026--04--13-orange.svg" alt="Last Update"/>
+  <a href="https://img.shields.io/badge/Last-Update-2026--04--14-orange.svg">
+    <img src="https://img.shields.io/badge/Last-Update-2026--04--14-orange.svg" alt="Last Update"/>
   </a>
   <a href="https://github.com/ageisliu/ai-security-daily/stargazers">
     <img src="https://img.shields.io/github/stars/ageisliu/ai-security-daily.svg?style=social&label=Star" alt="GitHub stars"/>
@@ -26,17 +26,17 @@
 
 ---
 
-## 🔥 今日最具破坏力论文评测 (2026-04-13)
+## 🔥 今日最具破坏力论文评测 (2026-04-14)
 
 > **为什么要关注本仓库？** 每天 08:00，我们的自动化 Agent 会拦截 ArXiv 最新 AI 安全论文，不仅提取摘要，更执行**端到端深度解读（攻击原理、实验复现、防御建议）**。
 
 | 核心威胁领域 | 🚨 破局级论文推荐 | 一句话快评 | 深度拆解 |
 |---|---|---|---|
-| **T2I (概念擦除)** | [EGLOCE](./categories/t2i/papers/2604.09405_egloce.md) | 首个训练无关的推理时双能量引导概念擦除：潜空间排斥+保留能量，即插即用且对抗鲁棒。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-13_AI安全每日深度情报.md) |
-| **T2T (电路级攻击)** | [CRaFT](./categories/t2t/papers/2604.01604_craft.md) | 电路影响力替代激活幅度：跨层转码器追踪因果路径，ASR 从 6.7%→48.2%（7 倍提升）。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-13_AI安全每日深度情报.md) |
-| **T2T (情感越狱)** | [FreakOut-LLM](./categories/t2t/papers/2604.04992_freakout_llm.md) | 压力情绪启动使越狱 ASR 飙升 65.2%（z=5.93, p<0.001）：情感上下文是可测量的全新攻击面。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-13_AI安全每日深度情报.md) |
-| **T2T (RL泛化界限)** | [RL Generalization Limits](./categories/t2t/papers/2604.02652_rl_generalization_limits.md) | 复合越狱从 14.3%→71.4%：RL 对齐只重分配概率不消除模式，多路并发可饱和指令层级。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-13_AI安全每日深度情报.md) |
-| **Agentic (Agent基准)** | [ClawSafety](./categories/agentic-search/papers/2604.01438_clawsafety.md) | 120 场案 Agent 安全基准（ASR 40%-75%）：技能指令注入最危险，模型+框架需联合评估。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-13_AI安全每日深度情报.md) |
+| **T2I (水印鲁棒性)** | [AR Watermark Robustness](./categories/t2i/papers/2604.11720_ar_watermark_robustness.md) | 首次系统揭示自回归图像生成水印在 removal / forgery / radioactive filtering 间的结构性三难。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-14_AI安全每日深度情报.md) |
+| **T2T (推理层后门防御)** | [Critical-CoT](./categories/t2t/papers/2604.10681_critical_cot.md) | 用 CTCoT + SFT + DPO 同时压制 ICL/FT 型推理层后门，ASRr 接近 0。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-14_AI安全每日深度情报.md) |
+| **T2T (内部几何攻击)** | [Nullspace Steering](./categories/t2t/papers/2604.10326_nullspace_steering.md) | 从 prompt 搜索升级到 attention 子空间操纵：KL 归因 + 零空间 steering，ACQ≈2。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-14_AI安全每日深度情报.md) |
+| **Agentic (运行时防护)** | [ClawGuard](./categories/agentic-search/papers/2604.11790_clawguard.md) | 把防御点下沉到 tool-call boundary：对间接提示注入做可审计的最小权限拦截。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-14_AI安全每日深度情报.md) |
+| **Agentic (轨迹仓库审计)** | [Meerkat](./categories/agentic-search/papers/2604.11806_meerkat.md) | 从单轨迹 monitor 升级到 witness 搜索：在海量 agent traces 中定位作弊与 reward hacking。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-14_AI安全每日深度情报.md) |
 
 *(每日自动更新。如果觉得这些解读为你节省了时间，请给一个 ⭐ 支持！)*
 
@@ -49,9 +49,9 @@
 | 研究洞察精华 | 解决的核心问题 | 更新状态 |
 |------|------|----------|
 | 🏆 **[2026 AI 大模型安全前沿洞察](./insights/AI_Security_Landscape_2026.md)** | 宏观格局分析 · 七大最新热点信号 · 未来八个极具潜力的研究方向 | 2026-03-30 |
-| 🛡️ **[T2T LLM 安全全局图谱](./insights/t2t-survey.md)** | 越狱攻击四代演进史 · 内部瓦解范式 · 双曲几何防御 · 形式化三难困境 · 微调攻防不对称性 · 情感攻击面(NEW) · 电路级特征选择(NEW) | 2026-04-13 |
-| 🖼️ **[T2I 文生图安全七年演进](./insights/t2i-survey.md)** | 局部 DPO 安全控制 · 单流 DiT 挑战 · 铭文式越狱 · FlowGuard 生成中检测 · EGLOCE 推理时能量擦除(NEW) | 2026-04-13 |
-| 🤖 **[Agentic Search 攻防全景](./insights/agentic-search-survey.md)** | 结构化解析瓶颈 · 技能代码后门 · 搜索引擎投毒 · ACI 级联注入评估 · 视觉注意力攻击 · ClawSafety Agent基准(NEW) | 2026-04-13 |
+| 🛡️ **[T2T LLM 安全全局图谱](./insights/t2t-survey.md)** | 越狱攻击四代演进史 · 内部瓦解范式 · 双曲几何防御 · 形式化三难困境 · 推理层后门防御(NEW) · 零空间子空间攻击(NEW) | 2026-04-14 |
+| 🖼️ **[T2I 文生图安全七年演进](./insights/t2i-survey.md)** | 局部 DPO 安全控制 · 单流 DiT 挑战 · 铭文式越狱 · FlowGuard 生成中检测 · AR 水印三难困境(NEW) | 2026-04-14 |
+| 🤖 **[Agentic Search 攻防全景](./insights/agentic-search-survey.md)** | 结构化解析瓶颈 · 技能代码后门 · 搜索引擎投毒 · ACI 级联注入评估 · repository-level 轨迹审计(NEW) · tool-call runtime guard(NEW) | 2026-04-14 |
 | 🔪 **[Abliteration 与概念擦除范式](./insights/alignment-paradigm-shift-abliteration.md)** | 剖析大模型对齐的脆弱性，以及定向消融攻击的底层逻辑 | 2026-04-07 |
 
 ---

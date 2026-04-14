@@ -10,6 +10,15 @@
 
 ## 📋 论文列表
 
+### 2026-04-14
+
+| 论文 | ArXiv | 类别 | 核心创新 | 详情 |
+|------|-------|------|----------|------|
+| Critical-CoT | [2604.10681](https://arxiv.org/abs/2604.10681) | 防御 | 用 CTCoT + SFT + DPO 同时防 ICL/FT 型推理层后门，ASRr 压到 1% 以下 | [详情](./papers/2604.10681_critical_cot.md) |
+| Nullspace Steering | [2604.10326](https://arxiv.org/abs/2604.10326) | 攻击 | KL 归因 + 写路径静音 + 零空间注入的白盒机制级越狱，ACQ≈2 | [详情](./papers/2604.10326_nullspace_steering.md) |
+
+---
+
 ### 2026-03-28（补充）
 
 | 论文 | ArXiv | 类别 | 核心创新 | 详情 |

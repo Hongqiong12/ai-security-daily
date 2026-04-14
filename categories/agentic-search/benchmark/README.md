@@ -4,4 +4,6 @@
 
 | # | arXiv ID | Title | Authors | Date | GitHub | Sub-type |
 |---|----------|-------|---------|------|--------|----------|
+| 3 | 2604.11806 | Detecting Safety Violations Across Many Agent Traces | Adam Stein et al. | 2026-04-14 | N/A | 仓库级轨迹安全审计 |
+| 2 | 2604.10286 | STARS: Skill-Triggered Audit for Request-Conditioned Invocation Safety in Agent Systems | Guijia Zhang et al. | 2026-04-14 | N/A | Skill invocation 风险评分 |
 <!-- 新论文追加于此 -->

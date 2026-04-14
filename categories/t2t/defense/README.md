@@ -4,6 +4,7 @@
 
 | 论文 | ArXiv | 核心创新 |
 |------|-------|----------|
+| Critical-CoT | [2604.10681](https://arxiv.org/abs/2604.10681) | CTCoT + SFT + DPO 统一防御推理层 ICL/FT 后门 |
 | **【基础综述】** PandaGuard | [2505.13862](https://arxiv.org/abs/2505.13862) | 统一模块化框架，19种攻击+12种防御，49个LLM评测 |
 | AutoDefense | [2403.04783](https://arxiv.org/abs/2403.04783) | 多智能体协作防御，降低误判率 30%+ |
 | KG-DF | [2511.07480](https://arxiv.org/abs/2511.07480) | 基于知识图谱的语义关系网络检测 |
