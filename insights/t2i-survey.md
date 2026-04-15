@@ -1,15 +1,15 @@
 # T2I 文生图安全 Survey：攻防前沿与概念擦除技术演进
 
 > **Survey 类型**: 基于项目论文库的系统性综述（Literature-Grounded Survey）  
-> **数据基础**: 本项目收录的 **58** 篇 T2I 安全论文（2019–2026）  
-> **更新日期**: 2026-04-14
+> **数据基础**: 本项目收录的 **62** 篇 T2I 安全论文（2019–2026）
+> **更新日期**: 2026-04-15
 > **关联文档**: [前瞻总览](./AI_Security_Landscape_2026.md) · [T2T Survey](./t2t-survey.md)
 
 ---
 
 ## 摘要
 
-文生图（Text-to-Image, T2I）安全研究以扩散模型为核心战场，形成了三个相互缠绕的研究主线：**越狱攻击**（如何绕过内容安全过滤器生成违禁图像）、**概念擦除/机器遗忘**（如何从模型参数中移除有害概念的表示）、**水印与溯源**（如何标记并追踪模型生成的内容）。本 Survey 基于 46 篇系统性收录的论文，完整梳理了从 GAN 时代到扩散模型时代的 T2I 安全演进，揭示了概念擦除技术从全局擦除向精准定位神经元的演进路线，以及攻击方法从人工设计向 LLM 辅助自动化的转变，并对 2026 年出现的新型架构（单流扩散 Transformer）带来的安全挑战进行了专项分析。
+文生图（Text-to-Image, T2I）安全研究以扩散模型为核心战场，形成了三个相互缠绕的研究主线：**越狱攻击**（如何绕过内容安全过滤器生成违禁图像）、**概念擦除/机器遗忘**（如何从模型参数中移除有害概念的表示）、**水印与溯源**（如何标记并追踪模型生成的内容）。本 Survey 基于本项目持续收录的 T2I 论文，完整梳理了从 GAN 时代到扩散模型时代的 T2I 安全演进，揭示了概念擦除技术从全局擦除向精准定位神经元、解析几何投影与运行时优化三路分化的演进路线，以及攻击方法从人工设计向 LLM 辅助自动化与现实场景鲁棒评测的转变。
 
 ---
 
@@ -281,6 +281,14 @@ subject to  L_retain(C') ≤ ε  # 保留其他概念 C' 的生成质量
 - **优势**: 即插即用、不修改权重、对抗鲁棒性强
 - **局限**: 推理延迟增加 2-5x、超参数需按目标调节、依赖特征中心预计算
 
+### 3.10 新兴范式：闭式双投影擦除（Closed-Form Double Projections） (2026-04-15 新增)
+
+**DP / Closed-Form Concept Erasure**（[2604.10032](https://arxiv.org/abs/2604.10032)）把概念擦除再次推进了一步：
+
+- **核心机制**：不再做 retraining 或 iterative optimization，而是把擦除重写成两个解析可解的投影步骤——先把目标概念投影到安全子空间，再在 preserved concepts 的**左零空间**中求闭式更新。
+- **关键结果**：在 SD 1.5 上，DP 将 mean erased accuracy 压到 **0.7%**，同时把 preservation drop 控制在 **1.8%**；对一般 ImageNet 非目标类的平均 accuracy drop 仅 **0.43%**，显著优于 UCE 的 **4.43%**。在 FLUX 上 preservation drop 也从 UCE 的 **23.9%** 降到 **6.6%**。
+- **意义**：这标志着概念擦除正式进入“**训练自由 + 显式 preservation 约束**”时代。相比早期方法只是把 preservation 当作软惩罚项，DP 把“保留无关概念”直接写成线性硬约束，更贴近你关注的最小覆盖与结构性保真目标。
+
 ### 3.8 新兴范式：线性子空间移除 (Linear Subspace Removal)
 
 在概念擦除的演进中，**线性子空间移除 (ISP, Identity Sanitization Projection)** [2604.05296](https://arxiv.org/abs/2604.05296) 代表了一种直接针对潜空间（Latent Space）进行代数操作的防御范式。该方法的核心逻辑在于：
@@ -420,6 +428,10 @@ T2I 水印研究围绕三个核心应用场景：
 
 **Adversarial T2I Survey**（[1910.09399](https://arxiv.org/abs/1910.09399)）：
 - 早期 GAN 时代的对抗攻击分类法综述，为后续扩散模型安全研究奠定分类基础
+
+**NTIRE 2026 Challenge on Robust AI-Generated Image Detection in the Wild**（[2604.11487](https://arxiv.org/abs/2604.11487)，CVPR 2026 Workshop）：
+- 首个把 **AIGC 检测的野外鲁棒性** 做成主赛题的挑战赛：108,750 张真实图像、185,750 张 AI 图像、42 个生成器、36 种图像变换。
+- 以 **Robust ROC AUC** 为主指标，并采用 open / hidden test 双轨评测，推动检测研究从“clean 判别”转向“真实分发链路鲁棒识别”。
 
 ### 6.2 评测维度与指标
 
@@ -605,6 +617,7 @@ Flux 和 SD3 已经成为 2025–2026 年的主流 T2I 架构，但截至本 Sur
 | Concept Corrector | [2502.16368](https://arxiv.org/abs/2502.16368) | 2025 | 概念重定向 |
 | CPE | [2506.22806](https://arxiv.org/abs/2506.22806) | 2025 | 精准神经元擦除 |
 | Z-Erase | [2603.25074](https://arxiv.org/abs/2603.25074) | 2026 | 单流 DiT 专用擦除 |
+| Closed-Form DP | [2604.10032](https://arxiv.org/abs/2604.10032) | 2026 | 双投影闭式擦除 (NEW) |
 
 | SafeCtrl | [2604.03941](https://arxiv.org/abs/2604.03941) | 2026 | 区域擦除 | Detect-Then-Suppress DPO 局部替换 |
 
@@ -643,9 +656,10 @@ Flux 和 SD3 已经成为 2025–2026 年的主流 T2I 架构，但截至本 Sur
 | DTVI | [2603.22041](https://arxiv.org/abs/2603.22041) | 2026 | 新架构 T2I 漏洞 |
 | BPO Verify T2I | [2603.26328](https://arxiv.org/abs/2603.26328) | CVPR 2026 | T2I 模型身份验证基准 |
 | SALMUBench | [2603.26316](https://arxiv.org/abs/2603.26316) | CVPR 2026 | 多模态关联级遗忘基准 |
+| NTIRE 2026 Robust AIGC Detection | [2604.11487](https://arxiv.org/abs/2604.11487) | CVPR 2026 Workshop | 现实世界鲁棒 AIGC 检测基准 (NEW) |
 
 ---
 
-*本 Survey 由 `paper-research` skill 自动生成，基于项目截至 2026-04-08 收录的 T2I 论文（50 篇）。*  
-*上次 Survey 更新：2026-04-13（新增 1 篇：2604.09405 EGLOCE 推理时能量引导概念擦除）。*  
+*本 Survey 由 `paper-research` skill 自动生成，基于项目截至 2026-04-15 收录的 T2I 论文（62 篇）。*  
+*上次 Survey 更新：2026-04-15（新增 2 篇：2604.10032 Closed-Form DP（双投影闭式擦除）, 2604.11487 NTIRE 2026（现实世界鲁棒检测基准））。*  
 *下次更新时间：跟随每日自动化任务实时更新。*
