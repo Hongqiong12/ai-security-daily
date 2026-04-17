@@ -13,11 +13,11 @@
   <a href="https://img.shields.io/badge/Reports-Today-blue.svg">
     <img src="https://img.shields.io/badge/Reports-Today-blue.svg" alt="Reports Today"/>
   </a>
-  <a href="https://img.shields.io/badge/Papers-162+-green.svg">
-    <img src="https://img.shields.io/badge/Papers-162+-green.svg" alt="Total Papers"/>
+  <a href="https://img.shields.io/badge/Papers-168+-green.svg">
+    <img src="https://img.shields.io/badge/Papers-168+-green.svg" alt="Total Papers"/>
   </a>
-  <a href="https://img.shields.io/badge/Last-Update-2026--04--15-orange.svg">
-    <img src="https://img.shields.io/badge/Last-Update-2026--04--15-orange.svg" alt="Last Update"/>
+  <a href="https://img.shields.io/badge/Last-Update-2026--04--17-orange.svg">
+    <img src="https://img.shields.io/badge/Last-Update-2026--04--17-orange.svg" alt="Last Update"/>
   </a>
   <a href="https://github.com/ageisliu/ai-security-daily/stargazers">
     <img src="https://img.shields.io/github/stars/ageisliu/ai-security-daily.svg?style=social&label=Star" alt="GitHub stars"/>
@@ -26,18 +26,18 @@
 
 ---
 
-## 🔥 今日最具破坏力论文评测 (2026-04-15)
+## 🔥 今日最具破坏力论文评测 (2026-04-17)
 
 > **为什么要关注本仓库？** 每天 08:00，我们的自动化 Agent 会拦截 ArXiv 最新 AI 安全论文，不仅提取摘要，更执行**端到端深度解读（攻击原理、实验复现、防御建议）**。
 
 | 核心威胁领域 | 🚨 破局级论文推荐 | 一句话快评 | 深度拆解 |
 |---|---|---|---|
-| **T2T (奖励回路后门)** | [Backdoors in RLVR](./categories/t2t/papers/2604.09748_backdoors_in_rlvr.md) | RLVR 只需 <2% 投毒样本就能学出高泛化 jailbreak backdoor，OOD-ASR 达 81.9%。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-15_AI安全每日深度情报.md) |
-| **T2T (表示层防御)** | [LIRA](./categories/t2t/papers/2604.10403_latent_instruction_representation_alignment.md) | 把安全对齐从“输出拒答”推进到 instruction representation 对齐，PEZ 攻击可被压到接近 0。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-15_AI安全每日深度情报.md) |
-| **T2I (闭式擦除)** | [Closed-Form DP](./categories/t2i/papers/2604.10032_closed_form_concept_erasure.md) | 双投影 + 左零空间硬约束把 concept erasure 做成 training-free 几何闭式解。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-15_AI安全每日深度情报.md) |
-| **T2I (鲁棒检测基准)** | [NTIRE 2026](./categories/t2i/papers/2604.11487_ntire_2026_robust_aigc_detection.md) | 42 个生成器 + 36 种扰动的真实世界 AIGC 检测挑战，把 Robust ROC AUC 变成主指标。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-15_AI安全每日深度情报.md) |
-| **Agentic (规划一致性防御)** | [PlanGuard](./categories/agentic-search/papers/2604.10134_planguard.md) | 用 planning-based consistency verification 把 indirect prompt injection 的 ASR 从 72.8% 压到 0%。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-15_AI安全每日深度情报.md) |
-| **Agentic (记忆抽取攻击)** | [ADAM](./categories/agentic-search/papers/2604.09747_adam_agent_memory_extraction.md) | 把 memory extraction 变成 entropy-guided adaptive querying，最高可达 100% ASR。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-15_AI安全每日深度情报.md) |
+| **Agentic (生命周期防御)** | [SafeHarness](./categories/agentic-search/papers/2604.13630_safeharness.md) | 将四层防御机制编织进智能体底层，通过因果校验与状态回滚将 ASR 下降 42%。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-17_AI安全每日深度情报.md) |
+| **Agentic (记忆增强攻击)** | [MemJack](./categories/agentic-search/papers/2604.12616_memjack_vlm.md) | 证明日常自然图像可作为视觉语义锚点，跨图像迁移攻击使得黑盒 ASR 高达 72%~90%。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-17_AI安全每日深度情报.md) |
+| **Agentic (MCP 威胁情报)** | [MCPThreatHive](./categories/agentic-search/papers/2604.13849_mcp_threat_hive.md) | 针对 Model Context Protocol 构建了 MCP-38 分类学，填补了工具链复合攻击的防御盲区。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-17_AI安全每日深度情报.md) |
+| **T2T (表示层泛化防御)** | [ER-CAT](./categories/t2t/papers/2604.12817_er_cat.md) | 从 In-context Learning 理论出发，通过拉平嵌入矩阵奇异值方差，大幅改善鲁棒性与效用的权衡。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-17_AI安全每日深度情报.md) |
+| **T2T (意图一致性探测)** | [SC-TopK](./categories/t2t/papers/2604.14865_segment_level_coherence.md) | 利用片段方差正则化消除“捷径学习”，有效避免了包含敏感专业词汇的良性对话误报。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-17_AI安全每日深度情报.md) |
+| **T2I (输入级后门检测)** | [SET](./categories/t2i/papers/2604.12446_scaling_exposes_trigger.md) | 通过施加不同尺度的交叉注意力扰动，放大后门响应的发散轨迹，实现 95.1% 的检测 AUROC。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-17_AI安全每日深度情报.md) |
 
 *(每日自动更新。如果觉得这些解读为你节省了时间，请给一个 ⭐ 支持！)*
 
@@ -49,10 +49,10 @@
 
 | 研究洞察精华 | 解决的核心问题 | 更新状态 |
 |------|------|----------|
-| 🏆 **[2026 AI 大模型安全前沿洞察](./insights/AI_Security_Landscape_2026.md)** | 宏观格局分析 · 内部表示/运行时边界/鲁棒检测三条新信号 · 未来八个极具潜力的研究方向 | 2026-04-15 |
-| 🛡️ **[T2T LLM 安全全局图谱](./insights/t2t-survey.md)** | 越狱攻击四代演进史 · 奖励回路后门(NEW) · 指令表示对齐 LIRA(NEW) · 双曲几何防御 · 形式化三难困境 | 2026-04-15 |
-| 🖼️ **[T2I 文生图安全七年演进](./insights/t2i-survey.md)** | 局部 DPO 安全控制 · Closed-Form DP 双投影擦除(NEW) · NTIRE 2026 鲁棒检测基准(NEW) · 单流 DiT 挑战 | 2026-04-15 |
-| 🤖 **[Agentic Search 攻防全景](./insights/agentic-search-survey.md)** | 结构化解析瓶颈 · 运行时边界防护 · PlanGuard 规划一致性验证(NEW) · ADAM 记忆抽取攻击(NEW) | 2026-04-15 |
+| 🏆 **[2026 AI 大模型安全前沿洞察](./insights/AI_Security_Landscape_2026.md)** | 宏观格局分析 · 内部表示/运行时边界/鲁棒检测三条新信号 · 未来八个极具潜力的研究方向 | 2026-04-17 |
+| 🛡️ **[T2T LLM 安全全局图谱](./insights/t2t-survey.md)** | 越狱攻击四代演进史 · 奖励回路后门(NEW) · 指令表示对齐 LIRA(NEW) · 双曲几何防御 · 形式化三难困境 | 2026-04-17 |
+| 🖼️ **[T2I 文生图安全七年演进](./insights/t2i-survey.md)** | 局部 DPO 安全控制 · Closed-Form DP 双投影擦除(NEW) · NTIRE 2026 鲁棒检测基准(NEW) · 单流 DiT 挑战 | 2026-04-17 |
+| 🤖 **[Agentic Search 攻防全景](./insights/agentic-search-survey.md)** | 结构化解析瓶颈 · 运行时边界防护 · PlanGuard 规划一致性验证(NEW) · ADAM 记忆抽取攻击(NEW) | 2026-04-17 |
 | 🔪 **[Abliteration 与概念擦除范式](./insights/alignment-paradigm-shift-abliteration.md)** | 剖析大模型对齐的脆弱性，以及定向消融攻击的底层逻辑 | 2026-04-07 |
 
 ---

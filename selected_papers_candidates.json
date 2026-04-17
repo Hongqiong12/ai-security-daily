@@ -1,0 +1,417 @@
+[
+  {
+    "category": "t2t",
+    "id": "2604.14865v1",
+    "title": "Segment-Level Coherence for Robust Harmful Intent Probing in LLMs",
+    "published": "2026-04-16",
+    "authors": [
+      "Xuanli He",
+      "Bilgehan Sel",
+      "Faizan Ali",
+      "Jenny Bao",
+      "Hoagy Cunningham",
+      "Jerry Wei"
+    ],
+    "url": "http://arxiv.org/abs/2604.14865v1"
+  },
+  {
+    "category": "t2t",
+    "id": "2604.14717v1",
+    "title": "Layered Mutability: Continuity and Governance in Persistent Self-Modifying Agents",
+    "published": "2026-04-16",
+    "authors": [
+      "Krti Tallam"
+    ],
+    "url": "http://arxiv.org/abs/2604.14717v1"
+  },
+  {
+    "category": "t2t",
+    "id": "2604.14604v1",
+    "title": "Hijacking Large Audio-Language Models via Context-Agnostic and Imperceptible Auditory Prompt Injection",
+    "published": "2026-04-16",
+    "authors": [
+      "Meng Chen",
+      "Kun Wang",
+      "Li Lu",
+      "Jiaheng Zhang",
+      "Tianwei Zhang"
+    ],
+    "url": "http://arxiv.org/abs/2604.14604v1"
+  },
+  {
+    "category": "t2t",
+    "id": "2604.14512v1",
+    "title": "CBCL: Safe Self-Extending Agent Communication",
+    "published": "2026-04-16",
+    "authors": [
+      "Hugo O'Connor"
+    ],
+    "url": "http://arxiv.org/abs/2604.14512v1"
+  },
+  {
+    "category": "t2t",
+    "id": "2604.14360v1",
+    "title": "Digital Guardians: The Past and The Future of Cyber-Physical Resilience",
+    "published": "2026-04-15",
+    "authors": [
+      "Saurabh Bagchi",
+      "Hyunseung Kim",
+      "Tarek Abdelzaher",
+      "Homa Alemzadeh",
+      "Somali Chaterji",
+      "Glen Chou",
+      "Yuying Duan",
+      "Fanxin Kong",
+      "Michael Lemmon",
+      "Yin Li",
+      "Mengyu Liu",
+      "Wenhao Luo",
+      "Meiyi Ma",
+      "Sibin Mohan",
+      "Ayan Mukhopadhyay",
+      "Melkior Ornik",
+      "Dimitra Panagou",
+      "Kristin Yvonne Rozier",
+      "Ivan Ruchkin",
+      "Huajie Shao",
+      "Sze Zheng Yong",
+      "Majid Zamani",
+      "Xugui Zhou"
+    ],
+    "url": "http://arxiv.org/abs/2604.14360v1"
+  },
+  {
+    "category": "t2t",
+    "id": "2604.13308v1",
+    "title": "Threat Modeling and Attack Surface Analysis of IoT-Enabled Controlled Environment Agriculture Systems",
+    "published": "2026-04-14",
+    "authors": [
+      "Andrii Vakhnovskyi"
+    ],
+    "url": "http://arxiv.org/abs/2604.13308v1"
+  },
+  {
+    "category": "t2t",
+    "id": "2604.12994v1",
+    "title": "LogicEval: A Systematic Framework for Evaluating Automated Repair Techniques for Logical Vulnerabilities in Real-World Software",
+    "published": "2026-04-14",
+    "authors": [
+      "Syed Md Mukit Rashid",
+      "Abdullah Al Ishtiaq",
+      "Kai Tu",
+      "Yilu Dong",
+      "Tianwei Wu",
+      "Ali Ranjbar",
+      "Tianchang Yang",
+      "Najrin Sultana",
+      "Shagufta Mehnaz",
+      "Syed Rafiul Hussain"
+    ],
+    "url": "http://arxiv.org/abs/2604.12994v1"
+  },
+  {
+    "category": "t2t",
+    "id": "2604.12986v1",
+    "title": "Parallax: Why AI Agents That Think Must Never Act",
+    "published": "2026-04-14",
+    "authors": [
+      "Joel Fokou"
+    ],
+    "url": "http://arxiv.org/abs/2604.12986v1"
+  },
+  {
+    "category": "t2t",
+    "id": "2604.12817v1",
+    "title": "Understanding and Improving Continuous Adversarial Training for LLMs via In-context Learning Theory",
+    "published": "2026-04-14",
+    "authors": [
+      "Shaopeng Fu",
+      "Di Wang"
+    ],
+    "url": "http://arxiv.org/abs/2604.12817v1"
+  },
+  {
+    "category": "t2i",
+    "id": "2604.15308v1",
+    "title": "RAD-2: Scaling Reinforcement Learning in a Generator-Discriminator Framework",
+    "published": "2026-04-16",
+    "authors": [
+      "Hao Gao",
+      "Shaoyu Chen",
+      "Yifan Zhu",
+      "Yuehao Song",
+      "Wenyu Liu",
+      "Qian Zhang",
+      "Xinggang Wang"
+    ],
+    "url": "http://arxiv.org/abs/2604.15308v1"
+  },
+  {
+    "category": "t2i",
+    "id": "2604.12781v1",
+    "title": "Fragile Reconstruction: Adversarial Vulnerability of Reconstruction-Based Detectors for Diffusion-Generated Images",
+    "published": "2026-04-14",
+    "authors": [
+      "Haoyang Jiang",
+      "Mingyang Yi",
+      "Shaolei Zhang",
+      "Junxian Cai",
+      "Qingbin Liu",
+      "Xi Chen",
+      "Ju Fan"
+    ],
+    "url": "http://arxiv.org/abs/2604.12781v1"
+  },
+  {
+    "category": "t2i",
+    "id": "2604.12446v1",
+    "title": "Scaling Exposes the Trigger: Input-Level Backdoor Detection in Text-to-Image Diffusion Models via Cross-Attention Scaling",
+    "published": "2026-04-14",
+    "authors": [
+      "Zida Li",
+      "Jun Li",
+      "Yuzhe Sha",
+      "Ziqiang Li",
+      "Lizhi Xiong",
+      "Zhangjie Fu"
+    ],
+    "url": "http://arxiv.org/abs/2604.12446v1"
+  },
+  {
+    "category": "t2i",
+    "id": "2604.09405v1",
+    "title": "EGLOCE: Training-Free Energy-Guided Latent Optimization for Concept Erasure",
+    "published": "2026-04-10",
+    "authors": [
+      "Junyeong Ahn",
+      "Seojin Yoon",
+      "Sungyong Baik"
+    ],
+    "url": "http://arxiv.org/abs/2604.09405v1"
+  },
+  {
+    "category": "t2i",
+    "id": "2604.07879v1",
+    "title": "FlowGuard: Towards Lightweight In-Generation Safety Detection for Diffusion Models via Linear Latent Decoding",
+    "published": "2026-04-09",
+    "authors": [
+      "Jinghan Yang",
+      "Yihe Fan",
+      "Xudong Pan",
+      "Min Yang"
+    ],
+    "url": "http://arxiv.org/abs/2604.07879v1"
+  },
+  {
+    "category": "t2i",
+    "id": "2604.04630v1",
+    "title": "Multimodal Backdoor Attack on VLMs for Autonomous Driving via Graffiti and Cross-Lingual Triggers",
+    "published": "2026-04-06",
+    "authors": [
+      "Jiancheng Wang",
+      "Lidan Liang",
+      "Yong Wang",
+      "Zengzhen Su",
+      "Haifeng Xia",
+      "Yuanting Yan",
+      "Wei Wang"
+    ],
+    "url": "http://arxiv.org/abs/2604.04630v1"
+  },
+  {
+    "category": "t2i",
+    "id": "2604.03941v1",
+    "title": "SafeCtrl: Region-Aware Safety Control for Text-to-Image Diffusion via Detect-Then-Suppress",
+    "published": "2026-04-05",
+    "authors": [
+      "Lingyun Zhang",
+      "Yu Xie",
+      "Zhongli Fang",
+      "Yu Liu",
+      "Ping Chen"
+    ],
+    "url": "http://arxiv.org/abs/2604.03941v1"
+  },
+  {
+    "category": "t2i",
+    "id": "2604.02265v1",
+    "title": "Modular Energy Steering for Safe Text-to-Image Generation with Foundation Models",
+    "published": "2026-04-02",
+    "authors": [
+      "Yaoteng Tan",
+      "Zikui Cai",
+      "M. Salman Asif"
+    ],
+    "url": "http://arxiv.org/abs/2604.02265v1"
+  },
+  {
+    "category": "t2i",
+    "id": "2604.01826v1",
+    "title": "SafeRoPE: Risk-specific Head-wise Embedding Rotation for Safe Generation in Rectified Flow Transformers",
+    "published": "2026-04-02",
+    "authors": [
+      "Xiang Yang",
+      "Feifei Li",
+      "Mi Zhang",
+      "Geng Hong",
+      "Xiaoyu You",
+      "Min Yang"
+    ],
+    "url": "http://arxiv.org/abs/2604.01826v1"
+  },
+  {
+    "category": "t2i",
+    "id": "2604.01129v1",
+    "title": "ReinDriveGen: Reinforcement Post-Training for Out-of-Distribution Driving Scene Generation",
+    "published": "2026-04-01",
+    "authors": [
+      "Hao Zhang",
+      "Lue Fan",
+      "Weikang Bian",
+      "Zehuan Wu",
+      "Lewei Lu",
+      "Zhaoxiang Zhang",
+      "Hongsheng Li"
+    ],
+    "url": "http://arxiv.org/abs/2604.01129v1"
+  },
+  {
+    "category": "agentic",
+    "id": "2604.14709v1",
+    "title": "HWE-Bench: Benchmarking LLM Agents on Real-World Hardware Bug Repair Tasks",
+    "published": "2026-04-16",
+    "authors": [
+      "Fan Cui",
+      "Hongyuan Hou",
+      "Zizhang Luo",
+      "Chenyun Yin",
+      "Yun Liang"
+    ],
+    "url": "http://arxiv.org/abs/2604.14709v1"
+  },
+  {
+    "category": "agentic",
+    "id": "2604.14604v1",
+    "title": "Hijacking Large Audio-Language Models via Context-Agnostic and Imperceptible Auditory Prompt Injection",
+    "published": "2026-04-16",
+    "authors": [
+      "Meng Chen",
+      "Kun Wang",
+      "Li Lu",
+      "Jiaheng Zhang",
+      "Tianwei Zhang"
+    ],
+    "url": "http://arxiv.org/abs/2604.14604v1"
+  },
+  {
+    "category": "agentic",
+    "id": "2604.14317v1",
+    "title": "Challenges and Future Directions in Agentic Reverse Engineering Systems",
+    "published": "2026-04-15",
+    "authors": [
+      "Salem Radey",
+      "Jack West",
+      "Kassem Fawaz"
+    ],
+    "url": "http://arxiv.org/abs/2604.14317v1"
+  },
+  {
+    "category": "agentic",
+    "id": "2604.13955v1",
+    "title": "Towards Personalizing Secure Programming Education with LLM-Injected Vulnerabilities",
+    "published": "2026-04-15",
+    "authors": [
+      "Matthew Frazier",
+      "Kostadin Damevski"
+    ],
+    "url": "http://arxiv.org/abs/2604.13955v1"
+  },
+  {
+    "category": "agentic",
+    "id": "2604.13849v1",
+    "title": "MCPThreatHive: Automated Threat Intelligence for Model Context Protocol Ecosystems",
+    "published": "2026-04-15",
+    "authors": [
+      "Yi Ting Shen",
+      "Kentaroh Toyoda",
+      "Alex Leung"
+    ],
+    "url": "http://arxiv.org/abs/2604.13849v1"
+  },
+  {
+    "category": "agentic",
+    "id": "2604.13630v1",
+    "title": "SafeHarness: Lifecycle-Integrated Security Architecture for LLM-based Agent Deployment",
+    "published": "2026-04-15",
+    "authors": [
+      "Xixun Lin",
+      "Yang Liu",
+      "Yancheng Chen",
+      "Yongxuan Wu",
+      "Yucheng Ning",
+      "Yilong Liu",
+      "Nan Sun",
+      "Shun Zhang",
+      "Bin Chong",
+      "Chuan Zhou",
+      "Yanan Cao",
+      "Li Guo"
+    ],
+    "url": "http://arxiv.org/abs/2604.13630v1"
+  },
+  {
+    "category": "agentic",
+    "id": "2604.13298v1",
+    "title": "Can Agents Secure Hardware? Evaluating Agentic LLM-Driven Obfuscation for IP Protection",
+    "published": "2026-04-14",
+    "authors": [
+      "Sujan Ghimire",
+      "Parsa Mirfasihi",
+      "Muhtasim Alam Chowdhury",
+      "Veeramani Pugazhenthi",
+      "Harish Kumar Dharavath",
+      "Farshad Firouzi",
+      "Rozhin Yasaei",
+      "Pratik Satam",
+      "Soheil Salehi"
+    ],
+    "url": "http://arxiv.org/abs/2604.13298v1"
+  },
+  {
+    "category": "agentic",
+    "id": "2604.14228v1",
+    "title": "Dive into Claude Code: The Design Space of Today's and Future AI Agent Systems",
+    "published": "2026-04-14",
+    "authors": [
+      "Jiacheng Liu",
+      "Xiaohan Zhao",
+      "Xinyi Shang",
+      "Zhiqiang Shen"
+    ],
+    "url": "http://arxiv.org/abs/2604.14228v1"
+  },
+  {
+    "category": "agentic",
+    "id": "2604.12986v1",
+    "title": "Parallax: Why AI Agents That Think Must Never Act",
+    "published": "2026-04-14",
+    "authors": [
+      "Joel Fokou"
+    ],
+    "url": "http://arxiv.org/abs/2604.12986v1"
+  },
+  {
+    "category": "agentic",
+    "id": "2604.12616v1",
+    "title": "Every Picture Tells a Dangerous Story: Memory-Augmented Multi-Agent Jailbreak Attacks on VLMs",
+    "published": "2026-04-14",
+    "authors": [
+      "Jianhao Chen",
+      "Haoyang Chen",
+      "Hanjie Zhao",
+      "Haozhe Liang",
+      "Tieyun Qian"
+    ],
+    "url": "http://arxiv.org/abs/2604.12616v1"
+  }
+]
