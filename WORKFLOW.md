@@ -2,7 +2,7 @@
 
 > **版本**: v2.0 | **创建日期**: 2026-03-24 | **最后更新**: 2026-04-14
 >
-> **关注领域**: Text-to-Text (T2T) · Text-to-Image (T2I) · Agentic Search (Agent 安全)
+> **关注领域**: Text-to-Image (T2I) · Multimodal-to-Image (T+I2I) · Text-to-Text (T2T) · Agentic Search
 >
 > **执行时间**: 每日 08:00 (北京时间) | 频率: FREQ=DAILY
 >
@@ -12,15 +12,15 @@
 
 ## 一、任务概述
 
-本自动化任务追踪和整理 **T2T**、**T2I** 和 **Agentic Search** 三大核心模态的 AI 安全研究，每日自动执行以下全链路流程。
+本自动化任务重点追踪和整理 **文生图(T2I)** 与 **文图生图(T+I2I)** 领域的 AI 安全对齐与评测研究，辅以 T2T 和 Agentic Search 模态，每日自动执行以下全链路流程。
 
 ### 1.1 任务目标
 
 | 模态 | 英文名称 | 中文名称 | 研究重点 |
 |------|----------|----------|----------|
-| **T2T** | Text-to-Text | 文生文 | LLM 越狱攻击、安全对齐、提示注入、CoT 劫持防御、机制可解释性 |
-| **T2I** | Text-to-Image | 文生图 | T2I 越狱攻击、概念擦除/对抗、内容安全过滤、水印保护、VLM 安全 |
-| **Agentic** | Agentic Search | Agent 安全 | 技能供应链投毒、工具劫持、检索污染、编排组合攻击、Agent 基准评测 |
+| **T2I & T+I2I** | Text-to-Image / Multimodal-to-Image | 文生图/文图生图 | **【核心重点】** 安全对齐、概念擦除/对抗、内容安全过滤(NSFW脱敏)、越狱攻击、多模态安全Benchmark |
+| **T2T** | Text-to-Text | 文生文 | LLM 越狱攻击、提示注入、机制可解释性 (当前降维关注) |
+| **Agentic** | Agentic Search | Agent 安全 | 技能供应链投毒、工具劫持、Agent 基准评测 (当前降维关注) |
 
 ### 1.2 论文分类体系
 
@@ -179,20 +179,20 @@ OR "mechanistic interpretability"
 benchmark OR evaluation OR dataset OR "red team benchmark"
 ```
 
-### 3.2 T2I 检索关键词
+### 3.2 T2I & T+I2I 检索关键词 (核心优先)
 
 ```
 # 攻击类
-"text-to-image" AND (jailbreak OR "adversarial" OR "prompt injection"
-OR backdoor OR "concept erasure attack" OR "watermark removal")
+("text-to-image" OR "multimodal-to-image" OR "vision-language" OR "image generation") 
+AND (jailbreak OR "adversarial" OR "prompt injection" OR backdoor OR "concept erasure attack" OR "bypassing")
 
-# 防御类
-"concept erase" OR "concept ablation" OR "safety filter" OR "content moderation"
-OR "diffusion" AND (security OR protect OR guard)
-OR "latent guard" OR "safe generation"
+# 防御与对齐类 (重点)
+("text-to-image" OR "multimodal-to-image" OR "diffusion") 
+AND ("safety alignment" OR "concept erase" OR "concept ablation" OR "safety filter" OR "content moderation" OR "NSFW" OR "safe generation" OR "red teaming")
 
-# 评测类
-benchmark OR evaluation OR "safety benchmark" OR "image safety dataset"
+# 评测类 (重点)
+("text-to-image" OR "multimodal-to-image" OR "diffusion")
+AND (benchmark OR evaluation OR "safety benchmark" OR "image safety dataset" OR "red team benchmark")
 ```
 
 ### 3.3 Agentic Search 检索关键词
