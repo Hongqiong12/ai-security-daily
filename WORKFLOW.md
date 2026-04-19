@@ -1,12 +1,14 @@
 # AI 安全每日情报调研与推送 - 全模态自动化流水线
 
-> **版本**: v2.0 | **创建日期**: 2026-03-24 | **最后更新**: 2026-04-14
+> **版本**: v2.1 | **创建日期**: 2026-03-24 | **最后更新**: 2026-04-17
 >
 > **关注领域**: Text-to-Image (T2I) · Multimodal-to-Image (T+I2I) · Text-to-Text (T2T) · Agentic Search
 >
 > **执行时间**: 每日 08:00 (北京时间) | 频率: FREQ=DAILY
 >
 > **数据来源**: ArXiv cs.CR / cs.CL / cs.LG / cs.CV（过去 7 天）
+>
+> **执行前置**: 强制加载 `paper-research` + `pua`；执行结束后必须回写 automation memory 与 `.workbuddy/memory/`
 
 ---
 
@@ -26,18 +28,20 @@
 
 每个模态下包含子类别：
 
-- **papers/** — 所有论文的 6 模块深度精读文档
-- **benchmark/** — 基础评测集、基准测试论文（**动态回填索引，每次新增 Benchmark 类论文时追加**）
-- 论文在 `papers/` 下统一存放，不按 attack/defense/benchmark 拆分子目录
+- **papers/** — 所有论文的 6 模块深度精读文档，也是精确计数的唯一文件源
+- **attack/** — 攻击侧代表性索引与专题导航
+- **defense/** — 防御侧代表性索引与专题导航
+- **benchmark/** — 基础评测集、基准测试论文索引（**动态回填，每次新增 Benchmark 类论文时追加**）
+- `attack/defense/benchmark/` 主要承担导航与专题归档；真正的论文正文统一存放在 `papers/`
 
 ### 1.3 输出产物
 
 | 产物 | 存储位置 | 说明 |
 |------|----------|------|
 | 每日深度情报报告 | `daily-reports/YYYY-MM/YYYY-MM-DD_AI安全每日深度情报.md` | 综合报告（三模态合并） |
-| T2T 精读文档 | `categories/t2t/papers/YYYYMMDD_arxivid_title.md` | 六大模块深度解读 |
-| T2I 精读文档 | `categories/t2i/papers/YYYYMMDD_arxivid_title.md` | 六大模块深度解读 |
-| Agentic 精读文档 | `categories/agentic-search/papers/YYYYMMDD_arxivid_title.md` | 六大模块深度解读 |
+| T2T 精读文档 | `categories/t2t/papers/arxiv_id_slug.md` | 六大模块深度解读（如 `2604.15149_rlvr_hacking.md`） |
+| T2I 精读文档 | `categories/t2i/papers/arxiv_id_slug.md` | 六大模块深度解读（如 `2604.15166_damp.md`） |
+| Agentic 精读文档 | `categories/agentic-search/papers/arxiv_id_slug.md` | 六大模块深度解读（如 `2604.15022_r2a.md`） |
 | T2T Survey | `insights/t2t-survey.md` | T2T 攻防全景（增量更新） |
 | T2I Survey | `insights/t2i-survey.md` | T2I 安全七年演进（增量更新） |
 | Agentic Survey | `insights/agentic-search-survey.md` | Agent 攻防全景（增量更新） |
@@ -56,7 +60,7 @@
                   ▼
 ┌─────────────────────────────────────────────────────────────┐
 │ Step 1: 情报搜索                                             │
-│ - 加载 paper-research skill 获取标准 SOP                     │
+│ - 加载 paper-research + pua 获取标准 SOP 与防摆烂闭环         │
 │ - 搜索 ArXiv 近 7 天 T2T/T2I/Agentic 安全论文                │
 │ - 筛选 4-8 篇高价值目标（排除已收录）                          │
 └─────────────────────────────────────────────────────────────┘
@@ -126,12 +130,16 @@
 │   [ ] 更新「前沿趋势」章节的最新信号                          │
 │   [ ] 刷新文档底部统计行                                      │
 │                                                              │
-│ 6.3 _meta.json 更新                                         │
+│ 6.3 _meta.json 更新                                          │
 │   [ ] last_updated = 今天                                    │
 │   [ ] paper_counts = 各模态精确文件计数                      │
-│   [ ] survey_versions = 各 Survey 当前状态                    │
+│   [ ] survey_versions = 各 Survey 当前状态                   │
 │   [ ] daily_reports.latest = 今日日期                        │
 │   [ ] missing_dates = 检测断档                               │
+│                                                              │
+│ 6.4 WORKFLOW.md 月初自同步                                   │
+│   [ ] 若今天是每月 1 日：核对路径结构、模态列表与当前 Prompt   │
+│   [ ] 若目录或流程已变化：同步更新本文档头部版本与目录结构     │
 └─────────────────────────────────────────────────────────────┘
                   │
                   ▼
@@ -152,6 +160,15 @@
 │ 7.3 失败兜底                                                 │
 │   如果发现输出未遵守 6 模块格式或数据不一致：                  │
 │   → 触发自我反思 → 补救重试 → 直到通过校验                    │
+└─────────────────────────────────────────────────────────────┘
+                  │
+                  ▼
+┌─────────────────────────────────────────────────────────────┐
+│ Step 8: 记忆回写 & 月度自校准 ⭐                               │
+│ - 追加 `.codebuddy/automations/.../memory.md` 执行摘要       │
+│ - 追加 `.workbuddy/memory/YYYY-MM-DD.md` 持久化结果           │
+│ - 如为每月 1 日：同步检查并更新 WORKFLOW.md 与目录结构说明     │
+│ - 回传主日报 / Survey / _meta.json 等核心交付物               │
 └─────────────────────────────────────────────────────────────┘
                   │
                   ▼
@@ -229,21 +246,35 @@ ai-security-daily/
 ├── WORKFLOW.md                        ← 本文档（自动化 SOP）
 ├── _meta.json                         ← 元数据锚点（统一数据源）
 ├── LICENSE
-├── assets/
+├── assets/                            ← 静态资源目录（当前为空）
 ├── fetch_arxiv.py                     ← ArXiv 搜索脚本
 ├── generate_papers.py                 ← 论文生成脚本
 ├── process_papers.py                  ← 论文处理脚本
 ├── update_surveys.py                  ← Survey 更新脚本
 ├── selected_papers.json               ← 已筛选论文记录
 ├── categories/
-│   ├── t2t/                           ← T2T 论文库
-│   │   ├── papers/                    ← 78 篇 6 模块精读
-│   │   └── benchmark/README.md        ← T2T 评测集索引（动态）
-│   ├── t2i/                           ← T2I 论文库
-│   │   ├── papers/                    ← 60 篇 6 模块精读
-│   │   └── benchmark/README.md        ← T2I 评测集索引（动态）
-│   └── agentic-search/                ← Agentic 论文库
-│       └── papers/                    ← 18 篇 6 模块精读
+│   ├── t2t/
+│   │   ├── attack/
+│   │   ├── defense/
+│   │   ├── benchmark/
+│   │   ├── papers/                    ← 84 篇 6 模块精读
+│   │   └── README.md
+│   ├── t2i/
+│   │   ├── attack/
+│   │   ├── defense/
+│   │   ├── benchmark/
+│   │   ├── papers/                    ← 65 篇 6 模块精读
+│   │   └── README.md
+│   ├── agentic-search/
+│   │   ├── attack/
+│   │   ├── defense/
+│   │   ├── benchmark/
+│   │   ├── papers/                    ← 25 篇 6 模块精读
+│   │   └── README.md
+│   ├── i2i/                           ← 早期扩展模态
+│   ├── i2t/                           ← 早期扩展模态
+│   ├── i2v/                           ← 早期扩展模态
+│   └── t2v/                           ← 早期扩展模态
 ├── daily-reports/
 │   └── 2026-04/                       ← 本月日报
 │       └── *_AI安全每日深度情报.md
@@ -313,7 +344,7 @@ assert _meta_json_total == total
 | 总结性文档不更新 | 自动化 Prompt 缺少同步指令 | v2.0 增加 Step 6（Benchmark 回填 + Landscape 更新） |
 | 论文计数漂移 | 无统一数据源，靠 Agent 估计 | v2.0 引入 `_meta.json` 锚点 + Step 5.2 强制精确扫描 |
 | Benchmark 目录僵死 | 只初始化从未回填 | v2.0 Step 6.1：新收录 Benchmark 类论文自动追加 |
-| WORKFLOW 与实际脱节 | 未随架构变更同步更新 | v2.0 全面修订路径和模态描述 |
+| WORKFLOW 与实际脱节 | 未随架构变更同步更新 | v2.1 增加月初自同步规则，并按真实目录/命名规范刷新本文档 |
 | Landscape 过期 | 缺乏触发机制 | v2.0 设定 3 条自动触发规则（新范式 / ≥5篇 / 超7天） |
 | Push 失败无兜底 | 未捕获错误即结束 | v2.0 Step 7.2/7.3：必读 push 结果，失败重试 3 次 |
 
@@ -323,9 +354,10 @@ assert _meta_json_total == total
 
 | 版本 | 日期 | 变更 |
 |------|------|------|
-| **v2.0** | 2026-04-14 | **重大重构**: 新增 Step 6(总结性文档同步) + Step 5.2(精确计数校验) + _meta.json + Agentic 模态 + Benchmark 动态回填 + Landscape 自动触发 |
+| **v2.1** | 2026-04-17 | 修复 README/WORKFLOW 对齐问题：刷新真实目录结构与论文计数、改正 `arxiv_id_slug.md` 命名规范、补入 Step 8（记忆回写与月度自校准）、增加 `paper-research` + `pua` 执行前置 |
+| v2.0 | 2026-04-14 | **重大重构**: 新增 Step 6(总结性文档同步) + Step 5.2(精确计数校验) + _meta.json + Agentic 模态 + Benchmark 动态回填 + Landscape 自动触发 |
 | v1.0 | 2026-03-24 | 初始版：T2T+T2I 双轨，6 步流程，基础 QC 清单 |
 
 ---
 
-*本文档由自动化任务维护 | 版本: v2.0 | 最后更新: 2026-04-14*
+*本文档由自动化任务维护 | 版本: v2.1 | 最后更新: 2026-04-17*

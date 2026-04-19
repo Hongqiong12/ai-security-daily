@@ -2,14 +2,14 @@
 
 文生图扩散模型的安全评测基准、数据集与评估框架论文。
 
-> 最后回填: 2026-04-17 | 共 **11** 条
+> 最后回填: 2026-04-18 | 共 **12** 条
 
 ## 综述与全景
 
 | 论文 | ArXiv | 年份/会议 | 核心创新 |
 |------|-------|----------|----------|
-| AI Security Landscape 2026 | — | 2026 (本项目) | 基于 174 篇论文的宏观安全格局分析（T2T/T2I/Agentic 三模态） |
-| T2I Safety Seven-Year Survey | — | 2026 (本项目) | 文生图安全七年演进：从 DAMP 到 QuAD 的新信号沉淀 |
+| AI Security Landscape 2026 | — | 2026 (本项目) | 基于 180 篇论文的宏观安全格局分析（T2T/T2I/Agentic 三模态） |
+| T2I Safety Seven-Year Survey | — | 2026 (本项目) | 文生图安全七年演进：从 DAMP / Fragile Reconstruction 到 T2I-BiasBench 的新信号沉淀 |
 
 ## 安全评测基准 (Benchmark)
 
@@ -21,6 +21,7 @@
 | AR Watermark Robustness | [2604.11720](https://arxiv.org/abs/2604.11720) | 2026 arXiv | 自回归图像生成水印在 removal / forgery / radioactive filtering 间存在结构性三难 |
 | NTIRE 2026 Challenge | [2604.11487](https://arxiv.org/abs/2604.11487) | 2026 CVPR Workshop | 42 个生成器 + 36 种扰动的真实世界鲁棒 AIGC 检测挑战 |
 | QuAD | [2604.15027](https://arxiv.org/abs/2604.15027) | 2026 CVPR Workshop | 首次把 near-duplicate 传播链与质量感知校准纳入 AIGI 检测，在 ReWIND 上带来约 8 个点 bAcc 提升 |
+| T2I-BiasBench | [2604.12481](https://arxiv.org/abs/2604.12481) | 2026 arXiv | 用 13 指标统一审计 demographic bias、元素遗漏与 cultural collapse，补齐偏见评测维度 |
 
 ## 防御范式代表
 

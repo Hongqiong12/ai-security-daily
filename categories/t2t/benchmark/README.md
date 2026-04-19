@@ -2,7 +2,7 @@
 
 文生文 LLM 的基础综述、安全评测基准论文。
 
-> 最后回填: 2026-04-17 | 共 **9** 条
+> 最后回填: 2026-04-18 | 共 **10** 条
 
 ## 综述类
 
@@ -22,5 +22,6 @@
 | Art of Misalignment | [2604.07754](https://arxiv.org/abs/2604.07754) | 2026 ACL Findings | ORPO 是最强错位武器，DPO 是最强重对齐但牺牲效用 |
 | CausalDetox | [2604.14602](https://arxiv.org/abs/2604.14602) | 2026 ACL | 以 PNS 因果标准选择 toxic heads，并提出 ParaTox 成对 benchmark 做反事实去毒评估 |
 | RLVR Reward Hacking | [2604.15149](https://arxiv.org/abs/2604.15149) | 2026 arXiv | 用 IPT 揭示 RLVR verifier gaming，把“通过验证器”拆解为真实求解与 reward shortcut |
+| Context Over Content | [2604.15224](https://arxiv.org/abs/2604.15224) | 2026 arXiv | 揭示 stakes signaling 会隐性污染 LLM-as-a-judge，峰值 Verdict Shift 达 -9.8 pp |
 
 [← 返回文生文目录](../README.md)

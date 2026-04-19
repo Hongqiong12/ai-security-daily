@@ -1,8 +1,8 @@
 # T2I 文生图安全 Survey：攻防前沿与概念擦除技术演进
 
 > **Survey 类型**: 基于项目论文库的系统性综述（Literature-Grounded Survey）  
-> **数据基础**: 本项目收录的 **65** 篇 T2I 安全论文（2019–2026）
-> **更新日期**: 2026-04-17
+> **数据基础**: 本项目收录的 **67** 篇 T2I 安全论文（2019–2026）
+> **更新日期**: 2026-04-18
 > **关联文档**: [前瞻总览](./AI_Security_Landscape_2026.md) · [T2T Survey](./t2t-survey.md)
 
 ---
@@ -42,7 +42,7 @@
 
 ### 1.2 研究规模与分布
 
-截至 2026-04-17，本 Survey 锚定本项目已收录的 **65** 篇 T2I 安全论文。当前 T2I 安全版图已经不再是“越狱 vs 过滤器”的单线叙事，而是至少分裂成三条强主线：
+截至 2026-04-18，本 Survey 锚定本项目已收录的 **67** 篇 T2I 安全论文。当前 T2I 安全版图已经不再是“越狱 vs 过滤器”的单线叙事，而是至少分裂成三条强主线：
 
 - **概念擦除 / 机器遗忘**：从权重微调走向 closed-form projection、depth-aware removal 与 activation-level intervention；
 - **现实世界评测**：从 clean setting 转向 robustness-in-the-wild、near-duplicate 传播链、质量退化与伪造链路；
@@ -357,6 +357,13 @@ subject to  L_retain(C') ≤ ε  # 保留其他概念 C' 的生成质量
 - 再用单类边界学习拟合 benign response space，把后门样本看成被 scaling 放大的异常点；
 - 在 5 类主流后门攻击上取得 **95.1% AUROC / 84.8% ACC**，对 IBA 这种隐式触发器仍保持 **92.9% AUROC**，明显优于依赖表面异常的旧方法。
 
+### 4.5 重建式检测器的对抗脆弱性：检测器也会成为攻击目标 (2026-04-18 新增)
+
+**Fragile Reconstruction**（[2604.12781](https://arxiv.org/abs/2604.12781)）把 AIGC 检测研究又往前推了一层：
+- **核心机制**：统一攻击 DIRE、LaRE2、AEROBLADE 三类 reconstruction-based detector，直接针对其“输入 → 重建误差 → 分类”链路做可微对抗优化；
+- **关键结果**：白盒下大多数设置的 robust accuracy 几乎压到 **0%**，跨生成器 / 跨方法迁移后准确率也常塌到 **≈50%**，基本等于随机猜；
+- **意义**：这说明 T2I 安全的真实问题已经不只是“有没有 detector”，而是**detector 自身是否足够抗攻击**。如果检测器赖以判别的重建残差信号本身低信噪比，那么整个 AIGC 治理链路会被系统性击穿。
+
 ---
 
 ## 5. 水印保护：内容归属与版权防护
@@ -450,7 +457,14 @@ T2I 水印研究围绕三个核心应用场景：
 - **关键结果**：在 ReWIND 基准上把平衡准确率从 **63.0** 提升到 **70.3**，把检测器从“识别生成痕迹”推进到“识别分发链路中的痕迹衰减”；
 - **意义**：这说明 T2I benchmark 正在从“生成器闭集分类”转向“开放传播环境中的鲁棒鉴别”，与 NTIRE 2026 一起构成现实部署检测的新双支点。
 
-### 6.3 评测维度与指标
+### 6.3 多维偏见审计：从 demographic parity 走向 cultural collapse (2026-04-18 新增)
+
+**T2I-BiasBench**（[2604.12481](https://arxiv.org/abs/2604.12481)）把 T2I benchmark 的边界明显拓宽了：
+- **核心机制**：不再只测“某类人出现比例是否均衡”，而是用 **13 个指标** 同时审计 demographic bias、元素遗漏、文化准确性与文化广度；
+- **关键发现**：SD v1.5 在 Beauty prompt 上 White 占比 **74%**、Fair skin 占比 **97%**、Bias Amplification **>1**，而 Gemini 虽缓解了部分 demographic 偏差，却仍出现明显 cultural collapse；
+- **意义**：这说明未来的 T2I 安全基准不能只围绕 NSFW / jailbreak / AIGC detection 展开，还必须把**偏见与文化治理**纳入同一套可量化评测框架。
+
+### 6.4 评测维度与指标
 
 基于本项目论文收录，T2I 安全评测主要使用以下指标：
 
@@ -616,6 +630,7 @@ Flux 和 SD3 已经成为 2025–2026 年的主流 T2I 架构，但截至本 Sur
 | Modifier Unlocked | [11023413](https://arxiv.org/abs/11023413) | 2025 | 越狱 | 提示词修饰词越狱 |
 | Hidden Ads | [2603.27522](https://arxiv.org/abs/2603.27522) | 2026 | 后门/广告注入 | 语义行为触发VLM后门，广告植入 |
 | SHIFT | [2603.29742](https://arxiv.org/abs/2603.29742) | 2026 | 水印攻击 | 无训练随机轨迹偏转破除扩散水印 |
+| Fragile Reconstruction | [2604.12781](https://arxiv.org/abs/2604.12781) | 2026 | 检测器攻击 | 重建式 AIGC detector 在对抗扰动下白盒近乎归零、黑盒迁移塌到随机猜 (NEW) |
 
 ### 概念擦除/机器遗忘类（代表性选摘）
 
@@ -676,9 +691,10 @@ Flux 和 SD3 已经成为 2025–2026 年的主流 T2I 架构，但截至本 Sur
 | SALMUBench | [2603.26316](https://arxiv.org/abs/2603.26316) | CVPR 2026 | 多模态关联级遗忘基准 |
 | NTIRE 2026 Robust AIGC Detection | [2604.11487](https://arxiv.org/abs/2604.11487) | CVPR 2026 Workshop | 现实世界鲁棒 AIGC 检测基准 (NEW) |
 | QuAD | [2604.15027](https://arxiv.org/abs/2604.15027) | CVPR 2026 Workshop | near-duplicate + 质量感知校准的开放链路 AIGC 检测 (NEW) |
+| T2I-BiasBench | [2604.12481](https://arxiv.org/abs/2604.12481) | 2026 | demographic bias + 元素遗漏 + cultural collapse 的 13 指标统一审计框架 (NEW) |
 
 ---
 
-*本 Survey 由 `paper-research` skill 自动生成，基于项目截至 2026-04-17 收录的 T2I 论文（65 篇）。*  
-*上次 Survey 更新：2026-04-17（新增 3 篇：2604.12446 Scaling Exposes the Trigger、2604.15027 QuAD、2604.15166 DAMP）。*  
+*本 Survey 由 `paper-research` skill 自动生成，基于项目截至 2026-04-18 收录的 T2I 论文（67 篇）。*  
+*上次 Survey 更新：2026-04-18（新增 2 篇：2604.12781 Fragile Reconstruction、2604.12481 T2I-BiasBench）。*  
 *下次更新时间：跟随每日自动化任务实时更新。*
