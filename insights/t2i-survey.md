@@ -1,15 +1,15 @@
 # T2I 文生图安全 Survey：攻防前沿与概念擦除技术演进
 
 > **Survey 类型**: 基于项目论文库的系统性综述（Literature-Grounded Survey）  
-> **数据基础**: 本项目收录的 **67** 篇 T2I 安全论文（2019–2026）
-> **更新日期**: 2026-04-18
+> **数据基础**: 本项目收录的 **69** 篇 T2I 安全论文（2019–2026）
+> **更新日期**: 2026-04-20
 > **关联文档**: [前瞻总览](./AI_Security_Landscape_2026.md) · [T2T Survey](./t2t-survey.md)
 
 ---
 
 ## 摘要
 
-文生图（Text-to-Image, T2I）安全研究以扩散模型为核心战场，形成了三个相互缠绕的研究主线：**越狱攻击**（如何绕过内容安全过滤器生成违禁图像）、**概念擦除/机器遗忘**（如何从模型参数中移除有害概念的表示）、**水印与溯源**（如何标记并追踪模型生成的内容）。本 Survey 基于本项目持续收录的 T2I 论文，完整梳理了从 GAN 时代到扩散模型时代的 T2I 安全演进，揭示了概念擦除技术从全局擦除向精准定位神经元、解析几何投影与运行时优化三路分化的演进路线，以及攻击方法从人工设计向 LLM 辅助自动化与现实场景鲁棒评测的转变。
+文生图（Text-to-Image, T2I）安全研究以扩散模型为核心战场，形成了三个相互缠绕的研究主线：**越狱攻击**（如何绕过内容安全过滤器生成违禁图像）、**概念擦除/机器遗忘**（如何从模型参数中移除有害概念的表示）、**水印与溯源**（如何标记并追踪模型生成的内容）。本 Survey 基于本项目持续收录的 T2I 论文，完整梳理了从 GAN 时代到扩散模型时代的 T2I 安全演进，揭示了概念擦除技术从全局擦除向精准定位神经元、解析几何投影、**图文协同精准擦除**与运行时优化多路分化的演进路线，以及攻击方法从人工设计向 LLM 辅助自动化、**组合语义风险评测**与现实场景鲁棒评测的转变。
 
 ---
 
@@ -42,7 +42,7 @@
 
 ### 1.2 研究规模与分布
 
-截至 2026-04-18，本 Survey 锚定本项目已收录的 **67** 篇 T2I 安全论文。当前 T2I 安全版图已经不再是“越狱 vs 过滤器”的单线叙事，而是至少分裂成三条强主线：
+截至 2026-04-20，本 Survey 锚定本项目已收录的 **69** 篇 T2I 安全论文。当前 T2I 安全版图已经不再是“越狱 vs 过滤器”的单线叙事，而是至少分裂成三条强主线：
 
 - **概念擦除 / 机器遗忘**：从权重微调走向 closed-form projection、depth-aware removal 与 activation-level intervention；
 - **现实世界评测**：从 clean setting 转向 robustness-in-the-wild、near-duplicate 传播链、质量退化与伪造链路；
@@ -299,6 +299,13 @@ subject to  L_retain(C') ≤ ε  # 保留其他概念 C' 的生成质量
 - **关键结果**：论文报告在绝大多数设置下都能把 Forget Accuracy 压到接近 **0**，同时把保留类性能损失压在较低水平，说明 class-level forgetting 可以不再依赖大规模重训；
 - **意义**：这条线本质上把 concept erasure 进一步细化成“**层深相关的方向清除**”，与 Closed-Form DP 的解析投影路线形成互补，也和你长期关注的低秩/子空间弱点问题直接相关。
 
+### 3.12 图文协同精准擦除：从“删掉概念”走向“少误伤地删掉概念” (2026-04-20 新增)
+
+**TICoE**（[2604.15829](https://arxiv.org/abs/2604.15829)）把概念擦除推进到了一个很关键但此前经常被忽略的目标：**精确保留相近无害概念**。
+- **核心机制**：文本侧用 CCCM 在 prompt bank 的凸包内采样，覆盖目标概念的语义变体；视觉侧用 HVRL 汇聚多尺度 latent token，区分真正的目标概念与只是形态相近的对象；
+- **关键结果**：在 gun 擦除上做到 **ASR 0.00 / UDA 0.02 / P4D 0.04**，同时把 camera 的 MCP 保到 **92.06%**；
+- **意义**：它说明 T2I 防御开始从“能不能擦除”转向“能不能在图文双模态约束下擦得准、擦得稳、少误伤”。这对你持续关注的 concept erasure 主线非常关键，因为它把 preservation 从软目标提升成了一等研究对象。
+
 ---
 
 ## 4. 前处理防御：过滤器与提示词检测
@@ -464,7 +471,14 @@ T2I 水印研究围绕三个核心应用场景：
 - **关键发现**：SD v1.5 在 Beauty prompt 上 White 占比 **74%**、Fair skin 占比 **97%**、Bias Amplification **>1**，而 Gemini 虽缓解了部分 demographic 偏差，却仍出现明显 cultural collapse；
 - **意义**：这说明未来的 T2I 安全基准不能只围绕 NSFW / jailbreak / AIGC detection 展开，还必须把**偏见与文化治理**纳入同一套可量化评测框架。
 
-### 6.4 评测维度与指标
+### 6.4 组合语义不安全：Benchmark 开始进入 Multi-Concept 风险区 (2026-04-20 新增)
+
+**TwoHamsters**（[2604.15967](https://arxiv.org/abs/2604.15967)）把 T2I benchmark 又往前推进了一步：
+- **核心机制**：不再只问“单个危险概念能否被拦住”，而是形式化 **MCCU（Multi-Concept Compositional Unsafety）**，研究“两个单独安全的概念组合后是否会产生不安全语义”；
+- **关键结果**：在 **17.5k prompts / 5.8k 高风险场景 / 51 个概念对** 的基准上，FLUX 的 MCCU 成功率高达 **99.52%**，LLaVA-Guard 的 Recall 仅 **41.06%**，SD Safety Checker 近乎 **0.00**；
+- **意义**：这说明未来 T2I 安全不能再把风险理解成“显式违禁词或显式 NSFW 图像”，而要把**组合语义关系**本身纳入 benchmark 与防御设计。
+
+### 6.5 评测维度与指标
 
 基于本项目论文收录，T2I 安全评测主要使用以下指标：
 
@@ -651,6 +665,7 @@ Flux 和 SD3 已经成为 2025–2026 年的主流 T2I 架构，但截至本 Sur
 | Z-Erase | [2603.25074](https://arxiv.org/abs/2603.25074) | 2026 | 单流 DiT 专用擦除 |
 | Closed-Form DP | [2604.10032](https://arxiv.org/abs/2604.10032) | 2026 | 双投影闭式擦除 (NEW) |
 | DAMP | [2604.15166](https://arxiv.org/abs/2604.15166) | 2026 | 深度感知类遗忘：分层移除 forget-specific directions 的 one-shot class unlearning (NEW) |
+| TICoE | [2604.15829](https://arxiv.org/abs/2604.15829) | 2026 | 图文协同精准擦除：CCCM + HVRL 在强擦除下显著降低相近概念误伤 (NEW) |
 | SafeCtrl | [2604.03941](https://arxiv.org/abs/2604.03941) | 2026 | 区域擦除：Detect-Then-Suppress DPO 局部替换 |
 
 ### 前处理/过滤防御类（代表性选摘）
@@ -692,9 +707,10 @@ Flux 和 SD3 已经成为 2025–2026 年的主流 T2I 架构，但截至本 Sur
 | NTIRE 2026 Robust AIGC Detection | [2604.11487](https://arxiv.org/abs/2604.11487) | CVPR 2026 Workshop | 现实世界鲁棒 AIGC 检测基准 (NEW) |
 | QuAD | [2604.15027](https://arxiv.org/abs/2604.15027) | CVPR 2026 Workshop | near-duplicate + 质量感知校准的开放链路 AIGC 检测 (NEW) |
 | T2I-BiasBench | [2604.12481](https://arxiv.org/abs/2604.12481) | 2026 | demographic bias + 元素遗漏 + cultural collapse 的 13 指标统一审计框架 (NEW) |
+| TwoHamsters | [2604.15967](https://arxiv.org/abs/2604.15967) | 2026 | multi-concept compositional unsafety 基准，系统揭示组合语义风险与过滤器失效 (NEW) |
 
 ---
 
-*本 Survey 由 `paper-research` skill 自动生成，基于项目截至 2026-04-18 收录的 T2I 论文（67 篇）。*  
-*上次 Survey 更新：2026-04-18（新增 2 篇：2604.12781 Fragile Reconstruction、2604.12481 T2I-BiasBench）。*  
+*本 Survey 由 `paper-research` skill 自动生成，基于项目截至 2026-04-20 收录的 T2I 论文（69 篇）。*  
+*上次 Survey 更新：2026-04-20（新增 2 篇：2604.15829 TICoE、2604.15967 TwoHamsters）。*  
 *下次更新时间：跟随每日自动化任务实时更新。*
