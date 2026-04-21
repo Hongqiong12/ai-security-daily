@@ -2,7 +2,7 @@
 
 文生文 LLM 的基础综述、安全评测基准论文。
 
-> 最后回填: 2026-04-18 | 共 **10** 条
+> 最后回填: 2026-04-21 | 共 **11** 条
 
 ## 综述类
 
@@ -23,5 +23,6 @@
 | CausalDetox | [2604.14602](https://arxiv.org/abs/2604.14602) | 2026 ACL | 以 PNS 因果标准选择 toxic heads，并提出 ParaTox 成对 benchmark 做反事实去毒评估 |
 | RLVR Reward Hacking | [2604.15149](https://arxiv.org/abs/2604.15149) | 2026 arXiv | 用 IPT 揭示 RLVR verifier gaming，把“通过验证器”拆解为真实求解与 reward shortcut |
 | Context Over Content | [2604.15224](https://arxiv.org/abs/2604.15224) | 2026 arXiv | 揭示 stakes signaling 会隐性污染 LLM-as-a-judge，峰值 Verdict Shift 达 -9.8 pp |
+| Offensive Cyber Benchmark | [2604.17159](https://arxiv.org/abs/2604.17159) | 2026 arXiv | 用 NYU CTF Bench + Kali 工具环境系统评测 frontier LLM agent，证明环境与工具可发现性比大多数 prompt trick 更关键 |
 
 [← 返回文生文目录](../README.md)

@@ -42,7 +42,7 @@
 
 ### 1.2 研究规模与分布
 
-截至 2026-04-20，本 Survey 锚定本项目已收录的 **69** 篇 T2I 安全论文。当前 T2I 安全版图已经不再是“越狱 vs 过滤器”的单线叙事，而是至少分裂成三条强主线：
+截至 2026-04-21，本 Survey 锚定本项目已收录的 **71** 篇 T2I 安全论文。当前 T2I 安全版图已经不再是“越狱 vs 过滤器”的单线叙事，而是至少分裂成三条强主线：
 
 - **概念擦除 / 机器遗忘**：从权重微调走向 closed-form projection、depth-aware removal 与 activation-level intervention；
 - **现实世界评测**：从 clean setting 转向 robustness-in-the-wild、near-duplicate 传播链、质量退化与伪造链路；
@@ -478,7 +478,21 @@ T2I 水印研究围绕三个核心应用场景：
 - **关键结果**：在 **17.5k prompts / 5.8k 高风险场景 / 51 个概念对** 的基准上，FLUX 的 MCCU 成功率高达 **99.52%**，LLaVA-Guard 的 Recall 仅 **41.06%**，SD Safety Checker 近乎 **0.00**；
 - **意义**：这说明未来 T2I 安全不能再把风险理解成“显式违禁词或显式 NSFW 图像”，而要把**组合语义关系**本身纳入 benchmark 与防御设计。
 
-### 6.5 评测维度与指标
+### 6.5 奖励模型偏置：评分函数本身正在成为安全治理对象 (2026-04-21 新增)
+
+**Bias at the End of the Score**（[2604.13305](https://arxiv.org/abs/2604.13305)）把 T2I 评测的控制点进一步往上游推了一层：
+- **核心机制**：不只比较生成结果，而是直接审计 reward models 在优化层和评分层是否稳定偏向特定 race / gender，并观察 reward-guided optimization 是否会诱发 demographic drift 与 hypersexualization；
+- **关键结果**：PickScore 会让女性主体的 NSFW rate 平均增加 **19%**（男性仅 **7%**），ImageReward / HPS 会让非 White 主体向 White 的转移比例达到 **76.1% / 89.2%**；
+- **意义**：这说明未来 T2I 安全不能只审计生成器，还必须审计**评分器是否中立**。如果 reward model 本身带偏，那么任何 best-of-N、RLHF-style optimization 或 post-filtering 都可能把偏见系统性放大。
+
+### 6.6 公平性操作化：从 fairness claim 走向 threshold-level benchmark (2026-04-21 新增)
+
+**Operationalizing Fairness in Text-to-Image Models**（[2604.16516](https://arxiv.org/abs/2604.16516)）则从综述和框架层面重写了 fairness benchmark 的验收逻辑：
+- **核心机制**：把现有文献统一进 **Demographic Parity / Proportional Representation / Performance Parity** 三类目标，并提出 **Target Fairness vs Threshold Fairness** 区分；
+- **关键结果**：作者梳理文献后指出，在职业分布对齐实验里，只有 **8/43** 个 occupations 落在现实统计的 **±5%** 容忍带内，而大量工作根本没有定义 acceptance threshold；
+- **意义**：这说明 T2I fairness 研究下一步的关键不是再报更多 gap，而是把 fairness 变成**带容忍带、带不确定性、可做 pass/fail 判断**的部署级 benchmark。
+
+### 6.7 评测维度与指标
 
 基于本项目论文收录，T2I 安全评测主要使用以下指标：
 
@@ -711,6 +725,6 @@ Flux 和 SD3 已经成为 2025–2026 年的主流 T2I 架构，但截至本 Sur
 
 ---
 
-*本 Survey 由 `paper-research` skill 自动生成，基于项目截至 2026-04-20 收录的 T2I 论文（69 篇）。*  
-*上次 Survey 更新：2026-04-20（新增 2 篇：2604.15829 TICoE、2604.15967 TwoHamsters）。*  
+*本 Survey 由 `paper-research` skill 自动生成，基于项目截至 2026-04-21 收录的 T2I 论文（71 篇）。*  
+*上次 Survey 更新：2026-04-21（新增 2 篇：2604.13305 Bias at the End of the Score、2604.16516 Operationalizing Fairness in T2I Models）。*  
 *下次更新时间：跟随每日自动化任务实时更新。*
