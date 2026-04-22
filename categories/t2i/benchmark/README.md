@@ -2,7 +2,8 @@
 
 文生图扩散模型的安全评测基准、数据集与评估框架论文。
 
-> 最后回填: 2026-04-21 | 共 **15** 条
+> 最后回填: 2026-04-22 | 共 **18** 条
+> 延伸索引: [《T2I 安全 Benchmark 短名单（2026 年前高引用版）》](../../../insights/t2i-benchmark-shortlist-pre2026.md)
 
 ## 综述与全景
 
@@ -14,9 +15,14 @@
 
 ## 安全评测基准 (Benchmark)
 
+> 说明：**JailbreakBench** 已从本表移出，因为它本质是 LLM jailbreak benchmark，不属于 T2I benchmark。
+
 | 论文 | ArXiv | 年份/会议 | 核心创新 |
 |------|-------|----------|----------|
-| JailbreakBench | [2404.01318](https://arxiv.org/abs/2404.01318) | 2024 NeurIPS | 标准化越狱攻击评测基准，覆盖多种 LLM/T2I 模型 |
+| HRS-Bench | [2304.05390](https://arxiv.org/abs/2304.05390) | 2023 ICCV | Holistic / Reliable / Scalable 三位一体的 T2I 综合评测框架，覆盖 50 类应用与多维能力指标 |
+| HEIM (Holistic Evaluation) | [2311.04287](https://arxiv.org/abs/2311.04287) | 2023 NeurIPS Datasets & Benchmarks | 把质量、对齐与 bias / toxicity / fairness / robustness 纳入统一 T2I holistic evaluation |
+| UnsafeBench | [2405.03486](https://arxiv.org/abs/2405.03486) | 2024 arXiv | 面向真实图像与 AI 生成图像的 image safety classifier 评测框架，代表生成后审核安全基准 |
+| T2ISafety | [2501.12612](https://arxiv.org/abs/2501.12612) | 2025 CVPR | 系统覆盖 fairness / toxicity / privacy 的 T2I 安全专项 benchmark |
 | SALMUBench | [2603.26316](https://arxiv.org/abs/2603.26316) | 2026 CVPR | Safe Unlearning 统一基准，支持概念擦除方法对比 |
 | BPO-Verify | [2603.26328](https://arxiv.org/abs/2603.26328) | 2026 CVPR | 模型身份验证基准，检测生成内容是否来自目标模型 |
 | AR Watermark Robustness | [2604.11720](https://arxiv.org/abs/2604.11720) | 2026 arXiv | 自回归图像生成水印在 removal / forgery / radioactive filtering 间存在结构性三难 |
