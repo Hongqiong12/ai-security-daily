@@ -1,8 +1,8 @@
 # T2I 文生图安全 Survey：攻防前沿与概念擦除技术演进
 
 > **Survey 类型**: 基于项目论文库的系统性综述（Literature-Grounded Survey）  
-> **数据基础**: 本项目收录的 **71** 篇 T2I 安全论文（2019–2026）
-> **更新日期**: 2026-04-21
+> **数据基础**: 本项目收录的 **74** 篇 T2I 安全论文（2019–2026）
+> **更新日期**: 2026-04-22
 > **关联文档**: [前瞻总览](./AI_Security_Landscape_2026.md) · [T2T Survey](./t2t-survey.md)
 
 ---
@@ -42,13 +42,14 @@
 
 ### 1.2 研究规模与分布
 
-截至 2026-04-21，本 Survey 锚定本项目已收录的 **71** 篇 T2I 安全论文。当前 T2I 安全版图已经不再是“越狱 vs 过滤器”的单线叙事，而是至少分裂成三条强主线：
+截至 2026-04-22，本 Survey 锚定本项目已收录的 **74** 篇 T2I 安全论文。当前 T2I 安全版图已经不再是“越狱 vs 过滤器”的单线叙事，而是至少分裂成四条强主线：
 
 - **概念擦除 / 机器遗忘**：从权重微调走向 closed-form projection、depth-aware removal 与 activation-level intervention；
 - **现实世界评测**：从 clean setting 转向 robustness-in-the-wild、near-duplicate 传播链、质量退化与伪造链路；
-- **模型生命周期治理**：后门检测、身份验证、水印鲁棒性、开源再微调稳定性开始一起进入主战场。
+- **模型生命周期治理**：后门检测、身份验证、水印鲁棒性、开源再微调稳定性开始一起进入主战场；
+- **上游控制与 provenance**：推理时 embedding editing、增量 attribution 与双通道 watermark/provenance 开始形成独立治理层。
 
-从时间分布看，研究主体仍高度集中在 **2022–2026 的扩散模型时代**；而 2026 年的新论文尤其突出两个趋势：一是 concept erasure 的解析化/结构化，二是 AIGC 检测开始真正面向真实分发链路而非实验室 clean benchmark。
+从时间分布看，研究主体仍高度集中在 **2022–2026 的扩散模型时代**；而 2026 年的新论文尤其突出三个趋势：一是 concept erasure 的解析化/结构化，二是 AIGC 检测开始真正面向真实分发链路而非实验室 clean benchmark，三是 fairness / attribution / provenance 正逐步前移到 inference-time control 与 deployment-time verification。
 
 ---
 
@@ -437,6 +438,14 @@ T2I 水印研究围绕三个核心应用场景：
 - **对 BitMark**：常规 removal 很难，但一旦攻击者转向 bit-level removal 或频域伪造，系统会暴露新的脆弱性；更严重的是，若把检测阈值调低以支持 radioactive data filtering，又会明显放大 forgery 通过率。
 - **意义**：这意味着 T2I 安全的来源证明体系不能只看“是否带 watermark”，而必须进一步思考 watermark 自身是否会反过来污染数据治理链路。对于开放式生成生态，这是一条非常值得持续追踪的新研究线。
 
+### 5.7 双通道 provenance 与篡改定位：水印开始从“可验证”走向“可取证” (2026-04-22 新增)
+
+**Dual-Guard**（[2604.19090](https://arxiv.org/abs/2604.19090)）把 T2I 水印又往前推进了一大步：
+
+- **核心机制**：不是只在单一空间埋一个 watermark，而是同时在扩散初始噪声 **z_T** 中嵌入 Gaussian Shading 指纹，在 VAE latent **z_0** 中嵌入可纠错残差码，形成生成起点与解码结果的双通道绑定；
+- **关键结果**：论文报告 provenance verification accuracy 达到 **99.5%+**，latent fingerprint extraction accuracy 达 **89.19%**，同时还能在 block 级别定位局部篡改区域；
+- **意义**：这说明 T2I 来源证明正在从“能不能证明图像来自模型”升级为“能不能在被编辑后继续证明其来源、并指出改了哪里”。对真实平台治理而言，这比传统单 bit watermark 更接近可落地的 forensics primitive。
+
 ## 6. 基准评测
 
 ### 6.1 T2I 安全专用 Benchmark
@@ -492,7 +501,23 @@ T2I 水印研究围绕三个核心应用场景：
 - **关键结果**：作者梳理文献后指出，在职业分布对齐实验里，只有 **8/43** 个 occupations 落在现实统计的 **±5%** 容忍带内，而大量工作根本没有定义 acceptance threshold；
 - **意义**：这说明 T2I fairness 研究下一步的关键不是再报更多 gap，而是把 fairness 变成**带容忍带、带不确定性、可做 pass/fail 判断**的部署级 benchmark。
 
-### 6.7 评测维度与指标
+### 6.7 推理时嵌入算术去偏：fairness 治理开始进入 inference-time control (2026-04-22 新增)
+
+**Embedding Arithmetic for Fairer T2I Generation**（[2604.18167](https://arxiv.org/abs/2604.18167)）提供了一条和重训完全不同的公平性治理路线：
+
+- **核心机制**：先在文本编码空间中估计 gender / race / age 等属性方向，再通过 embedding arithmetic 直接编辑 prompt representation，而不改模型权重；
+- **关键指标**：论文重点报告 **H_g / H_r / CCS** 三类指标，分别刻画性别熵、种族熵与 cross-category consistency，用来衡量“去偏后是否只是把偏见换了一种形式藏起来”；
+- **意义**：这说明 T2I fairness 开始从“训练一个更公平的模型”扩展到“在推理时做最小侵入控制”。对于 FLUX、SD3.5-Large 这类闭源或难以重训的主线模型，这条路线尤其现实。
+
+### 6.8 增量归因与开放集生成器识别：AIGC attribution 开始贴近真实生态 (2026-04-22 新增)
+
+**IncreFA**（[2604.17736](https://arxiv.org/abs/2604.17736)）把 T2I attribution 从静态闭集问题改写成持续演化问题：
+
+- **核心机制**：随着新生成器不断出现，归因模型不能每来一个模型就从头训练；IncreFA 用 replay + fine-grained / coarse-grained constraints + open-set regularization 保持旧知识并接纳新模型；
+- **基准贡献**：配套提出 **IABench**，同时报告 **Avg. Acc. / Auth. Acc. / Unseen Acc.**，把“已知生成器识别”和“未知生成器拒识”放到同一张成绩单上；
+- **意义**：这说明 T2I benchmark 正从“闭集模型分类”转向“开放生态中的 attribution lifecycle management”。在真实平台里，这比单次闭集识别更接近治理需求。
+
+### 6.9 评测维度与指标
 
 基于本项目论文收录，T2I 安全评测主要使用以下指标：
 
@@ -704,6 +729,7 @@ Flux 和 SD3 已经成为 2025–2026 年的主流 T2I 架构，但截至本 Sur
 | Modular LoRA | [2412.00357](https://arxiv.org/abs/2412.00357) | 2024 | 模块化安全适配器 |
 | SAEUron | [2501.18052](https://arxiv.org/abs/2501.18052) | 2025 | SAE 神经元水印 |
 | RobustWatermark | [2604.06662](https://arxiv.org/abs/2604.06662) | 2026 | 双重鲁棒频域水印 |
+| Dual-Guard | [2604.19090](https://arxiv.org/abs/2604.19090) | 2026 | 双通道 provenance + tamper localization 水印 (NEW) |
 | FRAP | [2408.11706](https://arxiv.org/abs/2408.11706) | 2024 | 鲁棒提示自适应水印 |
 
 ### 基准/多模态（代表性选摘）
@@ -722,9 +748,11 @@ Flux 和 SD3 已经成为 2025–2026 年的主流 T2I 架构，但截至本 Sur
 | QuAD | [2604.15027](https://arxiv.org/abs/2604.15027) | CVPR 2026 Workshop | near-duplicate + 质量感知校准的开放链路 AIGC 检测 (NEW) |
 | T2I-BiasBench | [2604.12481](https://arxiv.org/abs/2604.12481) | 2026 | demographic bias + 元素遗漏 + cultural collapse 的 13 指标统一审计框架 (NEW) |
 | TwoHamsters | [2604.15967](https://arxiv.org/abs/2604.15967) | 2026 | multi-concept compositional unsafety 基准，系统揭示组合语义风险与过滤器失效 (NEW) |
+| Embedding Arithmetic | [2604.18167](https://arxiv.org/abs/2604.18167) | 2026 | inference-time debiasing：用 H_g / H_r / CCS 审计 embedding editing 的公平性收益 (NEW) |
+| IncreFA | [2604.17736](https://arxiv.org/abs/2604.17736) | 2026 | 增量归因与 IABench：把生成器 attribution 推进到 open-set / continual setting (NEW) |
 
 ---
 
-*本 Survey 由 `paper-research` skill 自动生成，基于项目截至 2026-04-21 收录的 T2I 论文（71 篇）。*  
-*上次 Survey 更新：2026-04-21（新增 2 篇：2604.13305 Bias at the End of the Score、2604.16516 Operationalizing Fairness in T2I Models）。*  
+*本 Survey 由 `paper-research` skill 自动生成，基于项目截至 2026-04-22 收录的 T2I 论文（74 篇）。*  
+*上次 Survey 更新：2026-04-22（新增 3 篇：2604.17736 IncreFA、2604.18167 Embedding Arithmetic、2604.19090 Dual-Guard）。*  
 *下次更新时间：跟随每日自动化任务实时更新。*

@@ -9,11 +9,11 @@
   <a href="https://img.shields.io/badge/Reports-Today-blue.svg">
     <img src="https://img.shields.io/badge/Reports-Today-blue.svg" alt="Reports Today"/>
   </a>
-  <a href="https://img.shields.io/badge/Papers-192-green.svg">
-    <img src="https://img.shields.io/badge/Papers-192-green.svg" alt="Total Papers"/>
+  <a href="https://img.shields.io/badge/Papers-198-green.svg">
+    <img src="https://img.shields.io/badge/Papers-198-green.svg" alt="Total Papers"/>
   </a>
-  <a href="https://img.shields.io/badge/Last-Update-2026--04--21-orange.svg">
-    <img src="https://img.shields.io/badge/Last-Update-2026--04--21-orange.svg" alt="Last Update"/>
+  <a href="https://img.shields.io/badge/Last-Update-2026--04--22-orange.svg">
+    <img src="https://img.shields.io/badge/Last-Update-2026--04--22-orange.svg" alt="Last Update"/>
   </a>
   <a href="https://github.com/ageisliu/ai-security-daily/stargazers">
     <img src="https://img.shields.io/github/stars/ageisliu/ai-security-daily.svg?style=social&label=Star" alt="GitHub stars"/>
@@ -22,18 +22,18 @@
 
 ---
 
-## 🔥 今日最具破坏力论文评测 (2026-04-21)
+## 🔥 今日最具破坏力论文评测 (2026-04-22)
 
 > **为什么要关注本仓库？** 每天 08:00，我们的自动化 Agent 会拦截 ArXiv 最新 AI 安全论文，不仅提取摘要，更执行**端到端深度解读（攻击原理、实验复现、防御建议）**。
 
 | 核心威胁领域 | 🚨 破局级论文推荐 | 一句话快评 | 深度拆解 |
 |---|---|---|---|
-| **T2I (评分函数治理)** | [Bias at the End of the Score](./categories/t2i/papers/2604.13305_bias_at_the_end_of_the_score.md) | 证明 reward model 本身会放大 demographic bias、hypersexualization 与身份漂移，评分器正式成为安全治理对象。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-21_AI安全每日深度情报.md) |
-| **T2I (阈值化公平)** | [Operationalizing Fairness in T2I Models](./categories/t2i/papers/2604.16516_t2i_fairness_survey.md) | 首次系统区分 Target Fairness 与 Threshold Fairness，把 fairness benchmark 从研究诊断推进到部署门槛。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-21_AI安全每日深度情报.md) |
-| **T2T (持续安全对齐)** | [Continual Safety Alignment](./categories/t2t/papers/2604.17215_continual_safety_alignment.md) | 证明 benign 数据中的 high-gradient 样本就足以拖垮 alignment，持续微调的风险点是样本级对齐漂移。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-21_AI安全每日深度情报.md) |
-| **T2T (工具环境基准)** | [Offensive Cyber Benchmark](./categories/t2t/papers/2604.17159_offensive_cyber_benchmark.md) | 用 NYU CTF Bench + Kali 环境证明：工具链与可发现性比大多数 prompt trick 更决定 offensive cyber agent 表现。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-21_AI安全每日深度情报.md) |
-| **Agentic (MCP 级联防线)** | [CASCADE](./categories/agentic-search/papers/2604.17125_cascade.md) | 把 prompt injection、tool poisoning、data exfiltration 串成一条协议防线，在低误报前提下给出本地可部署 baseline。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-21_AI安全每日深度情报.md) |
-| **Agentic (长期记忆投毒)** | [Visual Inception](./categories/agentic-search/papers/2604.16966_visual_inception.md) | 证明一张看似正常的图片也能潜伏进长期记忆，并在未来规划阶段把 agent 目标系统性带偏。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-21_AI安全每日深度情报.md) |
+| **T2I (双通道溯源水印)** | [Dual-Guard](./categories/t2i/papers/2604.19090_dual_guard.md) | 把扩散起点与 VAE latent 同时变成可验证指纹，首次把 provenance、篡改定位与画质保持做成一体化方案。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-22_AI安全每日深度情报.md) |
+| **T2I (推理时去偏)** | [Embedding Arithmetic](./categories/t2i/papers/2604.18167_embedding_arithmetic.md) | 不改模型权重，只在文本嵌入空间做属性向量算术，就能显著压低 gender/race 偏置，说明 fairness 治理开始进入 inference-time control。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-22_AI安全每日深度情报.md) |
+| **T2I (增量归因评测)** | [IncreFA](./categories/t2i/papers/2604.17736_increfa.md) | 把生成器归因从闭集分类推进到 incremental open-set setting，并配套 IABench，让 attribution 真正贴近模型持续演化现实。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-22_AI安全每日深度情报.md) |
+| **T2T (模式补全越狱)** | [IICL](./categories/t2t/papers/2604.19461_iicl.md) | 把 jailbreak 从显式危险请求改写为抽象算子与 pattern completion，说明 few-shot 语境本身就是安全边界的软化器。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-22_AI安全每日深度情报.md) |
+| **T2T (协同写作灰区基准)** | [HarDBench](./categories/t2t/papers/2604.19274_hardbench.md) | 首次把 draft-based co-authoring 里的灰区 harmful request 形式化成 benchmark，揭示“帮你润色/补完”是当前对齐系统的真实盲区。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-22_AI安全每日深度情报.md) |
+| **Agentic (隐私执行环境)** | [GAAP](./categories/agentic-search/papers/2604.19657_gaap.md) | 把 agent 私有数据保护重写成 deterministic execution environment，用 IFC、权限库与 disclosure log 把隐私泄露约束进执行语义本身。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-22_AI安全每日深度情报.md) |
 
 *(每日自动更新。如果觉得这些解读为你节省了时间，请给一个 ⭐ 支持！)*
 
@@ -41,14 +41,15 @@
 
 ## 🔭 前沿 Survey & 洞察简报 (Must-Read)
 
-我们不仅搬运论文，更系统沉淀方法论。以下是基于 **192** 篇安全论文萃取的全局视野：
+我们不仅搬运论文，更系统沉淀方法论。以下是基于 **198** 篇安全论文萃取的全局视野：
 
 | 研究洞察精华 | 解决的核心问题 | 更新状态 |
 |------|------|----------|
-| 🏆 **[2026 AI 大模型安全前沿洞察](./insights/AI_Security_Landscape_2026.md)** | 上游控制面安全化(NEW) · 可信载体中的隐式风险组合 · 评测系统反身安全化 · 评分函数 / 协议 / 长期记忆治理 | 2026-04-21 |
-| 🛡️ **[T2T LLM 安全全局图谱](./insights/t2t-survey.md)** | 持续安全对齐(NEW) · offensive cyber 环境化 benchmark(NEW) · 灰区语境越狱与 Unsafe Tickets 主线延伸 | 2026-04-21 |
-| 🖼️ **[T2I 文生图安全七年演进](./insights/t2i-survey.md)** | reward model 偏置审计(NEW) · threshold fairness benchmark(NEW) · TwoHamsters / TICoE / BiasBench 主线汇合 | 2026-04-21 |
-| 🤖 **[Agentic Search 攻防全景](./insights/agentic-search-survey.md)** | CASCADE 协议级级联防线(NEW) · Visual Inception 长期记忆投毒(NEW) · MCP / 技能 / 遥测治理主线延伸 | 2026-04-21 |
+| 🏆 **[2026 AI 大模型安全前沿洞察](./insights/AI_Security_Landscape_2026.md)** | provenance / attribution / 隐私执行环境(NEW) · 上游控制面安全化 · 可信载体中的隐式风险组合 · 评测系统反身安全化 | 2026-04-22 |
+| 🧭 **[T2I 主线模型评测地图（2026）](./insights/t2i-mainline-model-eval-map-2026.md)** | 当前主线模型测哪些指标 · 对应 benchmark / evaluation set 有哪些 · 训练集透明度与闭源程度如何分层 | 2026-04-22 |
+| 🛡️ **[T2T LLM 安全全局图谱](./insights/t2t-survey.md)** | IICL 模式补全越狱(NEW) · HarDBench 协同写作灰区基准(NEW) · gray-zone jailbreak 与部署后安全修补主线汇合 | 2026-04-22 |
+| 🖼️ **[T2I 文生图安全七年演进](./insights/t2i-survey.md)** | Dual-Guard 双通道溯源(NEW) · Embedding Arithmetic 推理时去偏(NEW) · IncreFA / IABench 增量归因(NEW) | 2026-04-22 |
+| 🤖 **[Agentic Search 攻防全景](./insights/agentic-search-survey.md)** | GAAP 确定性隐私执行环境(NEW) · CASCADE 协议级级联防线 · Visual Inception 长期记忆投毒 | 2026-04-22 |
 | 🔪 **[Abliteration 与概念擦除范式](./insights/alignment-paradigm-shift-abliteration.md)** | 剖析大模型对齐的脆弱性，以及定向消融攻击的底层逻辑 | 2026-04-07 |
 
 ---

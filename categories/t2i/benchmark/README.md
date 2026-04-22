@@ -2,15 +2,15 @@
 
 文生图扩散模型的安全评测基准、数据集与评估框架论文。
 
-> 最后回填: 2026-04-22 | 共 **18** 条
+> 最后回填: 2026-04-22 | 共 **19** 条
 > 延伸索引: [《T2I 安全 Benchmark 短名单（2026 年前高引用版）》](../../../insights/t2i-benchmark-shortlist-pre2026.md)
 
 ## 综述与全景
 
 | 论文 | ArXiv | 年份/会议 | 核心创新 |
 |------|-------|----------|----------|
-| AI Security Landscape 2026 | — | 2026 (本项目) | 基于 192 篇论文的宏观安全格局分析（T2T/T2I/Agentic 三模态） |
-| T2I Safety Seven-Year Survey | — | 2026 (本项目) | 文生图安全七年演进：从 reward model 偏置审计 / 阈值化公平，到 TICoE / TwoHamsters / DAMP / Fragile Reconstruction / T2I-BiasBench 的新信号沉淀 |
+| AI Security Landscape 2026 | — | 2026 (本项目) | 基于 198 篇论文的宏观安全格局分析（T2T/T2I/Agentic 三模态） |
+| T2I Safety Seven-Year Survey | — | 2026 (本项目) | 文生图安全七年演进：从 Dual-Guard / Embedding Arithmetic / IncreFA，到 TwoHamsters / TICoE / BiasBench 的新信号沉淀 |
 | Operationalizing Fairness in T2I Models | [2604.16516](https://arxiv.org/abs/2604.16516) | 2026 arXiv | 系统梳理 T2I 公平性审计与缓解文献，并提出 Target Fairness / Threshold Fairness 框架 |
 
 ## 安全评测基准 (Benchmark)
@@ -31,6 +31,7 @@
 | T2I-BiasBench | [2604.12481](https://arxiv.org/abs/2604.12481) | 2026 arXiv | 用 13 指标统一审计 demographic bias、元素遗漏与 cultural collapse，补齐偏见评测维度 |
 | Bias at the End of the Score | [2604.13305](https://arxiv.org/abs/2604.13305) | 2026 arXiv | 首次系统审计 reward models 的 demographic bias，揭示评分函数会放大 hypersexualization 与身份漂移 |
 | TwoHamsters | [2604.15967](https://arxiv.org/abs/2604.15967) | 2026 arXiv | 首个 multi-concept compositional unsafety 基准，系统揭示组合语义风险与过滤器失效 |
+| IncreFA / IABench | [2604.17736](https://arxiv.org/abs/2604.17736) | 2026 arXiv | 把生成器归因推进到 incremental open-set setting，并配套 IABench 衡量 Avg. Acc. / Auth. Acc. / Unseen Acc. |
 
 ## 防御范式代表
 
