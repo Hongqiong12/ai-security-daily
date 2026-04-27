@@ -1,8 +1,8 @@
 # T2I 文生图安全 Survey：攻防前沿与概念擦除技术演进
 
 > **Survey 类型**: 基于项目论文库的系统性综述（Literature-Grounded Survey）  
-> **数据基础**: 本项目收录的 **74** 篇 T2I 安全论文（2019–2026）
-> **更新日期**: 2026-04-22
+> **数据基础**: 本项目收录的 **76** 篇 T2I 安全论文（2019–2026）
+> **更新日期**: 2026-04-27
 > **关联文档**: [前瞻总览](./AI_Security_Landscape_2026.md) · [T2T Survey](./t2t-survey.md)
 
 ---
@@ -42,7 +42,7 @@
 
 ### 1.2 研究规模与分布
 
-截至 2026-04-22，本 Survey 锚定本项目已收录的 **74** 篇 T2I 安全论文。当前 T2I 安全版图已经不再是“越狱 vs 过滤器”的单线叙事，而是至少分裂成四条强主线：
+截至 2026-04-27，本 Survey 锚定本项目已收录的 **76** 篇 T2I 安全论文。当前 T2I 安全版图已经不再是“越狱 vs 过滤器”的单线叙事，而是至少分裂成四条强主线：
 
 - **概念擦除 / 机器遗忘**：从权重微调走向 closed-form projection、depth-aware removal 与 activation-level intervention；
 - **现实世界评测**：从 clean setting 转向 robustness-in-the-wild、near-duplicate 传播链、质量退化与伪造链路；
@@ -307,6 +307,14 @@ subject to  L_retain(C') ≤ ε  # 保留其他概念 C' 的生成质量
 - **关键结果**：在 gun 擦除上做到 **ASR 0.00 / UDA 0.02 / P4D 0.04**，同时把 camera 的 MCP 保到 **92.06%**；
 - **意义**：它说明 T2I 防御开始从“能不能擦除”转向“能不能在图文双模态约束下擦得准、擦得稳、少误伤”。这对你持续关注的 concept erasure 主线非常关键，因为它把 preservation 从软目标提升成了一等研究对象。
 
+### 3.13 抗概念复活加固：概念擦除开始进入生命周期防线 (2026-04-27 新增)
+
+**Projected Gradient Unlearning / PGU**（[2604.21041](https://arxiv.org/abs/2604.21041)）把 concept erasure 从“删掉某个概念”继续推进到了“**删完以后能不能守住**”的问题：
+
+- **核心机制**：先用视觉相近但语义应保留的 retain concepts 构建 **Core Gradient Space (CGS)**，再在后续训练中把梯度投影到其正交补空间，避免模型沿恢复被删概念的方向更新；
+- **关键结果**：在 **ESD-U + Van Gogh** 上，基线会在 **C6** 发生 revival，而 PGU 可将其压到 **No revival**；在 **Golf Ball** 这类更难概念上，也能把 revival 从 **C1** 推迟到 **C4**；
+- **意义**：这释放出一个非常关键的信号——T2I 安全不该只问“擦除时成没成功”，还必须问“后续 fine-tuning 会不会把它学回来”。也就是说，**post-unlearning hardening** 已经成为 concept erasure 主线的新分支。
+
 ---
 
 ## 4. 前处理防御：过滤器与提示词检测
@@ -517,7 +525,15 @@ T2I 水印研究围绕三个核心应用场景：
 - **基准贡献**：配套提出 **IABench**，同时报告 **Avg. Acc. / Auth. Acc. / Unseen Acc.**，把“已知生成器识别”和“未知生成器拒识”放到同一张成绩单上；
 - **意义**：这说明 T2I benchmark 正从“闭集模型分类”转向“开放生态中的 attribution lifecycle management”。在真实平台里，这比单次闭集识别更接近治理需求。
 
-### 6.9 评测维度与指标
+### 6.9 目标声明式公平控制：从“研究者默认公平”转向“用户显式目标” (2026-04-27 新增)
+
+**Target-Based Prompting**（[2604.21036](https://arxiv.org/abs/2604.21036)）把 fairness 治理推进到一个更贴近真实产品控制面的层级：
+
+- **核心机制**：不再默认某个均匀分布就是“公平”，而是先由用户或场景声明目标分布 q，再把原始 prompt 扩展成多个 demographic-specific 子 prompt，并按目标比例分配生成预算；
+- **关键结果**：在 **SD Realistic Vision v5.1** 上，平均 Alignment Error 从 **0.129** 压到 **0.030**；在 **SDXL Turbo** 上进一步压到 **0.013**，改善 **91.1%**；
+- **意义**：这说明 T2I 公平性治理的关键变量开始从“如何训练一个更公平的模型”，转向“如何让公平目标可声明、可审计、可在推理时被稳定执行”。对实际平台来说，这种 **target-explicit control layer** 比抽象 fairness claim 更像可部署能力。
+
+### 6.10 评测维度与指标
 
 基于本项目论文收录，T2I 安全评测主要使用以下指标：
 
@@ -705,6 +721,7 @@ Flux 和 SD3 已经成为 2025–2026 年的主流 T2I 架构，但截至本 Sur
 | Closed-Form DP | [2604.10032](https://arxiv.org/abs/2604.10032) | 2026 | 双投影闭式擦除 (NEW) |
 | DAMP | [2604.15166](https://arxiv.org/abs/2604.15166) | 2026 | 深度感知类遗忘：分层移除 forget-specific directions 的 one-shot class unlearning (NEW) |
 | TICoE | [2604.15829](https://arxiv.org/abs/2604.15829) | 2026 | 图文协同精准擦除：CCCM + HVRL 在强擦除下显著降低相近概念误伤 (NEW) |
+| PGU | [2604.21041](https://arxiv.org/abs/2604.21041) | 2026 | 抗概念复活加固：用 retain-concept 子空间投影阻止 erased model 在后续 fine-tuning 中复活目标概念 (NEW) |
 | SafeCtrl | [2604.03941](https://arxiv.org/abs/2604.03941) | 2026 | 区域擦除：Detect-Then-Suppress DPO 局部替换 |
 
 ### 前处理/过滤防御类（代表性选摘）
@@ -750,9 +767,10 @@ Flux 和 SD3 已经成为 2025–2026 年的主流 T2I 架构，但截至本 Sur
 | TwoHamsters | [2604.15967](https://arxiv.org/abs/2604.15967) | 2026 | multi-concept compositional unsafety 基准，系统揭示组合语义风险与过滤器失效 (NEW) |
 | Embedding Arithmetic | [2604.18167](https://arxiv.org/abs/2604.18167) | 2026 | inference-time debiasing：用 H_g / H_r / CCS 审计 embedding editing 的公平性收益 (NEW) |
 | IncreFA | [2604.17736](https://arxiv.org/abs/2604.17736) | 2026 | 增量归因与 IABench：把生成器 attribution 推进到 open-set / continual setting (NEW) |
+| Target-Based Prompting | [2604.21036](https://arxiv.org/abs/2604.21036) | 2026 | 目标声明式公平控制：按用户/场景声明的 demographic target 分布做 inference-time prompt allocation 与 Alignment Error 审计 (NEW) |
 
 ---
 
-*本 Survey 由 `paper-research` skill 自动生成，基于项目截至 2026-04-22 收录的 T2I 论文（74 篇）。*  
-*上次 Survey 更新：2026-04-22（新增 3 篇：2604.17736 IncreFA、2604.18167 Embedding Arithmetic、2604.19090 Dual-Guard）。*  
+*本 Survey 由 `paper-research` skill 自动生成，基于项目截至 2026-04-27 收录的 T2I 论文（76 篇）。*  
+*上次 Survey 更新：2026-04-27（新增 2 篇：2604.21036 Target-Based Prompting、2604.21041 PGU）。*  
 *下次更新时间：跟随每日自动化任务实时更新。*
