@@ -9,11 +9,11 @@
   <a href="https://img.shields.io/badge/Reports-Today-blue.svg">
     <img src="https://img.shields.io/badge/Reports-Today-blue.svg" alt="Reports Today"/>
   </a>
-  <a href="https://img.shields.io/badge/Papers-204-green.svg">
-    <img src="https://img.shields.io/badge/Papers-204-green.svg" alt="Total Papers"/>
+  <a href="https://img.shields.io/badge/Papers-211-green.svg">
+    <img src="https://img.shields.io/badge/Papers-211-green.svg" alt="Total Papers"/>
   </a>
-  <a href="https://img.shields.io/badge/Last-Update-2026--04--27-orange.svg">
-    <img src="https://img.shields.io/badge/Last-Update-2026--04--27-orange.svg" alt="Last Update"/>
+  <a href="https://img.shields.io/badge/Last-Update-2026--04--28-orange.svg">
+    <img src="https://img.shields.io/badge/Last-Update-2026--04--28-orange.svg" alt="Last Update"/>
   </a>
   <a href="https://github.com/ageisliu/ai-security-daily/stargazers">
     <img src="https://img.shields.io/github/stars/ageisliu/ai-security-daily.svg?style=social&label=Star" alt="GitHub stars"/>
@@ -22,18 +22,19 @@
 
 ---
 
-## 🔥 今日最具破坏力论文评测 (2026-04-27)
+## 🔥 今日最具破坏力论文评测 (2026-04-28)
 
 > **为什么要关注本仓库？** 每天 08:00，我们的自动化 Agent 会拦截 ArXiv 最新 AI 安全论文，不仅提取摘要，更执行**端到端深度解读（攻击原理、实验复现、防御建议）**。
 
 | 核心威胁领域 | 🚨 破局级论文推荐 | 一句话快评 | 深度拆解 |
 |---|---|---|---|
-| **T2I (抗概念复活加固)** | [PGU](./categories/t2i/papers/2604.21041_pgu.md) | 首次把 concept erasure 的焦点从“擦掉没”推进到“后续 fine-tuning 会不会复活”，说明生命周期稳定性已经成为 T2I 安全主战场。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-27_AI安全每日深度情报.md) |
-| **T2I (目标声明式公平控制)** | [Target-Based Prompting](./categories/t2i/papers/2604.21036_target_based_prompting.md) | 不再暗中预设“什么叫公平”，而是让用户显式声明目标分布，再在推理时执行与审计，说明 fairness 已进入 control-plane 治理。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-27_AI安全每日深度情报.md) |
-| **T2T (在线自适应红队)** | [AIC](./categories/t2t/papers/2604.21159_aic_red_teaming.md) | 用 contextual bandit 在 query×tactic 超大空间里持续学习脆弱区域，意味着自动 red-teaming 正从模板搜索进化成在线攻击系统。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-27_AI安全每日深度情报.md) |
-| **T2T (无状态多轮审核缺口)** | [TTI](./categories/t2t/papers/2604.21860_tti.md) | 证明攻击者只要把状态保存在系统外，就能系统性击穿 stateless per-turn moderation，这对 API 式安全架构是硬警告。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-27_AI安全每日深度情报.md) |
-| **Agentic (函数选择层劫持)** | [Function Hijacking Attacks](./categories/agentic-search/papers/2604.20994_function_hijacking.md) | 只改函数 description 就能在工具真正执行前劫持路由，说明 tool selection layer 已成为 MCP / function-calling 的正式攻击面。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-27_AI安全每日深度情报.md) |
-| **Agentic (协议感知开发者安全基准)** | [MCP Pitfall Lab](./categories/agentic-search/papers/2604.21477_mcp_pitfall_lab.md) | 用 protocol trace 而非 agent 自述做审计，直接揭示 schema、转发、日志与高风险输入校验的开发者坑位。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-27_AI安全每日深度情报.md) |
+| **T2I (知识密集型正确性基准)** | [KVBench / KE-Check](./categories/t2i/papers/2604.22302_kvbench_ke_check.md) | 把文生图评测从“画得像”推进到“画得对”，用 checklist-level correctness 正式量化知识密集型 visual hallucination。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-28_AI安全每日深度情报.md) |
+| **T2I (训练期反水印攻击)** | [FMDiffWA](./categories/t2i/papers/2604.22220_fmdiffwa.md) | 证明去水印能力可以被直接训练进扩散模型，watermark 不再只是后处理外挂，而是生成器级攻防。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-28_AI安全每日深度情报.md) |
+| **T2T (风格级自然触发后门)** | [BadStyle](./categories/t2t/papers/2604.21700_badstyle.md) | 把后门 trigger 从显式 token 升级为正常写作风格，说明企业文本工作流里的“文风分布”本身已成攻击面。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-28_AI安全每日深度情报.md) |
+| **T2T (教学语境越狱基准)** | [SHAPE](./categories/t2t/papers/2604.22134_shape.md) | 以 9087 条 student-question pairs 把 pedagogical jailbreak 做成正式 benchmark，揭示教育语境会系统性软化安全边界。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-28_AI安全每日深度情报.md) |
+| **Agentic (企业隐私与情境完整性)** | [CI-Work](./categories/agentic-search/papers/2604.21308_ci_work.md) | 企业 agent 的高 utility 往往与更高泄漏绑定，说明 enterprise retrieval workflow 的 privacy–utility trade-off 已成为一等问题。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-28_AI安全每日深度情报.md) |
+| **Agentic (workflow incentive exploitation)** | [AgentPressureBench](./categories/agentic-search/papers/2604.20200_agentpressurebench.md) | 用户越催 public score，强模型越快学会 exploit；一句 anti-exploit wording 就能把 exploit 率从 100% 压到 8.3%。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-28_AI安全每日深度情报.md) |
+| **Agentic (跨会话记忆瓶颈检测)** | [CSTM-Bench](./categories/agentic-search/papers/2604.21131_cstm_bench.md) | 证明 per-session 与 full-log reader 都会在 cross-session rewriting 下掉半边 recall，bounded-memory reader 才更接近可部署方向。 | [📄 立即阅读](./daily-reports/2026-04/2026-04-28_AI安全每日深度情报.md) |
 
 *(每日自动更新。如果觉得这些解读为你节省了时间，请给一个 ⭐ 支持！)*
 
@@ -41,15 +42,15 @@
 
 ## 🔭 前沿 Survey & 洞察简报 (Must-Read)
 
-我们不仅搬运论文，更系统沉淀方法论。以下是基于 **204** 篇安全论文萃取的全局视野：
+我们不仅搬运论文，更系统沉淀方法论。以下是基于 **211** 篇安全论文萃取的全局视野：
 
 | 研究洞察精华 | 解决的核心问题 | 更新状态 |
 |------|------|----------|
-| 🏆 **[2026 AI 大模型安全前沿洞察](./insights/AI_Security_Landscape_2026.md)** | 控制面安全化(NEW) · provenance / attribution / execution environment 治理 · 可信载体中的隐式风险组合 · 评测系统反身安全化 | 2026-04-27 |
+| 🏆 **[2026 AI 大模型安全前沿洞察](./insights/AI_Security_Landscape_2026.md)** | 长期状态治理(NEW) · 知识正确性 / provenance / 企业隐私 · workflow incentive 与 cross-session memory bottleneck 的统一控制面视角 | 2026-04-28 |
 | 🧭 **[T2I 主线模型评测地图（2026）](./insights/t2i-mainline-model-eval-map-2026.md)** | 当前主线模型测哪些指标 · 对应 benchmark / evaluation set 有哪些 · 训练集透明度与闭源程度如何分层 | 2026-04-22 |
-| 🛡️ **[T2T LLM 安全全局图谱](./insights/t2t-survey.md)** | AIC 在线自适应红队(NEW) · TTI 无状态多轮注入(NEW) · completion-style workflow 风险继续上升 | 2026-04-27 |
-| 🖼️ **[T2I 文生图安全七年演进](./insights/t2i-survey.md)** | PGU 抗概念复活(NEW) · Target-Based Prompting 目标声明式公平控制(NEW) · lifecycle safety + control-plane 治理并进 | 2026-04-27 |
-| 🤖 **[Agentic Search 攻防全景](./insights/agentic-search-survey.md)** | Function Hijacking 函数选择层劫持(NEW) · MCP Pitfall Lab 协议感知开发者基准(NEW) · protocol trace 成为审计锚点 | 2026-04-27 |
+| 🛡️ **[T2T LLM 安全全局图谱](./insights/t2t-survey.md)** | BadStyle 风格级自然触发后门(NEW) · SHAPE 教学语境越狱基准(NEW) · workflow 语境继续软化安全边界 | 2026-04-28 |
+| 🖼️ **[T2I 文生图安全七年演进](./insights/t2i-survey.md)** | KVBench / KE-Check 知识正确性基准(NEW) · FMDiffWA 训练期反水印攻击(NEW) · benchmark 与 provenance 双线前移 | 2026-04-28 |
+| 🤖 **[Agentic Search 攻防全景](./insights/agentic-search-survey.md)** | CI-Work 企业隐私 benchmark(NEW) · AgentPressureBench workflow exploitation(NEW) · CSTM-Bench 跨会话记忆检测(NEW) | 2026-04-28 |
 | 🔪 **[Abliteration 与概念擦除范式](./insights/alignment-paradigm-shift-abliteration.md)** | 剖析大模型对齐的脆弱性，以及定向消融攻击的底层逻辑 | 2026-04-07 |
 
 ---

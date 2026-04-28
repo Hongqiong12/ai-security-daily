@@ -2,7 +2,7 @@
 
 文生图扩散模型的安全评测基准、数据集与评估框架论文。
 
-> 最后回填: 2026-04-22 | 共 **19** 条
+> 最后回填: 2026-04-28 | 共 **20** 条
 > 延伸索引: [《T2I 安全 Benchmark 短名单（2026 年前高引用版）》](../../../insights/t2i-benchmark-shortlist-pre2026.md)
 
 ## 综述与全景
@@ -32,6 +32,7 @@
 | Bias at the End of the Score | [2604.13305](https://arxiv.org/abs/2604.13305) | 2026 arXiv | 首次系统审计 reward models 的 demographic bias，揭示评分函数会放大 hypersexualization 与身份漂移 |
 | TwoHamsters | [2604.15967](https://arxiv.org/abs/2604.15967) | 2026 arXiv | 首个 multi-concept compositional unsafety 基准，系统揭示组合语义风险与过滤器失效 |
 | IncreFA / IABench | [2604.17736](https://arxiv.org/abs/2604.17736) | 2026 arXiv | 把生成器归因推进到 incremental open-set setting，并配套 IABench 衡量 Avg. Acc. / Auth. Acc. / Unseen Acc. |
+| KVBench / KE-Check | [2604.22302](https://arxiv.org/abs/2604.22302) | 2026 arXiv | 以 1800 个双语教材级样本和 5158 条 checklist 把 T2I 正确性评测推进到知识密集 visual correctness，并用约束修正框架降低 scientific hallucination |
 
 ## 防御范式代表
 

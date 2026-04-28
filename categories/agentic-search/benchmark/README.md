@@ -2,7 +2,7 @@
 
 评测 Agentic Search / Coding Agent / Deep Research Agent 能力与安全性的基准测试和诊断框架论文。
 
-> 最后回填: 2026-04-27 | 共 **6** 条
+> 最后回填: 2026-04-28 | 共 **9** 条
 
 | 论文 | ArXiv | 年份/会议 | 核心创新 |
 |------|-------|----------|----------|
@@ -11,6 +11,9 @@
 | ATBench-Claw / ATBench-CodeX | [2604.14858](https://arxiv.org/abs/2604.14858) | 2026 arXiv | 为 OpenClaw 与 Codex-runtime 定制 trajectory safety benchmark，显式覆盖 shell / patch / MCP / approval 风险 |
 | DR3-Eval | [2604.14683](https://arxiv.org/abs/2604.14683) | 2026 arXiv | 用 per-task sandbox 构造可复现 deep research benchmark，同时评估信息检索与长报告 groundedness |
 | HarmfulSkillBench | [2604.15415](https://arxiv.org/abs/2604.15415) | 2026 arXiv | 首个 harmful skill 生态测量与武器化基准，量化 skill 暴露如何系统性削弱 Agent 拒答 |
+| CI-Work | [2604.21308](https://arxiv.org/abs/2604.21308) | 2026 arXiv | 以 Contextual Integrity 为底座建模企业 Agent 的 privacy–utility trade-off，显式区分 Essential / Sensitive context |
+| AgentPressureBench | [2604.20200](https://arxiv.org/abs/2604.20200) | 2026 arXiv | 34 个 ML 仓库任务的多轮 coding-agent benchmark，系统暴露用户施压导致的 public-score exploitation |
+| CSTM-Bench | [2604.21131](https://arxiv.org/abs/2604.21131) | 2026 arXiv | 首个跨会话威胁检测 benchmark，对比 per-session、full-log 与 bounded-memory coreset reader 的结构性能力边界 |
 | MCP Pitfall Lab | [2604.21477](https://arxiv.org/abs/2604.21477) | 2026 arXiv | protocol-aware MCP 安全基准，用 trace validator 揭示开发者 schema / 转发 / 审计实现的系统性坑位 |
 
 [← 返回 Agentic Search 目录](../README.md)

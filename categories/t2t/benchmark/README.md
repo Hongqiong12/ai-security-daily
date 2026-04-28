@@ -2,7 +2,7 @@
 
 文生文 LLM 的基础综述、安全评测基准论文。
 
-> 最后回填: 2026-04-22 | 共 **12** 条
+> 最后回填: 2026-04-28 | 共 **13** 条
 
 ## 综述类
 
@@ -25,5 +25,6 @@
 | Context Over Content | [2604.15224](https://arxiv.org/abs/2604.15224) | 2026 arXiv | 揭示 stakes signaling 会隐性污染 LLM-as-a-judge，峰值 Verdict Shift 达 -9.8 pp |
 | Offensive Cyber Benchmark | [2604.17159](https://arxiv.org/abs/2604.17159) | 2026 arXiv | 用 NYU CTF Bench + Kali 工具环境系统评测 frontier LLM agent，证明环境与工具可发现性比大多数 prompt trick 更关键 |
 | HarDBench | [2604.19274](https://arxiv.org/abs/2604.19274) | 2026 arXiv | 首个 draft-based co-authoring 灰区越狱基准，用 HS / ASR / RAR 衡量协同写作场景下的安全失效 |
+| SHAPE | [2604.22134](https://arxiv.org/abs/2604.22134) | 2026 arXiv | 以 9087 条 student-question pairs 系统评测 pedagogical jailbreak，把教学语境下的 Safety / Helpfulness / Pedagogy 三指标正式 benchmark 化 |
 
 [← 返回文生文目录](../README.md)

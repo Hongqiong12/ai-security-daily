@@ -1,8 +1,8 @@
 # T2I 文生图安全 Survey：攻防前沿与概念擦除技术演进
 
 > **Survey 类型**: 基于项目论文库的系统性综述（Literature-Grounded Survey）  
-> **数据基础**: 本项目收录的 **76** 篇 T2I 安全论文（2019–2026）
-> **更新日期**: 2026-04-27
+> **数据基础**: 本项目收录的 **78** 篇 T2I 安全论文（2019–2026）
+> **更新日期**: 2026-04-28
 > **关联文档**: [前瞻总览](./AI_Security_Landscape_2026.md) · [T2T Survey](./t2t-survey.md)
 
 ---
@@ -454,6 +454,14 @@ T2I 水印研究围绕三个核心应用场景：
 - **关键结果**：论文报告 provenance verification accuracy 达到 **99.5%+**，latent fingerprint extraction accuracy 达 **89.19%**，同时还能在 block 级别定位局部篡改区域；
 - **意义**：这说明 T2I 来源证明正在从“能不能证明图像来自模型”升级为“能不能在被编辑后继续证明其来源、并指出改了哪里”。对真实平台治理而言，这比传统单 bit watermark 更接近可落地的 forensics primitive。
 
+### 5.8 训练期反水印：水印攻击开始从后处理绕过走向生成器内生能力 (2026-04-28 新增)
+
+**FMDiffWA**（[2604.22220](https://arxiv.org/abs/2604.22220)）把 T2I 水印攻防继续往前推了一层：
+
+- **核心机制**：把水印攻击从传统的后处理扰动，升级成生成模型训练阶段的 **频域调制（FWM）+ phased training strategy（PTS）** 联合优化，让模型在保留图像质量的同时主动学习扰乱 watermark extraction；
+- **关键结果**：单独使用 **FWM** 时论文报告核心指标为 **39.96 / 0.1896**，单独使用 **PTS** 为 **48.65 / 0.0664**，而二者联合后达到 **42.08 / 0.2084**，说明真正稳定的反水印能力来自训练策略与频域攻击的协同，而不是单一技巧；
+- **意义**：这说明未来 T2I provenance 不能把 watermark 当成静态外挂模块，因为攻击者可以把“去水印能力”直接训练进扩散模型本体。对于开放生成生态，这是一条非常值得长期追踪的攻击主线。
+
 ## 6. 基准评测
 
 ### 6.1 T2I 安全专用 Benchmark
@@ -533,7 +541,15 @@ T2I 水印研究围绕三个核心应用场景：
 - **关键结果**：在 **SD Realistic Vision v5.1** 上，平均 Alignment Error 从 **0.129** 压到 **0.030**；在 **SDXL Turbo** 上进一步压到 **0.013**，改善 **91.1%**；
 - **意义**：这说明 T2I 公平性治理的关键变量开始从“如何训练一个更公平的模型”，转向“如何让公平目标可声明、可审计、可在推理时被稳定执行”。对实际平台来说，这种 **target-explicit control layer** 比抽象 fairness claim 更像可部署能力。
 
-### 6.10 评测维度与指标
+### 6.10 知识密集型 visual correctness：Benchmark 开始从“画得像”转向“画得对” (2026-04-28 新增)
+
+**KVBench / KE-Check**（[2604.22302](https://arxiv.org/abs/2604.22302)）把 T2I benchmark 明确推进到知识可视化场景：
+
+- **核心机制**：作者构建 **1800** 个双语教材级样本、**5158** 条 checklist，把图像 correctness 拆成实体、属性、空间关系、标签与推理结果等原子约束，并进一步提出 **KE-Check**，通过 knowledge elaboration + checklist-guided refinement 显式修正 violation；
+- **关键结果**：在 Table 3 中，baseline 仅 **20.09 / 25.74**（中 / 英），而 **KE-Check** 提升到 **47.67 / 30.24**；自动评测与人工标注对齐达到 **80.26% accuracy、κ = 0.7447**；
+- **意义**：这释放出一个很重要的新信号——T2I 安全评测正在从传统 NSFW / jailbreak / bias 指标，扩展到 **knowledge-intensive correctness**。这对后续多模态安全 benchmark 与教育/科研场景部署尤其关键。
+
+### 6.11 评测维度与指标
 
 基于本项目论文收录，T2I 安全评测主要使用以下指标：
 
@@ -771,6 +787,6 @@ Flux 和 SD3 已经成为 2025–2026 年的主流 T2I 架构，但截至本 Sur
 
 ---
 
-*本 Survey 由 `paper-research` skill 自动生成，基于项目截至 2026-04-27 收录的 T2I 论文（76 篇）。*  
-*上次 Survey 更新：2026-04-27（新增 2 篇：2604.21036 Target-Based Prompting、2604.21041 PGU）。*  
+*本 Survey 由 `paper-research` skill 自动生成，基于项目截至 2026-04-28 收录的 T2I 论文（78 篇）。*  
+*上次 Survey 更新：2026-04-28（新增 2 篇：2604.22302 KVBench / KE-Check、2604.22220 FMDiffWA）。*  
 *下次更新时间：跟随每日自动化任务实时更新。*
