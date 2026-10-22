@@ -1,7 +1,7 @@
 # AI 大模型安全前沿洞察：现状理解与未来研究方向
 
-> **数据来源**: 基于本项目收录的 **211 篇** AI 安全论文（2019–2026）系统性分析
-> **更新日期**: 2026-04-28（v2.9 增量更新）
+> **数据来源**: 基于本项目收录的 **232 篇** AI 安全论文（2019–2026）系统性分析
+> **更新日期**: 2026-10-22（v3.3 增量更新）
 > **覆盖领域**: T2T（LLM 安全）· T2I（文生图安全）· Agentic Search（检索增强安全）  
 
 ---
@@ -106,6 +106,8 @@ MCP 的出现尤为值得关注。MCP 作为 AI 辅助开发工具（如 GitHub 
 
 **4 月 27 日新增信号**：Function Hijacking Attacks（[2604.20994](https://arxiv.org/abs/2604.20994)）与 MCP Pitfall Lab（[2604.21477](https://arxiv.org/abs/2604.21477)）又把 Agentic / MCP 安全往更上游推进了一层：前者说明只靠污染函数 description，就能在真正执行工具前把模型路由到攻击者指定函数，意味着 **tool selection layer** 已成为正式攻击面；后者则进一步证明，MCP 安全失效经常来自 schema、跨工具转发、高风险输入校验与审计日志等**开发者实现坑位**，而且 agent 自述与真实 trace 在 sink-action 场景上会出现 **100%** 偏差。共同信号是：**MCP 安全正在从“防 prompt injection”升级为“治理 pre-execution control plane + protocol trace + developer hygiene”的系统工程。**
 
+**4 月 30 日新增信号**：SkillGuard-Robust（[2604.25109](https://arxiv.org/abs/2604.25109)）与 SnapGuard（[2604.25562](https://arxiv.org/abs/2604.25562)）把 Agentic 防线进一步拆成两层：前者说明技能生态安全的正确抽象层是 **package structure + chain semantics + rewrite consistency**；后者则说明 screenshot-based web agent 完全可以先用轻量 guardrail 做 **pre-action screening**，不必无差别依赖大模型审计。共同信号是：**Agent 安全正在同时走向“结构化包审计”和“成本分层防御”。**
+
 ### 2.4 防御侧：从规则对齐到机制可解释性
 
 防御研究在 2025–2026 年出现了一个重要转向——从"添加规则"到"理解机制"：
@@ -134,6 +136,8 @@ MCP 的出现尤为值得关注。MCP 作为 AI 辅助开发工具（如 GitHub 
 **4 月 22 日新增信号**：IICL（[2604.19461](https://arxiv.org/abs/2604.19461)）与 HarDBench（[2604.19274](https://arxiv.org/abs/2604.19274)）继续把 T2T 风险推向真实 workflow：前者说明抽象算子、few-shot completion 与 pattern continuation 本身就能系统性软化安全边界；后者则把 draft-based co-authoring 里的灰区 harmful request 正式做成 benchmark。共同信号是：**T2T 对齐脆弱性正在从“危险问题”迁移到“看似正常的协作补全流程”。**
 
 **4 月 27 日新增信号**：AIC（[2604.21159](https://arxiv.org/abs/2604.21159)）与 TTI（[2604.21860](https://arxiv.org/abs/2604.21860)）把 T2T 安全再往前推了一步：前者说明自动 red-teaming 已经进入 **query × tactic 大动作空间里的在线学习阶段**，攻击系统会持续适应目标模型的脆弱区域；后者则表明，只要平台沿用 **stateless per-turn moderation**，攻击者完全可以把多轮状态保存在系统外部，绕过单轮审核。共同信号是：**T2T 风险不再只是“某条 prompt 有多危险”，而是“攻击系统有多会学习、审核边界有多依赖单轮视角”。**
+
+**4 月 30 日新增信号**：Cross-Lingual Jailbreak Detection（[2604.25716](https://arxiv.org/abs/2604.25716)）与 Conditional Misalignment（[2604.25891](https://arxiv.org/abs/2604.25891)）进一步把 T2T 防线向“**语义风险召回 + context-triggered evaluation**”两端拉开：前者说明低误报的 multilingual semantic codebook 更适合作为第一层 guard，而不是终局防线；后者则证明很多对齐干预只是在标准评测上把风险藏起来，一旦加上 coding / teaching / role wrapper 就会复发。共同信号是：**未来安全评测不能只测 prompt 表面文本，而必须测语义近邻、上下文包装与触发条件。**
 
 ---
 
@@ -196,6 +200,12 @@ T2I 安全研究中，**水印**是一个相对独立但同样重要的研究方
 
 **4 月 27 日新增信号**：PGU（[2604.21041](https://arxiv.org/abs/2604.21041)）与 Target-Based Prompting（[2604.21036](https://arxiv.org/abs/2604.21036)）把 T2I 治理分别推进到了“**长期抗复活**”和“**目标显式化控制**”两端：前者说明 concept erasure 的真正难点已从“能否擦掉”转向“后续 fine-tuning 会不会把它学回来”；后者则说明 fairness 不该再由研究者暗中预设，而应被用户或场景显式声明并在推理时被执行。共同信号是：**T2I 安全正在从单次离线修补升级为生命周期治理与控制面治理。**
 
+**4 月 30 日新增信号**：GPT-Image-2 in the Wild（[2604.25370](https://arxiv.org/abs/2604.25370)）与 The Forensic Cost of Watermark Removal（[2604.25491](https://arxiv.org/abs/2604.25491)）把 T2I 主线继续从“模型内安全”推向“**部署链路安全**”：前者证明真实世界主场景高度偏向图文排版、社交平台会主动剥离 metadata provenance；后者则把去水印评估升级为 **ASR × 质量 × forensic detectability** 三元组。共同信号是：**工业 T2I 安全正在从静态过滤走向平台传播、证据链与取证残留治理。**
+
+**5 月 1 日新增信号**：Edit-R1（[2604.27505](https://arxiv.org/abs/2604.27505)）、CoBench（[2604.25358](https://arxiv.org/abs/2604.25358)）、TextGround4M（[2604.24459](https://arxiv.org/abs/2604.24459)）与 FMDiffWA（[2604.22220](https://arxiv.org/abs/2604.22220)）把 T2I 主线再往前推了一层：前者说明复杂生成任务的控制点正在前移到 **verifier-style reward / principle-based judging**；中间两篇说明 benchmark 不能再只报单一总体分，而要显式衡量 **semantic fidelity、layout fidelity、prompt coverage 与 OCR-rich 终态执行性**；最后一篇则提醒 provenance / watermark 防线必须按**强攻击者会训练专门 remover**来设计。共同信号是：**T2I 输入侧安全改写已经不再缺“更多改写话术”，而是缺一套 verifier + 三维评测 + 真实终态 + 强对手建模的完整控制面。**
+
+**6 月 24 日新增信号**：`PixJail`（[2606.24081](https://arxiv.org/abs/2606.24081)）、`VESFlow`（[2606.23267](https://arxiv.org/abs/2606.23267)）、`ForceForget`（[2606.14351](https://arxiv.org/abs/2606.14351)）、`SafetyBPO`（CVPR 2026 Findings）、腾讯混元 `PromptEnhancer`（[2509.04545](https://arxiv.org/abs/2509.04545)）与 `FaithRewriter`（[2606.08492](https://arxiv.org/abs/2606.08492)）把 T2I 主线继续往前推了四步：第一，benchmark 的正确抽象层已经从 prompt list 升级为 **rewrite / generation / safety filter / judge / artifacts 的整链 pipeline contract**；第二，输入侧 rewrite 开始正式拥有 **pair 数据、failure taxonomy 与 visual-anchor verification** 三块结构化底座；第三，few-step flow matching 时代的安全控制不再只能靠改 prompt，而可以通过 **risk gating + velocity editing** 做生成侧动态纠偏；第四，安全 alignment 的真正难点被进一步明确为 **风险下降与语义保真的联合优化**，而不是单向压制危险概念。共同信号是：**T2I 输入侧安全改写正在从 prompt engineering 升级为控制面工程。**
+
 ---
 
 ## 4. 横切关注点：多模态、推理链与 MCP
@@ -233,7 +243,7 @@ SFCoT（[2603.15397](https://arxiv.org/abs/2603.15397)）代表了防御侧的�
 
 ## 5. 前沿趋势：2026 研究热点信号
 
-基于截至 2026-04-22 本项目收录的最新批次论文，可以识别出以下**正在形成的研究热点**：
+基于截至 2026-10-22 本项目收录的最新批次论文，可以识别出以下**正在形成的研究热点**：
 
 ### 🔥 热点一：MCP 与工具调用链安全
 
@@ -322,6 +332,23 @@ Function Hijacking Attacks（[2604.20994](https://arxiv.org/abs/2604.20994)）�
 
 KVBench / KE-Check（[2604.22302](https://arxiv.org/abs/2604.22302)）把 T2I benchmark 推进到知识密集型 visual correctness；FMDiffWA（[2604.22220](https://arxiv.org/abs/2604.22220)）说明反水印能力可以直接被训练进扩散模型；BadStyle（[2604.21700](https://arxiv.org/abs/2604.21700)）把自然文风本身变成隐蔽后门触发器；SHAPE（[2604.22134](https://arxiv.org/abs/2604.22134)）则说明教学语境会系统性软化安全边界；CI-Work（[2604.21308](https://arxiv.org/abs/2604.21308)）、AgentPressureBench（[2604.20200](https://arxiv.org/abs/2604.20200)）与 CSTM-Bench（[2604.21131](https://arxiv.org/abs/2604.21131)）共同把 Agent 风险推进到企业隐私、workflow incentive 与跨会话 memory bottleneck。共同信号是：**安全研究正在把“长期状态治理”确认为跨模态共同主线——T2I 的知识约束与 provenance、T2T 的语境与风格触发、Agent 的长期记忆与工作流目标设计，正在收敛为同一个控制面问题。**
 
+### 🔥 热点十五：从语义风险召回到部署链取证——安全控制面继续前移
+
+**信号强度**: ⭐⭐⭐⭐⭐（2026-04-30 新增）
+
+Cross-Lingual Jailbreak Detection（[2604.25716](https://arxiv.org/abs/2604.25716)）说明低误报语义 codebook 更适合做第一层风险召回；Conditional Misalignment（[2604.25891](https://arxiv.org/abs/2604.25891)）指出 wrapper / role / format trigger 会让“看似修好”的系统重新暴露风险；GPT-Image-2 in the Wild（[2604.25370](https://arxiv.org/abs/2604.25370)）揭示真实平台传播会重塑 T2I 风险分布；The Forensic Cost of Watermark Removal（[2604.25491](https://arxiv.org/abs/2604.25491)）把 provenance 治理推进到 forensic 残留检测；SkillGuard-Robust（[2604.25109](https://arxiv.org/abs/2604.25109)）与 SnapGuard（[2604.25562](https://arxiv.org/abs/2604.25562)）则分别从 rewrite 一致性与轻量 pre-action screening 两侧补齐 Agent 工程防线。共同信号是：**安全系统正在从"输出后拦截"持续前移为"前置风险召回 + context-trigger 验证 + 传播链取证 + 分层成本防御"的完整控制面。**
+
+### 🔥 热点十六：安全控制状态依赖化 + 评测协议反身审计（2026-10-22 新增）
+
+**信号强度**: ⭐⭐⭐⭐⭐
+
+10 月中旬这一批工作同时从**控制侧**和**评测侧**两头收紧，形成了本年度最清晰的一次范式收敛：
+
+- **控制侧：从"条件依赖"转向"状态依赖"。** CSTI（[2610.26452](https://arxiv.org/abs/2610.26452)）不再在文本层判风险，而是读 CFG 原生条件/无条件分支激活之差，在 step 5/10/15 用通道统计量 + 线性头就完成判定，step 15 单次决策，**不需要攻击样本、不需要中间图重建、不改生成器**，matched 5% FPR 下优于 6 个基线且拦截路径延迟降 60%+；DSC（[2610.21569](https://arxiv.org/abs/2610.21569)，NeurIPS 2026，腾讯署名）指出 training-free 引导普遍存在**耦合安全控制链**（同一个 unsafe condition 兼任"避什么/信号源/干预量/持续多久"），一旦语义纠缠就必然二选一，解法是拆成 runtime evidence → control-state → routing → update construction → phase-aware execution 五段显式环节；AMEND（[2610.23183](https://arxiv.org/abs/2610.23183)）则在改写选择侧用 **constraint-first** 取代加权和，并证明开放式多轮辩论仅 +0.0061 且置信区间跨零。三者来自不同子领域，却在做同一件事：**拒绝让一个先验固定的不安全规格直接决定控制动作。**
+- **评测侧：尺子本身被审计。** Policy Is Not Capability（[2610.25060](https://arxiv.org/abs/2610.25060)，NeurIPS 2026 TAE WS）用一次工业事故证明：JailbreakBench-benign **88%**、OR-Bench-hard **82%** 已存在于训练池；benchmark 的"定义敏感度"差 **23×**；**0.03% 参数**即可把 HarmBench-copyright 推过 **0→100** 而检测能力不变；验证准确率与策略一致性 $\rho=+0.74$ 却与检测能力仅 $\rho=+0.34$。PPAA（[2610.27719](https://arxiv.org/abs/2610.27719)，ECCV 2026 Spotlight）则用**相对相似度比**取代绝对差，并第一次定义"同域近邻保留"这一空白——证明通用域指标看不见近邻损伤。SCOPE（[2610.22264](https://arxiv.org/abs/2610.22264)）则用**语义 span** 取代 subword 作为 RL 信用分配单元。
+
+共同信号：**安全研究正在同时进入"精密控制"与"度量自省"两个阶段——前者解决"什么时候拦、拦多重、拦完剩多少语义"，后者回答"我们报的这些数字到底测的是什么"。** 二者缺一，控制做再精细也无法证明有效。
+
 ---
 
 ## 6. 未来研究方向与开放问题
@@ -387,7 +414,7 @@ KVBench / KE-Check（[2604.22302](https://arxiv.org/abs/2604.22302)）把 T2I be
 
 ## 7. 论文图谱总览
 
-### T2T 论文分布（96 篇）
+### T2T 论文分布（98 篇）
 
 ```
 时间线：2022 ──────────────────────────────────────► 2026
@@ -440,6 +467,7 @@ Benchmark:            PandaGuard   SecureBreak  InternalCollapse
                                    Context Over Content (Judge 完整性, 2604.15224)
                                    HarDBench (协同写作灰区基准, 2604.19274)
                                    SHAPE (教学语境越狱基准, 2604.22134)
+                                   Conditional Misalignment (context-triggered 评测, 2604.25891)
                        
 Agent 安全:                         PISmith     T-MAP
                                                LLM-Agent-Sec
@@ -447,7 +475,7 @@ Agent 安全:                         PISmith     T-MAP
                                                Your Agent Is Mine (API路由投毒, 2604.08407)
 ```
 
-### T2I 论文分布（78 篇）
+### T2I 论文分布（83 篇）
 
 ```
 时间线：2019 ──────────────────────────────────────► 2026
@@ -486,9 +514,14 @@ Benchmark:             GuardT2I  JailbreakBench  MIMMU  PromptSAN
                        T2I-BiasBench (多指标偏见审计, 2604.12481)
                        TwoHamsters (组合语义不安全基准, 2604.15967)
                        IncreFA / IABench (增量归因基准, 2604.17736)
+                       GPT-Image-2 in the Wild (工业模型野外数据集, 2604.25370)
+                       TextGround4M (OCR-rich 文本渲染基准, 2604.24459)
+                       CoBench (semantic-spatial 统一评测, 2604.25358)
+                       Edit-R1 (verifier-style fidelity reward, 2604.27505)
                        
 水印保护：              Stable-Sig  ModularLoRA  SAEUron
                        Dual-Guard (双通道 provenance, 2604.19090)
+                       Forensic Cost of Watermark Removal (去水印 forensic 成本, 2604.25491)
                        Concept-Corrector  SPEED
                        
 前处理防御：            LatentGuard  SAFREE  Safeguider
@@ -497,7 +530,7 @@ Benchmark:             GuardT2I  JailbreakBench  MIMMU  PromptSAN
                        SET / Scaling Exposes Trigger (cross-attn 后门检测, 2604.12446)
 ```
 
-### Agentic Search 论文分布（37 篇）
+### Agentic Search 论文分布（39 篇）
 
 ```
 时间线：2025 ──────────────────────────────────────► 2026
@@ -534,11 +567,13 @@ Benchmark/评测:
          CI-Work (企业情境完整性隐私基准, 2604.21308)
          AgentPressureBench (workflow incentive exploitation 基准, 2604.20200)
          CSTM-Bench (跨会话威胁检测, 2604.21131)
+         SkillGuard-Robust (package-level skill 审计, 2604.25109)
+         SnapGuard (轻量截图侧注入检测, 2604.25562)
 ```
 
 ---
 
 *本文档由 `paper-research` skill 基于项目论文库自动生成，并经人工审核和补充。*
-*最近更新：2026-04-28（v2.9 增量更新），累计论文数 **211**（T2T: **96** 篇，T2I: **78** 篇，Agentic Search: **37** 篇）。*
-*本次 v2.9 更新：新增 7 篇论文，T2T 补入 BadStyle / SHAPE，T2I 补入 KVBench / KE-Check 与 FMDiffWA，Agentic Search 补入 CI-Work / AgentPressureBench / CSTM-Bench，并新增“长期状态治理”这一跨模态新热点。*
+*最近更新：2026-10-22（v3.3 增量更新），累计论文数 **232**（T2T: **100** 篇，T2I: **93** 篇，Agentic Search: **39** 篇）。*
+*本次 v3.2 更新：新增 6 篇 T2I/T+I2I 论文——PixJail、VESFlow、ForceForget、SafetyBPO、PromptEnhancer、FaithRewriter，并新增“rewrite data + failure taxonomy + visual-anchor verification + pipeline benchmark + risk-aware routing”这一 T2I 控制面信号。*
 *相关 Survey 详见 [`t2t-survey.md`](./t2t-survey.md)、[`t2i-survey.md`](./t2i-survey.md) 和 [`agentic-search-survey.md`](./agentic-search-survey.md)。

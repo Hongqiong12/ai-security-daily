@@ -1,8 +1,8 @@
 # T2I 文生图安全 Survey：攻防前沿与概念擦除技术演进
 
 > **Survey 类型**: 基于项目论文库的系统性综述（Literature-Grounded Survey）  
-> **数据基础**: 本项目收录的 **78** 篇 T2I 安全论文（2019–2026）
-> **更新日期**: 2026-04-28
+> **数据基础**: 本项目收录的 **93** 篇 T2I 安全论文（2019–2026）
+> **更新日期**: 2026-10-22
 > **关联文档**: [前瞻总览](./AI_Security_Landscape_2026.md) · [T2T Survey](./t2t-survey.md)
 
 ---
@@ -42,7 +42,7 @@
 
 ### 1.2 研究规模与分布
 
-截至 2026-04-27，本 Survey 锚定本项目已收录的 **76** 篇 T2I 安全论文。当前 T2I 安全版图已经不再是“越狱 vs 过滤器”的单线叙事，而是至少分裂成四条强主线：
+截至 2026-05-01，本 Survey 锚定本项目已收录的 **83** 篇 T2I 安全论文。当前 T2I 安全版图已经不再是“越狱 vs 过滤器”的单线叙事，而是至少分裂成四条强主线：
 
 - **概念擦除 / 机器遗忘**：从权重微调走向 closed-form projection、depth-aware removal 与 activation-level intervention；
 - **现实世界评测**：从 clean setting 转向 robustness-in-the-wild、near-duplicate 传播链、质量退化与伪造链路；
@@ -380,7 +380,69 @@ subject to  L_retain(C') ≤ ε  # 保留其他概念 C' 的生成质量
 - **关键结果**：白盒下大多数设置的 robust accuracy 几乎压到 **0%**，跨生成器 / 跨方法迁移后准确率也常塌到 **≈50%**，基本等于随机猜；
 - **意义**：这说明 T2I 安全的真实问题已经不只是“有没有 detector”，而是**detector 自身是否足够抗攻击**。如果检测器赖以判别的重建残差信号本身低信噪比，那么整个 AIGC 治理链路会被系统性击穿。
 
+### 4.6 输入侧 Prompt Rewrite 正在成为工业控制面 (2026-04-30 新增)
+
+基于当前论文库与 2026-04-30 这批新工作，可以看到一个很明确但仍未完全论文化的工业趋势：**T2I 安全的上游控制点正在前移到输入侧 prompt 理解、风险路由与语义保真改写**。
+
+- **现实驱动**：`GPT-Image-2 in the Wild`（[2604.25370](https://arxiv.org/abs/2604.25370)）说明真实世界主场景大量转向**图文排版、可传播海报与 OCR-rich 内容**，这意味着只靠下游 NSFW classifier 已经不足以覆盖真实风险终态；
+- **现有基础**：PromptGuard、MacPrompt 代表了“先检测再放行”的前处理路线，但它们更偏**风险识别**，还没有真正解决“如何在保留用户意图的前提下做安全重写”这一工程问题；
+- **工业启发**：对实际系统，更可落地的架构不是单点 blocklist，而是 **semantic risk routing → prompt rewrite / safe rephrasing → context-trigger re-eval → 结果一致性审计** 的分层控制面；
+- **研究空白**：当前 T2I 论文仍缺少一套标准化 benchmark，来同时衡量 **风险下降、安全-效用 trade-off、语义保持（semantic fidelity）与指令遵循损失**。这也解释了为什么输入侧 rewrite 目前更像工业系统设计问题，而不是已经收敛的学术子领域。
+
+**5 月 1 日新增信号**：`Edit-R1`（[2604.27505](https://arxiv.org/abs/2604.27505)）与 `CoBench / TextGround4M`（[2604.25358](https://arxiv.org/abs/2604.25358), [2604.24459](https://arxiv.org/abs/2604.24459)）进一步把这条主线从“理念判断”推向“评测底座”。前者说明复杂生成任务的控制点正在前移到 **verifier-style reward / principle-based judging**，后两者则说明真实工业场景需要把 **semantic fidelity、layout fidelity、prompt coverage、OCR-rich 终态执行性** 拆成独立维度再统一汇总。共同信号是：**T2I 输入侧 prompt rewrite 想真正走向工程可用，下一步关键不是再堆 rewrite 规则，而是先把 verifier taxonomy 与三维评测协议补齐。**
+
 ---
+
+### 4.7 从 prompt rewrite 到 pipeline benchmark：T2I 输入侧安全改写进入系统工程阶段 (2026-06-24 新增)
+
+6 月这一批论文把 T2I 输入侧安全改写从“是否应该做”推进到了“应该如何做成系统”的阶段，且路线已经明显分成四层：
+
+- **rewrite 数据层**：`SafetyBPO` 明确把 unsafe prompt 重写成 **safe-yet-semantically-consistent** 版本，并用 **2.5K** 规模的 BPO-Bench 同时连接 prompt preference 与 image preference；
+- **rewriter 训练层**：腾讯混元的 `PromptEnhancer` 不再把 reprompt 当作普通语言润色，而是用 **24 key points** 的 failure taxonomy 训练 CoT rewriter，说明工业 rewriter 的核心资产是**细粒度失败建模**；
+- **语义保真验证层**：`FaithRewriter` 通过 visual anchor 把 rewrite 的隐性错误外化成可见图像，再用“修复验证 / 意图保留 / 反向回归”三重约束做 DPO 蒸馏，证明 **semantic fidelity 不能只在文本层判断**；
+- **评测基建层**：`PixJail` 进一步指出，真正需要统一的不是单条 prompt，而是 **rewrite / generation / safety filter / MLLM judge / artifacts** 的完整 pipeline contract。
+
+共同信号非常清楚：**T2I 输入侧 prompt rewrite 已经不再是一个“加几条规则”的前处理模块，而是一个需要数据、taxonomy、视觉终态验证和评测基础设施共同支撑的控制面。** 对当前业务而言，下一步最值得优先补齐的不是更多 rewriting heuristics，而是：
+- 风险下降 / 语义保持 / 指令遵循的三维 judge；
+- winner/loser image 配套的 safe rewrite pair 数据；
+- 可回放的 rewrite-to-image benchmark pipeline。
+
+---
+
+### 4.8 「安全控制状态依赖化」：从条件依赖走向生成态驱动 (2026-10-22 新增)
+
+10 月这一批工作出现了一个此前没有被显式命名的跨方法共识：**安全控制动作不应由一个先验固定的不安全条件直接决定，而应由"当前状态"决定。** 来自三个不同子领域的工作同时指向这一点：
+
+- **输入侧 gate（CSTI，[2610.26452](https://arxiv.org/abs/2610.26452)）**：不再在文本层判风险，而是读 CFG 原生就算好的**条件分支与无条件分支激活之差**。在 step 5/10/15 取通道统计量 + 线性头即可判定，step 15 单次决策；命中则终止生成，未命中则**采样轨迹完全不变**。5 个生成器、4 个对抗集合、2 个 NSFW 数据集上，matched 5% FPR 下优于 6 个基线，拦截路径延迟降 60%+。关键工程性质：**不需要攻击样本拟合、不需要中间图重建、不改生成器**，阈值在独立安全集上标定。
+- **生成侧控制链（DSC，[2610.21569](https://arxiv.org/abs/2610.21569)，NeurIPS 2026，腾讯署名）**：指出 training-free 引导普遍存在**耦合安全控制链**——同一个 unsafe condition 同时兼任"避什么 / 当前信号 / 干预量 / 持续多久"四职。一旦有害与良性语义纠缠，必然二选一（留残留 or 伤保真）。解法是拆成 runtime evidence → control-state → intervention routing → update construction → phase-aware execution 五段显式环节，全部由当前生成态驱动，实例化在 SLD 与 SAFREE 上。
+- **改写选择（AMEND，[2610.23183](https://arxiv.org/abs/2610.23183)，T2T 迁移）**：用 **constraint-first selection** 取代无约束加权和，让语义保真对表面安全拥有**否决权**；并证明开放式多轮辩论仅 +0.0061 且置信区间跨零，**有界单轮修复 > 无限迭代**。
+
+**这条主线的业务含义**：输入侧改写当前也处在"耦合链"状态——一个风险标签同时决定了"要不要改 / 改哪里 / 改成什么 / 改到什么程度"。DSC 给出的解耦模板（六段映射见日报）是现阶段最可直接尝试的结构改造。
+
+---
+
+### 4.9 Rewriter 训练层：语义 span 取代 subword 成为信用分配单元 (2026-10-22 新增)
+
+`SCOPE`（[2610.22264](https://arxiv.org/abs/2610.22264)）点破了 T2I prompt rewriter 的 RL 训练中长期存在的**结构性错配**：图像级单一奖励被平摊到 subword token，但真正的语义单元是**连贯 span**（物体 / 数量 / 属性 / 关系）。
+
+- 机制：rewriter **联合输出**增强 prompt 与其 semantic partition；span 内池化 policy log-prob 偏移得到**共享系数**加权该 span 内 token loss；**保留 completion 级单一 advantage**。
+- 成本：**不需要额外 span 奖励，不需要额外图像渲染**——纯目标函数层改动。
+- 效果：Qwen-Image / SD3 / FLUX.1-dev 上，GeneVal **+9.48%**、T2I-CompBench **+7.62%**（vs vanilla GRPO）。
+- 定位：它把"语义结构"确认为 **prompt engineering with RL 的实用归纳偏置**，而不是新 RL 算法。
+
+对输入侧安全改写的直接含义：**"语义保真"本质就是"不要在错误的语义单元上分配信用"**。若把"性感 → 优雅"学成**一个 span 的替换**而非一堆 token 各自漂移，正是这条归纳偏置要解决的问题。
+
+---
+
+### 4.10 保真度量正在被重新发明：相对比值取代绝对差 (2026-10-22 新增)
+
+`PPAA`（[2610.27719](https://arxiv.org/abs/2610.27719)，ECCV 2026 Spotlight）在概念擦除里做了一件对输入侧改写同样重要的事：
+
+- **相对相似度比取代绝对差**：自适应阈值因此表示"**保留百分之多少语义**"，**单一阈值可跨层统一适用**（绝对差需逐层调参）。
+- **第一次明确定义了"同域近邻保留"这一空白**：现有方法能保住宽泛通用域概念（MS-COCO），但保不住同域近邻（擦 Obama 时能否保住 Will Smith）。而通用域指标（FID on COCO）**对同域近邻损伤不敏感**——这等于在质疑既有"保留性"评测口径本身。
+- 实现：cross-attention 空间 push（位移目标表示）+ 有界余弦相似度 anchor（锚定擦除尺度）；SD v1.4 主实验 + FLUX 验证；覆盖 celebrities / artistic styles / nudity / IP。
+
+**共同信号**：本周四篇（PPAA 的相对比值、SCOPE 的语义 span、AMEND 的硬门槛、Policy 的定义敏感度）都在做同一件事——**旧的那把尺子量不出我们真正关心的东西**。保真度量正在从"标量强度调参"转向"有语义的无量纲量"。
 
 ## 5. 水印保护：内容归属与版权防护
 
@@ -462,6 +524,14 @@ T2I 水印研究围绕三个核心应用场景：
 - **关键结果**：单独使用 **FWM** 时论文报告核心指标为 **39.96 / 0.1896**，单独使用 **PTS** 为 **48.65 / 0.0664**，而二者联合后达到 **42.08 / 0.2084**，说明真正稳定的反水印能力来自训练策略与频域攻击的协同，而不是单一技巧；
 - **意义**：这说明未来 T2I provenance 不能把 watermark 当成静态外挂模块，因为攻击者可以把“去水印能力”直接训练进扩散模型本体。对于开放生成生态，这是一条非常值得长期追踪的攻击主线。
 
+### 5.9 去水印攻击的 forensic 成本：来源证明开始进入“三元组评估” (2026-04-30 新增)
+
+**The Forensic Cost of Watermark Removal**（[2604.25491](https://arxiv.org/abs/2604.25491)）把 T2I 水印防线继续推进到更贴近工业部署的一层：
+
+- **核心机制**：不再只问 watermark 是否被去掉，而是显式训练 **WRD (Watermark Removal Detection)**，检测图像是否经历过攻击性去水印处理；
+- **关键结果**：在 **FPR = 10^-3** 下，WMForger 的 TPR 仍达 **0.815 / 0.801**（TrustMark / VideoSeal）；在 **FPR = 10^-2** 下几乎到 **0.998**，说明“去得掉 bit”与“藏得住攻击痕迹”是两回事；
+- **意义**：这把去水印攻防从二维问题重写成 **ASR × 感知质量 × forensic detectability** 三元组。对工业平台来说，这比单纯提升 watermark bit robustness 更接近真实治理需求：攻击者不仅要抹掉来源，还要抹掉“自己动过手”的证据。
+
 ## 6. 基准评测
 
 ### 6.1 T2I 安全专用 Benchmark
@@ -470,6 +540,11 @@ T2I 水印研究围绕三个核心应用场景：
 - 标准化越狱评估协议，统一 ASR（Attack Success Rate）计算方法
 - 覆盖多个 T2I 模型（SD v1.5, SDXL, DALLE 系列）
 - 提供标准化的违禁内容分类体系
+
+**PixJail**（[2606.24081](https://arxiv.org/abs/2606.24081)）：
+- 将 T2I jailbreak 评测提升为 paper-to-pipeline reproduction，覆盖 prompt transformation、生成器、安全过滤器与多模态 judge；
+- 在统一协议下复现 11 个方法，平均误差仅 2.1%；
+- 对输入侧 safety rewrite 的意义在于：真正该标准化的是整条 rewrite-to-image pipeline，而不是一张 prompt 列表。
 
 **MIMMU（Multimodal Understanding Safety）**（[2603.00992](https://arxiv.org/abs/2603.00992)）：
 - 多模态安全理解基准，测试 T2I 模型及 MLLM 对安全相关提示的理解
@@ -549,7 +624,23 @@ T2I 水印研究围绕三个核心应用场景：
 - **关键结果**：在 Table 3 中，baseline 仅 **20.09 / 25.74**（中 / 英），而 **KE-Check** 提升到 **47.67 / 30.24**；自动评测与人工标注对齐达到 **80.26% accuracy、κ = 0.7447**；
 - **意义**：这释放出一个很重要的新信号——T2I 安全评测正在从传统 NSFW / jailbreak / bias 指标，扩展到 **knowledge-intensive correctness**。这对后续多模态安全 benchmark 与教育/科研场景部署尤其关键。
 
-### 6.11 评测维度与指标
+### 6.11 工业模型野外数据集：真实部署分布开始反过来塑形 benchmark (2026-04-30 新增)
+
+**GPT-Image-2 in the Wild**（[2604.25370](https://arxiv.org/abs/2604.25370)）把 T2I benchmark 明确往“真实分发链路”推了一步：
+
+- **核心机制**：围绕 Twitter/X 首周公开贴文，构建 **10,217** 张高置信 GPT-image-2 图像数据集，并通过规则 + Playwright badge 检查恢复“真实部署里用户到底在怎么用模型”；
+- **关键结果**：原始 image records **27,662** 条，最终 confirmed **10,217** 张；**53.7%** uncertain 页面样本带有 **Made with AI** badge；**33.2%** 内容属于文字/图文排版，且 **82.0%** 图像含可 OCR 文本；
+- **意义**：这说明未来 T2I 评测不能只看实验室 prompt set，而必须把**平台传播、metadata 剥离、文本渲染主场景、重采样后的野外分布**纳入 benchmark 设计。对于工业界 prompt rewrite / safety evaluation，这类真实部署数据集比 clean lab benchmark 更接近最终落地问题。
+
+### 6.12 verifier + 版式文本 benchmark：rewrite 三维评测底座开始成形 (2026-05-01 新增)
+
+**Edit-R1**（[2604.27505](https://arxiv.org/abs/2604.27505)）、**CoBench**（[2604.25358](https://arxiv.org/abs/2604.25358)）与 **TextGround4M**（[2604.24459](https://arxiv.org/abs/2604.24459)）共同把 T2I benchmark 又往前推了一层：
+
+- **核心机制**：`Edit-R1` 用 **Keep / Follow / Quality** 原则把复杂编辑任务重写成 verifier-style reward；`CoBench` 把 layout-guided generation 拆成 **Text-Alignment + Layout-Alignment + Unified Score**；`TextGround4M` 则把 **Prompt Coverage / Layout IoU / OCR 正确率** 拉进真实文本渲染终态；
+- **关键结果**：Edit-R1 在内部 benchmark 上达到 **82.2%** verifier 准确率、在 EditRewardBench 上达到 **78.2%**；CoBench 对 **319,086** 张生成图像做 semantic-spatial 统一评测；TextGround4M 构建 **4.1M** 样本，并把 Easy 场景的 Prompt Coverage 从 **7.22** 提升到 **30.80**；
+- **意义**：这对 T2I 安全尤其关键，因为输入侧 prompt rewrite 迟迟缺的不是“会不会重写”，而是**如何把风险下降、语义保持、终态执行性拆成可测维度**。这三篇论文共同说明，未来工业 rewrite benchmark 很可能要同时包含 **verifier taxonomy、harmonic aggregation、OCR-rich 终态 fidelity** 三层。
+
+### 6.13 评测维度与指标
 
 基于本项目论文收录，T2I 安全评测主要使用以下指标：
 
@@ -716,6 +807,7 @@ Flux 和 SD3 已经成为 2025–2026 年的主流 T2I 架构，但截至本 Sur
 | Hidden Ads | [2603.27522](https://arxiv.org/abs/2603.27522) | 2026 | 后门/广告注入 | 语义行为触发VLM后门，广告植入 |
 | SHIFT | [2603.29742](https://arxiv.org/abs/2603.29742) | 2026 | 水印攻击 | 无训练随机轨迹偏转破除扩散水印 |
 | Fragile Reconstruction | [2604.12781](https://arxiv.org/abs/2604.12781) | 2026 | 检测器攻击 | 重建式 AIGC detector 在对抗扰动下白盒近乎归零、黑盒迁移塌到随机猜 (NEW) |
+| PixJail | [2606.24081](https://arxiv.org/abs/2606.24081) | 2026 | 评测基础设施 | paper-to-pipeline 复现 11 个 T2I jailbreak 方法，统一 contract 与工件治理 (NEW) |
 
 ### 概念擦除/机器遗忘类（代表性选摘）
 
@@ -739,6 +831,8 @@ Flux 和 SD3 已经成为 2025–2026 年的主流 T2I 架构，但截至本 Sur
 | TICoE | [2604.15829](https://arxiv.org/abs/2604.15829) | 2026 | 图文协同精准擦除：CCCM + HVRL 在强擦除下显著降低相近概念误伤 (NEW) |
 | PGU | [2604.21041](https://arxiv.org/abs/2604.21041) | 2026 | 抗概念复活加固：用 retain-concept 子空间投影阻止 erased model 在后续 fine-tuning 中复活目标概念 (NEW) |
 | SafeCtrl | [2604.03941](https://arxiv.org/abs/2604.03941) | 2026 | 区域擦除：Detect-Then-Suppress DPO 局部替换 |
+| ForceForget | [2606.14351](https://arxiv.org/abs/2606.14351) | 2026 / ICML | 双奖励 concept removal：Safe Adapter + CER 同步优化安全与语义保真 (NEW) |
+| SafetyBPO | [CVPR 2026 Findings](https://openaccess.thecvf.com/content/CVPR2026F/html/Wu_SafetyBPO_Bidirectional_Preference_Optimization_for_Safe_Text-to-Image_Generation_CVPRF_2026_paper.html) | 2026 / CVPR Findings | safe rewrite pairs + bidirectional preference optimization，显式缓解 over-forgetting (NEW) |
 
 ### 前处理/过滤防御类（代表性选摘）
 
@@ -753,6 +847,9 @@ Flux 和 SD3 已经成为 2025–2026 年的主流 T2I 架构，但截至本 Sur
 | PromptGuard | [2501.03544](https://arxiv.org/abs/2501.03544) | 2025 | 对抗提示词检测 |
 | MacPrompt | [2601.07141](https://arxiv.org/abs/2601.07141) | 2026 | 多维语义分析过滤 |
 | Scaling Exposes the Trigger | [2604.12446](https://arxiv.org/abs/2604.12446) | 2026 | 主动后门检测：通过 cross-attention scaling 学习 benign response boundary (NEW) |
+| VESFlow | [2606.23267](https://arxiv.org/abs/2606.23267) | 2026 | few-step flow safety：velocity editing + risk gating，在高风险时做生成侧纠偏 (NEW) |
+| PromptEnhancer | [2509.04545](https://arxiv.org/abs/2509.04545) | 2026 | failure-taxonomy-aware rewriter：24 key points + AlignEvaluator + GRPO (NEW) |
+| FaithRewriter | [2606.08492](https://arxiv.org/abs/2606.08492) | 2026 | visual-anchor rewrite：用闭环出图验证 semantic fidelity，抑制 over-inference (NEW) |
 
 ### 水印/溯源类（代表性选摘）
 
@@ -763,6 +860,7 @@ Flux 和 SD3 已经成为 2025–2026 年的主流 T2I 架构，但截至本 Sur
 | SAEUron | [2501.18052](https://arxiv.org/abs/2501.18052) | 2025 | SAE 神经元水印 |
 | RobustWatermark | [2604.06662](https://arxiv.org/abs/2604.06662) | 2026 | 双重鲁棒频域水印 |
 | Dual-Guard | [2604.19090](https://arxiv.org/abs/2604.19090) | 2026 | 双通道 provenance + tamper localization 水印 (NEW) |
+| The Forensic Cost of Watermark Removal | [2604.25491](https://arxiv.org/abs/2604.25491) | 2026 | 去水印攻击的 forensic detectability：把来源证明评估升级为 ASR×质量×取证可探测性 (NEW) |
 | FRAP | [2408.11706](https://arxiv.org/abs/2408.11706) | 2024 | 鲁棒提示自适应水印 |
 
 ### 基准/多模态（代表性选摘）
@@ -784,9 +882,14 @@ Flux 和 SD3 已经成为 2025–2026 年的主流 T2I 架构，但截至本 Sur
 | Embedding Arithmetic | [2604.18167](https://arxiv.org/abs/2604.18167) | 2026 | inference-time debiasing：用 H_g / H_r / CCS 审计 embedding editing 的公平性收益 (NEW) |
 | IncreFA | [2604.17736](https://arxiv.org/abs/2604.17736) | 2026 | 增量归因与 IABench：把生成器 attribution 推进到 open-set / continual setting (NEW) |
 | Target-Based Prompting | [2604.21036](https://arxiv.org/abs/2604.21036) | 2026 | 目标声明式公平控制：按用户/场景声明的 demographic target 分布做 inference-time prompt allocation 与 Alignment Error 审计 (NEW) |
+| FMDiffWA | [2604.22220](https://arxiv.org/abs/2604.22220) | 2026 | 频域调制扩散去水印攻击：把 watermark attack 升级为高保真、跨水印的强攻击者框架 (NEW) |
+| TextGround4M | [2604.24459](https://arxiv.org/abs/2604.24459) | 2026 | 4.1M prompt-grounded 文本渲染数据集：用 Prompt Coverage / Layout IoU 补齐 OCR-rich 终态评测 (NEW) |
+| CoBench | [2604.25358](https://arxiv.org/abs/2604.25358) | 2026 | semantic-spatial unified benchmark：把 layout-guided T2I 的语义与空间对齐拆开评测再统一汇总 (NEW) |
+| GPT-Image-2 in the Wild | [2604.25370](https://arxiv.org/abs/2604.25370) | 2026 | 工业模型野外数据集：把平台传播、badge 信号、文本渲染场景与 provenance 流失纳入真实部署评测 (NEW) |
+| Edit-R1 | [2604.27505](https://arxiv.org/abs/2604.27505) | 2026 | verifier-style image editing reward：把复杂生成任务的 semantic fidelity 判别重写成原则级核验 (NEW) |
 
 ---
 
-*本 Survey 由 `paper-research` skill 自动生成，基于项目截至 2026-04-28 收录的 T2I 论文（78 篇）。*  
-*上次 Survey 更新：2026-04-28（新增 2 篇：2604.22302 KVBench / KE-Check、2604.22220 FMDiffWA）。*  
+*本 Survey 由 `paper-research` skill 自动生成，基于项目截至 2026-06-24 收录的 T2I 论文（89 篇）。*  
+*上次 Survey 更新：2026-06-24（新增 6 篇：2606.24081 PixJail、2606.23267 VESFlow、2606.14351 ForceForget、SafetyBPO、2509.04545 PromptEnhancer、2606.08492 FaithRewriter）。*  
 *下次更新时间：跟随每日自动化任务实时更新。*

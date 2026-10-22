@@ -1,12 +1,12 @@
-# AI 安全每日情报调研与推送 - 全模态自动化流水线
+# AI 安全每日情报调研与推送 - T2I 工业安全优先流水线
 
-> **版本**: v2.1 | **创建日期**: 2026-03-24 | **最后更新**: 2026-04-17
+> **版本**: v2.3 | **创建日期**: 2026-03-24 | **最后更新**: 2026-04-30
 >
-> **关注领域**: Text-to-Image (T2I) · Multimodal-to-Image (T+I2I) · Text-to-Text (T2T) · Agentic Search
+> **关注领域**: Text-to-Image (T2I) / Multimodal-to-Image (T+I2I) 工业安全 · 输入侧 Prompt Rewrite / Safety Rewriting · 多模态安全 Benchmark
 >
 > **执行时间**: 每日 08:00 (北京时间) | 频率: FREQ=DAILY
 >
-> **数据来源**: ArXiv cs.CR / cs.CL / cs.LG / cs.CV（过去 7 天）
+> **数据来源**: ArXiv cs.CR / cs.CL / cs.LG / cs.CV（过去 7 天）+ 工业界公开论文/技术报告线索
 >
 > **执行前置**: 强制加载 `paper-research` + `pua`；执行结束后必须回写 automation memory 与 `.workbuddy/memory/`
 
@@ -14,17 +14,38 @@
 
 ## 一、任务概述
 
-本自动化任务重点追踪和整理 **文生图(T2I)** 与 **文图生图(T+I2I)** 领域的 AI 安全对齐与评测研究，辅以 T2T 和 Agentic Search 模态，每日自动执行以下全链路流程。
+本自动化任务的**唯一主线**切换为：追踪和整理 **文生图(T2I)** 与 **文图生图(T+I2I)** 领域的工业级 AI 安全对齐研究，尤其是**输入侧文本改写（Prompt Rewrite / Safety Rewriting）**、NSFW 风险语义保真重写、评测基准、概念擦除、溯源/水印与多模态安全治理。T2T 与 Agentic Search 仅保留为**迁移参考模态**：只有当其方法、评测或防御思路能直接迁移到 T2I 输入侧安全时，才进入当日主报告。
 
 ### 1.1 任务目标
 
 | 模态 | 英文名称 | 中文名称 | 研究重点 |
 |------|----------|----------|----------|
-| **T2I & T+I2I** | Text-to-Image / Multimodal-to-Image | 文生图/文图生图 | **【核心重点】** 安全对齐、概念擦除/对抗、内容安全过滤(NSFW脱敏)、越狱攻击、多模态安全Benchmark |
-| **T2T** | Text-to-Text | 文生文 | LLM 越狱攻击、提示注入、机制可解释性 (当前降维关注) |
-| **Agentic** | Agentic Search | Agent 安全 | 技能供应链投毒、工具劫持、Agent 基准评测 (当前降维关注) |
+| **T2I & T+I2I** | Text-to-Image / Multimodal-to-Image | 文生图/文图生图 | **【绝对核心】** 工业界安全对齐、输入侧 Prompt Rewrite / Prompt Sanitization、NSFW 语义保真改写、概念擦除/反擦除、多模态安全 Benchmark、watermark/provenance、内容审核与 red teaming；优先追踪 Anthropic、阿里、OpenAI、Google、Meta、Adobe、字节、腾讯等头部公司方案 |
+| **T2T** | Text-to-Text | 文生文 | 仅作为可迁移参考：安全改写、语义保真重写、拒答策略、评测框架、LLM 安全判别器 |
+| **Agentic** | Agentic Search | Agent 安全 | 仅作为可迁移参考：工具调用安全、企业工作流 guardrail、长期上下文治理、评测与审计方法 |
 
-### 1.2 论文分类体系
+### 1.2 业务贴合优先级
+
+- **工业界优先**：同等质量下，优先收录来自 Anthropic、阿里、OpenAI、Google、Meta、Adobe、微软、字节、腾讯等头部公司的论文、技术报告或公开基准。
+- **输入侧改写优先**：优先筛选与 **prompt rewrite / prompt sanitization / safe rephrasing / intent-preserving rewrite** 相关的工作，特别是“保留用户语义 + 降低 NSFW 风险 + 不显著损伤指令遵循”的方法。
+- **业务可迁移优先**：优先收录能直接服务现有业务的问题设定：模糊高风险 prompt 改写、风险锚点外科替换、语义保持评测、改写前后安全-效用 trade-off。
+- **辅线降级**：纯 T2T 越狱或纯 Agent 攻防若与 T2I 输入侧安全没有明显迁移价值，则只做候选观察，不占据当日核心版面。
+
+### 1.3 业务调研板块（新增）
+
+每日主报告必须新增 **“业务对齐研究板块”**，固定回答下面 4 个问题：
+
+1. **直接可迁移方法**：今天哪些论文的方法、评测或数据最接近当前业务的“输入侧 NSFW 风险 prompt 改写”？
+2. **风险锚点处理启发**：哪些工作提供了可借鉴的风险概念拆解、语义约束、显式目标声明、前置过滤或 rewrite 流程？
+3. **评测设计启发**：哪些论文能帮助设计“语义保持 / 安全提升 / 指令遵循损失”三维评测？
+4. **下一步实验建议**：给出现阶段最值得验证的 1–3 个小实验或数据构建动作，避免只停留在论文摘要层。
+
+推荐输出格式：
+- **A. 直接相关论文**（最少 1 篇）
+- **B. 迁移判断**（能迁什么、不能迁什么）
+- **C. 实验建议**（可直接开做）
+
+### 1.4 论文分类体系
 
 每个模态下包含子类别：
 
@@ -34,7 +55,7 @@
 - **benchmark/** — 基础评测集、基准测试论文索引（**动态回填，每次新增 Benchmark 类论文时追加**）
 - `attack/defense/benchmark/` 主要承担导航与专题归档；真正的论文正文统一存放在 `papers/`
 
-### 1.3 输出产物
+### 1.5 输出产物
 
 | 产物 | 存储位置 | 说明 |
 |------|----------|------|
@@ -61,8 +82,9 @@
 ┌─────────────────────────────────────────────────────────────┐
 │ Step 1: 情报搜索                                             │
 │ - 加载 paper-research + pua 获取标准 SOP 与防摆烂闭环         │
-│ - 搜索 ArXiv 近 7 天 T2T/T2I/Agentic 安全论文                │
-│ - 筛选 4-8 篇高价值目标（排除已收录）                          │
+│ - 优先搜索近 7 天 T2I/T+I2I 工业安全与输入侧改写论文          │
+│ - 特别关注头部公司作者/机构与可迁移到业务的 prompt rewrite    │
+│ - T2T/Agentic 仅补充可迁移方法，筛选 4-8 篇高价值目标          │
 └─────────────────────────────────────────────────────────────┘
                   │
                   ▼
@@ -79,7 +101,9 @@
 ┌─────────────────────────────────────────────────────────────┐
 │ Step 3: 每日报告生成                                         │
 │ - 生成 daily-reports/YYYY-MM/YYYY-MM-DD_*.md                │
-│ - 包含：今日概览 + 每篇精读摘要 + 趋势信号                    │
+│ - 报告必须以 T2I/T+I2I 发现开篇，并单列业务迁移建议           │
+│ - 必须新增“业务对齐研究板块”，沉淀迁移判断与实验建议          │
+│ - 包含：今日概览 + 每篇精读摘要 + 趋势信号 + prompt rewrite 洞察│
 └─────────────────────────────────────────────────────────────┘
                   │
                   ▼
@@ -199,18 +223,28 @@ benchmark OR evaluation OR dataset OR "red team benchmark"
 ### 3.2 T2I & T+I2I 检索关键词 (核心优先)
 
 ```
-# 攻击类
-("text-to-image" OR "multimodal-to-image" OR "vision-language" OR "image generation") 
-AND (jailbreak OR "adversarial" OR "prompt injection" OR backdoor OR "concept erasure attack" OR "bypassing")
+# 输入侧改写 / 安全重写类（最高优先）
+("text-to-image" OR "multimodal-to-image" OR diffusion OR "image generation")
+AND ("prompt rewrite" OR rewriting OR "prompt sanitization" OR "safe rephrasing" OR "safety rewriting" OR "intent-preserving rewrite" OR "prompt optimization" OR "semantic-preserving" OR "policy rewriting")
+AND (safety OR NSFW OR moderation OR alignment OR harmlessness)
 
-# 防御与对齐类 (重点)
-("text-to-image" OR "multimodal-to-image" OR "diffusion") 
-AND ("safety alignment" OR "concept erase" OR "concept ablation" OR "safety filter" OR "content moderation" OR "NSFW" OR "safe generation" OR "red teaming")
+# 防御与对齐类（重点）
+("text-to-image" OR "multimodal-to-image" OR diffusion)
+AND ("safety alignment" OR "safe generation" OR "content moderation" OR "safety filter" OR "NSFW" OR "concept erase" OR "concept erasure" OR "concept ablation" OR watermark OR provenance OR "red teaming")
 
-# 评测类 (重点)
-("text-to-image" OR "multimodal-to-image" OR "diffusion")
-AND (benchmark OR evaluation OR "safety benchmark" OR "image safety dataset" OR "red team benchmark")
+# 评测类（重点）
+("text-to-image" OR "multimodal-to-image" OR diffusion)
+AND (benchmark OR evaluation OR dataset OR "safety benchmark" OR "image safety dataset" OR "red team benchmark" OR "semantic fidelity" OR "instruction following")
+
+# 攻击与绕过类（辅助）
+("text-to-image" OR "multimodal-to-image" OR "image generation")
+AND (jailbreak OR bypassing OR adversarial OR backdoor OR "prompt injection" OR "concept erasure attack")
 ```
+
+**检索排序规则：**
+1. 先看 T2I/T+I2I 输入侧改写、安全重写、NSFW 语义保真相关工作。
+2. 再看工业界作者/机构（Anthropic、阿里、OpenAI、Google、Meta、Adobe、微软、字节、腾讯等）与可部署评测基准。
+3. 若当天 T2I 强相关论文不足，再用 T2T/Agentic 的可迁移方法补位，但必须写明“迁移价值”。
 
 ### 3.3 Agentic Search 检索关键词
 
@@ -354,10 +388,12 @@ assert _meta_json_total == total
 
 | 版本 | 日期 | 变更 |
 |------|------|------|
-| **v2.1** | 2026-04-17 | 修复 README/WORKFLOW 对齐问题：刷新真实目录结构与论文计数、改正 `arxiv_id_slug.md` 命名规范、补入 Step 8（记忆回写与月度自校准）、增加 `paper-research` + `pua` 执行前置 |
+| **v2.3** | 2026-04-30 | 在 T2I 工业安全主线下新增 **业务对齐研究板块**：要求每日日报固定输出“直接相关论文 / 迁移判断 / 实验建议”，显式服务输入侧 NSFW prompt 改写工作 |
+| v2.2 | 2026-04-30 | 将每日调研主线收紧为 **T2I/T+I2I 工业安全**：新增输入侧 Prompt Rewrite / Safety Rewriting 优先级、工业界机构优先级、T2T/Agentic 迁移参考规则，并要求日报以 T2I 发现与业务迁移建议开篇 |
+| v2.1 | 2026-04-17 | 修复 README/WORKFLOW 对齐问题：刷新真实目录结构与论文计数、改正 `arxiv_id_slug.md` 命名规范、补入 Step 8（记忆回写与月度自校准）、增加 `paper-research` + `pua` 执行前置 |
 | v2.0 | 2026-04-14 | **重大重构**: 新增 Step 6(总结性文档同步) + Step 5.2(精确计数校验) + _meta.json + Agentic 模态 + Benchmark 动态回填 + Landscape 自动触发 |
 | v1.0 | 2026-03-24 | 初始版：T2T+T2I 双轨，6 步流程，基础 QC 清单 |
 
 ---
 
-*本文档由自动化任务维护 | 版本: v2.1 | 最后更新: 2026-04-17*
+*本文档由自动化任务维护 | 版本: v2.3 | 最后更新: 2026-04-30*

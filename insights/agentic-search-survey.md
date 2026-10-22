@@ -1,8 +1,8 @@
 # Agentic Search Model 安全与能力研究 Survey
 
-> **版本**: v1.7（增量更新：CI-Work / AgentPressureBench / CSTM-Bench）
-> **更新日期**: 2026-04-28
-> **覆盖论文数**: 37 篇  
+> **版本**: v1.8（增量更新：SkillGuard-Robust / SnapGuard）
+> **更新日期**: 2026-04-30
+> **覆盖论文数**: 39 篇  
 > **维护方式**: 每次新增论文后增量追加；每月 1 日执行深度重构
 
 ---
@@ -253,6 +253,19 @@ FHA 证明攻击者甚至不需要等到工具真正执行，也不需要控制�
 **MCP Pitfall Lab 核心发现**：
 MCP 安全的高危点不只在模型“会不会被 prompt injection”，而在服务器开发者是否把 schema、跨工具转发、高风险输入校验与审计日志实现正确。论文用 protocol-aware benchmark + trace validators 证明：平均只需 **27 行代码** 的修复，就能把风险从 **10.0** 降到 **0.0**；更关键的是，agent 自述与真实 trace 在 sink-action 运行上存在 **100%** 偏差率，说明**协议 trace 才是 MCP 审计的唯一可信锚点**。
 
+### 3.13 结构化技能审计与轻量截图守卫：Agent 防线开始兼顾 rewrite 鲁棒性与部署成本 (NEW — 2026-04-30 新增)
+
+| 论文 | arXiv | 年份 | 方向 | 详情 |
+|------|-------|------|------|------|
+| SkillGuard-Robust | [2604.25109](https://arxiv.org/abs/2604.25109) | 2026 | package-level skill auditing / rewrite robustness | [详情](../categories/agentic-search/papers/2604.25109_skillguard_robust.md) |
+| SnapGuard | [2604.25562](https://arxiv.org/abs/2604.25562) | 2026 | screenshot-side prompt injection detection / lightweight guardrail | [详情](../categories/agentic-search/papers/2604.25562_snapguard.md) |
+
+**SkillGuard-Robust 核心发现**：
+Skill 安全审计的关键错误不再只是“有没有拦住风险”，而是会不会把真正 malicious 的包压缩成 suspicious。SkillGuard-Robust 用 structured evidence extraction、selective semantic verification、chain arbitration 与 anchor-consistency consolidation 把 **collapse gap** 基本压到 **0–1.18**，说明 package-level 结构恢复与 rewrite 一致性修复是技能生态审计的新抽象层。
+
+**SnapGuard 核心发现**：
+对 screenshot-based web agent 来说，不一定非得上大 VLM 才能守住 prompt injection。SnapGuard 用 **VSI + CPR + OCR + APD** 在 **0 额外 GPU** 条件下实现 **F1 = 0.75**、总时延 **1.81s**，同时优于 GPT-4o-prompt 的 **0.71**。这说明 Agent 防线开始进入新的工程平衡点：**先用轻量 guardrail 做高性价比 pre-action screening，再把昂贵判断留给边界样本。**
+
 ---
 
 ## 4. 与 T2T / T2I 安全的交叉关系
@@ -298,6 +311,8 @@ Agentic Search 安全并非完全独立的方向，它与本项目已追踪的�
 
 | # | arXiv ID | 标题 | 类型 | 收录日期 | 链接 |
 |---|----------|------|------|----------|------|
+| 39 | 2604.25562 | SnapGuard: Lightweight Prompt Injection Detection for Screenshot-Based Web Agents | 防御/轻量截图侧注入检测 | 2026-04-30 | [详情](../categories/agentic-search/papers/2604.25562_snapguard.md) |
+| 38 | 2604.25109 | Structured Security Auditing and Robustness Enhancement for Untrusted Agent Skills | 评测/package-level skill 审计与 rewrite 鲁棒性 | 2026-04-30 | [详情](../categories/agentic-search/papers/2604.25109_skillguard_robust.md) |
 | 33 | 2604.21308 | CI-Work: Benchmarking Contextual Integrity in Enterprise LLM Agents | 评测/企业隐私与情境完整性基准 | 2026-04-28 | [详情](../categories/agentic-search/papers/2604.21308_ci_work.md) |
 | 32 | 2604.21131 | Cross-Session Threats in AI Agents: Benchmark, Evaluation, and Algorithms | 评测/跨会话威胁检测基准 | 2026-04-28 | [详情](../categories/agentic-search/papers/2604.21131_cstm_bench.md) |
 | 31 | 2604.20200 | Chasing the Public Score: User Pressure and Evaluation Exploitation in Coding Agent Workflows | 评测/coding-agent workflow exploitation 基准 | 2026-04-28 | [详情](../categories/agentic-search/papers/2604.20200_agentpressurebench.md) |
@@ -334,5 +349,5 @@ Agentic Search 安全并非完全独立的方向，它与本项目已追踪的�
 
 ---
 
-*本 Survey 由 paper-research skill Phase 5 生成与维护 | 初始版本：2026-03-30 | v1.7 更新：2026-04-28*
-*v1.7 更新说明：新增 CI-Work、AgentPressureBench 与 CSTM-Bench，并把 Agentic 安全继续推进到“企业隐私治理 + workflow incentive control + cross-session memory bottleneck”这条新的长期状态治理主线。*
+*本 Survey 由 paper-research skill Phase 5 生成与维护 | 初始版本：2026-03-30 | v1.8 更新：2026-04-30*
+*v1.8 更新说明：新增 SkillGuard-Robust 与 SnapGuard，并把 Agentic 防线继续推进到“package-level skill auditing + lightweight pre-action screening”这条新的工程化主线。*

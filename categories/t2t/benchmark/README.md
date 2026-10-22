@@ -2,7 +2,7 @@
 
 文生文 LLM 的基础综述、安全评测基准论文。
 
-> 最后回填: 2026-04-28 | 共 **13** 条
+> 最后回填: 2026-10-22 | 共 **15** 条
 
 ## 综述类
 
@@ -26,5 +26,7 @@
 | Offensive Cyber Benchmark | [2604.17159](https://arxiv.org/abs/2604.17159) | 2026 arXiv | 用 NYU CTF Bench + Kali 工具环境系统评测 frontier LLM agent，证明环境与工具可发现性比大多数 prompt trick 更关键 |
 | HarDBench | [2604.19274](https://arxiv.org/abs/2604.19274) | 2026 arXiv | 首个 draft-based co-authoring 灰区越狱基准，用 HS / ASR / RAR 衡量协同写作场景下的安全失效 |
 | SHAPE | [2604.22134](https://arxiv.org/abs/2604.22134) | 2026 arXiv | 以 9087 条 student-question pairs 系统评测 pedagogical jailbreak，把教学语境下的 Safety / Helpfulness / Pedagogy 三指标正式 benchmark 化 |
+| Conditional Misalignment | [2604.25891](https://arxiv.org/abs/2604.25891) | 2026 arXiv | 以标准 prompt vs context-triggered prompt 双入口评测揭示对齐干预可能只是在隐藏失配，而非真正消除风险 |
+| Policy Is Not Capability | [2610.25060](https://arxiv.org/abs/2610.25060) | 2026 NeurIPS TAE WS | 用同一 5.3 万 prompt 池的**双策略标注**工业事故，证明 benchmark 分数大量测量的是"训练在哪套定义上"：JailbreakBench-benign 污染 **88%**、OR-Bench-hard **82%**；定义敏感度差 **23×**；**0.03% 参数**即可把 HarmBench-copyright 推过 **0→100** 而检测能力不变；验证准确率与策略一致性 $\rho=+0.74$ 而非检测能力 $\rho=+0.34$。主张把 contamination / seed floor / 被评定义作为一等变量报告 |
 
 [← 返回文生文目录](../README.md)

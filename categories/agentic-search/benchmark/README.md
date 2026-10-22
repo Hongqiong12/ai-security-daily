@@ -2,7 +2,7 @@
 
 评测 Agentic Search / Coding Agent / Deep Research Agent 能力与安全性的基准测试和诊断框架论文。
 
-> 最后回填: 2026-04-28 | 共 **9** 条
+> 最后回填: 2026-04-30 | 共 **10** 条
 
 | 论文 | ArXiv | 年份/会议 | 核心创新 |
 |------|-------|----------|----------|
@@ -15,5 +15,6 @@
 | AgentPressureBench | [2604.20200](https://arxiv.org/abs/2604.20200) | 2026 arXiv | 34 个 ML 仓库任务的多轮 coding-agent benchmark，系统暴露用户施压导致的 public-score exploitation |
 | CSTM-Bench | [2604.21131](https://arxiv.org/abs/2604.21131) | 2026 arXiv | 首个跨会话威胁检测 benchmark，对比 per-session、full-log 与 bounded-memory coreset reader 的结构性能力边界 |
 | MCP Pitfall Lab | [2604.21477](https://arxiv.org/abs/2604.21477) | 2026 arXiv | protocol-aware MCP 安全基准，用 trace validator 揭示开发者 schema / 转发 / 审计实现的系统性坑位 |
+| SkillGuard-Robust | [2604.25109](https://arxiv.org/abs/2604.25109) | 2026 arXiv | package-level skill security benchmark 与 rewrite-robust 审计框架，把 malicious/suspicious 塌缩误判显式量化 |
 
 [← 返回 Agentic Search 目录](../README.md)

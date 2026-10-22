@@ -2,15 +2,15 @@
 
 文生图扩散模型的安全评测基准、数据集与评估框架论文。
 
-> 最后回填: 2026-04-28 | 共 **20** 条
+> 最后回填: 2026-10-22 | 共 **28** 条
 > 延伸索引: [《T2I 安全 Benchmark 短名单（2026 年前高引用版）》](../../../insights/t2i-benchmark-shortlist-pre2026.md)
 
 ## 综述与全景
 
 | 论文 | ArXiv | 年份/会议 | 核心创新 |
 |------|-------|----------|----------|
-| AI Security Landscape 2026 | — | 2026 (本项目) | 基于 198 篇论文的宏观安全格局分析（T2T/T2I/Agentic 三模态） |
-| T2I Safety Seven-Year Survey | — | 2026 (本项目) | 文生图安全七年演进：从 Dual-Guard / Embedding Arithmetic / IncreFA，到 TwoHamsters / TICoE / BiasBench 的新信号沉淀 |
+| AI Security Landscape 2026 | — | 2026 (本项目) | 基于 220 篇论文的宏观安全格局分析（T2T/T2I/Agentic 三模态） |
+| T2I Safety Seven-Year Survey | — | 2026 (本项目) | 文生图安全七年演进：从 Dual-Guard / Embedding Arithmetic / IncreFA，继续推进到 TextGround4M / CoBench / Edit-R1 的 verifier 与结构化评测信号 |
 | Operationalizing Fairness in T2I Models | [2604.16516](https://arxiv.org/abs/2604.16516) | 2026 arXiv | 系统梳理 T2I 公平性审计与缓解文献，并提出 Target Fairness / Threshold Fairness 框架 |
 
 ## 安全评测基准 (Benchmark)
@@ -33,6 +33,11 @@
 | TwoHamsters | [2604.15967](https://arxiv.org/abs/2604.15967) | 2026 arXiv | 首个 multi-concept compositional unsafety 基准，系统揭示组合语义风险与过滤器失效 |
 | IncreFA / IABench | [2604.17736](https://arxiv.org/abs/2604.17736) | 2026 arXiv | 把生成器归因推进到 incremental open-set setting，并配套 IABench 衡量 Avg. Acc. / Auth. Acc. / Unseen Acc. |
 | KVBench / KE-Check | [2604.22302](https://arxiv.org/abs/2604.22302) | 2026 arXiv | 以 1800 个双语教材级样本和 5158 条 checklist 把 T2I 正确性评测推进到知识密集 visual correctness，并用约束修正框架降低 scientific hallucination |
+| TextGround4M | [2604.24459](https://arxiv.org/abs/2604.24459) | 2026 AAAI | 4.1M prompt-grounded 文本渲染数据集，用 Prompt Coverage / Layout IoU 把 OCR-rich 终态纳入结构化评测 |
+| CoBench | [2604.25358](https://arxiv.org/abs/2604.25358) | 2026 CVPR Workshop | 把 layout-guided T2I 拆成 semantic alignment + spatial alignment + unified score 的双 benchmark 体系 |
+| GPT-Image-2 in the Wild | [2604.25370](https://arxiv.org/abs/2604.25370) | 2026 arXiv | 首周野外部署数据集，系统揭示社交平台传播链对 provenance、文本渲染场景与真实使用分布的重塑 |
+| PixJail | [2606.24081](https://arxiv.org/abs/2606.24081) | 2026 arXiv | paper-to-pipeline 统一复现 11 个 T2I jailbreak 方法，把 benchmark 从 prompt list 升级为评测基础设施 |
+| HealBench | [2610.27516](https://arxiv.org/abs/2610.27516) | 2026 arXiv | 30,000 图文对 / 19 类 / 92 子类的心理舒适细粒度基准，并配套 HealBench-Eval（1,095 例）**系统评测 14 个生成模型与 prompt-rewriting 策略**，是少数把 rewriter 本身纳入评测对象的 T2I benchmark |
 
 ## 防御范式代表
 
@@ -41,5 +46,8 @@
 | ImageProtector | [2604.09024](https://arxiv.org/abs/2604.09024) | 2026 ACL | VPI (Visual Prompt Injection) 攻击翻转为隐私保护工具，91% 保护率 |
 | FlowGuard | [2604.07879](https://arxiv.org/abs/2604.07879) | 2026 arXiv | 线性潜空间解码实现生成中 NSFW 检测，F1 提升 30%，内存减少 97% |
 | EGLOCE | [2604.09405](https://arxiv.org/abs/2604.09405) | 2026 arXiv | 训练无关双能量引导潜空间优化用于概念擦除 |
+| VESFlow | [2606.23267](https://arxiv.org/abs/2606.23267) | 2026 arXiv | 面向 few-step flow matching 的速度场安全编辑，显式平衡 ASR 降低与 benign 保真 |
+| ForceForget | [2606.14351](https://arxiv.org/abs/2606.14351) | 2026 ICML | 双奖励 + Safe Adapter，同步优化 unsafe concept 移除与安全语义保真，并有效迁移到 I2I |
+| SafetyBPO | [CVPR 2026 Findings](https://openaccess.thecvf.com/content/CVPR2026F/html/Wu_SafetyBPO_Bidirectional_Preference_Optimization_for_Safe_Text-to-Image_Generation_CVPRF_2026_paper.html) | 2026 CVPR Findings | safe prompt rewriting + image preference 的双视角安全对齐，显式缓解 over-forgetting |
 
 [← 返回文生图目录](../README.md)

@@ -1,17 +1,23 @@
 # 全局研究策略与自动化任务偏好
 
-## 1. 核心研究焦点 (2026-04-17 更新)
+## 1. 核心研究焦点 (2026-04-30 更新)
 - **核心倾斜**: 当前及后续的主要工作重心完全侧重在 **文生图 (Text-to-Image, T2I)** 和 **文图生图 (Multimodal-to-Image, T+I2I)** 领域。
-- **重点关注议题**: 
-  - **安全对齐** (Safety Alignment)
-  - **多模态安全 Benchmark** (Safety Benchmark / Evaluation)
-  - NSFW概念擦除/对抗 (Concept Erasure)
-  - VLM (Vision-Language Model) 与生图安全交叉领域
-- **降级关注**: 文生文 (T2T) 和 Agent 安全 (Agentic Search) 现阶段作为辅助与背景参考，优先级下调。
+- **新增主线**: 优先追踪 **工业界 T2I 安全论文/技术报告**，尤其关注 Anthropic、阿里、OpenAI、Google、Meta、Adobe、微软、字节、腾讯等头部公司的公开方法。
+- **业务贴合主线**: 围绕 **输入侧文本改写（Prompt Rewrite / Safety Rewriting）** 展开，重点是对“模糊但高风险、容易触发 NSFW”的用户 prompt 做**语义保真改写**：尽量不改变原意，只外科式替换风险锚点，同时控制指令遵循下降。
+- **重点关注议题**:
+  - **工业级安全对齐** (Safety Alignment)
+  - **输入侧 Prompt Rewrite / Prompt Sanitization**
+  - **语义保持与安全-效用 trade-off 评测**
+  - **多模态安全 Benchmark / Evaluation**
+  - NSFW 概念擦除/对抗、watermark/provenance
+  - VLM 与生图安全交叉领域
+- **降级关注**: 文生文 (T2T) 和 Agent 安全 (Agentic Search) 仅作为可迁移参考，只有当方法能直接服务 T2I 输入侧安全时才进入主线。
 
 ## 2. 自动化执行规范 (WORKFLOW)
-- `WORKFLOW.md` 中的检索策略与论文归档，应当始终优先检索 `("text-to-image" OR "multimodal-to-image") AND ("safety alignment" OR "benchmark" ...)`。
-- 对于每日的自动化推送，T2I/T+I2I 相关论文必须位于报告首位，并占据最大权重。
+- `WORKFLOW.md` 的检索策略必须优先搜 **T2I/T+I2I + 输入侧改写 + 工业界机构线索**，而不是平均分配到所有模态。
+- 每日自动化报告必须以 **T2I/T+I2I 发现** 开篇，并单列“**业务迁移建议**”，重点回答：是否能用于模糊高风险 prompt 改写、风险锚点替换、语义保持评测。
+- T2T / Agentic 论文仅在存在明确迁移价值时补充进入日报，且必须写清楚迁移点。
+- **变更原因（2026-04-30）**: 用户当前工作内容已切到 T2I 工业界安全与输入侧文本改写，需要每日调研方向同步收紧。
 
 ## 3. 历史主线共识
 - 仅保留与核心论文（尤其是 LoRA 概念擦除/低秩概念擦除、SDXL 擦除实验、MACE/ESD/UCE）等主线任务相关的长期记忆。
