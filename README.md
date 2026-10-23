@@ -15,7 +15,7 @@
   <a href="https://img.shields.io/badge/Last-Update-2026--10--23-orange.svg">
     <img src="https://img.shields.io/badge/Last-Update-2026--10--23-orange.svg" alt="Last Update"/>
   </a>
-  <a href="https://github.com/ageisliu/ai-security-daily/stargazers">
+  <a href="https://github.com/Hongqiong12/ai-security-daily/stargazers">
     <img src="https://img.shields.io/github/stars/ageisliu/ai-security-daily.svg?style=social&label=Star" alt="GitHub stars"/>
   </a>
 </p>
