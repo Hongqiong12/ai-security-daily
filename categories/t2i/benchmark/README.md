@@ -2,7 +2,7 @@
 
 文生图扩散模型的安全评测基准、数据集与评估框架论文。
 
-> 最后回填: 2026-10-22 | 共 **28** 条
+> 最后回填: 2026-10-23 | 共 **30** 条
 > 延伸索引: [《T2I 安全 Benchmark 短名单（2026 年前高引用版）》](../../../insights/t2i-benchmark-shortlist-pre2026.md)
 
 ## 综述与全景
@@ -37,7 +37,9 @@
 | CoBench | [2604.25358](https://arxiv.org/abs/2604.25358) | 2026 CVPR Workshop | 把 layout-guided T2I 拆成 semantic alignment + spatial alignment + unified score 的双 benchmark 体系 |
 | GPT-Image-2 in the Wild | [2604.25370](https://arxiv.org/abs/2604.25370) | 2026 arXiv | 首周野外部署数据集，系统揭示社交平台传播链对 provenance、文本渲染场景与真实使用分布的重塑 |
 | PixJail | [2606.24081](https://arxiv.org/abs/2606.24081) | 2026 arXiv | paper-to-pipeline 统一复现 11 个 T2I jailbreak 方法，把 benchmark 从 prompt list 升级为评测基础设施 |
-| HealBench | [2610.27516](https://arxiv.org/abs/2610.27516) | 2026 arXiv | 30,000 图文对 / 19 类 / 92 子类的心理舒适细粒度基准，并配套 HealBench-Eval（1,095 例）**系统评测 14 个生成模型与 prompt-rewriting 策略**，是少数把 rewriter 本身纳入评测对象的 T2I benchmark |
+| HealBench | [2610.27516](https://arxiv.org/abs/2610.27516) | **2026 AAAI'27** | 30,000 图文对 / 19 类 / 92 子类的心理舒适细粒度基准，配套 HealBench-Eval（1,095 例）**系统评测 14 个生成模型与 prompt-rewriting 策略**；提出**三维分列 + 目标维度 1:2:1 加权**的 HealScore，并训专属 scorer（THS）作 Flow-GRPO 奖励 ✅ 已精读 |
+| IMPLICIT-Bench | [2609.24228](https://arxiv.org/abs/2609.24228) | 2026 arXiv | 1,831 组「中性/刻板/反刻板」prompt 三元组（场景固定），配 KG unit 锚点；**三种锚点信息条件（无/检索/oracle）× 两种干预（改写/嵌入引导）**的归因实验，提出乘性联合指标 S = 100·mean[Y·(1−b/5)] ✅ 已精读 |
+| LogicVal | [2610.24051](https://arxiv.org/abs/2610.24051) | 2026 arXiv | 把 T2I 评测写成**逻辑约束满足问题**：prompt→ASP 约束（9 类 C1–C9 / 71 模板），图像→场景图，clingo 判 SAT/UNSAT，**无需参考图**；含反空真条款设计 ✅ 已精读 |
 
 ## 防御范式代表
 

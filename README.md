@@ -9,11 +9,11 @@
   <a href="https://img.shields.io/badge/Reports-Today-blue.svg">
     <img src="https://img.shields.io/badge/Reports-Today-blue.svg" alt="Reports Today"/>
   </a>
-  <a href="https://img.shields.io/badge/Papers-226-green.svg">
-    <img src="https://img.shields.io/badge/Papers-232-green.svg" alt="Total Papers"/>
+  <a href="https://img.shields.io/badge/Papers-238-green.svg">
+    <img src="https://img.shields.io/badge/Papers-238-green.svg" alt="Total Papers"/>
   </a>
-  <a href="https://img.shields.io/badge/Last-Update-2026--06--24-orange.svg">
-    <img src="https://img.shields.io/badge/Last-Update-2026--10--22-orange.svg" alt="Last Update"/>
+  <a href="https://img.shields.io/badge/Last-Update-2026--10--23-orange.svg">
+    <img src="https://img.shields.io/badge/Last-Update-2026--10--23-orange.svg" alt="Last Update"/>
   </a>
   <a href="https://github.com/ageisliu/ai-security-daily/stargazers">
     <img src="https://img.shields.io/github/stars/ageisliu/ai-security-daily.svg?style=social&label=Star" alt="GitHub stars"/>
@@ -22,31 +22,31 @@
 
 ---
 
-## 🔥 今日最具业务价值论文评测 (2026-10-22)
+## 🔥 今日最具业务价值论文评测 (2026-10-23)
 
-> **为什么要关注本仓库？** 过去 7 天里，T2I 安全出现了一次清晰的范式收敛：**安全控制正在从"条件依赖"转向"状态依赖"，而与此同时评测这把尺子本身正在被审计。** 前者解决"什么时候拦、拦多重、拦完剩多少语义"，后者回答"我们报的数字到底测的是什么"。
+> **为什么要关注本仓库？** 过去 7 天里，T2I 安全的主线从"造方法"转到了"查归因"。四篇工作分别从**锚点、审核器架构、判定标准、意图绑定**四个角度，指出了现有 pipeline 里四个"看起来在动、其实没归因"的位置——改写收益该记在谁头上、图审失效该记在谁头上、指标提升该记在谁头上。
 
 | 核心威胁领域 | 🚨 今日优先论文 | 一句话快评 | 深度拆解 |
 |---|---|---|---|
-| **T2I (输入侧早期拦截)** | [CSTI](./categories/t2i/papers/2610.26452_csti.md) | 读 CFG 原生条件/无条件激活之差，step 15 就能判风险；不需攻击样本、不改生成器，拦截路径延迟降 60%+。是 rewriter 最理想的**前置 gate**。 | [📄 立即阅读](./daily-reports/2026-10/2026-10-22_AI安全每日深度情报.md) |
-| **T2I (安全控制解耦)** | [DSC](./categories/t2i/papers/2610.21569_dsc.md) | **腾讯署名 · NeurIPS 2026**。点破"耦合安全控制链"缺陷，把干预拆成五段状态依赖环节——映射过来就是"风险标签不该同时决定要不要改/改哪/改成什么/改多狠"。 | [📄 立即阅读](./daily-reports/2026-10/2026-10-22_AI安全每日深度情报.md) |
-| **T2I (rewriter 的 RL 训练)** | [SCOPE](./categories/t2i/papers/2610.22264_scope.md) | 图像奖励不该摊到 subword，应按**语义 span** 分配信用。与业务形态（LLM rewriter + 冻结 Qwen-Image + RL）完全对齐，纯 loss 层改动，GeneVal +9.48%。 | [📄 立即阅读](./daily-reports/2026-10/2026-10-22_AI安全每日深度情报.md) |
-| **T2I (保真度量重构)** | [PPAA](./categories/t2i/papers/2610.27719_ppaa.md) | **ECCV 2026 Spotlight**。用**相对相似度比**取代绝对差，阈值直接表示"保留 X% 语义"；并首次定义"同域近邻保留"空白。 | [📄 立即阅读](./daily-reports/2026-10/2026-10-22_AI安全每日深度情报.md) |
-| **T2T→T2I (约束优先改写)** | [AMEND](./categories/t2t/papers/2610.23183_amend.md) | 加权和 reward 会让"换个主题"伪装成安全改写。改成**先卡语义硬门槛再排序**，是有界回路替代多轮辩论的直接依据。 | [📄 立即阅读](./daily-reports/2026-10/2026-10-22_AI安全每日深度情报.md) |
-| **T2T→T2I (评测协议审计)** | [Policy Is Not Capability](./categories/t2t/papers/2610.25060_policy_is_not_capability.md) | **NeurIPS 2026 TAE WS**。0.03% 参数就能把 benchmark 推过满量程而检测能力不变——PORN/VULG 边界混淆，先查标注口径再改模型。 | [📄 立即阅读](./daily-reports/2026-10/2026-10-22_AI安全每日深度情报.md) |
+| **T2I (改写收益归因)** | [IMPLICIT-Bench](./categories/t2i/papers/2609.24228_implicit_bench.md) | **本周业务价值最高**。场景固定、只改锚点条件的消融：无锚点改写 **−0.8**、检索锚点 **+2.9**（top-1 仅 40%）、oracle **+8.6**。**改写天花板由锚点定位决定，不是 rewriter 能力。** | [📄 立即阅读](./daily-reports/2026-10/2026-10-23_AI安全每日深度情报.md) |
+| **T2I (输出侧图审失效)** | [Mirage](./categories/t2i/papers/2610.30348_mirage.md) | 只改图像通道、文本不动即可绕过生成后审核器。同一批攻击 bypass 率 **CLIP 0.800 / NudeNet 0.435 / ViT 0.185**（差 4.3 倍），且 **bypass ≠ ASR**（差 16 点）。图审架构就是安全边界。 | [📄 立即阅读](./daily-reports/2026-10/2026-10-23_AI安全每日深度情报.md) |
+| **T2I (三维评测 + 专属 scorer)** | [HealBench](./categories/t2i/papers/2610.27516_healbench.md) | **AAAI'27**。三维分列 + 目标维度 **1:2:1** 加权；通用 scorer 在目标维度上近似随机（Acc 0.50–0.56），专属 scorer 达 **0.8527**。**通用一致性指标不能当安全维度奖励。** | [📄 立即阅读](./daily-reports/2026-10/2026-10-23_AI安全每日深度情报.md) |
+| **T2I (指令遵循可判定化)** | [LogicVal](./categories/t2i/papers/2610.24051_logicval.md) | prompt→ASP 约束、图像→场景图、clingo 判 SAT，**无需参考图**。单约束 84% → 多约束 **20%**，UNSAT 识别仅 23%。"反空真条款"可直接搬到改写保真核验。 | [📄 立即阅读](./daily-reports/2026-10/2026-10-23_AI安全每日深度情报.md) |
+| **T2T→T2I (标签体系分层)** | [DiagSafe](./categories/t2t/papers/2610.29225_diagsafe.md) | **腾讯混元** × 北师大。84 叶子标签三层体系 + **四要素标签规范（含豁免行为）** + prompt 级 rubric。同一 judge 只换提示范式，人类一致率 **87.29% → 95.34%**。指令攻击把 unsafe rate 放大 **5.3 倍**（中位）。 | [📄 立即阅读](./daily-reports/2026-10/2026-10-23_AI安全每日深度情报.md) |
+| **T2T→T2I (意图显式绑定)** | [AIMS](./categories/t2t/papers/2606.27210_aims.md) | **Adobe/NVIDIA** 参与。1,275 条标注 + GRPO（label+intent 双奖励）平均 F1 **0.836**，超过 GPT-5.4。**6/71 例意图表述几乎相同而标签相反** → PORN/VULG 混淆不是"不懂"，是"没绑死"。 | [📄 立即阅读](./daily-reports/2026-10/2026-10-23_AI安全每日深度情报.md) |
 
 ---
 
 ## 🔭 前沿 Survey & 洞察简报 (Must-Read)
 
-我们不仅搬运论文，更系统沉淀方法论。以下是基于 **232** 篇安全论文萃取的全局视野：
+我们不仅搬运论文，更系统沉淀方法论。以下是基于 **238** 篇安全论文萃取的全局视野：
 
 | 研究洞察精华 | 解决的核心问题 | 更新状态 |
 |------|------|----------|
-| 🏆 **[2026 AI 大模型安全前沿洞察](./insights/AI_Security_Landscape_2026.md)** | **state-dependent safety control**(NEW) · **eval protocol reflexive audit**(NEW) · relative-ratio fidelity(NEW) · semantic-span credit(NEW) | 2026-10-22 |
+| 🏆 **[2026 AI 大模型安全前沿洞察](./insights/AI_Security_Landscape_2026.md)** | **attribution engineering**(NEW) · anchor-locality ceiling(NEW) · checker-architecture-as-boundary(NEW) · rubric-over-judge(NEW) | 2026-10-23 |
 | 🧭 **[T2I 主线模型评测地图（2026）](./insights/t2i-mainline-model-eval-map-2026.md)** | 当前主线模型测哪些指标 · 对应 benchmark / evaluation set 有哪些 · 训练集透明度与闭源程度如何分层 | 2026-04-22 |
-| 🛡️ **[T2T LLM 安全全局图谱](./insights/t2t-survey.md)** | Policy Is Not Capability 评测协议审计(NEW) · AMEND constraint-first 选择(NEW) | 2026-10-22 |
-| 🖼️ **[T2I 文生图安全七年演进](./insights/t2i-survey.md)** | CSTI 输入侧早停 gate(NEW) · DSC 控制链解耦(NEW) · SCOPE 语义 span 信用(NEW) · PPAA 相对比值保真(NEW) | 2026-10-22 |
+| 🛡️ **[T2T LLM 安全全局图谱](./insights/t2t-survey.md)** | DiagSafe 84 标签+rubric(NEW) · AIMS 意图显式绑定(NEW) · Policy Is Not Capability 协议审计 | 2026-10-23 |
+| 🖼️ **[T2I 文生图安全七年演进](./insights/t2i-survey.md)** | IMPLICIT-Bench 锚点归因(NEW) · Mirage 图审架构差异(NEW) · HealBench 1:2:1 三维(NEW) · LogicVal 约束判定(NEW) | 2026-10-23 |
 | 🤖 **[Agentic Search 攻防全景](./insights/agentic-search-survey.md)** | SkillGuard-Robust package-level 审计 · SnapGuard 轻量截图守卫 | 2026-04-30 |
 | 🔪 **[Abliteration 与概念擦除范式](./insights/alignment-paradigm-shift-abliteration.md)** | 剖析大模型对齐的脆弱性，以及定向消融攻击的底层逻辑 | 2026-04-07 |
 
@@ -61,14 +61,14 @@
 
 - **Attack (攻击突破):** [PISmith](./categories/t2t/papers/2603.13026_pismith.md) (100% ASR) | [FlipAttack](./categories/t2t/papers/2410.02832_flipattack.md) | [Tree Teaming](./categories/t2t/papers/2603.22882_treeteaming.md) | [Paper Summary Attack](./categories/t2t/papers/2507.13474_paper_summary_attack.md)
 - **Defense (安全加固):** [AutoDefense](./categories/t2t/papers/2603.21975_securebreak.md) | [KG-DF](./categories/t2t/papers/2603.19469_llm_agent_security.md) | [DOOR](./categories/t2t/papers/2503.03710_door.md)
-- **Benchmark:** [PandaGuard](./categories/t2t/papers/2505.13862_pandaguard.md) (19攻+12防) | [越狱演进综述](./categories/t2t/papers/2506.15170_from_llms_to_mllms.md)
+- **Benchmark:** [DiagSafe](./categories/t2t/papers/2610.29225_diagsafe.md) (84 标签) | [AIMS](./categories/t2t/papers/2606.27210_aims.md) | [PandaGuard](./categories/t2t/papers/2505.13862_pandaguard.md) (19攻+12防) | [越狱演进综述](./categories/t2t/papers/2506.15170_from_llms_to_mllms.md)
 
 ### 🎨 Text-to-Image (T2I) 视觉模型安全
 > **核心关注:** 工业界安全对齐、输入侧 Prompt Rewrite、NSFW 语义保真改写、概念擦除对抗、自动化红队测试
 
-- **Attack (攻击突破):** [JailFuzzer](./categories/t2i/papers/2408.00523_jailfuzzer.md) | [GenBreak](./categories/t2i/papers/2506.10047_genbreak.md) | [Janus 多模态越狱](./categories/t2i/papers/2603.21208_janus.md)
+- **Attack (攻击突破):** [Mirage 图审绕过](./categories/t2i/papers/2610.30348_mirage.md) | [JailFuzzer](./categories/t2i/papers/2408.00523_jailfuzzer.md) | [GenBreak](./categories/t2i/papers/2506.10047_genbreak.md) | [Janus 多模态越狱](./categories/t2i/papers/2603.21208_janus.md)
 - **Defense (安全加固):** [CSTI 早期拦截](./categories/t2i/papers/2610.26452_csti.md) | [DSC 解耦控制](./categories/t2i/papers/2610.21569_dsc.md) | [PPAA 概念擦除](./categories/t2i/papers/2610.27719_ppaa.md) | [SPEED 精确擦除](./categories/t2i/papers/2503.07392_speed.md)
-- **Benchmark:** [HealBench](./categories/t2i/benchmark/README.md) | [T2I-BiasBench](./categories/t2i/papers/2604.12481_t2i_biasbench.md) | [NTIRE 2026](./categories/t2i/papers/2604.11487_ntire_2026_robust_aigc_detection.md)
+- **Benchmark:** [IMPLICIT-Bench](./categories/t2i/papers/2609.24228_implicit_bench.md) | [HealBench](./categories/t2i/papers/2610.27516_healbench.md) | [LogicVal](./categories/t2i/papers/2610.24051_logicval.md) | [T2I-BiasBench](./categories/t2i/papers/2604.12481_t2i_biasbench.md) | [NTIRE 2026](./categories/t2i/papers/2604.11487_ntire_2026_robust_aigc_detection.md)
 
 ### 🤖 Agentic Search (AI 搜索) 安全
 > **核心关注:** 检索污染 (Data Poisoning)、工具劫持 (Tool Hijacking)、引用幻觉

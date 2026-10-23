@@ -2,7 +2,7 @@
 
 文生文 LLM 的基础综述、安全评测基准论文。
 
-> 最后回填: 2026-10-22 | 共 **15** 条
+> 最后回填: 2026-10-23 | 共 **17** 条
 
 ## 综述类
 
@@ -28,5 +28,7 @@
 | SHAPE | [2604.22134](https://arxiv.org/abs/2604.22134) | 2026 arXiv | 以 9087 条 student-question pairs 系统评测 pedagogical jailbreak，把教学语境下的 Safety / Helpfulness / Pedagogy 三指标正式 benchmark 化 |
 | Conditional Misalignment | [2604.25891](https://arxiv.org/abs/2604.25891) | 2026 arXiv | 以标准 prompt vs context-triggered prompt 双入口评测揭示对齐干预可能只是在隐藏失配，而非真正消除风险 |
 | Policy Is Not Capability | [2610.25060](https://arxiv.org/abs/2610.25060) | 2026 NeurIPS TAE WS | 用同一 5.3 万 prompt 池的**双策略标注**工业事故，证明 benchmark 分数大量测量的是"训练在哪套定义上"：JailbreakBench-benign 污染 **88%**、OR-Bench-hard **82%**；定义敏感度差 **23×**；**0.03% 参数**即可把 HarmBench-copyright 推过 **0→100** 而检测能力不变；验证准确率与策略一致性 $\rho=+0.74$ 而非检测能力 $\rho=+0.34$。主张把 contamination / seed floor / 被评定义作为一等变量报告 |
+| DiagSafe | [2610.29225](https://arxiv.org/abs/2610.29225) | 2026 arXiv（**腾讯混元** × 北师大） | **84 叶子标签三层体系（11/34/84）+ 四要素标签规范 + prompt 级 rubric**；同一 judge（Hy3）只换提示范式，与人类一致率 **87.29% → 95.34%**，跨 judge 一致率 93.3%–94.8%（κ 0.83–0.86）；3,489 条中英双语；揭示**指令攻击把 unsafe rate 放大 1.9×–8.4×（中位 5.3×）**。数据将开源 ✅ 已精读 |
+| AIMS | [2606.27210](https://arxiv.org/abs/2606.27210) | 2026 arXiv（**Adobe / NVIDIA** 参与） | 1,275 条 prompt / 1,724 条标注，用**集成不确定性筛选**困难样本；把 **intent 作为 prompt→label 的显式中间信号**，横跨 SFT / DPO / 推理蒸馏 / GRPO 四范式；GRPO（label+intent 双奖励）平均 F1 **0.836**，超过 GPT-5.4（0.815）与 Nemotron Safety 4B（0.809）✅ 已精读 |
 
 [← 返回文生文目录](../README.md)

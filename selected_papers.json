@@ -179,5 +179,101 @@
       "Tianrun Chen",
       "Siwei Ma"
     ]
+  },
+  {
+    "id": "2610.30348v1",
+    "title": "Mirage: Targeted Jailbreaks Against Post-Generation Safety Checkers in Multimodal Diffusion Models",
+    "summary": "Conceals a cross-modal NSFW target in an imperceptible image perturbation while leaving the text prompt unchanged, evading unknown post-generation checkers via surrogate-encoder contrastive alignment + NSFW-concept repulsion + black-box query refinement. Bypass rate 1.000/0.900/0.960 on I2P for CLIP/ViT/NudeNet; on the NSFW image-target set CLIP 0.800 vs ViT 0.185 vs NudeNet 0.435 (4.3x architecture gap); bypass != ASR (1.000 vs 0.840).",
+    "published": "2026-10-21",
+    "url": "https://arxiv.org/abs/2610.30348",
+    "authors": [
+      "Shanghao Shi",
+      "Chaoyu Zhang",
+      "Heng Jin",
+      "Hao Li",
+      "Ning Zhang",
+      "Y. Thomas Hou",
+      "Wenjing Lou"
+    ]
+  },
+  {
+    "id": "2610.27516v1",
+    "title": "HealBench: A Fine-Grained Benchmark for Evaluating Psychological Comfort in Text-to-Image Generation",
+    "summary": "30K image-text pairs across 19 categories / 92 subcategories plus a 1,095-instance clustered eval set; tri-dimensional scoring (text-image alignment, target dimension, quality) with a 1:2:1 weight on the target dimension, and a task-specific scorer (THS) that reaches 0.8527 preference accuracy vs 0.50-0.56 for PickScore/CLIPScore/HPSv3. Explicitly evaluates prompt-rewriting strategies. AAAI 2027.",
+    "published": "2026-10-19",
+    "url": "https://arxiv.org/abs/2610.27516",
+    "authors": [
+      "Junjie Xu",
+      "Yuzhe Yang",
+      "Rui Yang",
+      "Luwei Xiao",
+      "Wenxin Hu",
+      "Xingjiao Wu",
+      "Liang He"
+    ]
+  },
+  {
+    "id": "2609.24228v2",
+    "title": "IMPLICIT-Bench: Stereotyped Defaults and Prompt Following in Text-to-Image Generation",
+    "summary": "1,831 scene-fixed prompt triplets with KG-unit semantic anchors; ablates prompt rewriting across three anchor-information conditions. No-anchor rewriting is net negative (delta S -0.8), retrieved anchor (40% top-1) gives +2.9, oracle anchor +8.6, and removing the prompt's own unit makes all 12 configs negative. Proposes a multiplicative joint score S = 100*mean[Y*(1-b/5)].",
+    "published": "2026-10-16",
+    "url": "https://arxiv.org/abs/2609.24228",
+    "authors": [
+      "Yue Dai",
+      "Ziyang Liu",
+      "Marc Cheong",
+      "Caren Han"
+    ]
+  },
+  {
+    "id": "2610.24051v1",
+    "title": "LogicVal: A Logic-Formalized Benchmark for Constraint Satisfaction in Text-to-Image Generation",
+    "summary": "Casts T2I evaluation as constraint satisfaction: prompts become ASP constraints (9 classes C1-C9, 71 templates), images become scene graphs, clingo decides satisfaction without reference images. Best model: 98% on single object-attribute but 53% on complex conditional multi-object relations, 84% single-constraint vs 20% multi-constraint, 23% UNSAT recognition. Introduces anti-vacuity clauses.",
+    "published": "2026-10-16",
+    "url": "https://arxiv.org/abs/2610.24051",
+    "authors": [
+      "Savitha Sam Abraham",
+      "Marjan Alirezaie",
+      "Hossein Rahnama"
+    ]
+  },
+  {
+    "id": "2610.29225v1",
+    "title": "Beyond Binary Labels: Diagnostic Evaluation of LLM Safety with Prompt-Level Rubrics (DiagSafe)",
+    "summary": "Tencent Hunyuan + BNU. Three-tier 84-leaf safety taxonomy with four-element label specifications (definition / principles / violating behaviors / permitted exemptions) plus prompt-level rubrics; 3,489 bilingual prompts incl. instruction attacks. Same judge (Hy3): 87.29% generic prompt vs 95.34% rubric agreement with humans; instruction attacks inflate unsafe rate 1.9x-8.4x (median 5.3x).",
+    "published": "2026-10-21",
+    "url": "https://arxiv.org/abs/2610.29225",
+    "authors": [
+      "Hongyu Li",
+      "Xinlong Huang",
+      "Zhan Yu",
+      "Jing Zhao",
+      "Zhe Zhao",
+      "Juntao Zhong",
+      "Xiong Kuang",
+      "Rui Yuan",
+      "ZhenXiang Yan",
+      "Huilin Xu",
+      "Haitao Yu",
+      "Lilin Wang",
+      "Rui Chen",
+      "Blaze Chen",
+      "Fengzong Lian",
+      "Renfen Hu"
+    ]
+  },
+  {
+    "id": "2606.27210v2",
+    "title": "Paved with True Intents: Intent-Aware Training Improves LLM Safety Classification Across Training Regimes",
+    "summary": "Adobe/NVIDIA co-authored. 1,275 uncertainty-selected prompts / 1,724 intent annotations make user intent an explicit intermediate signal across SFT, DPO, distillation and GRPO. GRPO with label+intent reward reaches 0.836 avg F1 over five benchmarks, beating GPT-5.4 (0.815) and Nemotron Safety 4B (0.809); 6/71 recovered over-refusals show near-identical intents with opposite labels.",
+    "published": "2026-10-16",
+    "url": "https://arxiv.org/abs/2606.27210",
+    "authors": [
+      "Jeremias Ferrao",
+      "Niclas Müller-Hof",
+      "Iustin Sîrbu",
+      "Traian Rebedea",
+      "Yftah Ziser"
+    ]
   }
 ]

@@ -1,1 +1,87 @@
-{"_meta_version": "1.0", "last_updated": "2026-10-22", "paper_counts": {"t2t": 100, "t2i": 93, "agentic": 39, "total": 232}, "survey_versions": {"t2t-survey": {"date": "2026-10-22", "count": 100}, "t2i-survey": {"date": "2026-10-22", "count": 93}, "agentic-search-survey": {"date": "2026-04-30", "version": "v1.8", "count": 39}, "landscape_2026": {"date": "2026-10-22", "version": "v3.3", "total_papers": 232}}, "benchmark_status": {"t2t_benchmark": {"entries": 15, "last_updated": "2026-10-22"}, "t2i_benchmark": {"entries": 28, "last_updated": "2026-10-22"}, "agentic_benchmark": {"entries": 10, "last_updated": "2026-04-30"}}, "daily_reports": {"latest": "2026-10-22", "this_month_count": 1, "missing_dates": []}, "workflow_version": "2.3", "today_selection": {"t2i": ["2610.26452_csti", "2610.21569_dsc", "2610.22264_scope", "2610.27719_ppaa"], "t2t_migration": ["2610.23183_amend", "2610.25060_policy_is_not_capability"], "agentic": [], "note": "T2I/T+I2I 占比 66.7%；DSC 为腾讯署名 NeurIPS 2026；PPAA 为 ECCV 2026 Spotlight；Policy Is Not Capability 为 NeurIPS 2026 TAE Workshop"}, "_note": "This file is the single source of truth for all paper counts. Automation must update this file on every run. Never estimate counts — always use search_file to scan papers/ directories."}
+{
+ "_meta_version": "1.0",
+ "last_updated": "2026-10-23",
+ "paper_counts": {
+  "t2t": 102,
+  "t2i": 97,
+  "agentic": 39,
+  "total": 238
+ },
+ "survey_versions": {
+  "t2t-survey": {
+   "date": "2026-10-23",
+   "count": 102
+  },
+  "t2i-survey": {
+   "date": "2026-10-23",
+   "count": 97
+  },
+  "agentic-search-survey": {
+   "date": "2026-04-30",
+   "version": "v1.8",
+   "count": 39
+  },
+  "landscape_2026": {
+   "date": "2026-10-23",
+   "version": "v3.4",
+   "total_papers": 238
+  }
+ },
+ "benchmark_status": {
+  "t2t_benchmark": {
+   "entries": 17,
+   "last_updated": "2026-10-23"
+  },
+  "t2i_benchmark": {
+   "entries": 30,
+   "last_updated": "2026-10-23"
+  },
+  "agentic_benchmark": {
+   "entries": 10,
+   "last_updated": "2026-04-30"
+  }
+ },
+ "daily_reports": {
+  "latest": "2026-10-23",
+  "this_month_count": 2,
+  "missing_dates": [
+   "2026-10-01",
+   "2026-10-02",
+   "2026-10-03",
+   "2026-10-04",
+   "2026-10-05",
+   "2026-10-06",
+   "2026-10-07",
+   "2026-10-08",
+   "2026-10-09",
+   "2026-10-10",
+   "2026-10-11",
+   "2026-10-12",
+   "2026-10-13",
+   "2026-10-14",
+   "2026-10-15",
+   "2026-10-16",
+   "2026-10-17",
+   "2026-10-18",
+   "2026-10-19",
+   "2026-10-20",
+   "2026-10-21"
+  ]
+ },
+ "workflow_version": "2.3",
+ "today_selection": {
+  "t2i": [
+   "2610.30348_mirage",
+   "2610.27516_healbench",
+   "2609.24228_implicit_bench",
+   "2610.24051_logicval"
+  ],
+  "t2t_migration": [
+   "2610.29225_diagsafe",
+   "2606.27210_aims"
+  ],
+  "agentic": [],
+  "note": "T2I/T+I2I 占比 66.7%；DiagSafe 为腾讯混元团队 × 北师大；AIMS 有 Adobe/NVIDIA 参与；HealBench 为 AAAI 2027。本周 T2I 输入侧改写为空窗，主题转向归因工程（锚点/审核器架构/判定标准/意图绑定）。"
+ },
+ "_note": "This file is the single source of truth for all paper counts. Automation must update this file on every run. Never estimate counts — always use search_file to scan papers/ directories."
+}
