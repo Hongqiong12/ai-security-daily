@@ -1,20 +1,20 @@
 {
  "_meta_version": "1.0",
- "last_updated": "2026-10-23",
+ "last_updated": "2026-10-26",
  "paper_counts": {
-  "t2t": 102,
-  "t2i": 97,
+  "t2t": 103,
+  "t2i": 102,
   "agentic": 39,
-  "total": 238
+  "total": 244
  },
  "survey_versions": {
   "t2t-survey": {
-   "date": "2026-10-23",
-   "count": 102
+   "date": "2026-10-26",
+   "count": 103
   },
   "t2i-survey": {
-   "date": "2026-10-23",
-   "count": 97
+   "date": "2026-10-26",
+   "count": 102
   },
   "agentic-search-survey": {
    "date": "2026-04-30",
@@ -22,19 +22,19 @@
    "count": 39
   },
   "landscape_2026": {
-   "date": "2026-10-23",
-   "version": "v3.4",
-   "total_papers": 238
+   "date": "2026-10-26",
+   "version": "v3.5",
+   "total_papers": 244
   }
  },
  "benchmark_status": {
   "t2t_benchmark": {
    "entries": 17,
-   "last_updated": "2026-10-23"
+   "last_updated": "2026-10-26"
   },
   "t2i_benchmark": {
-   "entries": 30,
-   "last_updated": "2026-10-23"
+   "entries": 32,
+   "last_updated": "2026-10-26"
   },
   "agentic_benchmark": {
    "entries": 10,
@@ -42,8 +42,8 @@
   }
  },
  "daily_reports": {
-  "latest": "2026-10-23",
-  "this_month_count": 2,
+  "latest": "2026-10-26",
+  "this_month_count": 3,
   "missing_dates": [
    "2026-10-01",
    "2026-10-02",
@@ -65,23 +65,25 @@
    "2026-10-18",
    "2026-10-19",
    "2026-10-20",
-   "2026-10-21"
+   "2026-10-21",
+   "2026-10-24",
+   "2026-10-25"
   ]
  },
  "workflow_version": "2.3",
  "today_selection": {
   "t2i": [
-   "2610.30348_mirage",
-   "2610.27516_healbench",
-   "2609.24228_implicit_bench",
-   "2610.24051_logicval"
+   "2606.25034_yuvion_vl",
+   "2610.31713_omni_ubench",
+   "2606.30059_avlm_failure_taxonomy",
+   "2510.16342_select_erasure_boundary",
+   "2610.28195_attractive_faces_reward_bias"
   ],
   "t2t_migration": [
-   "2610.29225_diagsafe",
-   "2606.27210_aims"
+   "2610.30727_faithful_harm_monitors"
   ],
   "agentic": [],
-  "note": "T2I/T+I2I 占比 66.7%；DiagSafe 为腾讯混元团队 × 北师大；AIMS 有 Adobe/NVIDIA 参与；HealBench 为 AAAI 2027。本周 T2I 输入侧改写为空窗，主题转向归因工程（锚点/审核器架构/判定标准/意图绑定）。"
+  "note": "T2I/T+I2I 直接相关 4 篇 + 工业审核方法论迁移 1 篇 + T2T 迁移 1 篇，T2I 占比 66.7%。Yuvion VL 为阿里巴巴安全 AGI Lab；Omni-UBench 为浙大+阿里；AVLM Failure Taxonomy 为 TikTok/字节 + 悉尼大学（NeurIPS 2026）。T2I 输入侧改写连续第三周空窗，本周主题转为\"分数不可信\"——图审配方（C2FT）、评测新尺子（掩码消融 + 匹配误报率）、锚点距离曲线、奖励语义≠奖励行为。"
  },
  "_note": "This file is the single source of truth for all paper counts. Automation must update this file on every run. Never estimate counts — always use search_file to scan papers/ directories."
 }

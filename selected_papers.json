@@ -1,279 +1,362 @@
 [
-  {
-    "id": "2610.26452v1",
-    "title": "When Guidance Becomes a Guard: Early Interception of Unsafe Inputs in Text-to-Image Generation",
-    "summary": "Reads native CFG conditional-vs-unconditional activation contrasts at early steps (5/10/15) to intercept unsafe T2I inputs with a linear readout; no attack samples, no image reconstruction, no generator modification. >60% latency reduction on intercepted paths at matched 5% FPR.",
-    "published": "2026-10-19",
-    "url": "https://arxiv.org/abs/2610.26452",
-    "authors": [
-      "Yanchun Li",
-      "Yujin Wu",
-      "Gangkai Shen",
-      "Ming Yang",
-      "Li Zeng",
-      "Xianlong Wang",
-      "Hangtao Zhang",
-      "Shujuan Tian"
-    ]
-  },
-  {
-    "id": "2610.21569v1",
-    "title": "Decoupled Safety Control: A Safety-Control Algorithm for Training-Free Safety Guidance",
-    "summary": "Identifies the coupled safety-control chain in training-free safeguards and reformulates intervention as a state-dependent control process (evidence, control-state, routing, update, phase-aware). NeurIPS 2026; Tencent affiliation.",
-    "published": "2026-10-15",
-    "url": "https://arxiv.org/abs/2610.21569",
-    "authors": [
-      "Huilin Zhou",
-      "Ruoxi Cheng",
-      "Yuhang Wang",
-      "Yuming Liu",
-      "Minghao Sun",
-      "Ruolong Ma",
-      "Lan Zhang"
-    ]
-  },
-  {
-    "id": "2610.22264v1",
-    "title": "SCOPE: Semantic Bounded Credit Optimization for Prompt Engineering in Text-to-image Generation",
-    "summary": "GRPO objective that aligns RL credit assignment with semantic spans instead of subword tokens for T2I prompt rewriting; +9.48% GeneVal, +7.62% T2I-CompBench over vanilla GRPO.",
-    "published": "2026-10-15",
-    "url": "https://arxiv.org/abs/2610.22264",
-    "authors": [
-      "Yufei Jiao",
-      "Jinfa Huang",
-      "Zeyue Xue",
-      "Tianyu Xie",
-      "Yuexiao Ma",
-      "Rongrong Ji",
-      "Xiawu Zheng",
-      "Jiebo Luo"
-    ]
-  },
-  {
-    "id": "2610.27719v1",
-    "title": "Push-Pull Attentional Anchoring for Diffusion Concept Erasure",
-    "summary": "Cross-attention push-pull with bounded cosine-similarity anchoring using a relative similarity ratio; first to address same-domain peer concept preservation. ECCV 2026 Spotlight.",
-    "published": "2026-10-20",
-    "url": "https://arxiv.org/abs/2610.27719",
-    "authors": [
-      "Nattanat Chatthee",
-      "Tagon Sompong",
-      "Ekapol Chuangsuwanich",
-      "Supasorn Suwajanakorn"
-    ]
-  },
-  {
-    "id": "2610.23183v1",
-    "title": "AMEND: Constraint-Guided Multi-Agent Text Detoxification with Isolated Critics",
-    "summary": "Decouples detoxification into role-conditioned proposals, isolated role-blind critics, and constraint-first selection, giving semantic fidelity veto power over superficial safety.",
-    "published": "2026-10-16",
-    "url": "https://arxiv.org/abs/2610.23183",
-    "authors": [
-      "Tianyu Wang"
-    ]
-  },
-  {
-    "id": "2610.25060v1",
-    "title": "Policy Is Not Capability: Some Safety Benchmarks Measure Which Definition of Unsafe You Trained On",
-    "summary": "Diagnostic study using a doubly-labelled industrial prompt pool: 88%/82% benchmark contamination, 23x definition-sensitivity spread, and 0.03% of parameters moving a benchmark across its full range at unchanged detection capability.",
-    "published": "2026-10-18",
-    "url": "https://arxiv.org/abs/2610.25060",
-    "authors": [
-      "Vahid Jebraeeli",
-      "Jonathon Romero",
-      "Yijin Wang",
-      "Adrian Chan",
-      "Jianbang Zhang"
-    ]
-  },
-  {
-    "id": "2606.24081v1",
-    "title": "PixJail: Self-Evolving Paper-to-Pipeline Reproduction for Text-to-Image Jailbreak Evaluation",
-    "summary": "Pipeline-level T2I jailbreak evaluation framework that reproduces paper-specific attacks and standardized evaluation under a unified contract.",
-    "published": "2026-06-23",
-    "url": "https://arxiv.org/abs/2606.24081",
-    "authors": [
-      "Leyi Sheng",
-      "Han Sun",
-      "Zhen Sun",
-      "Yuntao Yue",
-      "Jinlin Wu",
-      "Xinlei He",
-      "Jiaheng Wei"
-    ]
-  },
-  {
-    "id": "2606.23267v1",
-    "title": "Safe Few-Step Generation via Velocity Editing",
-    "summary": "Training-free safety method for few-step flow matching T2I models by editing the velocity field while preserving benign prompt fidelity.",
-    "published": "2026-06-22",
-    "url": "https://arxiv.org/abs/2606.23267",
-    "authors": [
-      "Yujin Choi",
-      "Jaehong Yoon"
-    ]
-  },
-  {
-    "id": "2606.14351v1",
-    "title": "ForceForget: Reinforcement Concept Removal for Enhancing Safety in Text-to-Image Models",
-    "summary": "RL-based concept removal with Safe Adapter and dual rewards to jointly optimize safety and semantic fidelity in T2I/I2I.",
-    "published": "2026-06-12",
-    "url": "https://arxiv.org/abs/2606.14351",
-    "authors": [
-      "Dong Han",
-      "Yong Li"
-    ]
-  },
-  {
-    "id": "cvpr2026",
-    "title": "SafetyBPO: Bidirectional Preference Optimization for Safe Text-to-Image Generation",
-    "summary": "Safe-yet-semantically-consistent prompt rewriting and bidirectional preference optimization for T2I safety alignment.",
-    "published": "2026-06-01",
-    "url": "https://openaccess.thecvf.com/content/CVPR2026F/html/Wu_SafetyBPO_Bidirectional_Preference_Optimization_for_Safe_Text-to-Image_Generation_CVPRF_2026_paper.html",
-    "authors": [
-      "You Wu",
-      "Beier Zhu",
-      "Chi Zhang"
-    ]
-  },
-  {
-    "id": "2509.04545v5",
-    "title": "PromptEnhancer: Taming Your Rewriter for Text-to-Image Generation via Fine-Grained Reward",
-    "summary": "Tencent Hunyuan prompt rewriting framework with a 24-key-point failure taxonomy and reward-model-guided optimization.",
-    "published": "2025-09-23",
-    "url": "https://arxiv.org/abs/2509.04545",
-    "authors": [
-      "Linqing Wang",
-      "Zhiyong Xu",
-      "Ximing Xing",
-      "Yiji Cheng",
-      "Zhiyuan Zhao",
-      "Donghao Li",
-      "Tiankai Hang",
-      "Zhenxi Li",
-      "Jiale Tao",
-      "Qixun Wang",
-      "Ruihuang Li",
-      "Comi Chen",
-      "Xin Li",
-      "Mingrui Wu",
-      "Xinchi Deng",
-      "Shuyang Gu",
-      "Chunyu Wang",
-      "Qinglin Lu"
-    ]
-  },
-  {
-    "id": "2606.08492v1",
-    "title": "Seeing is Believing: Aligning Prompt Rewriting with Visual Anchors for Text-to-Image Generation",
-    "summary": "Visual-anchor based intent-preserving prompt rewriting with closed-loop verification and DPO distillation.",
-    "published": "2026-06-07",
-    "url": "https://arxiv.org/abs/2606.08492",
-    "authors": [
-      "Xuanyi Liu",
-      "Deyi Ji",
-      "Junyu Lu",
-      "Jing Wang",
-      "Qianxiong Xu",
-      "Xuhang Chen",
-      "Tianrun Chen",
-      "Siwei Ma"
-    ]
-  },
-  {
-    "id": "2610.30348v1",
-    "title": "Mirage: Targeted Jailbreaks Against Post-Generation Safety Checkers in Multimodal Diffusion Models",
-    "summary": "Conceals a cross-modal NSFW target in an imperceptible image perturbation while leaving the text prompt unchanged, evading unknown post-generation checkers via surrogate-encoder contrastive alignment + NSFW-concept repulsion + black-box query refinement. Bypass rate 1.000/0.900/0.960 on I2P for CLIP/ViT/NudeNet; on the NSFW image-target set CLIP 0.800 vs ViT 0.185 vs NudeNet 0.435 (4.3x architecture gap); bypass != ASR (1.000 vs 0.840).",
-    "published": "2026-10-21",
-    "url": "https://arxiv.org/abs/2610.30348",
-    "authors": [
-      "Shanghao Shi",
-      "Chaoyu Zhang",
-      "Heng Jin",
-      "Hao Li",
-      "Ning Zhang",
-      "Y. Thomas Hou",
-      "Wenjing Lou"
-    ]
-  },
-  {
-    "id": "2610.27516v1",
-    "title": "HealBench: A Fine-Grained Benchmark for Evaluating Psychological Comfort in Text-to-Image Generation",
-    "summary": "30K image-text pairs across 19 categories / 92 subcategories plus a 1,095-instance clustered eval set; tri-dimensional scoring (text-image alignment, target dimension, quality) with a 1:2:1 weight on the target dimension, and a task-specific scorer (THS) that reaches 0.8527 preference accuracy vs 0.50-0.56 for PickScore/CLIPScore/HPSv3. Explicitly evaluates prompt-rewriting strategies. AAAI 2027.",
-    "published": "2026-10-19",
-    "url": "https://arxiv.org/abs/2610.27516",
-    "authors": [
-      "Junjie Xu",
-      "Yuzhe Yang",
-      "Rui Yang",
-      "Luwei Xiao",
-      "Wenxin Hu",
-      "Xingjiao Wu",
-      "Liang He"
-    ]
-  },
-  {
-    "id": "2609.24228v2",
-    "title": "IMPLICIT-Bench: Stereotyped Defaults and Prompt Following in Text-to-Image Generation",
-    "summary": "1,831 scene-fixed prompt triplets with KG-unit semantic anchors; ablates prompt rewriting across three anchor-information conditions. No-anchor rewriting is net negative (delta S -0.8), retrieved anchor (40% top-1) gives +2.9, oracle anchor +8.6, and removing the prompt's own unit makes all 12 configs negative. Proposes a multiplicative joint score S = 100*mean[Y*(1-b/5)].",
-    "published": "2026-10-16",
-    "url": "https://arxiv.org/abs/2609.24228",
-    "authors": [
-      "Yue Dai",
-      "Ziyang Liu",
-      "Marc Cheong",
-      "Caren Han"
-    ]
-  },
-  {
-    "id": "2610.24051v1",
-    "title": "LogicVal: A Logic-Formalized Benchmark for Constraint Satisfaction in Text-to-Image Generation",
-    "summary": "Casts T2I evaluation as constraint satisfaction: prompts become ASP constraints (9 classes C1-C9, 71 templates), images become scene graphs, clingo decides satisfaction without reference images. Best model: 98% on single object-attribute but 53% on complex conditional multi-object relations, 84% single-constraint vs 20% multi-constraint, 23% UNSAT recognition. Introduces anti-vacuity clauses.",
-    "published": "2026-10-16",
-    "url": "https://arxiv.org/abs/2610.24051",
-    "authors": [
-      "Savitha Sam Abraham",
-      "Marjan Alirezaie",
-      "Hossein Rahnama"
-    ]
-  },
-  {
-    "id": "2610.29225v1",
-    "title": "Beyond Binary Labels: Diagnostic Evaluation of LLM Safety with Prompt-Level Rubrics (DiagSafe)",
-    "summary": "Tencent Hunyuan + BNU. Three-tier 84-leaf safety taxonomy with four-element label specifications (definition / principles / violating behaviors / permitted exemptions) plus prompt-level rubrics; 3,489 bilingual prompts incl. instruction attacks. Same judge (Hy3): 87.29% generic prompt vs 95.34% rubric agreement with humans; instruction attacks inflate unsafe rate 1.9x-8.4x (median 5.3x).",
-    "published": "2026-10-21",
-    "url": "https://arxiv.org/abs/2610.29225",
-    "authors": [
-      "Hongyu Li",
-      "Xinlong Huang",
-      "Zhan Yu",
-      "Jing Zhao",
-      "Zhe Zhao",
-      "Juntao Zhong",
-      "Xiong Kuang",
-      "Rui Yuan",
-      "ZhenXiang Yan",
-      "Huilin Xu",
-      "Haitao Yu",
-      "Lilin Wang",
-      "Rui Chen",
-      "Blaze Chen",
-      "Fengzong Lian",
-      "Renfen Hu"
-    ]
-  },
-  {
-    "id": "2606.27210v2",
-    "title": "Paved with True Intents: Intent-Aware Training Improves LLM Safety Classification Across Training Regimes",
-    "summary": "Adobe/NVIDIA co-authored. 1,275 uncertainty-selected prompts / 1,724 intent annotations make user intent an explicit intermediate signal across SFT, DPO, distillation and GRPO. GRPO with label+intent reward reaches 0.836 avg F1 over five benchmarks, beating GPT-5.4 (0.815) and Nemotron Safety 4B (0.809); 6/71 recovered over-refusals show near-identical intents with opposite labels.",
-    "published": "2026-10-16",
-    "url": "https://arxiv.org/abs/2606.27210",
-    "authors": [
-      "Jeremias Ferrao",
-      "Niclas Müller-Hof",
-      "Iustin Sîrbu",
-      "Traian Rebedea",
-      "Yftah Ziser"
-    ]
-  }
+ {
+  "id": "2610.26452v1",
+  "title": "When Guidance Becomes a Guard: Early Interception of Unsafe Inputs in Text-to-Image Generation",
+  "summary": "Reads native CFG conditional-vs-unconditional activation contrasts at early steps (5/10/15) to intercept unsafe T2I inputs with a linear readout; no attack samples, no image reconstruction, no generator modification. >60% latency reduction on intercepted paths at matched 5% FPR.",
+  "published": "2026-10-19",
+  "url": "https://arxiv.org/abs/2610.26452",
+  "authors": [
+   "Yanchun Li",
+   "Yujin Wu",
+   "Gangkai Shen",
+   "Ming Yang",
+   "Li Zeng",
+   "Xianlong Wang",
+   "Hangtao Zhang",
+   "Shujuan Tian"
+  ]
+ },
+ {
+  "id": "2610.21569v1",
+  "title": "Decoupled Safety Control: A Safety-Control Algorithm for Training-Free Safety Guidance",
+  "summary": "Identifies the coupled safety-control chain in training-free safeguards and reformulates intervention as a state-dependent control process (evidence, control-state, routing, update, phase-aware). NeurIPS 2026; Tencent affiliation.",
+  "published": "2026-10-15",
+  "url": "https://arxiv.org/abs/2610.21569",
+  "authors": [
+   "Huilin Zhou",
+   "Ruoxi Cheng",
+   "Yuhang Wang",
+   "Yuming Liu",
+   "Minghao Sun",
+   "Ruolong Ma",
+   "Lan Zhang"
+  ]
+ },
+ {
+  "id": "2610.22264v1",
+  "title": "SCOPE: Semantic Bounded Credit Optimization for Prompt Engineering in Text-to-image Generation",
+  "summary": "GRPO objective that aligns RL credit assignment with semantic spans instead of subword tokens for T2I prompt rewriting; +9.48% GeneVal, +7.62% T2I-CompBench over vanilla GRPO.",
+  "published": "2026-10-15",
+  "url": "https://arxiv.org/abs/2610.22264",
+  "authors": [
+   "Yufei Jiao",
+   "Jinfa Huang",
+   "Zeyue Xue",
+   "Tianyu Xie",
+   "Yuexiao Ma",
+   "Rongrong Ji",
+   "Xiawu Zheng",
+   "Jiebo Luo"
+  ]
+ },
+ {
+  "id": "2610.27719v1",
+  "title": "Push-Pull Attentional Anchoring for Diffusion Concept Erasure",
+  "summary": "Cross-attention push-pull with bounded cosine-similarity anchoring using a relative similarity ratio; first to address same-domain peer concept preservation. ECCV 2026 Spotlight.",
+  "published": "2026-10-20",
+  "url": "https://arxiv.org/abs/2610.27719",
+  "authors": [
+   "Nattanat Chatthee",
+   "Tagon Sompong",
+   "Ekapol Chuangsuwanich",
+   "Supasorn Suwajanakorn"
+  ]
+ },
+ {
+  "id": "2610.23183v1",
+  "title": "AMEND: Constraint-Guided Multi-Agent Text Detoxification with Isolated Critics",
+  "summary": "Decouples detoxification into role-conditioned proposals, isolated role-blind critics, and constraint-first selection, giving semantic fidelity veto power over superficial safety.",
+  "published": "2026-10-16",
+  "url": "https://arxiv.org/abs/2610.23183",
+  "authors": [
+   "Tianyu Wang"
+  ]
+ },
+ {
+  "id": "2610.25060v1",
+  "title": "Policy Is Not Capability: Some Safety Benchmarks Measure Which Definition of Unsafe You Trained On",
+  "summary": "Diagnostic study using a doubly-labelled industrial prompt pool: 88%/82% benchmark contamination, 23x definition-sensitivity spread, and 0.03% of parameters moving a benchmark across its full range at unchanged detection capability.",
+  "published": "2026-10-18",
+  "url": "https://arxiv.org/abs/2610.25060",
+  "authors": [
+   "Vahid Jebraeeli",
+   "Jonathon Romero",
+   "Yijin Wang",
+   "Adrian Chan",
+   "Jianbang Zhang"
+  ]
+ },
+ {
+  "id": "2606.24081v1",
+  "title": "PixJail: Self-Evolving Paper-to-Pipeline Reproduction for Text-to-Image Jailbreak Evaluation",
+  "summary": "Pipeline-level T2I jailbreak evaluation framework that reproduces paper-specific attacks and standardized evaluation under a unified contract.",
+  "published": "2026-06-23",
+  "url": "https://arxiv.org/abs/2606.24081",
+  "authors": [
+   "Leyi Sheng",
+   "Han Sun",
+   "Zhen Sun",
+   "Yuntao Yue",
+   "Jinlin Wu",
+   "Xinlei He",
+   "Jiaheng Wei"
+  ]
+ },
+ {
+  "id": "2606.23267v1",
+  "title": "Safe Few-Step Generation via Velocity Editing",
+  "summary": "Training-free safety method for few-step flow matching T2I models by editing the velocity field while preserving benign prompt fidelity.",
+  "published": "2026-06-22",
+  "url": "https://arxiv.org/abs/2606.23267",
+  "authors": [
+   "Yujin Choi",
+   "Jaehong Yoon"
+  ]
+ },
+ {
+  "id": "2606.14351v1",
+  "title": "ForceForget: Reinforcement Concept Removal for Enhancing Safety in Text-to-Image Models",
+  "summary": "RL-based concept removal with Safe Adapter and dual rewards to jointly optimize safety and semantic fidelity in T2I/I2I.",
+  "published": "2026-06-12",
+  "url": "https://arxiv.org/abs/2606.14351",
+  "authors": [
+   "Dong Han",
+   "Yong Li"
+  ]
+ },
+ {
+  "id": "cvpr2026",
+  "title": "SafetyBPO: Bidirectional Preference Optimization for Safe Text-to-Image Generation",
+  "summary": "Safe-yet-semantically-consistent prompt rewriting and bidirectional preference optimization for T2I safety alignment.",
+  "published": "2026-06-01",
+  "url": "https://openaccess.thecvf.com/content/CVPR2026F/html/Wu_SafetyBPO_Bidirectional_Preference_Optimization_for_Safe_Text-to-Image_Generation_CVPRF_2026_paper.html",
+  "authors": [
+   "You Wu",
+   "Beier Zhu",
+   "Chi Zhang"
+  ]
+ },
+ {
+  "id": "2509.04545v5",
+  "title": "PromptEnhancer: Taming Your Rewriter for Text-to-Image Generation via Fine-Grained Reward",
+  "summary": "Tencent Hunyuan prompt rewriting framework with a 24-key-point failure taxonomy and reward-model-guided optimization.",
+  "published": "2025-09-23",
+  "url": "https://arxiv.org/abs/2509.04545",
+  "authors": [
+   "Linqing Wang",
+   "Zhiyong Xu",
+   "Ximing Xing",
+   "Yiji Cheng",
+   "Zhiyuan Zhao",
+   "Donghao Li",
+   "Tiankai Hang",
+   "Zhenxi Li",
+   "Jiale Tao",
+   "Qixun Wang",
+   "Ruihuang Li",
+   "Comi Chen",
+   "Xin Li",
+   "Mingrui Wu",
+   "Xinchi Deng",
+   "Shuyang Gu",
+   "Chunyu Wang",
+   "Qinglin Lu"
+  ]
+ },
+ {
+  "id": "2606.08492v1",
+  "title": "Seeing is Believing: Aligning Prompt Rewriting with Visual Anchors for Text-to-Image Generation",
+  "summary": "Visual-anchor based intent-preserving prompt rewriting with closed-loop verification and DPO distillation.",
+  "published": "2026-06-07",
+  "url": "https://arxiv.org/abs/2606.08492",
+  "authors": [
+   "Xuanyi Liu",
+   "Deyi Ji",
+   "Junyu Lu",
+   "Jing Wang",
+   "Qianxiong Xu",
+   "Xuhang Chen",
+   "Tianrun Chen",
+   "Siwei Ma"
+  ]
+ },
+ {
+  "id": "2610.30348v1",
+  "title": "Mirage: Targeted Jailbreaks Against Post-Generation Safety Checkers in Multimodal Diffusion Models",
+  "summary": "Conceals a cross-modal NSFW target in an imperceptible image perturbation while leaving the text prompt unchanged, evading unknown post-generation checkers via surrogate-encoder contrastive alignment + NSFW-concept repulsion + black-box query refinement. Bypass rate 1.000/0.900/0.960 on I2P for CLIP/ViT/NudeNet; on the NSFW image-target set CLIP 0.800 vs ViT 0.185 vs NudeNet 0.435 (4.3x architecture gap); bypass != ASR (1.000 vs 0.840).",
+  "published": "2026-10-21",
+  "url": "https://arxiv.org/abs/2610.30348",
+  "authors": [
+   "Shanghao Shi",
+   "Chaoyu Zhang",
+   "Heng Jin",
+   "Hao Li",
+   "Ning Zhang",
+   "Y. Thomas Hou",
+   "Wenjing Lou"
+  ]
+ },
+ {
+  "id": "2610.27516v1",
+  "title": "HealBench: A Fine-Grained Benchmark for Evaluating Psychological Comfort in Text-to-Image Generation",
+  "summary": "30K image-text pairs across 19 categories / 92 subcategories plus a 1,095-instance clustered eval set; tri-dimensional scoring (text-image alignment, target dimension, quality) with a 1:2:1 weight on the target dimension, and a task-specific scorer (THS) that reaches 0.8527 preference accuracy vs 0.50-0.56 for PickScore/CLIPScore/HPSv3. Explicitly evaluates prompt-rewriting strategies. AAAI 2027.",
+  "published": "2026-10-19",
+  "url": "https://arxiv.org/abs/2610.27516",
+  "authors": [
+   "Junjie Xu",
+   "Yuzhe Yang",
+   "Rui Yang",
+   "Luwei Xiao",
+   "Wenxin Hu",
+   "Xingjiao Wu",
+   "Liang He"
+  ]
+ },
+ {
+  "id": "2609.24228v2",
+  "title": "IMPLICIT-Bench: Stereotyped Defaults and Prompt Following in Text-to-Image Generation",
+  "summary": "1,831 scene-fixed prompt triplets with KG-unit semantic anchors; ablates prompt rewriting across three anchor-information conditions. No-anchor rewriting is net negative (delta S -0.8), retrieved anchor (40% top-1) gives +2.9, oracle anchor +8.6, and removing the prompt's own unit makes all 12 configs negative. Proposes a multiplicative joint score S = 100*mean[Y*(1-b/5)].",
+  "published": "2026-10-16",
+  "url": "https://arxiv.org/abs/2609.24228",
+  "authors": [
+   "Yue Dai",
+   "Ziyang Liu",
+   "Marc Cheong",
+   "Caren Han"
+  ]
+ },
+ {
+  "id": "2610.24051v1",
+  "title": "LogicVal: A Logic-Formalized Benchmark for Constraint Satisfaction in Text-to-Image Generation",
+  "summary": "Casts T2I evaluation as constraint satisfaction: prompts become ASP constraints (9 classes C1-C9, 71 templates), images become scene graphs, clingo decides satisfaction without reference images. Best model: 98% on single object-attribute but 53% on complex conditional multi-object relations, 84% single-constraint vs 20% multi-constraint, 23% UNSAT recognition. Introduces anti-vacuity clauses.",
+  "published": "2026-10-16",
+  "url": "https://arxiv.org/abs/2610.24051",
+  "authors": [
+   "Savitha Sam Abraham",
+   "Marjan Alirezaie",
+   "Hossein Rahnama"
+  ]
+ },
+ {
+  "id": "2610.29225v1",
+  "title": "Beyond Binary Labels: Diagnostic Evaluation of LLM Safety with Prompt-Level Rubrics (DiagSafe)",
+  "summary": "Tencent Hunyuan + BNU. Three-tier 84-leaf safety taxonomy with four-element label specifications (definition / principles / violating behaviors / permitted exemptions) plus prompt-level rubrics; 3,489 bilingual prompts incl. instruction attacks. Same judge (Hy3): 87.29% generic prompt vs 95.34% rubric agreement with humans; instruction attacks inflate unsafe rate 1.9x-8.4x (median 5.3x).",
+  "published": "2026-10-21",
+  "url": "https://arxiv.org/abs/2610.29225",
+  "authors": [
+   "Hongyu Li",
+   "Xinlong Huang",
+   "Zhan Yu",
+   "Jing Zhao",
+   "Zhe Zhao",
+   "Juntao Zhong",
+   "Xiong Kuang",
+   "Rui Yuan",
+   "ZhenXiang Yan",
+   "Huilin Xu",
+   "Haitao Yu",
+   "Lilin Wang",
+   "Rui Chen",
+   "Blaze Chen",
+   "Fengzong Lian",
+   "Renfen Hu"
+  ]
+ },
+ {
+  "id": "2606.27210v2",
+  "title": "Paved with True Intents: Intent-Aware Training Improves LLM Safety Classification Across Training Regimes",
+  "summary": "Adobe/NVIDIA co-authored. 1,275 uncertainty-selected prompts / 1,724 intent annotations make user intent an explicit intermediate signal across SFT, DPO, distillation and GRPO. GRPO with label+intent reward reaches 0.836 avg F1 over five benchmarks, beating GPT-5.4 (0.815) and Nemotron Safety 4B (0.809); 6/71 recovered over-refusals show near-identical intents with opposite labels.",
+  "published": "2026-10-16",
+  "url": "https://arxiv.org/abs/2606.27210",
+  "authors": [
+   "Jeremias Ferrao",
+   "Niclas Müller-Hof",
+   "Iustin Sîrbu",
+   "Traian Rebedea",
+   "Yftah Ziser"
+  ]
+ },
+ {
+  "id": "2606.25034v3",
+  "title": "Yuvion VL: A Multimodal Foundation Model for Adversarial Content and AI Safety",
+  "summary": "Alibaba Security AGI Lab. Content-safety MLLM (8B/32B instruct+reasoning) built on Qwen3-VL. Six-part data system (general / domain knowledge / real safety business data with hierarchical labels+evidence+policy refs / adversarial / text-only / domain CoT) plus three-stage training (CPT with frozen ViT, Instruct SFT + C2FT, Reasoning SFT+RLVR). C2FT mines the model's OWN confusions via S_confuse(c|xa)=Sim(e_pred, e_gt^c), verifies hard negatives with Teacher Forcing (|P_TF(ya|xneg)-P_TF(c|xneg)|<tau), then concatenates K images into one sequence for cross-image contrastive CE with rho=0.3 and PAT anti-shortcut regularization. 8B beats backbone by +12.4~12.6 on 12 public safety benchmarks, +11.3 on 21 in-house business sets, +17.8 Macro-F1 on AI-generated image detection. Ablation: random contrastive sampling -4.28 pts.",
+  "published": "2026-10-20",
+  "url": "https://arxiv.org/abs/2606.25034",
+  "authors": [
+   "Yuvion Team"
+  ]
+ },
+ {
+  "id": "2610.31713v1",
+  "title": "Omni-UBench: Benchmarking Omni-Modal LLM-based Guardrails Across Safety, Utility, and Reliability",
+  "summary": "Zhejiang University + Alibaba Group. First systematic omni-modal guardrail benchmark: 183,977 samples from 37 sources across T/I/A/V plus cross-modal combos, unified 10-class risk taxonomy re-annotated by multi-expert voting (2-of-4 agreement threshold). Three-dimensional protocol Safety/Utility/Reliability with Reliability = 100(1-FPR), built from two probes: over-sensitivity (jailbreak text patterns crossed with benign media) and guardrail hallucination (length-preserving masking: blank image / silent audio / [MASK] text). Key evidence: after masking all harmful semantics, Qwen2.5-Omni-3B still recalls 1.00/0.99/1.00/0.50 (T/T-I/T-A/T-V) at average FPR 0.87; MultiGuard 0.77. Implicit-intent blind spots: SIUO recall 0.39, CipherChat 0.41, MML 0.43.",
+  "published": "2026-10-22",
+  "url": "https://arxiv.org/abs/2610.31713",
+  "authors": [
+   "Junhao Wang",
+   "Yidou Chen",
+   "Li Lu",
+   "Hongwei Yao",
+   "Xiaodan Li",
+   "Mengjie Wu",
+   "Yuefeng Chen",
+   "Zhan Qin",
+   "Kui Ren"
+  ]
+ },
+ {
+  "id": "2606.30059v1",
+  "title": "From Failure Taxonomy to Intervention: A Diagnostic Methodology for Industry-Scale AVLM in Video and Live-Streaming Platform Moderation",
+  "summary": "TikTok (ByteDance) + University of Sydney, NeurIPS 2026. Diagnostic methodology mapping AVLM failures onto observable failure signatures and linking each class to an intervention space: (1) selection-induced support erosion, formalized as q(x)=p_traffic(x)S_retain(x)/E[S_retain] so raw corpus size overstates learnable coverage; (2) regime-limited alignment diagnosed by scaling curves; (3) proxy-sufficient representation collapse (WER down, AQA down) fixed by Cross-Modal Continuation at 20% mixture; (4) instruction tuning trading perception for reasoning; (5) the perception assumption (better ASR != better moderation, framed as Pareto multi-objective selection). Annotation protocol: >=3 annotators, high-confidence positive must lead runner-up by >=2 votes. FLEURS avg WER/CER 13.45 vs Qwen2.5-Omni-3B 41.15; audio over transcript PR-AUC +0.041/+0.003 frozen and +0.066/+0.018 fully adapted.",
+  "published": "2026-10-19",
+  "url": "https://arxiv.org/abs/2606.30059",
+  "authors": [
+   "Shuchang Ye",
+   "Jinqiang Yu",
+   "Zhujun Xiao",
+   "Yajing Kong",
+   "Yist Y. Lin",
+   "Yang Ma",
+   "Jiaxi Liu",
+   "Xiaolei Xu",
+   "Zheng Yu"
+  ]
+ },
+ {
+  "id": "2510.16342v2",
+  "title": "SELECT: Semantic Erasure Boundary Construction with Sibling Exclusive Counterfactuals",
+  "summary": "BUPT. Reframes anchor selection in target-to-anchor concept erasure as semantic erasure boundary construction. Causal tracing over cross-attention units shows concepts with dispersed causal effects (higher normalized entropy D_c) have higher anchor sensitivity, lower erasure strength and higher anchor failure rate. Controlled anchor interventions show collateral damage concentrates on boundary concepts, and that far anchors suppress better but damage both local and global neighborhoods most. Introduces BCTS = phi_c(S(c,a))*(1-Dtilde) where phi saturates once suppression passes threshold, so the score stops rewarding more aggressive erasure. Sibling Exclusive Concepts (same parent, mutually exclusive core attributes) achieve the highest BCTS. NSFW erasure template: keep subject/scene, replace sensitive attributes, e.g. 'a gardener in overalls and long sleeves'. Celebrity erasure H_c 81.99 -> 87.99 under SPEED. Contextual-activation analysis explains re-emergence: related words (red/wound/stain after erasing blood) reactivate residuals.",
+  "published": "2026-10-19",
+  "url": "https://arxiv.org/abs/2510.16342",
+  "authors": [
+   "Tong Zhang",
+   "Ru Zhang",
+   "Jianyi Liu",
+   "Zhen Yang"
+  ]
+ },
+ {
+  "id": "2610.28195v1",
+  "title": "Attractive Faces Skew Text-to-Image Reward Models and Leaderboards",
+  "summary": "Five-stage causal chain from human preference to capability deletion. User study (47 valid participants, 400 faces, half real CelebA-HQ labeled as AI-generated): p=0.0018 under fidelity wording, p=0.0006 under aesthetic wording, wording difference p=0.028. 10,000-run Elo simulation: attractive AI team (67.9) leads unattractive real team (34.1) by ~124 Elo; relative attractiveness, not image source, decides. DiffAE single-attribute audit (40 attributes x 4 magnitudes x 100 images = 16,000) finds 'attractive' is the top-1 correlated attribute for 4 of 5 preference models (PickScore/MPS/HPSv2.1/HPSv3) while non-preference controls differ; real-image control keeps r=0.35 for HPSv3; LASSO keeps attractive until lambda_L=0.63. ReNO with HPSv2.1 on 'a photo of an unattractive face' makes faces MORE attractive. Mitigation: minimize mutual information I(A;S) via KDE plus a score-similarity term.",
+  "published": "2026-10-20",
+  "url": "https://arxiv.org/abs/2610.28195",
+  "authors": [
+   "Harvey Mannering",
+   "Zhiwu Huang",
+   "Adam Prügel-Bennett"
+  ]
+ },
+ {
+  "id": "2610.30727v1",
+  "title": "Faithful Latent Harm Monitors Work No Better Than the Models Own Behaviour at a Matched False Alarm Rate",
+  "summary": "15 instruction-tuned LLMs x 38 activation readers at two read positions (last instruction token, last pre-reply template token). Models a harm score as s=a*J(judgment)+b*P(plan to refuse) and defines faithfulness as J-dominance, tested by three decoupling probes: beta_s regression at fixed harm+consensus, within-class AUROC at fixed consensus, and a cross-model disagreement statistic Pi that is exactly 0 for any model-blind score. In-distribution AUROC >=0.998 everywhere (Llama Guard 3 = 1.000) but on a 2,248-item rewording set Latent Guard falls to 0.54-0.71 (median 0.62) while a model-blind TF-IDF reaches 0.75; 20x more curated data only moves 0.63 -> 0.65. At a matched false-alarm rate the refusal catches 0.321 and the pre-reply read catches 0.44, but every point of gain comes from strings matched as answers that actually hedge or refuse in other words. Includes a harmless-made-alarming rewording component.",
+  "published": "2026-10-22",
+  "url": "https://arxiv.org/abs/2610.30727",
+  "authors": [
+   "Abhishek Mishra",
+   "Sagnik Chatterjee",
+   "Suyash Maniyar"
+  ]
+ }
 ]

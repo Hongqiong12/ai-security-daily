@@ -2,7 +2,7 @@
 
 文生图扩散模型的安全评测基准、数据集与评估框架论文。
 
-> 最后回填: 2026-10-23 | 共 **30** 条
+> 最后回填: 2026-10-26 | 共 **32** 条
 > 延伸索引: [《T2I 安全 Benchmark 短名单（2026 年前高引用版）》](../../../insights/t2i-benchmark-shortlist-pre2026.md)
 
 ## 综述与全景
@@ -51,5 +51,7 @@
 | VESFlow | [2606.23267](https://arxiv.org/abs/2606.23267) | 2026 arXiv | 面向 few-step flow matching 的速度场安全编辑，显式平衡 ASR 降低与 benign 保真 |
 | ForceForget | [2606.14351](https://arxiv.org/abs/2606.14351) | 2026 ICML | 双奖励 + Safe Adapter，同步优化 unsafe concept 移除与安全语义保真，并有效迁移到 I2I |
 | SafetyBPO | [CVPR 2026 Findings](https://openaccess.thecvf.com/content/CVPR2026F/html/Wu_SafetyBPO_Bidirectional_Preference_Optimization_for_Safe_Text-to-Image_Generation_CVPRF_2026_paper.html) | 2026 CVPR Findings | safe prompt rewriting + image preference 的双视角安全对齐，显式缓解 over-forgetting |
+| Omni-UBench | [2610.31713](https://arxiv.org/abs/2610.31713) | 2026 arXiv (浙大+阿里) | 全模态护栏三维基准（Safety/Utility/Reliability）：183,977 样本 / 37 来源 / 4 模态；**等长掩码消融**（空白图/静音/占位文本）暴露"判定与内容无关"，配套越狱话术×良性媒体的过敏感探针 |
+| Yuvion VL RiskEval (YVRE) | [2606.25034](https://arxiv.org/abs/2606.25034) | 2026 arXiv (阿里安全 AGI Lab) | 三级递进评测（58 benchmark）：Level 1 通用能力设 ≤3 点退化 gate，Level 2 公开安全 8 集 + 自建电商治理 4 集，Level 3 内部业务 20+ 集六维（含 AI 生成图检测、动态政策下的指令遵循） |
 
 [← 返回文生图目录](../README.md)

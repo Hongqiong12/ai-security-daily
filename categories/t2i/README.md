@@ -79,11 +79,10 @@
 ## 📊 数据统计
 
 ```
-t2i 类目论文统计 (截至 2026-04)
-├── benchmark:  11+ 篇
-├── attack:     20+ 篇
-├── defense:    25+ 篇
-└── 总计:       58+ 篇
+t2i 类目论文统计 (截至 2026-10-26，按 papers/*.md 精确扫描)
+├── 精读文档总数: 102 篇
+├── 主题分布: 概念擦除 / 图审与护栏 / 输入侧改写 / benchmark / 越狱攻击 / 水印溯源
+└── 2026-10 新增: Yuvion VL、Omni-UBench、AVLM Failure Taxonomy、SELECT、Attractive Faces Skew
 ```
 
 ## 🔗 外部资源
