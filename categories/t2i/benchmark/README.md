@@ -2,7 +2,7 @@
 
 文生图扩散模型的安全评测基准、数据集与评估框架论文。
 
-> 最后回填: 2026-10-26 | 共 **32** 条
+> 最后回填: 2026-10-27 | 共 **33** 条
 > 延伸索引: [《T2I 安全 Benchmark 短名单（2026 年前高引用版）》](../../../insights/t2i-benchmark-shortlist-pre2026.md)
 
 ## 综述与全景
@@ -53,5 +53,7 @@
 | SafetyBPO | [CVPR 2026 Findings](https://openaccess.thecvf.com/content/CVPR2026F/html/Wu_SafetyBPO_Bidirectional_Preference_Optimization_for_Safe_Text-to-Image_Generation_CVPRF_2026_paper.html) | 2026 CVPR Findings | safe prompt rewriting + image preference 的双视角安全对齐，显式缓解 over-forgetting |
 | Omni-UBench | [2610.31713](https://arxiv.org/abs/2610.31713) | 2026 arXiv (浙大+阿里) | 全模态护栏三维基准（Safety/Utility/Reliability）：183,977 样本 / 37 来源 / 4 模态；**等长掩码消融**（空白图/静音/占位文本）暴露"判定与内容无关"，配套越狱话术×良性媒体的过敏感探针 |
 | Yuvion VL RiskEval (YVRE) | [2606.25034](https://arxiv.org/abs/2606.25034) | 2026 arXiv (阿里安全 AGI Lab) | 三级递进评测（58 benchmark）：Level 1 通用能力设 ≤3 点退化 gate，Level 2 公开安全 8 集 + 自建电商治理 4 集，Level 3 内部业务 20+ 集六维（含 AI 生成图检测、动态政策下的指令遵循） |
+| ABACUS | [2610.28316](https://arxiv.org/abs/2610.28316) | 2026 WACV (CEA List / 巴黎萨克雷) | **指令式图像编辑的 judge-free 评测基准**：10,944 指令 / 3,845 图 / 80 类；全景真值经双检测器可删性审计，SAM3 + 匈牙利实例匹配 + 双检测器共识，`Score = CF × SC × OC` 乘积；与人类计数一致性 **0.82**（纯 VLM 0.55、单检测器 0.28），跨 7 编辑器 σ=**0.013** |
+
 
 [← 返回文生图目录](../README.md)

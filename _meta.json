@@ -1,20 +1,20 @@
 {
  "_meta_version": "1.0",
- "last_updated": "2026-10-26",
+ "last_updated": "2026-10-27",
  "paper_counts": {
-  "t2t": 103,
-  "t2i": 102,
+  "t2t": 105,
+  "t2i": 106,
   "agentic": 39,
-  "total": 244
+  "total": 250
  },
  "survey_versions": {
   "t2t-survey": {
-   "date": "2026-10-26",
-   "count": 103
+   "date": "2026-10-27",
+   "count": 105
   },
   "t2i-survey": {
-   "date": "2026-10-26",
-   "count": 102
+   "date": "2026-10-27",
+   "count": 106
   },
   "agentic-search-survey": {
    "date": "2026-04-30",
@@ -22,19 +22,19 @@
    "count": 39
   },
   "landscape_2026": {
-   "date": "2026-10-26",
-   "version": "v3.5",
-   "total_papers": 244
+   "date": "2026-10-27",
+   "version": "v3.6",
+   "total_papers": 250
   }
  },
  "benchmark_status": {
   "t2t_benchmark": {
-   "entries": 17,
-   "last_updated": "2026-10-26"
+   "entries": 19,
+   "last_updated": "2026-10-27"
   },
   "t2i_benchmark": {
-   "entries": 32,
-   "last_updated": "2026-10-26"
+   "entries": 33,
+   "last_updated": "2026-10-27"
   },
   "agentic_benchmark": {
    "entries": 10,
@@ -42,8 +42,8 @@
   }
  },
  "daily_reports": {
-  "latest": "2026-10-26",
-  "this_month_count": 3,
+  "latest": "2026-10-27",
+  "this_month_count": 4,
   "missing_dates": [
    "2026-10-01",
    "2026-10-02",
@@ -73,17 +73,17 @@
  "workflow_version": "2.3",
  "today_selection": {
   "t2i": [
-   "2606.25034_yuvion_vl",
-   "2610.31713_omni_ubench",
-   "2606.30059_avlm_failure_taxonomy",
-   "2510.16342_select_erasure_boundary",
-   "2610.28195_attractive_faces_reward_bias"
+   "2610.28316_abacus",
+   "2610.32635_editjev",
+   "2610.32059_concept_acp",
+   "2610.29380_advfidelity"
   ],
   "t2t_migration": [
-   "2610.30727_faithful_harm_monitors"
+   "2610.31047_harm_behavioural_lexical",
+   "2610.27908_polarity_blindness"
   ],
   "agentic": [],
-  "note": "T2I/T+I2I 直接相关 4 篇 + 工业审核方法论迁移 1 篇 + T2T 迁移 1 篇，T2I 占比 66.7%。Yuvion VL 为阿里巴巴安全 AGI Lab；Omni-UBench 为浙大+阿里；AVLM Failure Taxonomy 为 TikTok/字节 + 悉尼大学（NeurIPS 2026）。T2I 输入侧改写连续第三周空窗，本周主题转为\"分数不可信\"——图审配方（C2FT）、评测新尺子（掩码消融 + 匹配误报率）、锚点距离曲线、奖励语义≠奖励行为。"
+  "note": "T2I/T+I2I 直接相关 4 篇（66.7%）+ T2T 迁移 2 篇。ABACUS 为 CEA List/巴黎萨克雷（WACV 2027），EditJev 为北大+清华，ConceptACP 为中科院信工所+波士顿大学+NUS，AdvFidelity 为阿里淘天+上交。本周主题：从\"分数不可信\"推进到\"分数装错了东西\"——评测器随被评对象变差（ABACUS σ=0.013 vs 纯 VLM 0.065）、审核判词不判意图（51/55 不达标）、奖励对低层保真近乎失明（HPSv3 胜出率 38.3%）、改写改极性即失效。T2I 输入侧改写连续第四周空窗；arXiv 最新提交止于 2026-10-23。"
  },
  "_note": "This file is the single source of truth for all paper counts. Automation must update this file on every run. Never estimate counts — always use search_file to scan papers/ directories."
 }

@@ -1,7 +1,7 @@
 # AI 大模型安全前沿洞察：现状理解与未来研究方向
 
-> **数据来源**: 基于本项目收录的 **244 篇** AI 安全论文（2019–2026）系统性分析
-> **更新日期**: 2026-10-26（v3.5 增量更新）
+> **数据来源**: 基于本项目收录的 **250 篇** AI 安全论文（2019–2026）系统性分析
+> **更新日期**: 2026-10-27（v3.6 增量更新）
 > **覆盖领域**: T2T（LLM 安全）· T2I（文生图安全）· Agentic Search（检索增强安全）  
 
 ---
@@ -205,6 +205,14 @@ T2I 安全研究中，**水印**是一个相对独立但同样重要的研究方
 **5 月 1 日新增信号**：Edit-R1（[2604.27505](https://arxiv.org/abs/2604.27505)）、CoBench（[2604.25358](https://arxiv.org/abs/2604.25358)）、TextGround4M（[2604.24459](https://arxiv.org/abs/2604.24459)）与 FMDiffWA（[2604.22220](https://arxiv.org/abs/2604.22220)）把 T2I 主线再往前推了一层：前者说明复杂生成任务的控制点正在前移到 **verifier-style reward / principle-based judging**；中间两篇说明 benchmark 不能再只报单一总体分，而要显式衡量 **semantic fidelity、layout fidelity、prompt coverage 与 OCR-rich 终态执行性**；最后一篇则提醒 provenance / watermark 防线必须按**强攻击者会训练专门 remover**来设计。共同信号是：**T2I 输入侧安全改写已经不再缺“更多改写话术”，而是缺一套 verifier + 三维评测 + 真实终态 + 强对手建模的完整控制面。**
 
 **6 月 24 日新增信号**：`PixJail`（[2606.24081](https://arxiv.org/abs/2606.24081)）、`VESFlow`（[2606.23267](https://arxiv.org/abs/2606.23267)）、`ForceForget`（[2606.14351](https://arxiv.org/abs/2606.14351)）、`SafetyBPO`（CVPR 2026 Findings）、腾讯混元 `PromptEnhancer`（[2509.04545](https://arxiv.org/abs/2509.04545)）与 `FaithRewriter`（[2606.08492](https://arxiv.org/abs/2606.08492)）把 T2I 主线继续往前推了四步：第一，benchmark 的正确抽象层已经从 prompt list 升级为 **rewrite / generation / safety filter / judge / artifacts 的整链 pipeline contract**；第二，输入侧 rewrite 开始正式拥有 **pair 数据、failure taxonomy 与 visual-anchor verification** 三块结构化底座；第三，few-step flow matching 时代的安全控制不再只能靠改 prompt，而可以通过 **risk gating + velocity editing** 做生成侧动态纠偏；第四，安全 alignment 的真正难点被进一步明确为 **风险下降与语义保真的联合优化**，而不是单向压制危险概念。共同信号是：**T2I 输入侧安全改写正在从 prompt engineering 升级为控制面工程。**
+
+**10 月 27 日新增信号**：ABACUS（[2610.28316](https://arxiv.org/abs/2610.28316)）、EditJev（[2610.32635](https://arxiv.org/abs/2610.32635)）、Concept Acupuncturist（[2610.32059](https://arxiv.org/abs/2610.32059)）与 AdvFidelity（[2610.29380](https://arxiv.org/abs/2610.29380)），加上两篇 T2T 迁移（[2610.31047](https://arxiv.org/abs/2610.31047)、[2610.27908](https://arxiv.org/abs/2610.27908)），把前一周“**分数不可信**”的判断又推进了一层，变成“**分数装错了东西**”。三个独立方向同时收敛到同一个诊断：
+
+- **评测底座**：ABACUS 证明用 VLM judge 评编辑是循环论证（单检测器 0.28 甚至比纯 VLM 0.55 还差），改用“全景真值 + 双检测器共识 + 匈牙利实例匹配”的 **judge-free** 协议后，跨 7 个编辑器的分数波动 σ 从 0.065 降到 **0.013**——**评测器不该跟着被评对象一起变差**。EditJev 从另一侧证明**排序优于分类**（pairwise ranking 4.6002 vs MCQ 4.5491）。
+- **审核判定**：Harm Is Behavioural 用 5 系统 × 11 语言 × 55 组合实测，**51 个显著不如单个母语标注员**，且能力越强跨语言不平等越大（均值 0.65→0.81，极差 0.20→0.29）；Polarity Blindness 进一步把机制分离出来——**只改极性（否定/反义）就能击穿判定，只换同义词不能**。
+- **奖励维度**：AdvFidelity 的附录在 1,000 组“内容相同、只差伪影”的配对上实测，**HPSv3 的胜出率仅 38.30%**、HPSv2 胜率 79.90% 但均值为负——**主流偏好奖励对低层保真近乎失明**。
+
+共同信号是：**安全与评测的技术门槛已经从“有没有用 judge / 有没有奖励”变成“judge 与奖励之外有没有一个可独立核验的锚”。** ABACUS 的锚是检测器共识与全景真值，EditJev 的锚是离线跑满候选后的相对偏好，AdvFidelity 的锚是“内容匹配重建”这一构造本身，Harm Is Behavioural 的锚是母语标注员，Polarity Blindness 的锚是保极性对照。**五篇在五个场景里做了同一件事：把“问模型”换成“找一个模型之外的参照物”。**
 
 ---
 
@@ -442,7 +450,7 @@ Cross-Lingual Jailbreak Detection（[2604.25716](https://arxiv.org/abs/2604.2571
 
 ## 7. 论文图谱总览
 
-### T2T 论文分布（103 篇）
+### T2T 论文分布（105 篇）
 
 ```
 时间线：2022 ──────────────────────────────────────► 2026
@@ -503,7 +511,7 @@ Agent 安全:                         PISmith     T-MAP
                                                Your Agent Is Mine (API路由投毒, 2604.08407)
 ```
 
-### T2I 论文分布（102 篇）
+### T2I 论文分布（106 篇）
 
 ```
 时间线：2019 ──────────────────────────────────────► 2026
@@ -602,6 +610,6 @@ Benchmark/评测:
 ---
 
 *本文档由 `paper-research` skill 基于项目论文库自动生成，并经人工审核和补充。*
-*最近更新：2026-10-26（v3.5 增量更新），累计论文数 **244**（T2T: **103** 篇，T2I: **102** 篇，Agentic Search: **39** 篇）。*
-*本次 v3.5 更新：新增 5 篇 T2I/T+I2I 论文（Yuvion VL、Omni-UBench、AVLM Failure Taxonomy、SELECT、Attractive Faces Skew）与 1 篇 T2T 迁移（Faithful Harm Monitors），并新增“从证明判得对转向证明凭什么判”这一评测范式信号（掩码探针 + 匹配误报率 + 奖励行为探针 + 管线偏向审计）。*
+*最近更新：2026-10-27（v3.6 增量更新），累计论文数 **250**（T2T: **105** 篇，T2I: **106** 篇，Agentic Search: **39** 篇）。*
+*本次 v3.6 更新：新增 4 篇 T2I/T+I2I 论文（ABACUS、EditJev、Concept Acupuncturist、AdvFidelity）与 2 篇 T2T 迁移（Harm Is Behavioural、Polarity Blindness），并新增两条范式信号：① 评测底座从“模型评模型”转向“有外在锚的可验证判据”（judge-free 协议 / 偏好排序 / 内容匹配配对）；② 审核判定被证实长期在“读词”而非“读意图”，且“最差类别”必须先过极值统计检验。*
 *相关 Survey 详见 [`t2t-survey.md`](./t2t-survey.md)、[`t2i-survey.md`](./t2i-survey.md) 和 [`agentic-search-survey.md`](./agentic-search-survey.md)。

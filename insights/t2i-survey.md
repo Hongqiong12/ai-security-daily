@@ -1,8 +1,8 @@
 # T2I 文生图安全 Survey：攻防前沿与概念擦除技术演进
 
 > **Survey 类型**: 基于项目论文库的系统性综述（Literature-Grounded Survey）  
-> **数据基础**: 本项目收录的 **102** 篇 T2I 安全论文（2019–2026）
-> **更新日期**: 2026-10-26
+> **数据基础**: 本项目收录的 **106** 篇 T2I 安全论文（2019–2026）
+> **更新日期**: 2026-10-27
 > **关联文档**: [前瞻总览](./AI_Security_Landscape_2026.md) · [T2T Survey](./t2t-survey.md)
 
 ---
@@ -314,6 +314,17 @@ subject to  L_retain(C') ≤ ε  # 保留其他概念 C' 的生成质量
 - **核心机制**：先用视觉相近但语义应保留的 retain concepts 构建 **Core Gradient Space (CGS)**，再在后续训练中把梯度投影到其正交补空间，避免模型沿恢复被删概念的方向更新；
 - **关键结果**：在 **ESD-U + Van Gogh** 上，基线会在 **C6** 发生 revival，而 PGU 可将其压到 **No revival**；在 **Golf Ball** 这类更难概念上，也能把 revival 从 **C1** 推迟到 **C4**；
 - **意义**：这释放出一个非常关键的信号——T2I 安全不该只问“擦除时成没成功”，还必须问“后续 fine-tuning 会不会把它学回来”。也就是说，**post-unlearning hardening** 已经成为 concept erasure 主线的新分支。
+
+### 3.14 定位粒度决定擦除精度：SAE 只造监督、不进推理链路 (2026-10-27 新增)
+
+**Concept Acupuncturist**（[2610.32059](https://arxiv.org/abs/2610.32059)，中科院信工所 + 波士顿大学 + NUS）把"该改哪里"从一个经验选择变成了可测量的定位问题：
+
+- **核心机制**：SAE **不作为推理时外挂模块**，只用相关度打分 `r(b,f)` 定位最相关的单一 cross-attention block，把特征抑制后的解码结果投影回该 block 输出空间，作为"概念已擦除"的监督目标，再做**单 block 局部微调**（单次前向缓存全部时间步，不跑完整去噪轨迹）。
+- **关键结果**：SDXL-Turbo T1 平均 FSR **80.02**（最强基线 SAEUron 43.68），训练成本 **−46.4%**，推理开销 **0**（对照：SAFREE +14.4% / SAEUron +73.3% / TraSCE +125.8%）。
+- **两个必须记住的判据**：
+  1. **只报 FSR 的擦除结果不可信**——SDXL 上 ConceptPrune FSR 77.90 但 FID **197.32**，SD v1.4 上 SAEUron FSR 97.40 但 FID **266.78**；高 FSR 可以靠把图彻底搞坏来换。
+  2. **概念的可擦性由表示结构决定**——down.2.1 的单个 feature #4913 就能去掉裸露，但 Church 抑制 top-5 任一特征都不够；逐概念 FSR 从 Nudity **94.16** 到 Parachute **45.60**。
+- **意义**：这与 SELECT 的"因果弥散度"是**两个独立证据指向同一件事**——概念表示越弥散，越难干净处理。对我们的直接用途是**给出"哪些概念该走权重侧擦除、哪些只能走输入侧改写"的判据**。
 
 ---
 
@@ -759,6 +770,24 @@ T2I 水印研究围绕三个核心应用场景：
 | **Nudenet Score** | NSFW 内容检测 | 专用 NSFW 分类器的评分 |
 | **Preservation Rate** | 衡量无关概念保留 | 擦除后无关概念生成质量保留比例 |
 
+### 6.15 从"模型评模型"到"验证发生了什么"：评测范式正在换底座 (2026-10-27 新增)
+
+这周的三篇工作（ABACUS / EditJev / AdvFidelity）在三个不同任务上做了同一件事：**把"好不好"换成一个有外在锚的可复现量**，而它们共同否掉的东西也一致——**让一个模型去评价另一个模型的输出**。
+
+**ABACUS**（[2610.28316](https://arxiv.org/abs/2610.28316)，CEA List，WACV 2027）是指令式图像编辑的 **judge-free** 评测基准 + 协议：
+
+- **构造**：10,944 条指令 / 3,845 张 COCO 图（80 类，72 个 change 配对）；全景真值经**双检测器可删性审计**（原图 ≥1、非生成式 inpaint 后 =0）确认，每条样本两人复核 + 仲裁。
+- **协议**：SAM3（presence-gated）分割 → 复合几何分（IoU×包含×尺度比×Hu 矩轮廓，带质心距离门控）+ **匈牙利一对一匹配** → 非生成式 inpaint 造干净图 → **RF-DETR/Co-DETR 双表决** → 极少数（约 6%）走约束式 VLM 是非题（只确认类别，不计数）。
+- **评分是乘积**：`Score = CF × SC × OC`（数量保真 × 场景一致 × 原类保留）。**用均值时"什么都不做"的编辑器几乎追平最好的模型**；乘积直接把它踢出去。
+- **关键数字**：与人类计数一致性 **0.82**（纯 VLM 0.55 / 单检测器 0.28）；跨 7 个编辑器 **σ=0.013**（纯 VLM σ=0.065）；七个 SOTA 编辑器 Overall **最高仅 0.31**（Seedream 4.0）；最致命消融是**去掉一对一匹配 0.82→0.36**。
+- **一条评测纪律**：人工真值标"编辑图里实际有几个目标物"，**不是 prompt 里要求的 N**——否则等于奖励"鹦鹉学舌报出 N"的评测器。
+
+**EditJev**（[2610.32635](https://arxiv.org/abs/2610.32635)，北大 + 清华）则从"选哪个编辑器"这一侧证明**排序优于分类**：MLLM 末 token 隐状态 → 定长偏好头，pairwise ranking 消融 4.6002 vs MSE 4.5545 vs MCQ 4.5491；路由开销 94 ms，端到端 56.90 s → 22.33 s（2.55×）。两个负结果值得记：**路由骨干 2B/4B/32B 得分 4.5898/4.6002/4.5898（32B 没有更好）**，**去掉图像输入只掉 0.029**。
+
+**AdvFidelity**（[2610.29380](https://arxiv.org/abs/2610.29380)，阿里淘天 + 上交）的附录给出了一组**奖励指标审计**：在 1,000 组"内容相同、只差伪影"的配对上，正样本胜出率 **Aesthetic 95.60% / PickScore 83.30% / HPSv2 79.90%（但平均配对差分为负）/ ImageReward 48.20% / CLIPScore 40.30% / HPSv3 38.30%**。**HPSv3 在 61.7% 的配对上偏好带伪影的图。**
+
+**共同的信号**：评测的技术门槛已经从"用没用 judge"变成"**judge 之外有没有一个可独立核验的锚**"。ABACUS 的锚是检测器共识 + 全景真值，EditJev 的锚是离线跑满候选后的相对偏好，AdvFidelity 的锚是"内容匹配重建"这一构造本身。
+
 ---
 
 ## 7. 2026 新兴挑战：多模态与单流 Transformer
@@ -999,9 +1028,13 @@ Flux 和 SD3 已经成为 2025–2026 年的主流 T2I 架构，但截至本 Sur
 | AVLM Failure Taxonomy | [2606.30059](https://arxiv.org/abs/2606.30059) | NeurIPS 2026 (TikTok+USyd) | 工业审核五类失效签名→干预：`q(x)=p(x)S_retain/E[S]`、CMC、感知≠审核，每类都有可证伪诊断信号 (NEW) |
 | SELECT | [2510.16342](https://arxiv.org/abs/2510.16342) | 2026 v2 (北邮) | 锚点距离 = 擦除边界：因果弥散度预测锚点敏感度 + **BCTS 过阈值饱和** + Sibling Exclusive 锚点（NSFW 模板：gardener in overalls）(NEW) |
 | Attractive Faces Skew | [2610.28195](https://arxiv.org/abs/2610.28195) | 2026 | 偏好奖励偏置五段因果链：Elo +124 · 4/5 模型 top-1 属性为 attractive · **ReNO 优化 "unattractive" 反而更漂亮**（奖励语义≠奖励行为）(NEW) |
+| **ABACUS** | [2610.28316](https://arxiv.org/abs/2610.28316) | WACV 2027 (CEA List) | **指令式编辑的 judge-free 评测协议**：全景真值 + SAM3 + 匈牙利实例匹配 + 双检测器共识，`Score=CF×SC×OC` 乘积；跨 7 编辑器 σ=0.013（纯 VLM 塌 0.17）(NEW) |
+| **EditJev** | [2610.32635](https://arxiv.org/abs/2610.32635) | 2026 (北大+清华) | **编辑模型路由的 System One 化**：MLLM 末 token 隐状态 → 定长偏好头，pairwise ranking（4.6002 > MSE 4.5545 > MCQ 4.5491），94 ms 路由开销、端到端 2.55×(NEW) |
+| **Concept Acupuncturist** | [2610.32059](https://arxiv.org/abs/2610.32059) | 2026 (中科院信工所+Boston U+NUS) | **SAE 只造监督不进推理**：相关度打分定位单一 cross-attn block + 单 block 局部微调；SDXL-Turbo T1 FSR 80.02（基线 43.68），训练成本 −46.4%，**零推理开销**(NEW) |
+| **AdvFidelity** | [2610.29380](https://arxiv.org/abs/2610.29380) | 2026 (阿里淘天+上交) | **在线对抗保真奖励**补 RL 盲区：内容匹配重建配对 + DINOv2/MLP 判别器 4:1 在线更新；8 步超 50 步 LeapAlign（HPSv2 0.4125>0.4096），附录实测 **HPSv3 对伪影配对的胜出率仅 38.3%**(NEW) |
 
 ---
 
-*本 Survey 由 `paper-research` skill 自动生成，基于项目截至 2026-10-26 收录的 T2I 论文（102 篇）。*  
-*上次 Survey 更新：2026-10-26（新增 5 篇：2606.25034 Yuvion VL、2610.31713 Omni-UBench、2606.30059 AVLM Failure Taxonomy、2510.16342 SELECT、2610.28195 Attractive Faces Skew）。*  
+*本 Survey 由 `paper-research` skill 自动生成，基于项目截至 2026-10-27 收录的 T2I 论文（106 篇）。*  
+*上次 Survey 更新：2026-10-27（新增 4 篇：2610.28316 ABACUS、2610.32635 EditJev、2610.32059 Concept Acupuncturist、2610.29380 AdvFidelity）。*  
 *下次更新时间：跟随每日自动化任务实时更新。*
