@@ -1,20 +1,20 @@
 {
  "_meta_version": "1.0",
- "last_updated": "2026-10-27",
+ "last_updated": "2026-10-28",
  "paper_counts": {
-  "t2t": 105,
-  "t2i": 106,
+  "t2t": 107,
+  "t2i": 110,
   "agentic": 39,
-  "total": 250
+  "total": 256
  },
  "survey_versions": {
   "t2t-survey": {
-   "date": "2026-10-27",
-   "count": 105
+   "date": "2026-10-28",
+   "count": 107
   },
   "t2i-survey": {
-   "date": "2026-10-27",
-   "count": 106
+   "date": "2026-10-28",
+   "count": 110
   },
   "agentic-search-survey": {
    "date": "2026-04-30",
@@ -22,19 +22,19 @@
    "count": 39
   },
   "landscape_2026": {
-   "date": "2026-10-27",
-   "version": "v3.6",
-   "total_papers": 250
+   "date": "2026-10-28",
+   "version": "v3.7",
+   "total_papers": 256
   }
  },
  "benchmark_status": {
   "t2t_benchmark": {
    "entries": 19,
-   "last_updated": "2026-10-27"
+   "last_updated": "2026-10-28"
   },
   "t2i_benchmark": {
    "entries": 33,
-   "last_updated": "2026-10-27"
+   "last_updated": "2026-10-28"
   },
   "agentic_benchmark": {
    "entries": 10,
@@ -42,8 +42,8 @@
   }
  },
  "daily_reports": {
-  "latest": "2026-10-27",
-  "this_month_count": 4,
+  "latest": "2026-10-28",
+  "this_month_count": 5,
   "missing_dates": [
    "2026-10-01",
    "2026-10-02",
@@ -73,17 +73,17 @@
  "workflow_version": "2.3",
  "today_selection": {
   "t2i": [
-   "2610.28316_abacus",
-   "2610.32635_editjev",
-   "2610.32059_concept_acp",
-   "2610.29380_advfidelity"
+   "2610.33472_qwen_image_pe",
+   "2610.35566_copying_as_defense",
+   "2610.35607_valop",
+   "2610.35052_risk_aware_output_control"
   ],
   "t2t_migration": [
-   "2610.31047_harm_behavioural_lexical",
-   "2610.27908_polarity_blindness"
+   "2610.33813_lora_vs_full_ft_prompt_safety",
+   "2610.30742_uniguard"
   ],
   "agentic": [],
-  "note": "T2I/T+I2I 直接相关 4 篇（66.7%）+ T2T 迁移 2 篇。ABACUS 为 CEA List/巴黎萨克雷（WACV 2027），EditJev 为北大+清华，ConceptACP 为中科院信工所+波士顿大学+NUS，AdvFidelity 为阿里淘天+上交。本周主题：从\"分数不可信\"推进到\"分数装错了东西\"——评测器随被评对象变差（ABACUS σ=0.013 vs 纯 VLM 0.065）、审核判词不判意图（51/55 不达标）、奖励对低层保真近乎失明（HPSv3 胜出率 38.3%）、改写改极性即失效。T2I 输入侧改写连续第四周空窗；arXiv 最新提交止于 2026-10-23。"
+  "note": "T2I/T+I2I 直接相关 4 篇（66.7%）+ T2T 迁移 2 篇。Qwen-Image-PE 为 Qwen Team（阿里）+ 北大（据模型谱系判定），Copying As Defense 为 Adobe Research + 普林斯顿，LoRA vs 全量 为 Fiddler AI + SFU + Georgia Tech，UniGuard 为 Monash + 澳国防科技组，VaLoP 为 GIST，Risk-Aware Output Control 为南洋理工。本周主题：从“分数装错了东西”推进到“机制装错了位置”——压制参考注意力≠防编辑（softmax 行和为 1，票改投文本）、写 reason≠有推理（固定套话 78.2% 低于只有标签 78.7%）、造多视图≠有增强（不加对比 F1 −20.50）、终局读奖励≠测保真（误差=后验协方差，高噪声最大）、删参数≠控输出（参数不可区分性证不到输出）、工业 PE≠做安全（Qwen-PE 四个 rubric 维度无安全）。T2I 输入侧安全改写连续第五周空窗；arXiv 最新批次推进至 2026-10-26（10-24/25/26 为本轮新增）。"
  },
  "_note": "This file is the single source of truth for all paper counts. Automation must update this file on every run. Never estimate counts — always use search_file to scan papers/ directories."
 }

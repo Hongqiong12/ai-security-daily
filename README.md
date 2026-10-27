@@ -9,11 +9,11 @@
   <a href="https://img.shields.io/badge/Reports-Today-blue.svg">
     <img src="https://img.shields.io/badge/Reports-Today-blue.svg" alt="Reports Today"/>
   </a>
-  <a href="https://img.shields.io/badge/Papers-250-green.svg">
-    <img src="https://img.shields.io/badge/Papers-250-green.svg" alt="Total Papers"/>
+  <a href="https://img.shields.io/badge/Papers-256-green.svg">
+    <img src="https://img.shields.io/badge/Papers-256-green.svg" alt="Total Papers"/>
   </a>
-  <a href="https://img.shields.io/badge/Last-Update-2026--10--27-orange.svg">
-    <img src="https://img.shields.io/badge/Last-Update-2026--10--27-orange.svg" alt="Last Update"/>
+  <a href="https://img.shields.io/badge/Last-Update-2026--10--28-orange.svg">
+    <img src="https://img.shields.io/badge/Last-Update-2026--10--28-orange.svg" alt="Last Update"/>
   </a>
   <a href="https://github.com/Hongqiong12/ai-security-daily/stargazers">
     <img src="https://img.shields.io/github/stars/Hongqiong12/ai-security-daily.svg?style=social&label=Star" alt="GitHub stars"/>
@@ -22,29 +22,29 @@
 
 ---
 
-## 🔥 今日最具业务价值论文评测 (2026-10-27)
+## 🔥 今日最具业务价值论文评测 (2026-10-28)
 
-> **为什么要关注本仓库？** 上周的关键词是"**分数不可信**"，今天更进一步：**分数装错了东西**。三篇独立工作证明——评测器会跟着被评对象一起变差、审核系统判的是词不是意图、奖励指标分不清"画质好"与"画面干净"。共同解法只有一个：**找一个模型之外的锚。**
+> **为什么要关注本仓库？** 上周的关键词是"**分数装错了东西**"，今天更进一步：**机制装错了位置**。六篇工作分别指出六组"看起来等价、实际不等价"的关系——压制参考注意力≠防编辑、写 reason≠有推理、造多视图≠有增强、终局读奖励≠测保真、删参数≠控输出、工业 PE≠做安全。**共同点：所有"看起来在起作用的中间量"都在撒谎，只有下游可验证量算数。**
 
 | 核心威胁领域 | 🚨 今日优先论文 | 一句话快评 | 深度拆解 |
 |---|---|---|---|
-| **T+I2I（编辑评测的底座）** | [ABACUS](./categories/t2i/papers/2610.28316_abacus.md) | **CEA List / 巴黎萨克雷，WACV 2027**。用 VLM judge 评编辑是**循环论证**——I2EBench 甚至专设 counting 维度却用 GPT-4V 来判。改成"全景真值 + SAM3 + 匈牙利实例匹配 + 双检测器共识"的 judge-free 协议后：与人类计数一致性 **0.82**（纯 VLM 0.55、单检测器 0.28）；**跨 7 个编辑器的 σ 从 0.065 降到 0.013**。七个 SOTA 编辑器最高分只有 **0.31**。 | [📄 立即阅读](./daily-reports/2026-10/2026-10-27_AI安全每日深度情报.md) |
-| **T+I2I（分流 0/0% 的解法）** | [EditJev](./categories/t2i/papers/2610.32635_editjev.md) | **北大 + 清华**。把"选哪个编辑器"从**分类**改成**两候选偏好排序**：pairwise ranking **4.6002** vs MCQ **4.5491** vs MSE 4.5545。路由开销 **94 ms**，端到端 **56.9 s → 22.3 s（2.55×）**。两个负结果更有用：路由骨干 2B/4B/32B 得分 4.5898/4.6002/4.5898（**32B 没有更好**），去掉图像输入只掉 0.029。 | [📄 立即阅读](./daily-reports/2026-10/2026-10-27_AI安全每日深度情报.md) |
-| **T2I（权重侧 vs 输入侧的分工）** | [Concept Acupuncturist](./categories/t2i/papers/2610.32059_concept_acp.md) | **中科院信工所 + 波士顿大学 + NUS**。SAE **只造监督、不进推理链路**：定位单一 cross-attn block 做局部微调，SDXL-Turbo T1 FSR **80.02**（最强基线 43.68）、训练成本 **−46.4%**、推理开销 **0**。**但只报 FSR 会骗人**——对照里有人 FSR 77.90 配 FID **197.32**。逐概念 FSR 从 Nudity **94.16** 掉到 Parachute **45.60**：可擦性由表示结构决定。 | [📄 立即阅读](./daily-reports/2026-10/2026-10-27_AI安全每日深度情报.md) |
-| **T2I（奖励缺维，不是偏置）** | [AdvFidelity](./categories/t2i/papers/2610.29380_advfidelity.md) | **阿里淘天 + 上交**。**8 步超过 50 步 RL**（HPSv2 0.4125 > 0.4096）。真正该抄的是附录：1,000 组"内容相同、只差伪影"的配对上，**HPSv3 胜出率仅 38.30%**（61.7% 的配对里它认为带伪影的图更好），HPSv2 胜率 79.90% 但**平均配对差分为负**。**奖励对低层保真近乎失明。** | [📄 立即阅读](./daily-reports/2026-10/2026-10-27_AI安全每日深度情报.md) |
-| **审核（判词不判意图 + 统计陷阱）** | [Harm Is Behavioural](./categories/t2t/papers/2610.31047_harm_behavioural_lexical.md) | 5 系统 × 11 语言 = 55 组合，**51 个显著不如单个母语标注员**；**能力越强跨语言不平等越大**（0.6B→8B：均值 0.65→0.81，极差 0.20→0.29）。最狠的一刀在 6.1 节：**"最好减最差"是极值统计量**——各类同水平时，10 类×100 例的期望差距就有 **9.2 个点**，bootstrap 还覆盖不到零点。**"VULG-HINT-EDGE 最差"可能只是噪声峰值。** | [📄 立即阅读](./daily-reports/2026-10/2026-10-27_AI安全每日深度情报.md) |
-| **改写（语义保真的失效边界）** | [Polarity Blindness](./categories/t2t/papers/2610.27908_polarity_blindness.md) | **ELLIS Alicante + ČVUT + UA**。260 prompt × 10 模型 × 3 语言、187,200 次推理：**只改极性（否定/反义）就能击穿安全判定，只换同义词不能**。Grok 4.1 否定变体平均有害分 **4.12/5**。工程纪律一句话：**改写可以换词、可以弱化、可以抽象化，但不能改极性。** 否定式豁免条款 = 给下游塞一个极性盲探针。 | [📄 立即阅读](./daily-reports/2026-10/2026-10-27_AI安全每日深度情报.md) |
+| **T2I（输入侧改写的工业配方）** | [Qwen-Image-PE](./categories/t2i/papers/2610.33472_qwen_image_pe.md) | **Qwen Team / 阿里 + 北大**。本期唯一公开的工业级 T2I 输入侧改写配方：**反向蒸馏造监督**（好图→稠密描述当改写目标，MAUVE **0.290** vs 正向扩写 0.032）+ **组内设计奖励**（$G$ 候选拼网格、judge 组内条件化打分）。397B **+7.81** Overall，9B 超全部基线，跨 4 主干泛化。**但 rubric 四个维度里没有"安全"。** | [📄 立即阅读](./daily-reports/2026-10/2026-10-28_AI安全每日深度情报.md) |
+| **T+I2I（0/0% 的机制解释）** | [Copying As Defense](./categories/t2i/papers/2610.35566_copying_as_defense.md) | **Adobe Research + 普林斯顿**。编辑安全的方向反了：**注意力行和为 1，压掉参考图等于把票投给文本**，于是"成功去上下文化"的编辑器照样按恶意指令凭空画图。改成**强制它抄原图**，ESR **81.4% → 24.0%**（相对降 70.6%）、成本还低 **1.8–2.0×**。**顺手给了我们"软改写 = 取消编辑"的机制解释。** | [📄 立即阅读](./daily-reports/2026-10/2026-10-28_AI安全每日深度情报.md) |
+| **分类 SFT（模板 reason 一分不值）** | [LoRA vs 全量微调](./categories/t2t/papers/2610.33813_lora_vs_full_ft_prompt_safety.md) | **Fiddler AI + SFU + Georgia Tech**。把理由换成**固定套话（34 token）**，准确率 **78.2%**，**比只有标签的 78.7% 还低**；换成同标签别条样本的理由只保留 60%。**只有这条样本自己那句话拿满 +4.0pp。** 同一篇证明**过拒不是阈值问题**（ROC-AUC 排序就差 0.026–0.343），但 reason 能把过拒砍 **37pp** 而召回反升。 | [📄 立即阅读](./daily-reports/2026-10/2026-10-28_AI安全每日深度情报.md) |
+| **护栏/图审（多视图 + 校准）** | [UniGuard](./categories/t2t/papers/2610.30742_uniguard.md) | **Monash + 澳国防科技组**。**0.6B 逼平 GPT-5.2**（ATBench 66.40 vs 66.52），平均 **+45.12 F1、ECE −35.41**。最该记的两个数：**只造视图不加对比，F1 掉 20.50**；**F1 不掉但 ECE 崩 18–28 完全可能**——判得准和说得准是两件事。 | [📄 立即阅读](./daily-reports/2026-10/2026-10-28_AI安全每日深度情报.md) |
+| **T2I（奖励在哪读）** | [VaLoP](./categories/t2i/papers/2610.35607_valop.md) | **GIST**。奖励的价值梯度误差本质是**后验协方差**，随噪声升高而变大 ⇒ **在最该判"画了什么"的高噪声阶段最不准**。DPS($s=0$) 与 StitchVM($s=t$) 是同一族的两端，中间需一项穿过生成器的修正，默认 $s=0.6t$。**对我们：一致性奖励读在终局像素，读到的可能是去噪随机性。** | [📄 立即阅读](./daily-reports/2026-10/2026-10-28_AI安全每日深度情报.md) |
+| **权重侧（验收标准错了）** | [Risk-Aware Output Control](./categories/t2i/papers/2610.35052_risk_aware_output_control.md) | **南洋理工大学**。擦除不该用"参数离重训模型多近"验收——**生成模型能在从未显式训练过的内容上复现受版权素材**，参数不可区分性证不到输出。主张改为**输出空间统计保证**，把保形预测恢复成特例。⇒ **输入侧改写不是擦除的廉价替代品，而是同一目标的更直接实现。** | [📄 立即阅读](./daily-reports/2026-10/2026-10-28_AI安全每日深度情报.md) |
 
 ## 🔭 前沿 Survey & 洞察简报 (Must-Read)
 
-我们不仅搬运论文，更系统沉淀方法论。以下是基于 **250** 篇安全论文萃取的全局视野：
+我们不仅搬运论文，更系统沉淀方法论。以下是基于 **256** 篇安全论文萃取的全局视野：
 
 | 研究洞察精华 | 解决的核心问题 | 更新状态 |
 |------|------|----------|
-| 🏆 **[2026 AI 大模型安全前沿洞察](./insights/AI_Security_Landscape_2026.md)** | **judge-free 评测协议**(NEW) · **排序优于分类**(NEW) · **奖励伪影盲区**(NEW) · **极值统计陷阱**(NEW) · **极性盲**(NEW) | 2026-10-27 |
+| 🏆 **[2026 AI 大模型安全前沿洞察](./insights/AI_Security_Landscape_2026.md)** | **机制错位六连**(NEW) · **软改写=取消编辑**(NEW) · **模板 reason 零收益**(NEW) · **只造视图不加对比 F1 −20.5**(NEW) | 2026-10-28 |
 | 🧭 **[T2I 主线模型评测地图（2026）](./insights/t2i-mainline-model-eval-map-2026.md)** | 当前主线模型测哪些指标 · 对应 benchmark / evaluation set 有哪些 · 训练集透明度与闭源程度如何分层 | 2026-04-22 |
-| 🛡️ **[T2T LLM 安全全局图谱](./insights/t2t-survey.md)** | **判词不判意图 51/55**(NEW) · **极性盲 4.12/5**(NEW) · 极值统计陷阱 · DiagSafe 84 标签+rubric | 2026-10-27 |
-| 🖼️ **[T2I 文生图安全七年演进](./insights/t2i-survey.md)** | **ABACUS judge-free 编辑评测**(NEW) · **EditJev 编辑路由**(NEW) · **ConceptACP SAE 定位擦除**(NEW) · **AdvFidelity 奖励审计**(NEW) | 2026-10-27 |
+| 🛡️ **[T2T LLM 安全全局图谱](./insights/t2t-survey.md)** | **模板 reason 零收益**(NEW) · **过拒非阈值问题**(NEW) · **多视图+对比+校准**(NEW) · 判词不判意图 51/55 · 极性盲 4.12/5 | 2026-10-28 |
+| 🖼️ **[T2I 文生图安全七年演进](./insights/t2i-survey.md)** | **Qwen-PE 输入侧改写配方**(NEW) · **CaD 注意力竞争机制**(NEW) · **VaLoP 奖励读取位置**(NEW) · **擦除验收标准批判**(NEW) | 2026-10-28 |
 | 🤖 **[Agentic Search 攻防全景](./insights/agentic-search-survey.md)** | SkillGuard-Robust package-level 审计 · SnapGuard 轻量截图守卫 | 2026-04-30 |
 | 🔪 **[Abliteration 与概念擦除范式](./insights/alignment-paradigm-shift-abliteration.md)** | 剖析大模型对齐的脆弱性，以及定向消融攻击的底层逻辑 | 2026-04-07 |
 
@@ -58,14 +58,14 @@
 > **核心关注:** 对抗性提示、机制可解释性、多智能体协同攻击、GRPO 对齐漏洞
 
 - **Attack (攻击突破):** [PISmith](./categories/t2t/papers/2603.13026_pismith.md) (100% ASR) | [FlipAttack](./categories/t2t/papers/2410.02832_flipattack.md) | [Tree Teaming](./categories/t2t/papers/2603.22882_treeteaming.md) | [Paper Summary Attack](./categories/t2t/papers/2507.13474_paper_summary_attack.md)
-- **Defense (安全加固):** [AutoDefense](./categories/t2t/papers/2603.21975_securebreak.md) | [KG-DF](./categories/t2t/papers/2603.19469_llm_agent_security.md) | [DOOR](./categories/t2t/papers/2503.03710_door.md)
+- **Defense (安全加固):** [LoRA vs 全量对照](./categories/t2t/papers/2610.33813_lora_vs_full_ft_prompt_safety.md) (模板 reason 零收益) | [UniGuard 多视图护栏](./categories/t2t/papers/2610.30742_uniguard.md) (0.6B 平 GPT-5.2) | [AutoDefense](./categories/t2t/papers/2603.21975_securebreak.md) | [KG-DF](./categories/t2t/papers/2603.19469_llm_agent_security.md) | [DOOR](./categories/t2t/papers/2503.03710_door.md)
 - **Benchmark:** [判词不判意图](./categories/t2t/papers/2610.31047_harm_behavioural_lexical.md) (51/55 不达标) | [极性盲](./categories/t2t/papers/2610.27908_polarity_blindness.md) (4.12/5) | [Matched-FAR 监控器批判](./categories/t2t/papers/2610.30727_faithful_harm_monitors.md) (38 读取器×15 模型) | [DiagSafe](./categories/t2t/papers/2610.29225_diagsafe.md) (84 标签) | [AIMS](./categories/t2t/papers/2606.27210_aims.md) | [PandaGuard](./categories/t2t/papers/2505.13862_pandaguard.md) (19攻+12防) | [越狱演进综述](./categories/t2t/papers/2506.15170_from_llms_to_mllms.md)
 
 ### 🎨 Text-to-Image (T2I) 视觉模型安全
 > **核心关注:** 工业界安全对齐、输入侧 Prompt Rewrite、NSFW 语义保真改写、概念擦除对抗、自动化红队测试
 
 - **Attack (攻击突破):** [Mirage 图审绕过](./categories/t2i/papers/2610.30348_mirage.md) | [JailFuzzer](./categories/t2i/papers/2408.00523_jailfuzzer.md) | [GenBreak](./categories/t2i/papers/2506.10047_genbreak.md) | [Janus 多模态越狱](./categories/t2i/papers/2603.21208_janus.md)
-- **Defense (安全加固):** [ConceptACP SAE 定位擦除](./categories/t2i/papers/2610.32059_concept_acp.md) (FSR 80.02) | [EditJev 编辑路由](./categories/t2i/papers/2610.32635_editjev.md) (2.55×) | [AdvFidelity 保真奖励](./categories/t2i/papers/2610.29380_advfidelity.md) (奖励审计) | [Yuvion VL 图审基座](./categories/t2i/papers/2606.25034_yuvion_vl.md) (C2FT) | [SELECT 锚点边界](./categories/t2i/papers/2510.16342_select_erasure_boundary.md) | [AVLM 失效归因](./categories/t2i/papers/2606.30059_avlm_failure_taxonomy.md) (NeurIPS'26) | [CSTI 早期拦截](./categories/t2i/papers/2610.26452_csti.md) | [DSC 解耦控制](./categories/t2i/papers/2610.21569_dsc.md) | [PPAA 概念擦除](./categories/t2i/papers/2610.27719_ppaa.md) | [SPEED 精确擦除](./categories/t2i/papers/2503.07392_speed.md)
+- **Defense (安全加固):** [Qwen-Image-PE 输入侧改写配方](./categories/t2i/papers/2610.33472_qwen_image_pe.md) (+7.81) | [CaD 编辑安全机制](./categories/t2i/papers/2610.35566_copying_as_defense.md) (ESR 81.4→24.0) | [VaLoP 奖励读取位置](./categories/t2i/papers/2610.35607_valop.md) | [擦除验收标准批判](./categories/t2i/papers/2610.35052_risk_aware_output_control.md) | [ConceptACP SAE 定位擦除](./categories/t2i/papers/2610.32059_concept_acp.md) (FSR 80.02) | [EditJev 编辑路由](./categories/t2i/papers/2610.32635_editjev.md) (2.55×) | [AdvFidelity 保真奖励](./categories/t2i/papers/2610.29380_advfidelity.md) (奖励审计) | [Yuvion VL 图审基座](./categories/t2i/papers/2606.25034_yuvion_vl.md) (C2FT) | [SELECT 锚点边界](./categories/t2i/papers/2510.16342_select_erasure_boundary.md) | [AVLM 失效归因](./categories/t2i/papers/2606.30059_avlm_failure_taxonomy.md) (NeurIPS'26) | [CSTI 早期拦截](./categories/t2i/papers/2610.26452_csti.md) | [DSC 解耦控制](./categories/t2i/papers/2610.21569_dsc.md) | [PPAA 概念擦除](./categories/t2i/papers/2610.27719_ppaa.md) | [SPEED 精确擦除](./categories/t2i/papers/2503.07392_speed.md)
 - **Benchmark:** [ABACUS judge-free 编辑评测](./categories/t2i/papers/2610.28316_abacus.md) (σ=0.013) | [Omni-UBench](./categories/t2i/papers/2610.31713_omni_ubench.md) (三维+掩码) | [Attractive Faces 偏置审计](./categories/t2i/papers/2610.28195_attractive_faces_reward_bias.md) | [IMPLICIT-Bench](./categories/t2i/papers/2609.24228_implicit_bench.md) | [HealBench](./categories/t2i/papers/2610.27516_healbench.md) | [LogicVal](./categories/t2i/papers/2610.24051_logicval.md) | [T2I-BiasBench](./categories/t2i/papers/2604.12481_t2i_biasbench.md) | [NTIRE 2026](./categories/t2i/papers/2604.11487_ntire_2026_robust_aigc_detection.md)
 
 ### 🤖 Agentic Search (AI 搜索) 安全
