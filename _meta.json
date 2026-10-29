@@ -1,36 +1,36 @@
 {
  "_meta_version": "1.0",
- "last_updated": "2026-10-29",
+ "last_updated": "2026-10-30",
  "paper_counts": {
-  "t2t": 109,
-  "t2i": 114,
-  "agentic": 39,
-  "total": 262
+  "t2t": 112,
+  "t2i": 116,
+  "agentic": 40,
+  "total": 268
  },
  "survey_versions": {
   "t2t-survey": {
-   "date": "2026-10-29",
-   "count": 109
+   "date": "2026-10-30",
+   "count": 112
   },
   "t2i-survey": {
-   "date": "2026-10-29",
-   "count": 114
+   "date": "2026-10-30",
+   "count": 116
   },
   "agentic-search-survey": {
-   "date": "2026-04-30",
-   "version": "v1.8",
-   "count": 39
+   "date": "2026-10-30",
+   "version": "v1.9",
+   "count": 40
   },
   "landscape_2026": {
-   "date": "2026-10-29",
-   "version": "v3.8",
-   "total_papers": 262
+   "date": "2026-10-30",
+   "version": "v3.9",
+   "total_papers": 268
   }
  },
  "benchmark_status": {
   "t2t_benchmark": {
-   "entries": 19,
-   "last_updated": "2026-10-28"
+   "entries": 20,
+   "last_updated": "2026-10-30"
   },
   "t2i_benchmark": {
    "entries": 34,
@@ -42,8 +42,8 @@
   }
  },
  "daily_reports": {
-  "latest": "2026-10-29",
-  "this_month_count": 6,
+  "latest": "2026-10-30",
+  "this_month_count": 7,
   "missing_dates": [
    "2026-10-01",
    "2026-10-02",
@@ -73,17 +73,18 @@
  "workflow_version": "2.3",
  "today_selection": {
   "t2i": [
-   "2610.36146_strupo",
-   "2610.36665_dice_fewstep_safety",
-   "2610.36933_lora_provenance",
-   "2610.37599_moi_bench"
+   "2610.35017_safesteer_steering_refusal",
+   "2610.33810_grounded_edit_exploration"
   ],
   "t2t_migration": [
-   "2610.36360_arguard_qlora_hier",
-   "2610.37430_vlm_refusal_instruction_sensitivity"
+   "2610.32415_ant_a_ant_or",
+   "2610.37481_simplelorif_safety_gradient",
+   "2610.35716_audit_where_hacks_pay"
   ],
-  "agentic": [],
-  "note": "T2I/T+I2I 直接相关 4 篇（66.7%）+ T2T 迁移 2 篇。StruPO 为浙江大学 + 腾讯 AI Lab + 中国电信 AI（HTML 无 affiliation，回退 PDF 首页确认），DICE 为 Tel Aviv University（IEEE S&P 2027），LoRA 溯源 为 Edinburgh + Oxford，MoI-Bench 为 UCL + 南京大学 + 香港理工 + 华东师大，AK_QMUL 为 Queen Mary University of London，VLM 拒答 为 IIT Hyderabad。本周主题：把六个'实际是变量'的东西当成常数在用——指令措辞（同义改写翻 18.4-45.2pp）、指令位置（InternVL -8.1 vs Qwen +14.9 方向相反）、总体分数（总体 0.79 掩盖 MSA 0.70 / Bully@MSA 0.46）、聚合方式（算术平均允许跨维补偿）、推理步数（50→8 步 CLIP-概念相似度 +9%）、动作空间（换自由生成 SGR -7.06）。同时首次量化权重侧/输入侧/溯源三层边界：擦除方向 cos 0.30/0.07（CFG 烘焙为主因），溯源 Problem II AUROC 1.000 但开放世界有监督归因崩到 0.400。T2I 输入侧安全改写连续第六周空窗，八个专项查询同时归零。"
+  "agentic": [
+   "2610.35426_stressim_intent_preserving"
+  ],
+  "note": "供给侧冻结轮：arXiv 最新批次停在 2026-10-27，10-28/29/30 三批次连续空缺，本轮相对上一轮新增供给为 0；五个全新口语化查询全部归零 ⇒ 证伪 10-29「换措辞能捞到」的假设，空窗是供给问题不是措辞问题。T2I/T+I2I 直接相关 2 篇（33.3%，低于 66.7% 常态，已在日报如实标注）+ T2T 方法论迁移 3 篇 + Agentic 迁移 1 篇。SafeSteer 为 USC + UCSB（softmax 归一 ⇒ 结构性无法弃权，弃权 AUROC 0.517 vs 0.997，over-refusal 0.341/0.279 → 0.000）；Grounded Exploration 为 Georgia Tech + Pinterest（抽象语义 Stage 1 与无 Stage 1 三列重合，语义层抽象零收益）；ANT-A/ANT-OR 为蚂蚁集团 + 哈工大深圳 EMNLP26 Findings（2 类 κ 38.77 比 31 类 83.50 低 45 点）；SimpleLoRIF 为 DatologyAI + UIUC（HTML 转换失败，回退 PDF 确认；93.9 万条/8×H100/1 小时，EM AUC 0.865，胜过 LLM-judge 过滤）；Audit Where Hacks Pay 为清华 REASONS Lab + Virginia Tech（同期望估计量差 6-12 点，LB 只用 28% 标签）；StressSim 为 Imperial College + Safe Intelligence（保真做罚项、失败做主项）。本周主题：判定装置把「没有答案」硬压成「一个答案」——softmax 归一 / 单标签 gold / 单点判定 / 内容相似度 / 平均奖励 / 手工策略六种压缩。权重侧本轮零供给，边界结论不变（互补非替代）。"
  },
  "_note": "This file is the single source of truth for all paper counts. Automation must update this file on every run. Never estimate counts — always use search_file to scan papers/ directories."
 }

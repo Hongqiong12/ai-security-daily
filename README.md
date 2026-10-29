@@ -9,11 +9,11 @@
   <a href="https://img.shields.io/badge/Reports-Today-blue.svg">
     <img src="https://img.shields.io/badge/Reports-Today-blue.svg" alt="Reports Today"/>
   </a>
-  <a href="https://img.shields.io/badge/Papers-262-green.svg">
-    <img src="https://img.shields.io/badge/Papers-262-green.svg" alt="Total Papers"/>
+  <a href="https://img.shields.io/badge/Papers-268-green.svg">
+    <img src="https://img.shields.io/badge/Papers-268-green.svg" alt="Total Papers"/>
   </a>
-  <a href="https://img.shields.io/badge/Last-Update-2026--10--29-orange.svg">
-    <img src="https://img.shields.io/badge/Last-Update-2026--10--29-orange.svg" alt="Last Update"/>
+  <a href="https://img.shields.io/badge/Last-Update-2026--10--30-orange.svg">
+    <img src="https://img.shields.io/badge/Last-Update-2026--10--30-orange.svg" alt="Last Update"/>
   </a>
   <a href="https://github.com/Hongqiong12/ai-security-daily/stargazers">
     <img src="https://img.shields.io/github/stars/Hongqiong12/ai-security-daily.svg?style=social&label=Star" alt="GitHub stars"/>
@@ -22,30 +22,34 @@
 
 ---
 
-## 🔥 今日最具业务价值论文评测 (2026-10-29)
+## 🔥 今日最具业务价值论文评测 (2026-10-30)
 
-> **为什么要关注本仓库？** 上周的关键词是"**机制装错了位置**"，今天更糟一层：**我们把六个"实际是变量"的东西当成常数在用**——指令措辞、指令位置、总体分数、聚合方式、推理步数、动作空间。每一个都能单独推翻结论。**共同点：所有"固定项"都在被测量之外悄悄改变答案。**
+> **为什么要关注本仓库？** 上一轮的主题是"**参数被当成了常数**"；这一轮更根本——**所有的判定装置，都在把一个本该保留为"分布 / 集合 / 不确定"的东西，硬压成一个标量**。softmax 和恒为 1、单标签 gold、单点判定、内容相似度、平均奖励、手工压力策略，六种压缩，每一种都能单独推翻结论。
+>
+> **⚠️ 供给侧先说清楚**：arXiv 最新公告批次仍停在 **2026-10-27**，10-28/29/30 **三个批次连续空缺**，本轮相对上一轮**新增供给为 0**。并且 10-29 记下的"换口语化措辞能捞到东西"这个假设**被本轮证伪**——五个全新措辞（`photo editing assistant` / `query rewrite` / `trust and safety` / `brand safety` / `visual harm taxonomy`）**全部返回 0**。⇒ **归零不是措辞问题，是供给问题。** 因此本轮定位为**存量补筛 + 邻域结构迁移**，T2I 占比 33.3% 低于 66.7% 常态，已在此如实标注。
 
 | 核心威胁领域 | 🚨 今日优先论文 | 一句话快评 | 深度拆解 |
 |---|---|---|---|
-| **T2I（输入侧改写的结构保真）** | [StruPO](./categories/t2i/papers/2610.36146_strupo.md) | **浙江大学 + 腾讯 AI Lab**。把"改写要保留什么"变成**标定过的场景图**，同一个表示**既当条件又当奖励**。DSE 非对称规则直击要害：**图只能否掉"你以为用户要的"，不能否掉"用户真要的"**。RR **69.64**（+7.96）、SGR **80.74**、跨主干 FLUX 上 RR **62.43 vs 53.41**。最狠的消融：**换自由生成，图条件+奖励+GRPO 全保留，SGR 依然 −7.06** ⇒ **动作空间本身就是保真机制**。 | [📄 立即阅读](./daily-reports/2026-10/2026-10-29_AI安全每日深度情报.md) |
-| **T2I（权重侧失效的机制）** | [DICE](./categories/t2i/papers/2610.36665_dice_fewstep_safety.md) | **Tel Aviv，IEEE S&P 2027**。少步蒸馏让模型更不安全（SD3.5 NudeNet **0.2432→0.3232**），更关键的是**擦除方向被转掉了**：与教师方向余弦只有 **0.30 / 0.07**，成因定位到 **CFG 烘焙**（guidance 1.0→3.5 使 ‖δ‖ **17.8→64.1**）。顺带证明：**推理步数是一个安全旋钮**（50→8 步相似度 **+9%**）。 | [📄 立即阅读](./daily-reports/2026-10/2026-10-29_AI安全每日深度情报.md) |
-| **T2I（溯源与问责）** | [LoRA 溯源签名](./categories/t2i/papers/2610.36933_lora_provenance.md) | **Edinburgh + Oxford**。只用出图的**内在维度直方图**做黑盒签名，判断服务端跑的是底模还是 LoRA 适配。Problem II **AUROC 1.000 / F1 0.943**；而**有监督归因在开放世界留一域崩到 0.400**（比随机还差）。**Food101 失效**——适配域与底模太像时签不出来。 | [📄 立即阅读](./daily-reports/2026-10/2026-10-29_AI安全每日深度情报.md) |
-| **T+I2I（编辑评测方法论）** | [MoI-Bench](./categories/t2i/papers/2610.37599_moi_bench.md) | **UCL + 南大 + 港理工 + 华东师大**。**16 操作 × 8 目标**稀疏矩阵 → 64 子任务/1150 样本。四条纪律可直接抄：**稀疏 rubric 立方体**、**条件先写后跑**、**几何平均禁跨维补偿**、**能力缺失记 0 不移除**。双 judge 排名 **ρ=0.968**，但作者自承"档位一致不算独立验证"（阈值被反向校准）。 | [📄 立即阅读](./daily-reports/2026-10/2026-10-29_AI安全每日深度情报.md) |
-| **分类 SFT（层级标签的代价）** | [AK_QMUL @ ArGuard](./categories/t2t/papers/2610.36360_arguard_qlora_hier.md) | **QMUL**。单卡 4-bit QLoRA 拿下两个赛道（B1 **0.984**、B2 **0.790**）。三行消融最重要：**标签因子化 +0.001（等于零），去掉长尾补数据 −0.360**。分层表：总体 **0.79** 但 MSA 切片 **0.70**，`Bully` 总体 0.57、**MSA 上 0.46**。**最难的永远是最规范的那一档。** | [📄 立即阅读](./daily-reports/2026-10/2026-10-29_AI安全每日深度情报.md) |
-| **图审/judge（指标被污染）** | [VLM 拒答指令敏感性](./categories/t2t/papers/2610.37430_vlm_refusal_instruction_sensitivity.md) | **IIT Hyderabad**。图像-问题对固定，只换同义话术，拒答率变 **18.4–45.2pp**、样本翻转 **13.9–32.1%**；换指令位置，InternVL **−8.1** 而 Qwen **+14.9（方向相反）**。**故意错配的安全指令几乎无效**（−2.3~+13.2，半数区间含 0）。SFT 拒答 **94.9%** 的同时 **24.1% 是"又拒又答"混合体**。 | [📄 立即阅读](./daily-reports/2026-10/2026-10-29_AI安全每日深度情报.md) |
+| **T2I（输出侧图审的结构病根）** | [SafeSteer](./categories/t2i/papers/2610.35017_safesteer_steering_refusal.md) | **USC + UCSB**。一句话钉死：**patch softmax 和恒为 1，所以它必须把质量放在某处**。弃权信号 AUROC **0.517 ≈ 随机**；拆开看，confidence 能处理"对象不在"（logit **0.880**）却处理不了"人在图上但不该问"（**0.757**，CLIPSeg **0.480**）。SAM 3 / Qwen2.5-VL 的分数靠**过度拒绝**换（over-refusal **0.341 / 0.279**）。加一个 null logit + 反事实不变性，**0.997**，over-refusal **0.000**。 | [📄 立即阅读](./daily-reports/2026-10/2026-10-30_AI安全每日深度情报.md) |
+| **T+I2I（I2I 改写 0/0% 的指标病根）** | [Grounded Exploration](./categories/t2i/papers/2610.33810_grounded_edit_exploration.md) | **Georgia Tech + Pinterest**，NeurIPS'26 Workshop。**最强的负结果**：`High-level exploration`（抽象语义 Stage 1）与"完全没有 Stage 1"在 DirCov / Dispersion / Valid@8 **三列全部重合**（4.16 vs 4.17、0.504 vs 0.504、5.80 vs 5.83）⇒ **语义层抽象等于零收益**。落到"可行区域+改动幅度"才有 Grounded **+0.17** / Valid **+0.22**。且 Gemini IF **3.93 全场最高**却 DirCov **2.18**。 | [📄 立即阅读](./daily-reports/2026-10/2026-10-30_AI安全每日深度情报.md) |
+| **标签审计（该改定义还是改标签）** | [ANT-A / ANT-OR](./categories/t2t/papers/2610.32415_ant_a_ant_or.md) | **蚂蚁集团 + 哈工大深圳**，EMNLP'26 Findings。**2 类任务的 κ（38.77）比 31 类（83.50）低 45 点** ⇒ 推翻"类目多所以难"。七数据集 κ 跨度 **38.77–83.50**，判定型低、识别型高。3 标注员+1 验证员 + **判别维度池**（support ≥2 过滤），**不训练**，accuracy **+4.5**，κ 收进 **2 点**。 | [📄 立即阅读](./daily-reports/2026-10/2026-10-30_AI安全每日深度情报.md) |
+| **数据审计（标签对了为什么还是错）** | [SimpleLoRIF](./categories/t2t/papers/2610.37481_simplelorif_safety_gradient.md) | **DatologyAI + UIUC**。安全退化的数据**看起来是良性的**，所以内容侧筛子**结构上抓不到**。改成看梯度：扔掉曲率修正 + **只回传最后 4 block**，**939,343 条 / 8×H100 / 1 小时**，EM AUC **0.865**，删 20% 使 GCG ASR **−22%**，**胜过 LLM-as-a-judge 过滤**。被删样本画像：**工具执行失败 / 叙事算术 / 直接 coding**——一个都不像有害。 | [📄 立即阅读](./daily-reports/2026-10/2026-10-30_AI安全每日深度情报.md) |
+| **RL 改写（奖励作弊怎么找）** | [Audit Where Hacks Pay](./categories/t2t/papers/2610.35716_audit_where_hacks_pay.md) | **清华 REASONS Lab + Virginia Tech**。作弊样本的 advantage **取决于同组兄弟**。整组按**弱通过数升序**审计 + 被抓给 **$2b-a$** 反射修正 ⇒ 作弊打到近零，而**全量审计只领先 2 点、LB 只用 28% 标签**。最反直觉：两个**期望相同**的无偏估计量结果差 **6–12 点**——方差是设计的一部分。 | [📄 立即阅读](./daily-reports/2026-10/2026-10-30_AI安全每日深度情报.md) |
+| **样本合成（保真与变难的位次）** | [StressSim](./categories/agentic-search/papers/2610.35426_stressim_intent_preserving.md) | **Imperial College + Safe Intelligence**，NeurIPS'26 Workshop。**保真是罚项（硬）、失败是主项（软）**——位次反了优化器就牺牲保真。遗传 prompt 优化 + **每任务 20 条 rollout、零训练**，τ-bench pass^4 最多降 **69%**，而首次有效比例保持 **0.900–1.000**。手工策略跨模型**方向能反**（0.572 / 0.620 高于 standard 0.320）。 | [📄 立即阅读](./daily-reports/2026-10/2026-10-30_AI安全每日深度情报.md) |
+
+---
 
 ## 🔭 前沿 Survey & 洞察简报 (Must-Read)
 
-我们不仅搬运论文，更系统沉淀方法论。以下是基于 **262** 篇安全论文萃取的全局视野：
+我们不仅搬运论文，更系统沉淀方法论。以下是基于 **268** 篇安全论文萃取的全局视野：
 
 | 研究洞察精华 | 解决的核心问题 | 更新状态 |
 |------|------|----------|
-| 🏆 **[2026 AI 大模型安全前沿洞察](./insights/AI_Security_Landscape_2026.md)** | **参数被当成常数六连**(NEW) · **权重/输入/溯源三层边界量化**(NEW) · **擦除方向 cos 0.07**(NEW) · **几何平均禁补偿**(NEW) | 2026-10-29 |
+| 🏆 **[2026 AI 大模型安全前沿洞察](./insights/AI_Security_Landscape_2026.md)** | **判定装置的六种降维压缩**(NEW) · **抽象语义脚手架 = 零收益**(NEW) · **softmax 归一 ⇒ 无路可退**(NEW) · **κ 38.77 vs 83.50**（NEW） | 2026-10-30 |
 | 🧭 **[T2I 主线模型评测地图（2026）](./insights/t2i-mainline-model-eval-map-2026.md)** | 当前主线模型测哪些指标 · 对应 benchmark / evaluation set 有哪些 · 训练集透明度与闭源程度如何分层 | 2026-04-22 |
-| 🛡️ **[T2T LLM 安全全局图谱](./insights/t2t-survey.md)** | **因子化 +0.001 / −0.360**(NEW) · **拒答率被话术污染 45pp**(NEW) · **混合响应 24–33%**(NEW) · 模板 reason 零收益 · 判词不判意图 51/55 | 2026-10-29 |
-| 🖼️ **[T2I 文生图安全七年演进](./insights/t2i-survey.md)** | **StruPO 结构保真配方**(NEW) · **DICE 少步擦除方向退化**(NEW) · **LoRA 溯源签名**(NEW) · **MoI-Bench 二维评测**(NEW) | 2026-10-29 |
-| 🤖 **[Agentic Search 攻防全景](./insights/agentic-search-survey.md)** | SkillGuard-Robust package-level 审计 · SnapGuard 轻量截图守卫 | 2026-04-30 |
+| 🛡️ **[T2T LLM 安全全局图谱](./insights/t2t-survey.md)** | **梯度侧 vs 内容侧审计**(NEW) · **2 类 κ 低于 31 类 45 点**(NEW) · **同期望估计量差 6–12 点**(NEW) · 因子化 +0.001 / −0.360 · 拒答率被话术污染 45pp | 2026-10-30 |
+| 🖼️ **[T2I 文生图安全七年演进](./insights/t2i-survey.md)** | **抽象语义脚手架 = 零收益**(NEW) · **softmax 归一 ⇒ 过度预测**(NEW) · **referential vs fairness 弃权**(NEW) · StruPO 结构保真配方 · MoI-Bench 二维评测 | 2026-10-30 |
+| 🤖 **[Agentic Search 攻防全景](./insights/agentic-search-survey.md)** | **StressSim 保真/失败位次**(NEW) · 手工策略跨模型方向会反(NEW) · SkillGuard-Robust · SnapGuard | 2026-10-30 |
 | 🔪 **[Abliteration 与概念擦除范式](./insights/alignment-paradigm-shift-abliteration.md)** | 剖析大模型对齐的脆弱性，以及定向消融攻击的底层逻辑 | 2026-04-07 |
 
 ---

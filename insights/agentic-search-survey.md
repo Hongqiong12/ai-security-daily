@@ -1,8 +1,8 @@
 # Agentic Search Model 安全与能力研究 Survey
 
-> **版本**: v1.8（增量更新：SkillGuard-Robust / SnapGuard）
-> **更新日期**: 2026-04-30
-> **覆盖论文数**: 39 篇  
+> **版本**: v1.9（增量更新：StressSim 意图保持对抗模拟）
+> **更新日期**: 2026-10-30
+> **覆盖论文数**: 40 篇  
 > **维护方式**: 每次新增论文后增量追加；每月 1 日执行深度重构
 
 ---
@@ -266,6 +266,28 @@ Skill 安全审计的关键错误不再只是“有没有拦住风险”，而�
 **SnapGuard 核心发现**：
 对 screenshot-based web agent 来说，不一定非得上大 VLM 才能守住 prompt injection。SnapGuard 用 **VSI + CPR + OCR + APD** 在 **0 额外 GPU** 条件下实现 **F1 = 0.75**、总时延 **1.81s**，同时优于 GPT-4o-prompt 的 **0.71**。这说明 Agent 防线开始进入新的工程平衡点：**先用轻量 guardrail 做高性价比 pre-action screening，再把昂贵判断留给边界样本。**
 
+### 3.14 评测侧的"配合型模拟用户"偏差：保真做罚项、失败做目标是唯一稳定的位次 (NEW — 2026-10-30 新增)
+
+| 论文 | arXiv | 年份 | 方向 | 详情 |
+|------|-------|------|------|------|
+| StressSim | [2610.35426](https://arxiv.org/abs/2610.35426) | 2026 | 意图保持的对抗用户模拟 / 约束优化 | [详情](../categories/agentic-search/papers/2610.35426_stressim_intent_preserving.md) |
+
+**核心问题**：多轮 agent 评测依赖 LLM 模拟用户，而被训成助手的 LLM **过度配合、多样性低**，导致评测系统性**高估**鲁棒性。已有修补（用户话语微调、手工非协作行为）都是**预先定义、高度工程化**的，覆盖不到行为空间其余部分。
+
+**方法**：三层模拟器 —— ① 目标状态追踪器（子目标 × 五态，**`USER_ERROR` 是独立一档**，把"用户自己犯错"和"agent 失败"显式分开）；② **对抗轮次规划器（唯一被优化的部件）**；③ 对话生成器（给定轮级计划后**与完整历史条件独立**——有状态推理全在规划器）。优化变量**只有规划器指令 $\pi$**，用遗传 prompt 优化，per-example 求解。
+
+**方法论核心是一行公式**：
+
+$$R_{\text{adv}}(\tau,x,\pi) = -\frac{1}{m}\sum_{j=1}^{m}S_j(\tau,x)\;-\;\beta\big(1-C(\tau,x,U_\pi)\big),\ \beta>0$$
+
+**主项是"完成度越低分越高"，罚项是"不合法就扣分"——保真是罚项（硬），失败是主项（软）。**
+
+**关键数据**：MultiWOZ + τ-bench retail/airline，50 任务 × 5 trials × $k=4$，三个前沿 agent，**每任务 20 条 rollout，不训任何模型**。τ-bench 上 pass^4 最多降 **69%**（gemini-3.8-flash）/ **62%**（gpt-5.6-sol）；MultiWOZ 上 gemini **0.944 → 0.620**；而 IGA（首次有效比例）**保持 0.900–1.000**。
+
+**两条对照结果极有价值**：① **手工策略跨模型方向不一致**——τ-bench retail 的 gemini 列上 `NC fragment` 把 pass^4 拉到 **0.572**、`NC tangential` 到 **0.620**，**比 standard（0.320）还高**；StressSim 三个模型方向一致。⇒ **"手工构造困难样本"跨模型不可迁移，按实例搜索可以。** ② **预算是连续旋钮**——预算继续加，task success 继续掉，任何"测得 X"的结论必须附预算。
+
+**对内容安全评测的迁移价值**：与"`reject_tag` 样本多样化改写（保标签不变 + 提多样性）"结构完全同构，而且指出了**位次问题**——通常的做法是"先想怎么改得更自然，再看标签有没有保住"，**位次反了**。正确做法是**先把"标签不变"写成可判定的要件谓词（罚项），再让优化器去找"满足谓词但最难判"的表达（主项）**。反过来做，优化器会心安理得牺牲保真，因为主项一直有收益。
+
 ---
 
 ## 4. 与 T2T / T2I 安全的交叉关系
@@ -311,6 +333,7 @@ Agentic Search 安全并非完全独立的方向，它与本项目已追踪的�
 
 | # | arXiv ID | 标题 | 类型 | 收录日期 | 链接 |
 |---|----------|------|------|----------|------|
+| 40 | 2610.35426 | StressSim: Intent-Preserving Adversarial User Simulation for Multi-Turn Agent Evaluation | 评测/意图保持对抗模拟 | 2026-10-30 | [详情](../categories/agentic-search/papers/2610.35426_stressim_intent_preserving.md) |
 | 39 | 2604.25562 | SnapGuard: Lightweight Prompt Injection Detection for Screenshot-Based Web Agents | 防御/轻量截图侧注入检测 | 2026-04-30 | [详情](../categories/agentic-search/papers/2604.25562_snapguard.md) |
 | 38 | 2604.25109 | Structured Security Auditing and Robustness Enhancement for Untrusted Agent Skills | 评测/package-level skill 审计与 rewrite 鲁棒性 | 2026-04-30 | [详情](../categories/agentic-search/papers/2604.25109_skillguard_robust.md) |
 | 33 | 2604.21308 | CI-Work: Benchmarking Contextual Integrity in Enterprise LLM Agents | 评测/企业隐私与情境完整性基准 | 2026-04-28 | [详情](../categories/agentic-search/papers/2604.21308_ci_work.md) |
@@ -349,5 +372,5 @@ Agentic Search 安全并非完全独立的方向，它与本项目已追踪的�
 
 ---
 
-*本 Survey 由 paper-research skill Phase 5 生成与维护 | 初始版本：2026-03-30 | v1.8 更新：2026-04-30*
-*v1.8 更新说明：新增 SkillGuard-Robust 与 SnapGuard，并把 Agentic 防线继续推进到“package-level skill auditing + lightweight pre-action screening”这条新的工程化主线。*
+*本 Survey 由 paper-research skill Phase 5 生成与维护 | 初始版本：2026-03-30 | v1.9 更新：2026-10-30*
+*v1.9 更新说明：新增 StressSim，把 Agentic 评测的问题从"防御机制"推进到"评测装置本身"——配合型模拟用户会系统性高估鲁棒性，而保真/失败的位次（罚项 vs 主项）决定优化器会不会牺牲保真。*
