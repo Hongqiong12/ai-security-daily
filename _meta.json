@@ -1,20 +1,20 @@
 {
  "_meta_version": "1.0",
- "last_updated": "2026-10-28",
+ "last_updated": "2026-10-29",
  "paper_counts": {
-  "t2t": 107,
-  "t2i": 110,
+  "t2t": 109,
+  "t2i": 114,
   "agentic": 39,
-  "total": 256
+  "total": 262
  },
  "survey_versions": {
   "t2t-survey": {
-   "date": "2026-10-28",
-   "count": 107
+   "date": "2026-10-29",
+   "count": 109
   },
   "t2i-survey": {
-   "date": "2026-10-28",
-   "count": 110
+   "date": "2026-10-29",
+   "count": 114
   },
   "agentic-search-survey": {
    "date": "2026-04-30",
@@ -22,9 +22,9 @@
    "count": 39
   },
   "landscape_2026": {
-   "date": "2026-10-28",
-   "version": "v3.7",
-   "total_papers": 256
+   "date": "2026-10-29",
+   "version": "v3.8",
+   "total_papers": 262
   }
  },
  "benchmark_status": {
@@ -33,8 +33,8 @@
    "last_updated": "2026-10-28"
   },
   "t2i_benchmark": {
-   "entries": 33,
-   "last_updated": "2026-10-28"
+   "entries": 34,
+   "last_updated": "2026-10-29"
   },
   "agentic_benchmark": {
    "entries": 10,
@@ -42,8 +42,8 @@
   }
  },
  "daily_reports": {
-  "latest": "2026-10-28",
-  "this_month_count": 5,
+  "latest": "2026-10-29",
+  "this_month_count": 6,
   "missing_dates": [
    "2026-10-01",
    "2026-10-02",
@@ -73,17 +73,17 @@
  "workflow_version": "2.3",
  "today_selection": {
   "t2i": [
-   "2610.33472_qwen_image_pe",
-   "2610.35566_copying_as_defense",
-   "2610.35607_valop",
-   "2610.35052_risk_aware_output_control"
+   "2610.36146_strupo",
+   "2610.36665_dice_fewstep_safety",
+   "2610.36933_lora_provenance",
+   "2610.37599_moi_bench"
   ],
   "t2t_migration": [
-   "2610.33813_lora_vs_full_ft_prompt_safety",
-   "2610.30742_uniguard"
+   "2610.36360_arguard_qlora_hier",
+   "2610.37430_vlm_refusal_instruction_sensitivity"
   ],
   "agentic": [],
-  "note": "T2I/T+I2I 直接相关 4 篇（66.7%）+ T2T 迁移 2 篇。Qwen-Image-PE 为 Qwen Team（阿里）+ 北大（据模型谱系判定），Copying As Defense 为 Adobe Research + 普林斯顿，LoRA vs 全量 为 Fiddler AI + SFU + Georgia Tech，UniGuard 为 Monash + 澳国防科技组，VaLoP 为 GIST，Risk-Aware Output Control 为南洋理工。本周主题：从“分数装错了东西”推进到“机制装错了位置”——压制参考注意力≠防编辑（softmax 行和为 1，票改投文本）、写 reason≠有推理（固定套话 78.2% 低于只有标签 78.7%）、造多视图≠有增强（不加对比 F1 −20.50）、终局读奖励≠测保真（误差=后验协方差，高噪声最大）、删参数≠控输出（参数不可区分性证不到输出）、工业 PE≠做安全（Qwen-PE 四个 rubric 维度无安全）。T2I 输入侧安全改写连续第五周空窗；arXiv 最新批次推进至 2026-10-26（10-24/25/26 为本轮新增）。"
+  "note": "T2I/T+I2I 直接相关 4 篇（66.7%）+ T2T 迁移 2 篇。StruPO 为浙江大学 + 腾讯 AI Lab + 中国电信 AI（HTML 无 affiliation，回退 PDF 首页确认），DICE 为 Tel Aviv University（IEEE S&P 2027），LoRA 溯源 为 Edinburgh + Oxford，MoI-Bench 为 UCL + 南京大学 + 香港理工 + 华东师大，AK_QMUL 为 Queen Mary University of London，VLM 拒答 为 IIT Hyderabad。本周主题：把六个'实际是变量'的东西当成常数在用——指令措辞（同义改写翻 18.4-45.2pp）、指令位置（InternVL -8.1 vs Qwen +14.9 方向相反）、总体分数（总体 0.79 掩盖 MSA 0.70 / Bully@MSA 0.46）、聚合方式（算术平均允许跨维补偿）、推理步数（50→8 步 CLIP-概念相似度 +9%）、动作空间（换自由生成 SGR -7.06）。同时首次量化权重侧/输入侧/溯源三层边界：擦除方向 cos 0.30/0.07（CFG 烘焙为主因），溯源 Problem II AUROC 1.000 但开放世界有监督归因崩到 0.400。T2I 输入侧安全改写连续第六周空窗，八个专项查询同时归零。"
  },
  "_note": "This file is the single source of truth for all paper counts. Automation must update this file on every run. Never estimate counts — always use search_file to scan papers/ directories."
 }

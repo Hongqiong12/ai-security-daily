@@ -2,7 +2,7 @@
 
 文生图扩散模型的安全评测基准、数据集与评估框架论文。
 
-> 最后回填: 2026-10-27 | 共 **33** 条
+> 最后回填: 2026-10-29 | 共 **34** 条
 > 延伸索引: [《T2I 安全 Benchmark 短名单（2026 年前高引用版）》](../../../insights/t2i-benchmark-shortlist-pre2026.md)
 
 ## 综述与全景
@@ -54,6 +54,8 @@
 | Omni-UBench | [2610.31713](https://arxiv.org/abs/2610.31713) | 2026 arXiv (浙大+阿里) | 全模态护栏三维基准（Safety/Utility/Reliability）：183,977 样本 / 37 来源 / 4 模态；**等长掩码消融**（空白图/静音/占位文本）暴露"判定与内容无关"，配套越狱话术×良性媒体的过敏感探针 |
 | Yuvion VL RiskEval (YVRE) | [2606.25034](https://arxiv.org/abs/2606.25034) | 2026 arXiv (阿里安全 AGI Lab) | 三级递进评测（58 benchmark）：Level 1 通用能力设 ≤3 点退化 gate，Level 2 公开安全 8 集 + 自建电商治理 4 集，Level 3 内部业务 20+ 集六维（含 AI 生成图检测、动态政策下的指令遵循） |
 | ABACUS | [2610.28316](https://arxiv.org/abs/2610.28316) | 2026 WACV (CEA List / 巴黎萨克雷) | **指令式图像编辑的 judge-free 评测基准**：10,944 指令 / 3,845 图 / 80 类；全景真值经双检测器可删性审计，SAM3 + 匈牙利实例匹配 + 双检测器共识，`Score = CF × SC × OC` 乘积；与人类计数一致性 **0.82**（纯 VLM 0.55、单检测器 0.28），跨 7 编辑器 σ=**0.013** |
+
+| MoI-Bench | [2610.37599](https://arxiv.org/abs/2610.37599) | 2026 arXiv (UCL + 南京大学 + 香港理工 + 华东师范) | **图像生成/编辑的"操作 × 目标"二维评测**：16 操作 × 8 目标稀疏矩阵 → 64 子任务 / 1150 样本；判据 IF/VQ/DP(Structure+Identity) 组成 **稀疏 rubric 立方体**（always / sample-dependent / N/A 三态），条件**先写后跑**；**加权几何平均**聚合禁止跨判据补偿，**能力缺失记 0 且不移除**；双 judge（GPT-4o 主 + Gemini-3.1-pro 独立）排名 Spearman **ρ=0.968**、人类锚 **ρ=0.904**；输出 Quality–Deployability 二维图谱（iPhone 17 Pro / Xiaomi 15 Pro 实测延迟与峰值内存） |
 
 
 [← 返回文生图目录](../README.md)
