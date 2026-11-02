@@ -1,20 +1,20 @@
 {
  "_meta_version": "1.0",
- "last_updated": "2026-10-30",
+ "last_updated": "2026-11-02",
  "paper_counts": {
-  "t2t": 112,
-  "t2i": 116,
+  "t2t": 114,
+  "t2i": 120,
   "agentic": 40,
-  "total": 268
+  "total": 274
  },
  "survey_versions": {
   "t2t-survey": {
-   "date": "2026-10-30",
-   "count": 112
+   "date": "2026-11-02",
+   "count": 114
   },
   "t2i-survey": {
-   "date": "2026-10-30",
-   "count": 116
+   "date": "2026-11-02",
+   "count": 120
   },
   "agentic-search-survey": {
    "date": "2026-10-30",
@@ -22,19 +22,19 @@
    "count": 40
   },
   "landscape_2026": {
-   "date": "2026-10-30",
-   "version": "v3.9",
-   "total_papers": 268
+   "date": "2026-11-02",
+   "version": "v3.10",
+   "total_papers": 274
   }
  },
  "benchmark_status": {
   "t2t_benchmark": {
-   "entries": 20,
-   "last_updated": "2026-10-30"
+   "entries": 21,
+   "last_updated": "2026-11-02"
   },
   "t2i_benchmark": {
-   "entries": 34,
-   "last_updated": "2026-10-29"
+   "entries": 37,
+   "last_updated": "2026-11-02"
   },
   "agentic_benchmark": {
    "entries": 10,
@@ -42,49 +42,24 @@
   }
  },
  "daily_reports": {
-  "latest": "2026-10-30",
-  "this_month_count": 7,
-  "missing_dates": [
-   "2026-10-01",
-   "2026-10-02",
-   "2026-10-03",
-   "2026-10-04",
-   "2026-10-05",
-   "2026-10-06",
-   "2026-10-07",
-   "2026-10-08",
-   "2026-10-09",
-   "2026-10-10",
-   "2026-10-11",
-   "2026-10-12",
-   "2026-10-13",
-   "2026-10-14",
-   "2026-10-15",
-   "2026-10-16",
-   "2026-10-17",
-   "2026-10-18",
-   "2026-10-19",
-   "2026-10-20",
-   "2026-10-21",
-   "2026-10-24",
-   "2026-10-25"
-  ]
+  "latest": "2026-11-02",
+  "this_month_count": 1,
+  "missing_dates": []
  },
  "workflow_version": "2.3",
  "today_selection": {
   "t2i": [
-   "2610.35017_safesteer_steering_refusal",
-   "2610.33810_grounded_edit_exploration"
+   "2610.37722_fvh_bench_functional_visual_harm",
+   "2610.38611_v_cape_edit_consistency_autoqa",
+   "2610.39664_editagent_observation_space",
+   "2610.38185_ocr_mllm_moderation_grounding"
   ],
   "t2t_migration": [
-   "2610.32415_ant_a_ant_or",
-   "2610.37481_simplelorif_safety_gradient",
-   "2610.35716_audit_where_hacks_pay"
+   "2610.40516_msafetemp_template_slot_rewrite",
+   "2610.40241_judged_in_company_batch_flips"
   ],
-  "agentic": [
-   "2610.35426_stressim_intent_preserving"
-  ],
-  "note": "供给侧冻结轮：arXiv 最新批次停在 2026-10-27，10-28/29/30 三批次连续空缺，本轮相对上一轮新增供给为 0；五个全新口语化查询全部归零 ⇒ 证伪 10-29「换措辞能捞到」的假设，空窗是供给问题不是措辞问题。T2I/T+I2I 直接相关 2 篇（33.3%，低于 66.7% 常态，已在日报如实标注）+ T2T 方法论迁移 3 篇 + Agentic 迁移 1 篇。SafeSteer 为 USC + UCSB（softmax 归一 ⇒ 结构性无法弃权，弃权 AUROC 0.517 vs 0.997，over-refusal 0.341/0.279 → 0.000）；Grounded Exploration 为 Georgia Tech + Pinterest（抽象语义 Stage 1 与无 Stage 1 三列重合，语义层抽象零收益）；ANT-A/ANT-OR 为蚂蚁集团 + 哈工大深圳 EMNLP26 Findings（2 类 κ 38.77 比 31 类 83.50 低 45 点）；SimpleLoRIF 为 DatologyAI + UIUC（HTML 转换失败，回退 PDF 确认；93.9 万条/8×H100/1 小时，EM AUC 0.865，胜过 LLM-judge 过滤）；Audit Where Hacks Pay 为清华 REASONS Lab + Virginia Tech（同期望估计量差 6-12 点，LB 只用 28% 标签）；StressSim 为 Imperial College + Safe Intelligence（保真做罚项、失败做主项）。本周主题：判定装置把「没有答案」硬压成「一个答案」——softmax 归一 / 单标签 gold / 单点判定 / 内容相似度 / 平均奖励 / 手工策略六种压缩。权重侧本轮零供给，边界结论不变（互补非替代）。"
+  "agentic": [],
+  "note": "供给侧解冻轮：arXiv 最新 published 批次由 10-27 推进到 10-29，10-28/10-29 两个新批次首次出现，池 277→301。但 T2I 输入侧改写与 I2I 编辑改写仍为连续第七周零供给（a28_image_only_sft / a4 / a5 / a6 / b4 / c1 / c2 七个专项查询同时归零）。T2I/T+I2I 直接相关 4 篇（66.7%）+ T2T 方法论迁移 2 篇。FVH-Bench 为 CUHK-SZ + SUNY Buffalo（depict→enable 两轴，11 生图器平均 RR 2.45%、专用图审召回 1.60–44.00%，Condition-Decomposed 8B 80.40 / FPR 0）；V-CAPE 为 Amazon（人类 κ=0.77 而全模型 <65%，零样本 F1 仅 6.7%）；EditAgent 为 Adobe Research + UCSD（winner set 13.5% 无可用候选，pointwise→listwise +13.8 点）；OCR+MLLM 为华中科技大学（50.4% 非文本事件，纯文本通道召回≈0，32B 零样本 mIoU 4.72）；MSafeTemp 为 ETH Zurich（框架+类型化槽位，TR vs PH Jaccard 0.40–0.45，单 fill 漏掉约一半）；Judged in Company 为 TUM（批处理翻转 11–22% 而 AUROC 只动 0.03）。本周主题：风险住在我们看不见的那一半——六篇的修复动作没有一个是「把模型变强」，全部是「把观测通道补上」。权重侧本轮有供给但边界不变（LoCo 定位+擦除、Loss is Not Behavior 证明相似 loss 不蕴含相似行为），仍为互补非替代。"
  },
  "_note": "This file is the single source of truth for all paper counts. Automation must update this file on every run. Never estimate counts — always use search_file to scan papers/ directories."
 }

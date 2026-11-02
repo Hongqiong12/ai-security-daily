@@ -669,5 +669,108 @@
    "Brian Formento",
    "Alessio Lomuscio"
   ]
+ },
+ {
+  "id": "2610.37722v1",
+  "title": "FVH-Bench: Evaluating Image Generator Safety Beyond Overtly Harmful Imagery",
+  "summary": "Modern image generators can produce complex visual artifacts, including diagrams, interfaces, and records that combine text, graphics, and layout to convey detailed information. They may refuse requests for overtly harmful imagery yet still generate artifacts that guide dangerous actions or support deception. We call the risk arising from what such images enable, rather than only what they depict, functional visual harm (FVH). Existing safety benchmarks focus largely on overtly harmful content, such as pornography and graphic violence, leaving image generators' safety alignment against FVH insufficiently evaluated. To address this gap, we introduce FVH-Bench, comprising 669 prompts across five harmful visual functions and ten risk domains. The 11 evaluated image generators rarely refuse these requests and frequently generate artifacts that fulfill the targeted harmful functions. High scores for target harm realization and harmful artifact usability further indicate that these outputs can support the intended harmful purposes. A further analysis finds that existing safety detectors also provide limited coverage of FVH, indicating gaps in their ability to recognize harmful visual functions. Together, these findings show that evaluating image-generator safety alignment requires considering not only what images depict, but also what they may enable.",
+  "published": "2026-10-27",
+  "url": "https://arxiv.org/abs/2610.37722",
+  "authors": [
+   "Zihao Zhu",
+   "Yuhan Liu",
+   "Siwei Lyu",
+   "Baoyuan Wu"
+  ],
+  "modality": "t2i",
+  "type": "benchmark",
+  "slug": "2610.37722_fvh_bench_functional_visual_harm",
+  "date": "2026-10-27"
+ },
+ {
+  "id": "2610.38611v1",
+  "title": "V-CAPE: Visual Consistency Assessment for Product Image Editing",
+  "summary": "Recent advances in generative image editing enable complex transformations such as background replacement, object manipulation, and pose adjustment from natural language instructions. However, verifying that these transformations preserve visual consistency, defined as the preservation of an object's intrinsic visual attributes, including geometry, texture, color, and fine-grained details, remains a largely unsolved problem. This challenge is particularly pronounced at scale, where manual inspection is infeasible and automated quality assessment (AutoQA) could become essential. In this work, we introduce Visual Consistency Assessment for Product Image Editing (V-CAPE), a large-scale dataset for evaluating visual consistency in generative image editing. The dataset consists of 40K unique source-target product image pairs, each annotated with binary accept/reject labels and structured failure modes capturing fine-grained inconsistencies such as geometric distortions, pose errors, and identity mismatches. V-CAPE combines real-world edited images with a synthetic subset constructed from 3D assets, enabling both realistic evaluation and controlled analysis. Vision-language models (VLMs) across all evaluated size categories on AutoQA achieve accuracy below 65%, indicating that the dataset poses a substantial challenge regardless of model scale. Our results highlight fundamental limitations of current models in verifying visual consistency under transformation, positioning V-CAPE as a benchmark for advancing fine-grained image editing evaluation.",
+  "published": "2026-10-28",
+  "url": "https://arxiv.org/abs/2610.38611",
+  "authors": [
+   "Iaroslav Melekhov",
+   "Roberto Alcover Couso",
+   "Francesco Taioli",
+   "Daniel Coelho",
+   "Artur Bekasov",
+   "Virginia Fernandez Arguedas",
+   "Jose Miguel Grande Saiz"
+  ],
+  "modality": "t2i",
+  "type": "benchmark",
+  "slug": "2610.38611_v_cape_edit_consistency_autoqa",
+  "date": "2026-10-28"
+ },
+ {
+  "id": "2610.39664v1",
+  "title": "EditAgent: Rethinking Agentic Image Editing",
+  "summary": "Agentic image editors decompose complex requests into steps, but when a step fails, they mostly retry with the same narrow set of tools and a judge that scores each output by eye directly. We argue that such agents are bounded by two spaces: the action space of what the agent can do, and the observation space of what its judge can see. On our expert-annotated benchmark, a general-purpose editor yields no usable result in over 40% of the cases, and no judge is reliable across edit types. We present EditAgent, which expands both spaces. It routes each step to general editors and specialized methods, and attaches to each candidate a verification record. With these records, off-the-shelf VLM judges outperform finetuned reward models. Candidates are generated in parallel and judged in one listwise call: experts prefer this to sequential refinement in 78.5% of decided comparisons, at no more than half the judge calls. EditAgent improves two open-weight editors on three benchmarks and serves as a data engine for training stronger editors.",
+  "published": "2026-10-29",
+  "url": "https://arxiv.org/abs/2610.39664",
+  "authors": [
+   "Haiyang Xu",
+   "Tianyu Wang",
+   "Jialu Li",
+   "Jiteng Mu",
+   "Yuanjun Xiong",
+   "Jianming Zhang",
+   "Zhuowen Tu",
+   "Mingze Xu"
+  ],
+  "modality": "t2i",
+  "type": "defense",
+  "slug": "2610.39664_editagent_observation_space",
+  "date": "2026-10-29"
+ },
+ {
+  "id": "2610.38185v1",
+  "title": "Complementing Text Based Moderation with Multimodal Grounding: Detecting Fraudulent Inducement Behaviors on Short Video Platforms",
+  "summary": "Short video platforms have become a primary channel for black and gray industry operations in internet finance, where inducements such as prompts to like, follow, join private chat groups, or click external links frequently steer users toward fraud. Because such videos are short, dynamic, and often convey intent through fleeting visual cues rather than stable text, a moderation system must guarantee detection recall and localize the offending segment so reviewers inspect only the relevant clip. Existing OCR+LLM pipelines transcribe on-screen text frame by frame and classify the transcript, but exploit only textual information. Many inducements are conveyed through visual cues OCR cannot observe, and keyframe-based localization cannot recover precise temporal boundaries. We explore OCR+MLLM, which augments the text pipeline with a Multimodal Large Language Model, and compare three routes: OCR+LLM, OCR+MLLM, and a large zero-shot MLLM, along detection, latency, token consumption, and deployment complexity. OCR preserves the text signal that guarantees recall, while the MLLM jointly performs OCR-grounded discrimination and temporal grounding, localizing both textual and non-textual inducements. We construct a dataset of 2,419 internet finance short videos (66.49 hours) with 3,194 annotated events across four categories, and study reward design for RL-based grounding under class imbalance. We report two findings: auxiliary reward terms are exploited through reward hacking, and stronger localization rewards degrade class-balanced detection. We therefore design a recall-weighted F2 localization reward with class-balanced resampling. Experiments show OCR+MLLM localizes better than the keyframe OCR+LLM baseline (mIoU 26.52 vs. 14.49) and detects non-textual inducements that text-only pipelines miss, while maintaining 67.0 percent macro recall.",
+  "published": "2026-10-28",
+  "url": "https://arxiv.org/abs/2610.38185",
+  "authors": [
+   "Xiaoyong Yu"
+  ],
+  "modality": "t2i",
+  "type": "defense",
+  "slug": "2610.38185_ocr_mllm_moderation_grounding",
+  "date": "2026-10-28"
+ },
+ {
+  "id": "2610.40516v1",
+  "title": "How I Aligned Your Model: Scaling Up Multilingual Safety Training with Templates",
+  "summary": "Safety alignment for Large Language Models is heavily focused on English with limited multilingual representation, particularly damaging low-resource language performance. Related open training datasets are often limited in size or do not follow region-localized harmful topics to broaden the scope of alignment beyond cultures. We propose a scalable template-based augmentation pipeline to produce massive multilingual refusal and benign corpora, extracting safe templates from harmful prompts, translating them and then filling in the slots with culturally authentic entities, both harmful and benign. As a result, we release MSafeTemp, a validated corpus spanning 60 languages useful for multilingual safety alignment and evaluation. Using the dataset, we show that English-only evaluation misjudges multilingual safety: for several models, attacks that fail in English succeed once translated, while culturally localized variants expose further failures that translation alone misses. We also confirm that augmenting safety training data through templates allows for higher diversity and quality of alignment, resulting in improved safety performance beyond English. MSafeTemp and the respective pipeline are aimed at facilitating research and development of safer and more responsible models for less-represented cultures.",
+  "published": "2026-10-29",
+  "url": "https://arxiv.org/abs/2610.40516",
+  "authors": [
+   "Max Neuwinger",
+   "Hanna Yukhymenko",
+   "Imanol Schlag"
+  ],
+  "modality": "t2t",
+  "type": "defense",
+  "slug": "2610.40516_msafetemp_template_slot_rewrite",
+  "date": "2026-10-29"
+ },
+ {
+  "id": "2610.40241v1",
+  "title": "Judged in Company: In-Context Batching Makes LLM Verdicts Depend on Other Items",
+  "summary": "To save cost, practitioners often ask a language model to grade many independent items in one prompt. This assumes that verdicts are separable: that the verdict on an item does not depend on the other items in the prompt or on its position among them. Across three judgement tasks (harm in social-media comments, short-answer grading and review star ratings) and five open-weight models with 4-9B parameters, assigning the same 2,000 items to different random batches of 25 changes 11-22% of decisions on harm and grading, 6.5-13.3 points more than renaming the item keys or rewording the instruction, while AUROC against human labels differs from single-item grading only by -0.033 to +0.010; for four models with 14-32B parameters, 6-15% of decisions change, 4.2-9.1 points more. We show that flip rates decompose exactly into components of order, slot and membership, and that under a threshold model they grow with the square root of the variance that the context contributes, so that effects that are small for scores are large for decisions. Most of the latent dissimilarity between partitions comes from the order of the neighbours and the slot. The main effect of which items share the prompt, the part that voting over permutations of a batch cannot remove, accounts for 0.11-0.22 of it, and majority votes over nine permutations still leave 52-60% of the flips. Batched verdicts also differ systematically from single-item verdicts: even the majority of fifteen random batches disagrees with them on 8.4-17.8% of decisions. Editing a single generation shows that both the model's own earlier verdicts and the neighbours' texts carry the effect. On the easy task, star ratings, only 2.9-3.9% of decisions change. We recommend grading ambiguous items one per prompt, recovering most of the cost with a cached prefix, and reporting agreement with single-item grading whenever items are batched.",
+  "published": "2026-10-29",
+  "url": "https://arxiv.org/abs/2610.40241",
+  "authors": [
+   "Peng Xie",
+   "Amr Alanwar"
+  ],
+  "modality": "t2t",
+  "type": "benchmark",
+  "slug": "2610.40241_judged_in_company_batch_flips",
+  "date": "2026-10-29"
  }
 ]

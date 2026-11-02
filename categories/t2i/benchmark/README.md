@@ -2,7 +2,7 @@
 
 文生图扩散模型的安全评测基准、数据集与评估框架论文。
 
-> 最后回填: 2026-10-29 | 共 **34** 条
+> 最后回填: 2026-11-02 | 共 **37** 条
 > 延伸索引: [《T2I 安全 Benchmark 短名单（2026 年前高引用版）》](../../../insights/t2i-benchmark-shortlist-pre2026.md)
 
 ## 综述与全景
@@ -40,6 +40,9 @@
 | HealBench | [2610.27516](https://arxiv.org/abs/2610.27516) | **2026 AAAI'27** | 30,000 图文对 / 19 类 / 92 子类的心理舒适细粒度基准，配套 HealBench-Eval（1,095 例）**系统评测 14 个生成模型与 prompt-rewriting 策略**；提出**三维分列 + 目标维度 1:2:1 加权**的 HealScore，并训专属 scorer（THS）作 Flow-GRPO 奖励 ✅ 已精读 |
 | IMPLICIT-Bench | [2609.24228](https://arxiv.org/abs/2609.24228) | 2026 arXiv | 1,831 组「中性/刻板/反刻板」prompt 三元组（场景固定），配 KG unit 锚点；**三种锚点信息条件（无/检索/oracle）× 两种干预（改写/嵌入引导）**的归因实验，提出乘性联合指标 S = 100·mean[Y·(1−b/5)] ✅ 已精读 |
 | LogicVal | [2610.24051](https://arxiv.org/abs/2610.24051) | 2026 arXiv | 把 T2I 评测写成**逻辑约束满足问题**：prompt→ASP 约束（9 类 C1–C9 / 71 模板），图像→场景图，clingo 判 SAT/UNSAT，**无需参考图**；含反空真条款设计 ✅ 已精读 |
+| FVH-Bench | [2610.37722](https://arxiv.org/abs/2610.37722) | 2026 arXiv (CUHK-SZ + SUNY Buffalo) | 把图审从「描绘了什么」推进到「**使能了什么**」（functional visual harm）：11 生图器平均拒绝率仅 **2.45%**，专用图审召回 **1.60%–44.00%**；提出 Condition-Decomposed Detection（每类三条必要条件 + 一条良性豁免，平均 1.57 次调用）把 8B 图审拉到 **80.40**（FPR 0）✅ 已精读 |
+| V-CAPE | [2610.38611](https://arxiv.org/abs/2610.38611) | 2026 arXiv (Amazon) | **I2I 指令式编辑的视觉一致性 AutoQA**：40K 编辑对 / 27K 图，人类 Fleiss κ **0.77**，而全部 VLM（含 235B）上限 **<65%**；零样本 accuracy 51.5% 但 macro-F1 仅 6.7%（全判一类）——揭示「判据良定义」与「模型判得动」是两件事 ✅ 已精读 |
+| EditAgent | [2610.39664](https://arxiv.org/abs/2610.39664) | 2026 arXiv (Adobe Research + UCSD) | 把多轮编辑失败归因到**观测空间**而非动作空间：winner set 仅 42.3% 通用 / 29.2% 专用 / **13.5% 无可用候选**；判定从 pointwise→listwise 升 **+13.8 点**（72.1→85.9），但需**成对**配 verification record（证据可查）才不反向掉点 ✅ 已精读 |
 
 ## 防御范式代表
 
