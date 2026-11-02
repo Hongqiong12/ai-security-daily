@@ -772,5 +772,120 @@
   "type": "benchmark",
   "slug": "2610.40241_judged_in_company_batch_flips",
   "date": "2026-10-29"
+ },
+ {
+  "id": "2610.41210v1",
+  "title": "From Evaluation to Evolution: Benchmarking Image Editing and Evolving Image Models",
+  "summary": "Real-world image editing requires coordinating multiple visual transformations with content preservation and reference constraints, yet aggregate scores can readily obscure unmet local requirements. Effective evaluation must therefore identify local failures and translate them into priorities for subsequent model improvement. We introduce WeGenEditBench, comprising 2,740 evaluation instances and 148 task types across single-image, text-intensive, and multi-reference editing. Pre-generated checklists shared across models decompose each request into atomic requirements; item-level deductions and visual evidence are established first and then summarized into scores for edit execution, preservation, visual quality, and task-specific correctness. To support the experience-acquisition component of recursive self-improvement (RSI), we develop WeGenEvoStudio, a unified multi-agent harness for RSI-oriented learning that integrates model-conditioned failure diagnosis, retrieval-grounded data construction, supervised adaptation, and re-evaluation. Among 15 evaluated configurations, GPT-Image-2 leads single-image editing with an Overall score of 4.076, while Seedream-5.0-Pro leads text-intensive editing at 4.291. Evolution experiments across four generation and editing benchmarks demonstrate substantial targeted gains: on their report-selected Top-5 single-image targets, FLUX.2 [dev] improves Overall from 1.083 to 3.517, while Qwen-Image-Edit-2511 gains 13.2%. Together, our benchmark and harness provide a foundation for developing more reliable image models through interpretable evaluation and feedback-driven learning.",
+  "published": "2026-10-30",
+  "authors": [
+   "Jun He",
+   "Canmiao Fu",
+   "Ying Zhang",
+   "Zhipeng Huang",
+   "Chenyu Mu",
+   "Yazhen Xie",
+   "Chen Li",
+   "Jing Lyu",
+   "Weijia Li",
+   "Xiang Zhang"
+  ],
+  "categories": [
+   "cs.CV",
+   "cs.AI"
+  ],
+  "comment": "58 pages, 42 figures",
+  "selected_date": "2026-11-03"
+ },
+ {
+  "id": "2610.41460v1",
+  "title": "RetryRoute: Retry-Aware Model Routing for Agentic Image Editing Services",
+  "summary": "Web agents increasingly edit images by calling open editing models in a critique-and-retry loop, and these models differ in cost by more than an order of magnitude. After every rejected edit, a service must decide whether to retry the same model, escalate to another or give up. Existing routers pick one model per request, and cascades escalate in a fixed order. However, both treat a retry as an independent draw. We identify sticky failures, meaning that a retry after a failure succeeds only 17-53% as often as a first try across six open models, three benchmarks and two judges. Based on this finding, we propose RetryRoute, a retry-aware router that estimates each model's chance of success given the request's failure history. It plans retries, escalations and abandonment over failure states and adds live queue waits to the cost, so the same plan becomes load-aware dispatch. At the main budget, RetryRoute's success under the in-loop judge exceeds the strongest of eleven prior baselines by 2.8 points on average over eight groups. On a GPU serving testbed it raises the share of edits delivered within the service-level objective by 5.0-6.3 points over the best prior baseline at every load.",
+  "published": "2026-10-30",
+  "authors": [
+   "Hanshuai Cui",
+   "Zhiqing Tang",
+   "Zhi Yao",
+   "Jun Luo",
+   "Weijia Jia"
+  ],
+  "categories": [
+   "cs.LG"
+  ],
+  "comment": "",
+  "selected_date": "2026-11-03"
+ },
+ {
+  "id": "2610.41307v1",
+  "title": "Erase the Injected Region: Multimodal Prompt-Injection Defense with On-Policy Self-Distillation",
+  "summary": "Multimodal indirect prompt injection embeds malicious instructions in external media that also contains information needed for the user's task. Existing defenses can block the attack yet impair the model's use of that information, leaving a gap between attack defense and task preservation. We propose ERASE, an on-policy self-distillation method that constructs its reference by erasing the injected region in place. Modality-appropriate blank content replaces the injection while the surrounding media is preserved. A student reading attacked media learns from a frozen base model reading the erased view through full-distribution token-level feedback on its own rollouts. Across image, audio, and video on two model sizes, ERASE records near-zero observed attack success on the evaluated benchmark while retaining task utility close to the undefended clean-input level. On 3B audio, ERASE reaches 60.1% attacked-input accuracy compared with ARGUS's 33.1%, within 0.5 points of the undefended clean-input level. Experiments show that ERASE reduces injection dependence from 6.26 to 0.0095 on 3B audio while staying close to the base model on the erased input. Out-of-domain accuracy also stays near the base level. Our code will be made publicly available upon acceptance.",
+  "published": "2026-10-30",
+  "authors": [
+   "Shuo Hong",
+   "Jiaxin Ma",
+   "Xidi Cai",
+   "Qianli Ma"
+  ],
+  "categories": [
+   "cs.CR",
+   "cs.AI"
+  ],
+  "comment": "",
+  "selected_date": "2026-11-03"
+ },
+ {
+  "id": "2610.37949v1",
+  "title": "AI-Generated Non-Consensual Intimate Imagery is Configured, Not Built: How General-Purpose AI Technology Enables Sexual Violence",
+  "summary": "AI-generated non-consensual intimate imagery (AIG-NCII) is an increasingly prevalent form of online abuse, distinguished from AI-generated sexual content (AIG-SC) by the sexualized depiction of a real person's identity without their consent. To understand how offenders may benefit from the tools and resources shared across the broader AIG-SC community, we analyzed 139 R+ guides on CivitAI, a popular platform known to host a disproportionate amount of AIG-SC. We find that AIG-SC guides discuss how to create content generation workflows composed of sexual and identity concepts, the building blocks of AIG-NCII, including one guide that explicitly outlines an AIG-NCII workflow. We identify that ultimately AIG-NCII is enabled by configuration rather than a distinct set of technical tools. We map AIG-NCII threat models across basic and advanced AIG-SC workflows to demonstrate how multiple dual-use technical components can compose NCII outputs in an environment with little to no discussion of ethical implications or responsible use. We conclude by noting that, as most workflows rely on open-weight models, existing technical defenses against AIG-NCII are limited. However, our findings offer a starting point for evaluation of AI-based models and products against realistic attacker behavior required by new EU regulation and suggest that efforts to develop safeguards at the model- and product-levels should focus on generation of identity content.",
+  "published": "2026-10-27",
+  "authors": [
+   "Julia B. Kieserman",
+   "Ashley Phoebe Ishoel",
+   "Damon McCoy",
+   "Elissa M. Redmiles",
+   "Lucy Qin",
+   "Jaron Mink"
+  ],
+  "categories": [
+   "cs.CR"
+  ],
+  "comment": "",
+  "selected_date": "2026-11-03"
+ },
+ {
+  "id": "2610.38076v1",
+  "title": "Prompt Lottery in LLM-as-a-Judge: Measuring and Mitigating Sensitivity to Syntactic Rephrasing",
+  "summary": "LLM-as-a-Judge has become a standard for evaluating large language models, yet most approaches implicitly assume that a single judge prompt functions as a stable evaluation instrument. Prior work has primarily explored deliberate prompt modifications such as scoring rubrics, role descriptions, or chain-of-thought reasoning in order to optimize accuracy. In contrast, we investigate whether validated prompt variants intended to preserve evaluation semantics while differing in surface realization (\\textit{paraphrastic rephrasings}) yield consistent judgments under a fixed evaluation task. We introduce \\textit{Prompt Lottery}, a phenomenon in which paraphrastic rephrasings produce different LLMaJ judgments. Across a large-scale study spanning diverse evaluation tasks, judge families, and model backbones, we find that these variations can alter evaluation outcomes and, in some settings, reverse relative model rankings. A user study with 10 human annotators shows that LLMaJ judges exhibit 6-9$\\times$ larger agreement degradation under prompt rephrasings than humans, falling below the generally accepted threshold in usability studies. This indicates that single-prompt evaluation is insufficiently robust for model ranking. Finally, we show that multi-prompt aggregation substantially improves robustness by emphasizing judgments that remain consistent across prompt variants.",
+  "published": "2026-10-27",
+  "authors": [
+   "Ilija Subasic",
+   "Brett Levert",
+   "Andrew Rabinovich",
+   "Sajjad Pakdamansavoji",
+   "Zhao Chen"
+  ],
+  "categories": [
+   "cs.CL",
+   "cs.AI"
+  ],
+  "comment": "55 pages (11 with no appendix), 10 figures",
+  "selected_date": "2026-11-03"
+ },
+ {
+  "id": "2610.37882v1",
+  "title": "FYC: FPR-Disparity Weight Perturbation and Youden Calibration for Fair Deepfake Detection",
+  "summary": "Deepfake detectors routinely achieve high aggregate accuracy while exhibiting substantial demographic disparities in their errors: false-positive rates differ by double digits across gender and skin tone. Most existing remedies require either full retraining with a fairness-aware objective or demographic-annotated training data, both impractical when only a pretrained checkpoint is available, while label-free post-hoc calibrators leave the detector's weights unchanged. We introduce FYC (FPR-disparity Weight Perturbation and Youden Calibration), a two-stage post-hoc method that perturbs a detector's weights under an FPR-disparity criterion, then calibrates a separate decision threshold for each demographic group - requiring no architectural changes and no full retraining. Evaluated against every detector benchmarked on AI-Face v2 across six intersectional gender x skin-tone groups, FYC outperforms the field on 18 of 21 reported fairness and utility metrics, including purpose-built fairness architectures, at a fraction of the training cost. We further identify why the choice of fairness criterion is critical: the original Demographic Parity objective used in prior weight-perturbation work is architecture-dependent and unpredictable, improving two of four evaluated architectures, leaving a third largely unchanged, and substantially degrading the fourth (PG-FDD), with no way to anticipate the outcome for a given checkpoint in advance. Conditioning the same objective on real images only - our FPR-disparity criterion - eliminates this unpredictability, improving fairness and accuracy jointly across all four architectures with no exceptions.",
+  "published": "2026-10-27",
+  "authors": [
+   "Uzoamaka Ezeakunne",
+   "Taiwo Olabamipe",
+   "Deevesh Jain",
+   "Xiuwen Liu"
+  ],
+  "categories": [
+   "cs.CV"
+  ],
+  "comment": "9 pages, 4 figures",
+  "selected_date": "2026-11-03"
  }
 ]

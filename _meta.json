@@ -1,20 +1,20 @@
 {
  "_meta_version": "1.0",
- "last_updated": "2026-11-02",
+ "last_updated": "2026-11-03",
  "paper_counts": {
-  "t2t": 114,
-  "t2i": 120,
+  "t2t": 116,
+  "t2i": 124,
   "agentic": 40,
-  "total": 274
+  "total": 280
  },
  "survey_versions": {
   "t2t-survey": {
-   "date": "2026-11-02",
-   "count": 114
+   "date": "2026-11-03",
+   "count": 116
   },
   "t2i-survey": {
-   "date": "2026-11-02",
-   "count": 120
+   "date": "2026-11-03",
+   "count": 124
   },
   "agentic-search-survey": {
    "date": "2026-10-30",
@@ -22,19 +22,19 @@
    "count": 40
   },
   "landscape_2026": {
-   "date": "2026-11-02",
-   "version": "v3.10",
-   "total_papers": 274
+   "date": "2026-11-03",
+   "version": "v3.11",
+   "total_papers": 280
   }
  },
  "benchmark_status": {
   "t2t_benchmark": {
-   "entries": 21,
-   "last_updated": "2026-11-02"
+   "entries": 22,
+   "last_updated": "2026-11-03"
   },
   "t2i_benchmark": {
-   "entries": 37,
-   "last_updated": "2026-11-02"
+   "entries": 38,
+   "last_updated": "2026-11-03"
   },
   "agentic_benchmark": {
    "entries": 10,
@@ -42,24 +42,24 @@
   }
  },
  "daily_reports": {
-  "latest": "2026-11-02",
-  "this_month_count": 1,
+  "latest": "2026-11-03",
+  "this_month_count": 2,
   "missing_dates": []
  },
  "workflow_version": "2.3",
  "today_selection": {
   "t2i": [
-   "2610.37722_fvh_bench_functional_visual_harm",
-   "2610.38611_v_cape_edit_consistency_autoqa",
-   "2610.39664_editagent_observation_space",
-   "2610.38185_ocr_mllm_moderation_grounding"
+   "2610.41210_wengenedit_bench_checklist_aggregation",
+   "2610.41460_retryroute_sticky_failure_routing",
+   "2610.41307_erase_injected_region_onpolicy_distill",
+   "2610.37949_aig_ncii_configured_not_built"
   ],
   "t2t_migration": [
-   "2610.40516_msafetemp_template_slot_rewrite",
-   "2610.40241_judged_in_company_batch_flips"
+   "2610.38076_prompt_lottery_paraphrase_judge",
+   "2610.37882_fyc_fpr_disparity_threshold"
   ],
-  "agentic": [],
-  "note": "供给侧解冻轮：arXiv 最新 published 批次由 10-27 推进到 10-29，10-28/10-29 两个新批次首次出现，池 277→301。但 T2I 输入侧改写与 I2I 编辑改写仍为连续第七周零供给（a28_image_only_sft / a4 / a5 / a6 / b4 / c1 / c2 七个专项查询同时归零）。T2I/T+I2I 直接相关 4 篇（66.7%）+ T2T 方法论迁移 2 篇。FVH-Bench 为 CUHK-SZ + SUNY Buffalo（depict→enable 两轴，11 生图器平均 RR 2.45%、专用图审召回 1.60–44.00%，Condition-Decomposed 8B 80.40 / FPR 0）；V-CAPE 为 Amazon（人类 κ=0.77 而全模型 <65%，零样本 F1 仅 6.7%）；EditAgent 为 Adobe Research + UCSD（winner set 13.5% 无可用候选，pointwise→listwise +13.8 点）；OCR+MLLM 为华中科技大学（50.4% 非文本事件，纯文本通道召回≈0，32B 零样本 mIoU 4.72）；MSafeTemp 为 ETH Zurich（框架+类型化槽位，TR vs PH Jaccard 0.40–0.45，单 fill 漏掉约一半）；Judged in Company 为 TUM（批处理翻转 11–22% 而 AUROC 只动 0.03）。本周主题：风险住在我们看不见的那一半——六篇的修复动作没有一个是「把模型变强」，全部是「把观测通道补上」。权重侧本轮有供给但边界不变（LoCo 定位+擦除、Loss is Not Behavior 证明相似 loss 不蕴含相似行为），仍为互补非替代。"
+  "theme": "被边际掉的那一维",
+  "t2i_ratio": "66.7%"
  },
  "_note": "This file is the single source of truth for all paper counts. Automation must update this file on every run. Never estimate counts — always use search_file to scan papers/ directories."
 }

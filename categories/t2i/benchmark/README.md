@@ -2,7 +2,7 @@
 
 文生图扩散模型的安全评测基准、数据集与评估框架论文。
 
-> 最后回填: 2026-11-02 | 共 **37** 条
+> 最后回填: 2026-11-03 | 共 **38** 条
 > 延伸索引: [《T2I 安全 Benchmark 短名单（2026 年前高引用版）》](../../../insights/t2i-benchmark-shortlist-pre2026.md)
 
 ## 综述与全景
@@ -58,6 +58,7 @@
 | Yuvion VL RiskEval (YVRE) | [2606.25034](https://arxiv.org/abs/2606.25034) | 2026 arXiv (阿里安全 AGI Lab) | 三级递进评测（58 benchmark）：Level 1 通用能力设 ≤3 点退化 gate，Level 2 公开安全 8 集 + 自建电商治理 4 集，Level 3 内部业务 20+ 集六维（含 AI 生成图检测、动态政策下的指令遵循） |
 | ABACUS | [2610.28316](https://arxiv.org/abs/2610.28316) | 2026 WACV (CEA List / 巴黎萨克雷) | **指令式图像编辑的 judge-free 评测基准**：10,944 指令 / 3,845 图 / 80 类；全景真值经双检测器可删性审计，SAM3 + 匈牙利实例匹配 + 双检测器共识，`Score = CF × SC × OC` 乘积；与人类计数一致性 **0.82**（纯 VLM 0.55、单检测器 0.28），跨 7 编辑器 σ=**0.013** |
 
+| **WeGenEditBench + WeGenEvoStudio** | [2610.41210](https://arxiv.org/abs/2610.41210) | 2026 arXiv（**腾讯微信视觉 + 中山大学**，58 页） | **"先要件后汇总"的图像编辑基准**：2,740 instance / **148** 任务类型（单图 / 文字密集 / 多参考）/ 15 配置；checklist **预生成且跨模型共享**，judge 必须先写 item 级理由与扣分再给维度分（EG/PR/VQ/DS）；不适用项排除出分母、**空 side 列表不算成功**；**每版本冻结 judge/prompt/输入处理/checklist/无效响应五项**；审计 15,214 model–task + 194,836 item 记录、10% 人工审。硬证据：**PR 全场第一（4.175）的模型 Overall 只排第五（3.841）**；定向收益是全量的 **1.07–1.85×**；RSI 环（WeGenEvoStudio）FLUX.2 Overall 1.083→3.517、Qwen +13.2%（含 −0.343 的子项跌幅）✅ 已精读 |
 | MoI-Bench | [2610.37599](https://arxiv.org/abs/2610.37599) | 2026 arXiv (UCL + 南京大学 + 香港理工 + 华东师范) | **图像生成/编辑的"操作 × 目标"二维评测**：16 操作 × 8 目标稀疏矩阵 → 64 子任务 / 1150 样本；判据 IF/VQ/DP(Structure+Identity) 组成 **稀疏 rubric 立方体**（always / sample-dependent / N/A 三态），条件**先写后跑**；**加权几何平均**聚合禁止跨判据补偿，**能力缺失记 0 且不移除**；双 judge（GPT-4o 主 + Gemini-3.1-pro 独立）排名 Spearman **ρ=0.968**、人类锚 **ρ=0.904**；输出 Quality–Deployability 二维图谱（iPhone 17 Pro / Xiaomi 15 Pro 实测延迟与峰值内存） |
 
 
