@@ -887,5 +887,123 @@
   ],
   "comment": "9 pages, 4 figures",
   "selected_date": "2026-11-03"
+ },
+ {
+  "id": "2611.04916v1",
+  "title": "Behind Video Generation: Observations and Insights on Multimodal Understanding from Kling",
+  "summary": "Video generation has progressed from isolated clips to coherent short-form audiovisual sequences, and the bottleneck is shifting from rendering to semantic control. This report summarizes the observations and insights on multimodal understanding gained from successive generations of Kling. We argue that generation quality is the projection of multimodal understanding through the entire data--conditioning--alignment--evaluation chain, and we examine this chain module by module. Kling-MLLM, a shared multimodal foundation model that unifies image, video, audio, synchronized audio--video, and interleaved inputs, is specialized for each downstream module. Because a DiT is trained on far fewer training samples than a language model, we treat captioning as a semantic contract that maximizes description density, and extend it to reference-grounded captioning that makes reference bindings explicit. Prompt enhancement translates user intent into this caption distribution: basic PE is derived from captions of compelling videos and refined with text-level and generator-in-the-loop reinforcement learning, while agentic PE refines the story and retrieves compelling examples. We show that a reliable text encoder comes from perceptual training rather than from stronger language ability, and that candidates can be screened from text alone before end-to-end training. Reward modeling pairs a general reward model for explainable, localized critiques with a decision reward model for fast multidimensional scoring, treating perceptual bandwidth as a first-class design parameter. Finally, we review task-specific automatic evaluation, focusing on protocols that expose scoring shortcuts and help trace failures to their upstream source. We hope these lessons offer practical guidance for building the understanding stack behind controllable video generation.",
+  "published": "2026-11-03",
+  "authors": [
+   " Kling Team",
+   "Dong Chen",
+   "Jialu Chen",
+   "Xinlong Chen",
+   "Yifan Dai",
+   "Haotian Dong",
+   "Binzong Geng",
+   "Yushuo Guan",
+   "Minghui Guo",
+   "Guanlin He",
+   "Guanxiao He",
+   "Jingyun Hua"
+  ],
+  "categories": [
+   "cs.CV"
+  ],
+  "comment": "",
+  "selected_date": "2026-11-04"
+ },
+ {
+  "id": "2611.04467v1",
+  "title": "Is Forgetting Unified? Exploring Concept Unlearning in Unified Multimodal Models",
+  "summary": "Unified multimodal models (UMMs) integrate image generation and visual understanding, but are existing single-pathway unlearning methods sufficient to suppress target concepts across both? In this work, we study cross-pathway concept unlearning. Our goal is to prevent a model from both generating images of a target concept and identifying it in input images, while preserving other capabilities. To this end, we introduce UUBench, a diagnostic benchmark covering 30 target concepts and 60 semantically related neighboring concepts. Experiments on representative UMMs show that the evaluated single-pathway methods achieve limited joint forgetting: generation-side editors strongly suppress target generation but yield limited forgetting in visual understanding, while understanding-side baselines struggle to achieve substantial forgetting even in their own pathway. Their direct composition also yields limited joint forgetting. We therefore propose UniForget, achieving joint forgetting rates of 80.0% on BAGEL-7B-MoT and 92.7% on Janus-Pro-7B, outperforming representative baselines. Further analysis reveals trade-offs between joint forgetting and capability preservation.",
+  "published": "2026-11-03",
+  "authors": [
+   "Zhongkai Xue",
+   "Junkai Chen",
+   "Mingcong Lei",
+   "Rumo Zhang",
+   "Yixiao Liu",
+   "Zhimin Sun",
+   "Shu Wu",
+   "Qiang Liu",
+   "Lihua Zhang",
+   "Liang Wang"
+  ],
+  "categories": [
+   "cs.CV"
+  ],
+  "comment": "",
+  "selected_date": "2026-11-04"
+ },
+ {
+  "id": "2610.39825v1",
+  "title": "AegisFlow: Training-Free Non-Myopic Path-Safe Guided Flow Matching",
+  "summary": "Pretrained generative models, such as diffusion and flow matching models, have demonstrated exceptional capabilities in synthesizing high-quality data. However, steering their generative trajectories to satisfy strict constraints--such as identity preservation in image editing or obstacle avoidance in robotics--remains fundamentally challenging. While recent training-free guidance methods enforce path-safety, they rely heavily on min-norm controllers that only account for immediate constraint satisfaction. These myopic approaches often yield suboptimal trajectories that hover dangerously close to the boundary, severely restricting the model's ability to optimize toward its target. In this paper, we propose AegisFlow, a training-free, non-myopic path-safe guidance framework that recasts guided generation as a safety-critical optimal control problem with global scope. By integrating a time-varying barrier function directly into the global cost functional, AegisFlow naturally enforces constraints along the entire generative path. To compute the global optimal control, we derive a tractable, mathematically grounded approximation of the Hamilton-Jacobi-Bellman (HJB) equation. Comprehensive experiments demonstrate that AegisFlow outperforms state-of-the-art methods across text-guided image manipulation and robotic planning, establishing a significantly better trade-off between target alignment and constraint satisfaction. Code is available at https://github.com/LiuKunpeng03/AegisFlow.",
+  "published": "2026-10-29",
+  "authors": [
+   "Kunpeng Liu",
+   "Boshi Zhang",
+   "Keyou You"
+  ],
+  "categories": [
+   "cs.AI"
+  ],
+  "comment": "18 pages, 6 figures",
+  "selected_date": "2026-11-04"
+ },
+ {
+  "id": "2610.39158v2",
+  "title": "VEvo-Harness: Causally-Guarded Self-Evolving Harness for Agentic Image Generation",
+  "summary": "The central bottleneck in visual generation and editing has migrated from achieving pixel-level fidelity to satisfying densely constrained user specifications through increasingly agentic workflows. Prevailing agentic generation pipelines remain shallow generate-verify-rewrite loops treating VLM judgments as coarse visual feedback, either discarding repair experience or admitting ungated updates that poison skill library. With memorize and govern periods left open, they degrade into ungoverned iterators of repeated trial-and-error rather than continual self-evolving harness. Towards this issue, we present \\textbf{VEvo-Harness}, the first causally-guarded continual self-evolving harness system for agentic visual generation. VEvo-Harness introduces four coupled innovations: (1) \\textit{a visual traceback} that densifies sparse judgments into root-cause attributions with a hierarchical verification tree; (2) \\textit{a visual continual governance} that admits only causally valid skill patches through counterfactual dual-arm image generation replay; (3) \\textit{a lifecycle-managed harness state} that hierarchically distills root-cause-anchored episodes across working, experience, and pattern tiers into a persistent skill library of routable and causally verified capabilities; (4) \\textit{a heterogeneous sandbox policy} that orchestrates a diverse action space of repair primitives, dynamically routing cost-aware interventions based on root causes to select the most effective strategy. VEvo-Harness surpasses state-of-the-art agentic methods and rivals proprietary generators (\\textit{e.g.}, GPT-Image, Nano-Pro) while maintaining the continual harness evolution and generalization.",
+  "published": "2026-10-29",
+  "authors": [
+   "Yuan Wang",
+   "Yuhang Yu",
+   "Mengting Chen",
+   "Tianrun Xu",
+   "Zihao Pan",
+   "Xuetao Feng",
+   "Wei Li"
+  ],
+  "categories": [
+   "cs.CV"
+  ],
+  "comment": "",
+  "selected_date": "2026-11-04"
+ },
+ {
+  "id": "2611.02348v1",
+  "title": "Which Words a Model Fears: From a Refusal Direction to a Vocabulary-Wide Fear Lexicon",
+  "summary": "Whether an aligned language model refuses depends in part on which words a prompt contains, regardless of whether those words carry the request's meaning. Harm words shift the hidden state at the generation boundary along a component shared across prompts and words, which crossed differencing extracts as a single direction. In eight models, writing along this direction raises and lowers refusal monotonically with dose, ahead of random and KL-matched directions. Used as a ruler over the full vocabulary, the direction gives every word a shift, from \"feared\" words at one end to \"courage\" words at the other; a word's shift is predictable from its own representation, and appending a feared word to a benign prompt is enough to make the model refuse it. Two held-out tests validate the ranking in all eight models: refusal after inserting an unseen word rises with its table shift, and replacing a prompt's most feared word by its most courageous meaning-preserving synonym significantly raises the answer rate on benign and harmful prompts alike, by an amount that follows the shift the replacement actually causes.",
+  "published": "2026-11-02",
+  "authors": [
+   "Boyuan Zhang",
+   "Mohammad Zandsalimy",
+   "Shanu Sushmita"
+  ],
+  "categories": [
+   "cs.CL"
+  ],
+  "comment": "19 pages, 11 figures. Code: https://github.com/zboyr/which-words-a-model-fears ; data: https://huggingface.co/datasets/vhboyr/which-words-a-model-fears",
+  "selected_date": "2026-11-04"
+ },
+ {
+  "id": "2611.01125v1",
+  "title": "What Does a Safety Label Measure? Auditing Situational-Safety Benchmarks for Multimodal LLMs",
+  "summary": "Situational-safety benchmarks label each scene SAFE or UNSAFE and score a multimodal large language model (MLLM) against that label, usually by judging its free-form answer, and these scores guide deployment. We ask what such a label measures. A label score can come from the scene, the request or the benchmark's own files. We propose the Benchmark Card, seven measured fields that tell them apart, and fill it for six benchmarks. Only MSSBench chat leaks the label through its image files: image size alone reaches 82.3% accuracy, matching or beating six of seven commercial models. Elsewhere the signal outside the scene comes from design. In MOSSBench the item partition fixes the label, and on HoliSafe the request alone ranks pairs about as well as the scene. On our corrected chat split, the size rule falls to chance. We then introduce the Spot-Stop decomposition, which compares ranking with labelling on pairs of a safe and an unsafe scene. It splits the gap above a label-swap null into three parts: a threshold part, overlap between safe and unsafe scores, and order that holds only within a pair. Most of fourteen open MLLMs rank better than they label, beyond what their AUROC predicts. On chat, one shared threshold repairs a third to a half of the excess, and label-free recentering recovers it on balanced batches. Recentering on unlabelled scenes of the same situation improves ranking on VSCBench for 13 of 14 models.",
+  "published": "2026-10-31",
+  "authors": [
+   "Wayner Barrios",
+   "Kenneth Barrios"
+  ],
+  "categories": [
+   "cs.CV",
+   "cs.AI",
+   "cs.LG",
+   "cs.MA"
+  ],
+  "comment": "",
+  "selected_date": "2026-11-04"
  }
 ]

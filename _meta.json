@@ -1,65 +1,65 @@
 {
- "_meta_version": "1.0",
- "last_updated": "2026-11-03",
- "paper_counts": {
-  "t2t": 116,
-  "t2i": 124,
-  "agentic": 40,
-  "total": 280
- },
- "survey_versions": {
-  "t2t-survey": {
-   "date": "2026-11-03",
-   "count": 116
+  "_meta_version": "1.0",
+  "last_updated": "2026-11-04",
+  "paper_counts": {
+    "t2t": 118,
+    "t2i": 128,
+    "agentic": 40,
+    "total": 286
   },
-  "t2i-survey": {
-   "date": "2026-11-03",
-   "count": 124
+  "survey_versions": {
+    "t2t-survey": {
+      "date": "2026-11-04",
+      "count": 118
+    },
+    "t2i-survey": {
+      "date": "2026-11-04",
+      "count": 128
+    },
+    "agentic-search-survey": {
+      "date": "2026-10-30",
+      "version": "v1.9",
+      "count": 40
+    },
+    "landscape_2026": {
+      "date": "2026-11-04",
+      "version": "v3.12",
+      "total_papers": 286
+    }
   },
-  "agentic-search-survey": {
-   "date": "2026-10-30",
-   "version": "v1.9",
-   "count": 40
+  "benchmark_status": {
+    "t2t_benchmark": {
+      "entries": 23,
+      "last_updated": "2026-11-04"
+    },
+    "t2i_benchmark": {
+      "entries": 39,
+      "last_updated": "2026-11-04"
+    },
+    "agentic_benchmark": {
+      "entries": 10,
+      "last_updated": "2026-04-30"
+    }
   },
-  "landscape_2026": {
-   "date": "2026-11-03",
-   "version": "v3.11",
-   "total_papers": 280
-  }
- },
- "benchmark_status": {
-  "t2t_benchmark": {
-   "entries": 22,
-   "last_updated": "2026-11-03"
+  "daily_reports": {
+    "latest": "2026-11-04",
+    "this_month_count": 3,
+    "missing_dates": []
   },
-  "t2i_benchmark": {
-   "entries": 38,
-   "last_updated": "2026-11-03"
+  "workflow_version": "2.3",
+  "today_selection": {
+    "t2i": [
+      "2611.04916_kling_prompt_enhancement_reward_chain",
+      "2611.04467_uniforget_cross_pathway_concept_unlearning",
+      "2610.39825_aegisflow_nonmyopic_path_safe_guidance",
+      "2610.39158_vevo_harness_causally_guarded_agentic_generation"
+    ],
+    "t2t_migration": [
+      "2611.02348_which_words_a_model_fears",
+      "2611.01125_what_does_a_safety_label_measure"
+    ],
+    "theme": "拆到能动手的那一层",
+    "t2i_ratio": "66.7%"
   },
-  "agentic_benchmark": {
-   "entries": 10,
-   "last_updated": "2026-04-30"
-  }
- },
- "daily_reports": {
-  "latest": "2026-11-03",
-  "this_month_count": 2,
-  "missing_dates": []
- },
- "workflow_version": "2.3",
- "today_selection": {
-  "t2i": [
-   "2610.41210_wengenedit_bench_checklist_aggregation",
-   "2610.41460_retryroute_sticky_failure_routing",
-   "2610.41307_erase_injected_region_onpolicy_distill",
-   "2610.37949_aig_ncii_configured_not_built"
-  ],
-  "t2t_migration": [
-   "2610.38076_prompt_lottery_paraphrase_judge",
-   "2610.37882_fyc_fpr_disparity_threshold"
-  ],
-  "theme": "被边际掉的那一维",
-  "t2i_ratio": "66.7%"
- },
- "_note": "This file is the single source of truth for all paper counts. Automation must update this file on every run. Never estimate counts — always use search_file to scan papers/ directories."
+  "_note": "This file is the single source of truth for all paper counts. Automation must update this file on every run. Never estimate counts — always use search_file to scan papers/ directories."
 }

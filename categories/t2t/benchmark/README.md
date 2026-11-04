@@ -2,7 +2,7 @@
 
 文生文 LLM 的基础综述、安全评测基准论文。
 
-> 最后回填: 2026-11-03 | 共 **22** 条
+> 最后回填: 2026-11-04 | 共 **23** 条
 
 ## 综述类
 
@@ -37,5 +37,7 @@
 | Judged in Company | [2610.40241](https://arxiv.org/abs/2610.40241) | 2026 arXiv (TUM) | **批处理（in-context batching）对 LLM-as-judge 的污染量化**：4–9B 判定翻转 **11–22%**、14–32B **6–15%**，而 AUROC 只动 **−0.033~+0.010**；换 5/9/15 个排列后残留 **60–69% / 52–60% / 8.4–17.8%**；首槽翻转率 4.0% vs 其它槽 **9.9–11.8%** ⇒ **聚合指标看不见个体翻转**，判定可分离性需单独验收 ✅ 已精读 |
 
 | **Prompt Lottery** | [2610.38076](https://arxiv.org/abs/2610.38076) | 2026 arXiv（**Upwork Inc**，55 页） | **judge prompt 的释义不变性审计**：845 条件 / 12 数据集 / 5 prompt 族 / 5 判定模型；4 个释义变体（Claude 3 Opus 生成 + 人工保义审 + Gemini 语法校验）。**κ 0.89 → 0.24**（人类只掉 0.09–0.11，即 **6–9 倍**）。**反直觉核心：越客观越不稳**——SQuAD v2 二元客观题 Top-1 翻转 **43.3%**、τ=0.17，而 MTBench 主观对话 **0%**；二元任务"重叠高"是 Binary Paradox（机会校正后 κ 更低）。**语义相似度 0.44–0.49 而 κ 0.0–0.7 散布**（Pearson 0.157 / Spearman −0.022）⇒ embedding 保真度量对稳定性零信息量。聚合 **Plurality 三战全胜 / Average 三战全败**；DeBERTa-gate 2× 算力拿 86% 稳健性（Llama 8B 门控 TNR 仅 0.042）✅ 已精读 |
+
+| **Benchmark Card / Spot-Stop** | [2611.01125](https://arxiv.org/abs/2611.01125) | 2026 arXiv（**Wiqonn**，44 页） | **把「排序能力」与「打标能力」分开的审计框架**：Benchmark Card 七字段（file-only rule / metadata classifier / request-only AUROC / identical-request AUROC / threshold-overlap-within / recovery / leakage verdict）；**Spot-Stop 分解** `R − A = (A*−A) + (AUROC−A*) + (R−AUROC)`，三项分别对应「共享阈值可修 / 分布重叠不可修 / 对内顺序不可修」。硬证据：MSSBench chat 的**图片尺寸单独判标签 82.3%**（追平或超过七个商用模型中的六个）、HoliSafe 纯请求 AUROC 0.914；14 个模型 R−A 全为正，**一个共享阈值只能修 1/3–1/2**，剩下 6.9 点全是重叠；recentering 在 AUROC >0.70 时回收 77%/99%，**AUROC <0.70 时五个模型里三个变差** ✅ 已精读 |
 
 [← 返回文生文目录](../README.md)
