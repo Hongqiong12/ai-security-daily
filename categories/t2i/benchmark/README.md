@@ -63,4 +63,6 @@
 
 | **UUBench** | [2611.04467](https://arxiv.org/abs/2611.04467) | 2026 arXiv（**中科院自动化所 + 国科大 + 字节跳动 + 港中深 + 上交**） | **跨通路概念擦除的六格诊断基准**：30 目标（人物/地标/物体各 10）× 2 同类邻近概念 = 60 邻居 / 720 图。**六指标各自独立分母**：TF 目标遗忘（生成）/ SF 严格遗忘 / NR 邻居保留 / SR 严格邻居保留 / TU 目标非身份效用（理解）/ NU 邻居效用，并写死偏序 **SF ≤ TF、SR ≤ NR**。「生成侧 TF 100.0 而 DF 仅 24.0」「两通路直接组合只到 31.3」「N=1→30 时理解侧 DF 92.7%→37.1%、生成侧邻居 NR 剩 41.8%」三条硬数字把权重侧擦除的失效边界量化到不可忽略 ✅ 已精读 |
 
+| **CompoSET** | [2610.41118](https://arxiv.org/abs/2610.41118) | 2026 arXiv（**Caltech / Pietro Perona 组**） | **受控单点编辑的组合性基准**：既有 benchmark 的 base–foil 配对图**平均 97% 像素在变**（配对间场景/布局/内容全不同）⇒ 模型只要捕捉"整图不一样"即可答对。CompoSET 把差异压到 **8%**：**1,776 instance / 80 自然场景 / 每 base ~22 个 foil / 16 种编辑类型（4 语义类别）/ 3 档 caption 长度**；评分要求 **image→text 与 text→image 双向都对**（strict bidirectional，随机线 16.67%）。硬证据：**22 个 dual-encoder VLM 全部在或低于随机**（最好 SigLIP-2 SO400M/14 = **13.9%**，95% CI [12.3,15.5]，scene-clustered bootstrap 后 22 个上界全 <**15.55%**），而同模型 BiVLC 49.5% / ColorSwap 39.7% / MMVP 31.1%；**文本侧硬负样本不迁移**（NegCLIP 7.0 < CLIP B/16 LAION 7.8）；失败集中在 Spatial / Quantity / Activity&State。⇒ **I2I 编辑评测集改造的直接范本**（一条指令配多个单点 foil，才能把"场景难"与"编辑难"分开）✅ 已精读 |
+
 [← 返回文生图目录](../README.md)

@@ -79,10 +79,10 @@
 ## 📊 数据统计
 
 ```
-t2i 类目论文统计 (截至 2026-10-26，按 papers/*.md 精确扫描)
-├── 精读文档总数: 102 篇
+t2i 类目论文统计 (截至 2026-11-05，按 papers/*.md 精确扫描)
+├── 精读文档总数: 132 篇
 ├── 主题分布: 概念擦除 / 图审与护栏 / 输入侧改写 / benchmark / 越狱攻击 / 水印溯源
-└── 2026-10 新增: Yuvion VL、Omni-UBench、AVLM Failure Taxonomy、SELECT、Attractive Faces Skew
+└── 2026-11 新增: CompoSET、PGuard、ODC、DeCoRL、Kling PE、UniForget、AegisFlow、VEvo-Harness
 ```
 
 ## 🔗 外部资源

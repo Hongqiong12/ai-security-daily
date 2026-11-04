@@ -1,20 +1,20 @@
 {
   "_meta_version": "1.0",
-  "last_updated": "2026-11-04",
+  "last_updated": "2026-11-05",
   "paper_counts": {
-    "t2t": 118,
-    "t2i": 128,
+    "t2t": 120,
+    "t2i": 132,
     "agentic": 40,
-    "total": 286
+    "total": 292
   },
   "survey_versions": {
     "t2t-survey": {
-      "date": "2026-11-04",
-      "count": 118
+      "date": "2026-11-05",
+      "count": 120
     },
     "t2i-survey": {
-      "date": "2026-11-04",
-      "count": 128
+      "date": "2026-11-05",
+      "count": 132
     },
     "agentic-search-survey": {
       "date": "2026-10-30",
@@ -22,19 +22,19 @@
       "count": 40
     },
     "landscape_2026": {
-      "date": "2026-11-04",
-      "version": "v3.12",
-      "total_papers": 286
+      "date": "2026-11-05",
+      "version": "v3.13",
+      "total_papers": 292
     }
   },
   "benchmark_status": {
     "t2t_benchmark": {
       "entries": 23,
-      "last_updated": "2026-11-04"
+      "last_updated": "2026-11-05"
     },
     "t2i_benchmark": {
-      "entries": 39,
-      "last_updated": "2026-11-04"
+      "entries": 40,
+      "last_updated": "2026-11-05"
     },
     "agentic_benchmark": {
       "entries": 10,
@@ -42,23 +42,23 @@
     }
   },
   "daily_reports": {
-    "latest": "2026-11-04",
-    "this_month_count": 3,
+    "latest": "2026-11-05",
+    "this_month_count": 4,
     "missing_dates": []
   },
   "workflow_version": "2.3",
   "today_selection": {
     "t2i": [
-      "2611.04916_kling_prompt_enhancement_reward_chain",
-      "2611.04467_uniforget_cross_pathway_concept_unlearning",
-      "2610.39825_aegisflow_nonmyopic_path_safe_guidance",
-      "2610.39158_vevo_harness_causally_guarded_agentic_generation"
+      "2610.41118_composet_single_edit_benchmark",
+      "2611.02791_pguard_native_streaming_guardrail",
+      "2611.00819_odc_orthogonal_drift_correction",
+      "2610.39265_decore_rl_object_consistency_reward"
     ],
     "t2t_migration": [
-      "2611.02348_which_words_a_model_fears",
-      "2611.01125_what_does_a_safety_label_measure"
+      "2610.39802_goal_over_refusal_gradient_orthogonalization",
+      "2611.00447_sqm_ordinal_judge_calibration"
     ],
-    "theme": "拆到能动手的那一层",
+    "theme": "没有可比性的数字，不是证据",
     "t2i_ratio": "66.7%"
   },
   "_note": "This file is the single source of truth for all paper counts. Automation must update this file on every run. Never estimate counts — always use search_file to scan papers/ directories."

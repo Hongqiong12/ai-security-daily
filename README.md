@@ -9,11 +9,11 @@
   <a href="https://img.shields.io/badge/Reports-Today-blue.svg">
     <img src="https://img.shields.io/badge/Reports-Today-blue.svg" alt="Reports Today"/>
   </a>
-  <a href="https://img.shields.io/badge/Papers-286-green.svg">
-    <img src="https://img.shields.io/badge/Papers-286-green.svg" alt="Total Papers"/>
+  <a href="https://img.shields.io/badge/Papers-292-green.svg">
+    <img src="https://img.shields.io/badge/Papers-292-green.svg" alt="Total Papers"/>
   </a>
-  <a href="https://img.shields.io/badge/Last-Update-2026--11--04-orange.svg">
-    <img src="https://img.shields.io/badge/Last-Update-2026--11--04-orange.svg" alt="Last Update"/>
+  <a href="https://img.shields.io/badge/Last-Update-2026--11--05-orange.svg">
+    <img src="https://img.shields.io/badge/Last-Update-2026--11--05-orange.svg" alt="Last Update"/>
   </a>
   <a href="https://github.com/Hongqiong12/ai-security-daily/stargazers">
     <img src="https://img.shields.io/github/stars/Hongqiong12/ai-security-daily.svg?style=social&label=Star" alt="GitHub stars"/>
@@ -22,33 +22,33 @@
 
 ---
 
-## 🔥 今日最具业务价值论文评测 (2026-11-04)
+## 🔥 今日最具业务价值论文评测 (2026-11-05)
 
-> **为什么要关注本仓库？** 前两周的结论是"被边际掉的那一维""风险住在看不见的那一半"；这周再往下一层：**不是要不要拆，而是拆到哪一层才能动手。** 六篇各自把测量单位往下压了一级——**prompt→词 / 聚合分→链路四段 / "忘了"→通路 / 终点→路径 / 布尔→根因 / 一个 label score→阈值+重叠+顺序**——然后在你第一次能干预的那一层停下来。六篇里**没有一篇的主贡献是"训一个更强的模型"**。
+> **前两周的结论是"拆到能动手的那一层"。这周换一个角度：**六篇各自在拆同一颗雷——**我们汇报的每个数字，都绑定在产生它的那个配置上。** 配对图 97% 的像素在变，所以旧 benchmark 的分数不可比；12 个配置块的阈值从 10% 到 97%，所以阈值不可跨模型搬；同一模型在 13.9% 与 49.5% 之间切换，只是因为换了尺子。**换模型、换变体、换数据集、换评测协议，数字就作废。**
 >
-> **✅ 供给侧先说清楚**：arXiv **供给解冻**，批次从 10-30 一次推进到 **11-03**（新增 10-31 / 11-01 / 11-02 / 11-03 **四个批次、335 篇**），去重 **600** / 排除已收录后 **592 候选**。但 T2I 安全仍然为零：**全池 592 篇按 NSFW 严格词边界扫描 0 命中**、（生成∩安全∩改写）三条件交集只剩 **1 篇且其 rewrite 指 generate-verify-rewrite 循环**、**13 路专项查询归零** ⇒ **T2I 输入侧改写 + I2I 编辑改写连续第九周零供给**。这轮的空窗证据强于前八轮，因为供给已经解冻了。
+> **✅ 供给侧先说清楚**：最新批次仍是 **11-03**，**11-04 批次在 00:00 尚未生成** ⇒ 相对昨天 **T2I 新供给为 0**。全量 **78 路**查询去重 **542**（窗口 10-29 → 11-05），未收录候选 **530**，但**全部是昨天已扫过的存量**。因此本轮转为**存量深挖**：把昨天的"候选观察"升级为精读。空窗第 **十一** 周，证据同昨天一样硬：**542 篇按 NSFW 严格词边界扫描 0 命中**、（生成∩安全∩改写）**只剩 1 篇且是已读过的 VEvo**、**14 路专项查询归零**。
 
 | 核心威胁领域 | 🚨 今日优先论文 | 一句话快评 | 深度拆解 |
 |---|---|---|---|
-| **输入侧改写（工业配方）** | [Kling PE](./categories/t2i/papers/2611.04916_kling_prompt_enhancement_reward_chain.md) | **快手可灵团队**（38 页）。**本轮唯一一篇头部公司公开的输入侧改写配方**。三层对齐（Format × **Lexicon** × **Sentence patterns**，只对格式会漂）；数据**从 caption 反向构造**并拒绝"骨架泄漏" prompt；三阶段训练里**文本级 RL 不渲染一帧**（保真 4.27→**4.45**）。最扎的一行：**接上生成器做 RL 之后保真掉回 4.38**（≥4 占比 86.67→**83.50**）⇒ **"用图像一致性奖励换语义保真"的实测价码**。 | [📄 立即阅读](./daily-reports/2026-11/2026-11-04_AI安全每日深度情报.md) |
-| **权重侧擦除（失效边界）** | [UniForget / UUBench](./categories/t2i/papers/2611.04467_uniforget_cross_pathway_concept_unlearning.md) | **中科院自动化所 + 字节跳动 + 港中深 + 上交**。**生成侧 TF 100.0 而 DF 只有 24.0** ⇒ 画不出来≠不知道；两通路**直接组合只到 31.3**；**N=1→30 时理解侧 DF 92.7%→37.1%、邻居 NR 剩 41.8%** ⇒ **权重侧擦除随概念数线性崩塌、且没有"只擦这个"的精度**。六格记账 + 写死 `SF≤TF`、`SR≤NR`。 | [📄 立即阅读](./daily-reports/2026-11/2026-11-04_AI安全每日深度情报.md) |
-| **约束满足（改写幅度铁律）** | [AegisFlow](./categories/t2i/papers/2610.39825_aegisflow_nonmyopic_path_safe_guidance.md) | **清华自动化系**。**贴着约束边界走的 min-norm 控制器，约束最好、目标最差**：MNC 的 ID **0.920 最高**，但 CLIP/LPIPS 都输。⇒ **"edit rate 越小越好"在数学上就是 min-norm，会把改写后的 prompt 推到"风险刚好等于阈值"**。应改成留裕度 `τ−δ`。图像任务上比 MNC 快 **16.3%**，控制任务上慢 **10×**。 | [📄 立即阅读](./daily-reports/2026-11/2026-11-04_AI安全每日深度情报.md) |
-| **I2I 0/0%（该不该改写）** | [VEvo-Harness](./categories/t2i/papers/2610.39158_vevo_harness_causally_guarded_agentic_generation.md) | **阿里淘天 + 清华**（ICLR'27 投稿）。直接写 *"prompt-only interventions lack fine-grained attribution and pixel-grounded feedback"*。**有害补丁入库率：不门控 33–40% / 纯文本门控 16% / 看图门控 2%** ⇒ 8 倍差距全在"验收看不看图"。**HSP 三动作路由 vs Rewrite-Only +4.0%** ⇒ 0/0% 可能是**把 resample/tune 的活派给了改写**。 | [📄 立即阅读](./daily-reports/2026-11/2026-11-04_AI安全每日深度情报.md) |
-| **风险锚点（降到词级）** | [Which Words a Model Fears](./categories/t2t/papers/2611.02348_which_words_a_model_fears.md) | **美国东北大学**。单个**保义同义词替换**降拒答 **3–28 点**，惰性词对照 **≤2 点**；**71,583 词**恐惧表半集复现 **ρ=0.95**。最反直觉：**手挑的 24 个"安抚词"没有一类有效，"收纳"类反而 +0.075** ⇒ 靠人工直觉写安全同义词库会系统性失败。 | [📄 立即阅读](./daily-reports/2026-11/2026-11-04_AI安全每日深度情报.md) |
-| **阈值 operating point（该不该调）** | [Spot-Stop 三项分解](./categories/t2t/papers/2611.01125_what_does_a_safety_label_measure.md) | **Wiqonn**（44 页）。**一个 label score 混了三样东西**：`R−A = 阈值项 + 重叠项 + 对内顺序项`。**一个共享阈值只能修 1/3–1/2**，剩下 **6.9 点全是重叠**；recentering 在 **AUROC<0.70 时五个模型里三个变差**。附带：某 benchmark 的**图片尺寸单独判标签 82.3%**。 | [📄 立即阅读](./daily-reports/2026-11/2026-11-04_AI安全每日深度情报.md) |
+| **I2I 评测（对照组设计）** | [CompoSET](./categories/t2i/papers/2610.41118_composet_single_edit_benchmark.md) | **Caltech（Perona 组）**。量了一件事：旧 benchmark 的配对图**平均 97% 像素在变**，模型只要看出"整张图不一样"就答对。把差异压到 **8%**（1,776 instance / 80 场景 / 每 base **~22 个 foil** / 16 种编辑），**22 个 dual-encoder 全部低于随机线**（最好 13.9% vs 随机 16.67%，聚类 bootstrap 后 22 个上界全 < 15.55%）。同模型在 BiVLC 是 49.5% ⇒ **不是模型差，是尺子换**。附带：**文本侧硬负样本不迁移**（NegCLIP 7.0% < base 7.8%）。 | [📄 立即阅读](./daily-reports/2026-11/2026-11-05_AI安全每日深度情报.md) |
+| **阈值下发（工业真表）** | [PGuard](./categories/t2i/papers/2611.02791_pguard_native_streaming_guardrail.md) | **阿里巴巴 AAIG**。原生流式护栏读 backbone 的 residual stream，**不改推理路径**，百亿级 backbone 上开销仅 **0.82–2.26%**，文本 F1 **0.836**。附录 B 把 **12 个配置块 × 29 个子类目阈值**全公开，跨度 **10%–97%**。最扎的一行：**图-文 query 的 29 个阈值里 24 个恰压在下限 10%**（同模型文本 query 中位 40+）⇒ **图审没有可用的中间 operating point**。过度拒答同方法不同变体 **6.12% vs 16.09%**，差 2.6 倍。 | [📄 立即阅读](./daily-reports/2026-11/2026-11-05_AI安全每日深度情报.md) |
+| **输入侧（第二条路）** | [ODC](./categories/t2i/papers/2611.00819_odc_orthogonal_drift_correction.md) | **墨尔本大学**。文字一个字不动，改**嵌入**：漂移向量取对 prompt 的**正交分量** → 词表检索回词 → QR 秩缩减（ζ=1%）剔除。**先取正交再减**这个设计正是"风险锚点外科替换"的形式化——锚点不是词，是方向。代价：**CLIP +1.47 的同时 UniDet −20%**；A&E 专门做对齐却**比不改还差**（29.54 < 30.33）。⇒ 表征层手术的天花板就在这。 | [📄 立即阅读](./daily-reports/2026-11/2026-11-05_AI安全每日深度情报.md) |
+| **RL 奖励（价码表）** | [DeCoRL](./categories/t2i/papers/2610.39265_decore_rl_object_consistency_reward.md) | **小红书**。把整体一致性拆成**物体级奖励，缺失记 0**。DeCo-Bench **6.22 → 7.05(SFT) → 8.16(RL)**，6 参考图档 **3.64 → 7.61**。最该看的是 Table 3：**指令遵循 −0.8%，换主体相似度 +9.0%、自然度 +22.6%** —— 与昨天 Kling 的"保真 4.45→4.38"是同一个方向。另一个数：**vanilla VLM 奖励 7.21 vs 训练过 8.16**（差 SFT 增益的 7 倍）⇒ **接个现成 VLM 当奖励基本无效**。 | [📄 立即阅读](./daily-reports/2026-11/2026-11-05_AI安全每日深度情报.md) |
+| **误杀根因（非阈值）** | [GOAL](./categories/t2t/papers/2610.39802_goal_over_refusal_gradient_orthogonalization.md) | **合工大 + NUS**。误杀不是阈值问题，是**梯度耦合**：有害样本梯度低秩且与"拒绝"目标对齐更强，把无害但像风险的样本一起推向拒答；深层表示**越来越重叠**。做**拒绝子空间正交化 + 对比学习**：拒答率 **19.5% → 9.0%**，安全分反升（JBB **0.90→0.97**），通用能力最大掉 **0.0071**，人工 Useful Compliance **66.5→76.0**。⇒ **如果表示已重叠，阈值只能在混叠的轴上切。** | [📄 立即阅读](./daily-reports/2026-11/2026-11-05_AI安全每日深度情报.md) |
+| **多版本回归口径** | [SQM](./categories/t2t/papers/2611.00447_sqm_ordinal_judge_calibration.md) | **Upwork**。17 种校准方法大比武，SQM（分位数匹配）综合第一（MAE **+31.4%**、Wasserstein **+27.9%**）。最硬的数：**校准前后 Spearman 0.494、Kendall 0.450 完全不变** ⇒ **校准只改尺度，不改排序**。所以它能救"中等 judge"（补掉对 GPT-5 差距的 **83.9%/70.1%**），救不了小 judge（**34.5–45.5%**），`< 10ms` 单次、**第 1 百分位数据就收敛**。⇒ 5 节点下的正解是"20–30B + 校准"，不是"100B"。 | [📄 立即阅读](./daily-reports/2026-11/2026-11-05_AI安全每日深度情报.md) |
 
 ---
 
 ## 🔭 前沿 Survey & 洞察简报 (Must-Read)
 
-我们不仅搬运论文，更系统沉淀方法论。以下是基于 **286** 篇安全论文萃取的全局视野：
+我们不仅搬运论文，更系统沉淀方法论。以下是基于 **292** 篇安全论文萃取的全局视野：
 
 | 研究洞察精华 | 解决的核心问题 | 更新状态 |
 |------|------|----------|
-| 🏆 **[2026 AI 大模型安全前沿洞察](./insights/AI_Security_Landscape_2026.md)** | **拆到能动手的那一层**（NEW） · **接上生成器后保真 4.45→4.38**（NEW） · **擦除随概念数 92.7%→37.1%**（NEW） · **共享阈值只能修 1/3–1/2**（NEW） | 2026-11-04 |
+| 🏆 **[2026 AI 大模型安全前沿洞察](./insights/AI_Security_Landscape_2026.md)** | **数字绑定配置：同一模型 13.9% vs 49.5%**（NEW） · **图-文阈值 24/29 压地板**（NEW） · **校准不改排序（0.494→0.494）**（NEW） · **RL 用 −0.8% 指令遵循换 +9.0% 相似度**（NEW） | 2026-11-05 |
 | 🧭 **[T2I 主线模型评测地图（2026）](./insights/t2i-mainline-model-eval-map-2026.md)** | 当前主线模型测哪些指标 · 对应 benchmark / evaluation set 有哪些 · 训练集透明度与闭源程度如何分层 | 2026-04-22 |
-| 🛡️ **[T2T LLM 安全全局图谱](./insights/t2t-survey.md)** | **词级恐惧表：保义替换降 3–28 点**（NEW） · **手挑安抚词全部无效**（NEW） · **Spot-Stop：阈值只能修 1/3–1/2**（NEW） · **AUROC<0.70 禁止免标注校准**（NEW） | 2026-11-04 |
-| 🖼️ **[T2I 文生图安全七年演进](./insights/t2i-survey.md)** | **Kling 三层对齐与掉保真价码**（NEW） · **跨通路擦除随概念数崩塌**（NEW） · **贴边界控制器：约束最好目标最差**（NEW） · **纯改写不够：Rewrite-Only 输 4.0%**（NEW） | 2026-11-04 |
+| 🛡️ **[T2T LLM 安全全局图谱](./insights/t2t-survey.md)** | **GOAL：误杀是梯度耦合，拒答率 19.5%→9.0%**（NEW） · **SQM 校准不改排序**（NEW） · **中 judge + 校准补 70–84% 差距**（NEW） · **小 judge 只补 34–46%**（NEW） | 2026-11-05 |
+| 🖼️ **[T2I 文生图安全七年演进](./insights/t2i-survey.md)** | **CompoSET：97%→8% 像素变化，22 模型全部低于随机**（NEW） · **PGuard 12 块阈值表 10–97%**（NEW） · **ODC 正交分量改嵌入**（NEW） · **DeCoRL 物体级奖励缺失记 0**（NEW） | 2026-11-05 |
 | 🤖 **[Agentic Search 攻防全景](./insights/agentic-search-survey.md)** | **StressSim 保真/失败位次**(NEW) · 手工策略跨模型方向会反(NEW) · SkillGuard-Robust · SnapGuard | 2026-10-30 |
 | 🔪 **[Abliteration 与概念擦除范式](./insights/alignment-paradigm-shift-abliteration.md)** | 剖析大模型对齐的脆弱性，以及定向消融攻击的底层逻辑 | 2026-04-07 |
 
