@@ -1,20 +1,20 @@
 {
   "_meta_version": "1.0",
-  "last_updated": "2026-11-05",
+  "last_updated": "2026-11-06",
   "paper_counts": {
-    "t2t": 120,
-    "t2i": 132,
+    "t2t": 122,
+    "t2i": 136,
     "agentic": 40,
-    "total": 292
+    "total": 298
   },
   "survey_versions": {
     "t2t-survey": {
-      "date": "2026-11-05",
-      "count": 120
+      "date": "2026-11-06",
+      "count": 122
     },
     "t2i-survey": {
-      "date": "2026-11-05",
-      "count": 132
+      "date": "2026-11-06",
+      "count": 136
     },
     "agentic-search-survey": {
       "date": "2026-10-30",
@@ -22,19 +22,19 @@
       "count": 40
     },
     "landscape_2026": {
-      "date": "2026-11-05",
-      "version": "v3.13",
-      "total_papers": 292
+      "date": "2026-11-06",
+      "version": "v3.14",
+      "total_papers": 298
     }
   },
   "benchmark_status": {
     "t2t_benchmark": {
-      "entries": 23,
-      "last_updated": "2026-11-05"
+      "entries": 24,
+      "last_updated": "2026-11-06"
     },
     "t2i_benchmark": {
-      "entries": 40,
-      "last_updated": "2026-11-05"
+      "entries": 41,
+      "last_updated": "2026-11-06"
     },
     "agentic_benchmark": {
       "entries": 10,
@@ -42,24 +42,23 @@
     }
   },
   "daily_reports": {
-    "latest": "2026-11-05",
-    "this_month_count": 4,
+    "latest": "2026-11-06",
+    "this_month_count": 5,
     "missing_dates": []
   },
   "workflow_version": "2.3",
   "today_selection": {
     "t2i": [
-      "2610.41118_composet_single_edit_benchmark",
-      "2611.02791_pguard_native_streaming_guardrail",
-      "2611.00819_odc_orthogonal_drift_correction",
-      "2610.39265_decore_rl_object_consistency_reward"
+      "2611.06741_tailsteer_multiturn_edit_drift",
+      "2611.06840_number_words_past_ten_t2i",
+      "2611.06856_longbanana_multi_reference_bench",
+      "2611.06000_intraa_sd_finetune_attribution"
     ],
     "t2t_migration": [
-      "2610.39802_goal_over_refusal_gradient_orthogonalization",
-      "2611.00447_sqm_ordinal_judge_calibration"
+      "2611.05851_risk_control_rates_not_magnitudes",
+      "2611.06453_failure_boundary_profiles"
     ],
-    "theme": "没有可比性的数字，不是证据",
-    "t2i_ratio": "66.7%"
+    "theme": "率不承诺个体"
   },
   "_note": "This file is the single source of truth for all paper counts. Automation must update this file on every run. Never estimate counts — always use search_file to scan papers/ directories."
 }

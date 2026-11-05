@@ -2,7 +2,7 @@
 
 文生图扩散模型的安全评测基准、数据集与评估框架论文。
 
-> 最后回填: 2026-11-04 | 共 **39** 条
+> 最后回填: 2026-11-06 | 共 **41** 条
 > 延伸索引: [《T2I 安全 Benchmark 短名单（2026 年前高引用版）》](../../../insights/t2i-benchmark-shortlist-pre2026.md)
 
 ## 综述与全景
@@ -19,6 +19,8 @@
 
 | 论文 | ArXiv | 年份/会议 | 核心创新 |
 |------|-------|----------|----------|
+| **LongBanana** | [2611.06856](https://arxiv.org/abs/2611.06856) | 2026（**快手可灵 AI 研究院** + 华南师大 + UBC/Vector/CMU/清华/港科大/港大） | **图结构接地的原子判据基准**：90 任务 / 3×3 分类法 / 每任务 ~32 参考图 + ~20 约束 + ~50 评测项 ⇒ **4,670 条专家指定原子判据**；900 输出 × 清单 = **46,700 条人审标签**，双标 15%（**89.4% / QWK 0.83**）。三层图单元（节点/边/整图）→ 三维（Content Fidelity / Relational Binding / Global Constraint）。agentic checklist judge：**输出级相关 +2.9 点（0.8413→0.8707）而条目级三元一致 +15.82 点、两端相反错误 −19.28 点** ⇒ 同一个改进换分母差 5 倍 (NEW) |
+| **Number Words Past Ten** | [2611.06840](https://arxiv.org/abs/2611.06840) | 2026（University of Colorado Boulder） | **同噪声单因子对照协议**：一个物体 + 一个起始噪声 = 一张图，故可固定一切只改一个因子（数字/种子/拼写/无关词/只重画细于 1/8 图幅的噪声）；3,088 张由未见 prompt 的人计数。射程内（2–8）**80–99%** 同噪声对满足"大请求给更多物体"；射程外重画细噪声推动数量达数词效果的 **2/3** 而数词**无方向**。**指标可分辨性负结果**：exact-match 分不出"松跟随"与"忽略"，relative-error **甚至偏好常数 16** (NEW) |
 | HRS-Bench | [2304.05390](https://arxiv.org/abs/2304.05390) | 2023 ICCV | Holistic / Reliable / Scalable 三位一体的 T2I 综合评测框架，覆盖 50 类应用与多维能力指标 |
 | HEIM (Holistic Evaluation) | [2311.04287](https://arxiv.org/abs/2311.04287) | 2023 NeurIPS Datasets & Benchmarks | 把质量、对齐与 bias / toxicity / fairness / robustness 纳入统一 T2I holistic evaluation |
 | UnsafeBench | [2405.03486](https://arxiv.org/abs/2405.03486) | 2024 arXiv | 面向真实图像与 AI 生成图像的 image safety classifier 评测框架，代表生成后审核安全基准 |
