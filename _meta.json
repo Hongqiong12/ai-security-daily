@@ -1,20 +1,20 @@
 {
   "_meta_version": "1.0",
-  "last_updated": "2026-11-06",
+  "last_updated": "2026-11-08",
   "paper_counts": {
-    "t2t": 122,
-    "t2i": 136,
+    "t2t": 124,
+    "t2i": 140,
     "agentic": 40,
-    "total": 298
+    "total": 304
   },
   "survey_versions": {
     "t2t-survey": {
-      "date": "2026-11-06",
-      "count": 122
+      "date": "2026-11-08",
+      "count": 124
     },
     "t2i-survey": {
-      "date": "2026-11-06",
-      "count": 136
+      "date": "2026-11-08",
+      "count": 140
     },
     "agentic-search-survey": {
       "date": "2026-10-30",
@@ -22,19 +22,19 @@
       "count": 40
     },
     "landscape_2026": {
-      "date": "2026-11-06",
-      "version": "v3.14",
-      "total_papers": 298
+      "date": "2026-11-08",
+      "version": "v3.15",
+      "total_papers": 304
     }
   },
   "benchmark_status": {
     "t2t_benchmark": {
-      "entries": 24,
+      "entries": 25,
       "last_updated": "2026-11-06"
     },
     "t2i_benchmark": {
-      "entries": 41,
-      "last_updated": "2026-11-06"
+      "entries": 43,
+      "last_updated": "2026-11-08"
     },
     "agentic_benchmark": {
       "entries": 10,
@@ -42,23 +42,23 @@
     }
   },
   "daily_reports": {
-    "latest": "2026-11-06",
-    "this_month_count": 5,
+    "latest": "2026-11-08",
+    "this_month_count": 6,
     "missing_dates": []
   },
   "workflow_version": "2.3",
   "today_selection": {
     "t2i": [
-      "2611.06741_tailsteer_multiturn_edit_drift",
-      "2611.06840_number_words_past_ten_t2i",
-      "2611.06856_longbanana_multi_reference_bench",
-      "2611.06000_intraa_sd_finetune_attribution"
+      "2611.07392_welm_image_unified_generation_editing",
+      "2611.07502_coverage_hides_churn_conformal",
+      "2611.07216_compositional_unalignment_lvlm",
+      "2611.07632_tracemark_editor_aware_watermark"
     ],
     "t2t_migration": [
-      "2611.05851_risk_control_rates_not_magnitudes",
-      "2611.06453_failure_boundary_profiles"
+      "2611.07258_reweighting_is_not_harmless",
+      "2611.02134_haloguard2_streaming_output_guard"
     ],
-    "theme": "率不承诺个体"
+    "theme": "保证还在，判断已经换了"
   },
   "_note": "This file is the single source of truth for all paper counts. Automation must update this file on every run. Never estimate counts — always use search_file to scan papers/ directories."
 }

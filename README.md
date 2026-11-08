@@ -9,11 +9,11 @@
   <a href="https://img.shields.io/badge/Reports-Today-blue.svg">
     <img src="https://img.shields.io/badge/Reports-Today-blue.svg" alt="Reports Today"/>
   </a>
-  <a href="https://img.shields.io/badge/Papers-298-green.svg">
-    <img src="https://img.shields.io/badge/Papers-298-green.svg" alt="Total Papers"/>
+  <a href="https://img.shields.io/badge/Papers-304-green.svg">
+    <img src="https://img.shields.io/badge/Papers-304-green.svg" alt="Total Papers"/>
   </a>
-  <a href="https://img.shields.io/badge/Last-Update-2026--11--06-orange.svg">
-    <img src="https://img.shields.io/badge/Last-Update-2026--11--06-orange.svg" alt="Last Update"/>
+  <a href="https://img.shields.io/badge/Last-Update-2026--11--08-orange.svg">
+    <img src="https://img.shields.io/badge/Last-Update-2026--11--08-orange.svg" alt="Last Update"/>
   </a>
   <a href="https://github.com/Hongqiong12/ai-security-daily/stargazers">
     <img src="https://img.shields.io/github/stars/Hongqiong12/ai-security-daily.svg?style=social&label=Star" alt="GitHub stars"/>
@@ -22,34 +22,37 @@
 
 ---
 
-## 🔥 今日最具业务价值论文评测 (2026-11-06)
+## 🔥 今日最具业务价值论文评测 (2026-11-08)
 
-> **过去十一周我们反复在证明"这个数不可信"。今天换一个更基础的问法：**我们用来做决策的每一个数，都是一个"率"——而业务真正怕的是"量"。** 一个 α=0.10 的风险证书可以和一次 **271.3 mm** 的错误共存，因为率是集体性质、对个体免疫；一个把"该停"和"敢闯"混成一个标量的评分，会让**从不停车的智能体封堵段得分 52.2**、而每次都正确刹车的专家拿 37.8。**加指标没用，得加分母。**
+> **过去十二周我们反复在证明"这个数不可信"。今天换一个更冷的角度：这些数是对的，只是它们保证的东西比我们以为的窄一圈。** 覆盖率保证完好无损（旧类覆盖变化 **≤0.01**），但 **60–67% 的图像这一轮被改了标签**；探针 **AUC 1.000**，而真去干预只降了 **2.5** 点安全率（随机方向还降 **10.5**）；组间 FNR 差距 **15.8→2.6pp** 看起来"公平了"，其中 **74% 是靠该组自己恶化换来的**，每万人多漏 **82 例**，而总体准确率变化全部 **<0.1pp**。**没有一个保证是假的，但它们守的不是我们要的那件事。**
 >
-> **✅ 供给侧先说清楚**：**11-04 批次到了**（cs.CV 口径 111 篇），但它是一个**纯能力型批次**——机器人、医学、3D、遥感、世界模型。本轮额外做了昨天没做的事：**把 11-04 的 cs.CV+cs.CR+cs.MM 全批 141 篇逐篇看**，T2I 安全直接相关 **0 篇**。全量 86 路查询去重 **534**（窗口 10-30 → 11-05），未收录候选 **520**。空窗第 **十二** 周，证据形态升级：不再是"多路归零"，而是**整批 141 篇里没有一篇** + 534 篇 NSFW 严格词边界扫描 **0 命中** + **18 路专项查询归零**（上轮 14 路，本轮破纪录）。
+> **✅ 供给侧先说清楚**：最新批次只推进到 **11-05**（cs.CV 123 / cs.CR 25），**11-06 未生成、11-07/08 为周末** ⇒ 相对上一轮只多一个批次。本轮把 **11-05 七分类 406 篇全批逐篇扫**（cs.CV 123 / cs.LG 122 / cs.CL 68 / cs.AI 67 / cs.CR 25 / eess.IV 1 / cs.MM 0）：**NSFW 严格词边界 0 命中**、审核类 1 篇、T2I 类 2 篇（均非安全）⇒ 又一个**纯能力型批次**。全量 94 路去重 **490**（11-01:79 / 11-02:117 / 11-03:103 / 11-04:94 / 11-05:85）、未收录 **478**、多路命中 142。
 >
-> **⚠️ 本轮新增一条硬教训**：这 141 篇被 86 路查询命中的是 **0 篇**，而本轮 6 篇里有 **3 篇**正是从这 141 篇人工扫出来的。⇒ **当整批供给与主线无关时，主题词检索会整批归零，"零命中"不再能作为"没有供给"的证据**；主线供给为零时，默认动作应改为"全批扫描 + 按结构匹配"。
+> **⚠️ 空窗第 十三 周，证据形态再变一次**：不再是"多路归零"，而是 **19 路专项查询严格归零** + 406 篇全批 0 命中 + 一路高量假阳性（`h3` 回 16 篇，逐篇核验 **0 篇相关**，命中的是 adult / explicit / synthetic 这类宽松词）⇒ 实际 **20 路**。记一条：**有量不等于有供给**。
+>
+> **🎯 本轮唯一头部公司供给**：腾讯微信视觉 **WeLM-Image**——三个月来第一篇公开的统一 T2I+I2I 技术报告。编辑奖励设计得很硬（乘性门 $r_P$、27 类动作难度 3:5:2、Turbo 单图 4.98s），但**安全全文只有一句"训练前排除 NSFW"**。
 
 | 核心威胁领域 | 🚨 今日优先论文 | 一句话快评 | 深度拆解 |
 |---|---|---|---|
-| **阈值 operating point（价码表）** | [Risk Control](./categories/t2t/papers/2611.05851_risk_control_rates_not_magnitudes.md) | **湖南农大 + 湘雅医院**。选择性预测的风险界只约束粗错的**率**，不约束**量**。精确 Clopper–Pearson 标定出的证书与人工地板值不可区分，管线仍吐出 **271.3 mm** 误差（真值 324.6，报 53.3），被接受候选的完整度 **0.94**，150 个答案里 1 个离群点，**α=0.10 的风险界完好无损**。收解剖学准入域 50→55 mm：覆盖只掉 **0.4** 点、最坏误差 271.3→**11.4**；改用阈值压制要推到 **0.94**，代价 **19.0** 点 ⇒ **改定义比调阈值便宜 47 倍**。 | [📄 立即阅读](./daily-reports/2026-11/2026-11-06_AI安全每日深度情报.md) |
-| **评测口径（奖励敢闯）** | [Failure-Boundary](./categories/t2t/papers/2611.06453_failure_boundary_profiles.md) | **Social Chaos Lab + valeo.ai**。驾驶分 = 完成度 × 罚分，把"该停"和"敢闯"压成一个数：**从不停车的 SimLingo 在封堵段拿 52.2，每次都正确刹车的规则专家只有 37.8、总分垫底 59.2**。拆成 commitment × competence 两条曲线 + 两类平衡准确率（恒停/恒闯都被钉在 **0.5**）。附带：同一条字节级相同命令跑两次 **53.7 vs 32.2**；23 个候选物体 **7 个离线全过、上线全废（78%）**；"会停"≠"会等"（封堵全停的智能体人流等待 6/29）。 | [📄 立即阅读](./daily-reports/2026-11/2026-11-06_AI安全每日深度情报.md) |
-| **I2I 多轮编辑（商汤）** | [TailSteer](./categories/t2i/papers/2611.06741_tailsteer_multiturn_edit_drift.md) | **商汤研究院 + 港中文 MMLab + 上海 AI Lab**。多轮漂移的修法：**49 步基座 + 1 步微调** → 20 轮视觉稳定；**50 步全用微调模型反而去饱和过平滑** ⇒ **单点干预有效、全程接管毁先验**。推理期模块的代价是它的 3–5 倍（RISE **−3.06/−4.72** vs **−0.56**）。最扎的一行：FreqEdit 把编辑成功率 **16.00→10.00（−6）** 换来 PSNR，而**内容一致性反而 +5.22** ⇒ **只看一致性，最好的是"没改"**。保真监督不用 GT：**未被请求改变的内容就在源图里**。 | [📄 立即阅读](./daily-reports/2026-11/2026-11-06_AI安全每日深度情报.md) |
-| **指标可分辨性** | [Number Words](./categories/t2i/papers/2611.06840_number_words_past_ten_t2i.md) | **Colorado Boulder**。同噪声单因子对照：过十之后，**exact-match 分不出"松跟随"与"根本不跟"**，**relative-error 甚至偏好常数猜 16**。射程内（2–8）同噪声对 **80–99%** 满足"大请求给更多物体"；射程外重画细噪声能推动数量达数词效果的 **2/3**，而数词**没有方向**。数量写进 latent 能画对 **59%**，写进 prompt 只有 **4%**。 | [📄 立即阅读](./daily-reports/2026-11/2026-11-06_AI安全每日深度情报.md) |
-| **条目级 vs 输出级（差 5 倍）** | [LongBanana](./categories/t2i/papers/2611.06856_longbanana_multi_reference_bench.md) | **快手可灵 AI 研究院** + 华南师大 + UBC/Vector/CMU/滑铁卢/清华/港科大/港大。90 任务 / **4,670 条原子判据** / 46,700 条人审标签 / 15% 双标（**89.4% / QWK 0.83**）。agentic checklist judge 的改进：**输出级相关只涨 2.9 点（0.8413→0.8707），条目级三元一致 +15.82 点、两端相反错误 −19.28 点** ⇒ **同一个改进，换个分母差 5 倍**。难度权重必须冻结并版本化。 | [📄 立即阅读](./daily-reports/2026-11/2026-11-06_AI安全每日深度情报.md) |
-| **平均率的两种谎** | [IntrAA-SD](./categories/t2i/papers/2611.06000_intraa_sd_finetune_attribution.md) | **IIT Kharagpur**。同架构只差微调的 SDXL 版本归因（Juggernaut / RealVis / DreamShaper…），140K 图 / 10 微调 / 15 ID 类 / 20 OOD 类 / 95% JPEG。**99.03% (ID) vs 88.55% (OOD)，同一模型同一次训练**；现有架构级方法同数据重训是 **92.21% / 74.84%** ⇒ **"错的方法"在 ID 上也能到 92%**。风险：风格捷径（学"动漫风=Animagine"而非微调痕迹）。 | [📄 立即阅读](./daily-reports/2026-11/2026-11-06_AI安全每日深度情报.md) |
+| **工业统一 T2I+I2I（安全空位）** | [WeLM-Image](./categories/t2i/papers/2611.07392_welm_image_unified_generation_editing.md) | **腾讯微信视觉**。统一生成+编辑的工业技术报告。奖励是**乘性门**：$r_{\text{edit}}=r_P(0.4+0.4r_C+0.2r_Q)$，$r_P$ 不满足时后两项加权全失效（前提不是可补偿项）；27 类编辑动作按难度 **3:5:2** 配比并**剔除两端极简/极难**；过滤算子"保留分数、不断言二值"。MoT+MoE **31.7B 存储 / 5.4B 激活**，Turbo 单图 **4.98 s**（Qwen-Image-Edit-2511 需 **133.04 s**）。**安全部分全文仅一句"训练前排除 NSFW"，零安全评测、零输入侧改写、零输出侧图审**。 | [📄 立即阅读](./daily-reports/2026-11/2026-11-08_AI安全每日深度情报.md) |
+| **覆盖保证的暗面** | [Coverage Hides Churn](./categories/t2i/papers/2611.07502_coverage_hides_churn_conformal.md) | **Virginia Tech + Accenture**（WACV 2027）。符合预测的覆盖保证有效，但它约束的是**集合的长期频率**，不是**这张图这次的标签**：HPS-Refresh 改变 **53–90%** 图像的旧决策；只动归一化项时受影响图像 **60–67%**、而**旧类覆盖变化 ≤0.01**；撤销 **8.4–52.7%** vs 新增 **0.1–2.5%**（几何不对称：放开容易收回难）；PrefixCP 恢复 **40.9–58.5%** 的差距、代价 **0.49–3.14** 个标签；Table 5 排期让 **49.6–65.8%** 图像集合全变而 macro 覆盖 ≤0.0015。一句原话：**"A stable rule also preserves its mistakes"**。 | [📄 立即阅读](./daily-reports/2026-11/2026-11-08_AI安全每日深度情报.md) |
+| **AUC 与干预反号** | [Compositional Unalignment](./categories/t2i/papers/2611.07216_compositional_unalignment_lvlm.md) | **Emory University**。**1,400 条** SFT 得 SIUO **69.5** / 过度拒答 **7.0**，反超 **123k 条**四阶段 GRPO 的 **61.1 / 42.3**（数据质量 > 数据量）。Table 3 是教科书级反例：mass-mean 探针 **AUC 1.000 但 Δsafe 仅 −2.5**，**随机方向 AUC 0.678 却 Δsafe −10.5**（更"不准"的方向反而更有效）⇒ **可检出性 ≠ 可干预性**。真能降的：LEACE **−26.3**（连贯性只剩 5.5%）、PCA5-8 **−41.0**（54.2%）、RePE **−45.0**（40.4%）。CMaG 降 65 点且 >98% 连贯；LAT ε=11 伤害 **64.7→22.4** 仍没守住。 | [📄 立即阅读](./daily-reports/2026-11/2026-11-08_AI安全每日深度情报.md) |
+| **编辑式水印归因** | [TRACEMARK](./categories/t2i/papers/2611.07632_tracemark_editor_aware_watermark.md) | **Queen's University**。把水印从"能不能解"推进到"**是谁编的**"：editor-aware training，梯度穿过冻结编辑器。最扎的一行是**消融反号**——完整模型 **0.866**，去掉一致性项 **$-\mathcal{L}_{cons}$ 反而升到 0.918（三个域全升）** ⇒ 你声称必要的那一项在拖后腿，指标在奖励"不做事"。编辑前 **0.983 vs 0.980** 几乎打平，编辑后 **0.420 vs 0.920**（差的就是归因能力）；VINE-R 256px **0.062** → 512px **0.997**；换一条指令掉到 **0.635**（极差 0.120–0.975）。 | [📄 立即阅读](./daily-reports/2026-11/2026-11-08_AI安全每日深度情报.md) |
+| **组间公平的价码** | [Reweighting is not Harmless](./categories/t2t/papers/2611.07258_reweighting_is_not_harmless.md) | **Cedars-Sinai Medical Center**。重加权把组间 FNR 差异从 **15.8pp 压到 2.6pp**——但 **74% 的收窄来自该组自己变差**（相等加权 42%、多数加权 15%）；高基线少数群体 **ΔFNR +6.08pp、每万人多漏 82 例**；**总体准确率变化全部 <0.1pp**，所以任何聚合指标都看不见这件事。log-odds 平移：少数 **−0.26** / 相等 −0.16~−0.18 / 多数 **−0.07**；决策树上还出现 **4.3pp 反向差异**。结论很实用：**改用组特定决策阈值，别动权重**。 | [📄 立即阅读](./daily-reports/2026-11/2026-11-08_AI安全每日深度情报.md) |
+| **流式护栏的捷径** | [HaloGuard 2.0](./categories/t2t/papers/2611.02134_haloguard2_streaming_output_guard.md) | **Astroware AI + Karunya Institute**。F1 从 72.8 涨到 **83.6**、onset 召回 +5 点，但**匹配安全孪生对**（同长度、同分布、只差有害与否）**332 对只判对 13.9%**，其中"**只在安全孪生上触发**"的比例是 **0%** ⇒ 它学的是"回答像不像有害"，不是"有害在哪"。**37.4% 的误报发生在前 3 个 token**（首 token 分数 0.59 vs 0.24）；同模型判 prompt **95.9** vs 判回答 **71.9**。工程细节全是坑：线性头必须**零初始化**（RMS 4.2 → 梯度 >500 直接塌成常数）、**不能 sequence packing**（隐状态差异 0.23）。 | [📄 立即阅读](./daily-reports/2026-11/2026-11-08_AI安全每日深度情报.md) |
+
 ---
 
 ## 🔭 前沿 Survey & 洞察简报 (Must-Read)
 
-我们不仅搬运论文，更系统沉淀方法论。以下是基于 **298** 篇安全论文萃取的全局视野：
+我们不仅搬运论文，更系统沉淀方法论。以下是基于 **304** 篇安全论文萃取的全局视野：
 
 | 研究洞察精华 | 解决的核心问题 | 更新状态 |
 |------|------|----------|
-| 🏆 **[2026 AI 大模型安全前沿洞察](./insights/AI_Security_Landscape_2026.md)** | **率证书与 271.3 mm 共存（α=0.10）**（NEW） · **改定义比调阈值便宜 47 倍**（NEW） · **53.7 vs 32.2 同一命令两次**（NEW） · **条目级 +15.82 / 输出级 +2.9**（NEW） | 2026-11-06 |
+| 🏆 **[2026 AI 大模型安全前沿洞察](./insights/AI_Security_Landscape_2026.md)** | **保证还在、判断已经换了：覆盖 ≤0.01 变而 60–67% 图像改判**（NEW） · **AUC 1.000 而 Δsafe 仅 −2.5（随机方向 −10.5）**（NEW） · **组间 FNR 差收窄 74% 靠恶化该组**（NEW） · **消融反号：去掉一致性项 0.866→0.918**（NEW） | 2026-11-08 |
 | 🧭 **[T2I 主线模型评测地图（2026）](./insights/t2i-mainline-model-eval-map-2026.md)** | 当前主线模型测哪些指标 · 对应 benchmark / evaluation set 有哪些 · 训练集透明度与闭源程度如何分层 | 2026-04-22 |
-| 🛡️ **[T2T LLM 安全全局图谱](./insights/t2t-survey.md)** | **Risk Control：率不承诺个体（271.3 mm 在 α=0.10 内）**（NEW） · **准入域 0.4 vs 阈值 19.0 覆盖点**（NEW） · **Failure-Boundary：恒停/恒闯都钉 0.5**（NEW） · **SimLingo 52.2 > 专家 37.8**（NEW） | 2026-11-06 |
-| 🖼️ **[T2I 文生图安全七年演进](./insights/t2i-survey.md)** | **TailSteer：49+1 步有效、50 步全用过平滑**（NEW） · **FreqEdit 编辑成功率 −6 换保真**（NEW） · **LongBanana 4,670 原子判据 / 条目级 +15.82**（NEW） · **IntrAA-SD 99.03 (ID) vs 88.55 (OOD)**（NEW） | 2026-11-06 |
+| 🛡️ **[T2T LLM 安全全局图谱](./insights/t2t-survey.md)** | **Reweighting：FNR 差 15.8→2.6pp 但 74% 靠该组恶化、每万人多漏 82 例**（NEW） · **HaloGuard：匹配对只判对 13.9%、安全孪生触发 0%**（NEW） · **37.4% 误报在前 3 token**（NEW） · **线性头必须零初始化**（NEW） | 2026-11-08 |
+| 🖼️ **[T2I 文生图安全七年演进](./insights/t2i-survey.md)** | **WeLM-Image：乘性门奖励 $r_P$ 与安全全文仅一句**（NEW） · **Coverage：撤销 8.4–52.7% vs 新增 0.1–2.5%**（NEW） · **Compositional：1,400 条 SFT 反超 123k 条 GRPO**（NEW） · **TRACEMARK：编辑后 0.420 vs 0.920**（NEW） | 2026-11-08 |
 | 🤖 **[Agentic Search 攻防全景](./insights/agentic-search-survey.md)** | **StressSim 保真/失败位次**(NEW) · 手工策略跨模型方向会反(NEW) · SkillGuard-Robust · SnapGuard | 2026-10-30 |
 | 🔪 **[Abliteration 与概念擦除范式](./insights/alignment-paradigm-shift-abliteration.md)** | 剖析大模型对齐的脆弱性，以及定向消融攻击的底层逻辑 | 2026-04-07 |
 

@@ -1,8 +1,8 @@
 # T2T 大语言模型安全 Survey：攻防演进与前沿方向
 
 > **Survey 类型**: 基于项目论文库的系统性综述（Literature-Grounded Survey）  
-> **数据基础**: 本项目收录的 **122** 篇 T2T 安全论文（2022–2026）
-> **更新日期**: 2026-11-06
+> **数据基础**: 本项目收录的 **124** 篇 T2T 安全论文（2022–2026）
+> **更新日期**: 2026-11-08
 > **关联文档**: [前瞻总览](./AI_Security_Landscape_2026.md) · [T2I Survey](./t2i-survey.md)
 
 ---
@@ -1306,6 +1306,8 @@ SecureBreak 等基准提到了多语言覆盖的重要性，但目前大多数�
 | Continual Safety Alignment | [2604.17215](https://arxiv.org/abs/2604.17215) | 2026 | 持续安全对齐 | 通过 gradient-based sample selection 保留 continual fine-tuning 中的 safety basin，显著压低 ASR 与遗忘 (NEW) |
 | Cross-Lingual Jailbreak Detection | [2604.25716](https://arxiv.org/abs/2604.25716) | 2026 | 跨语言前置检测 | 用 semantic codebook + multilingual embedding 在低误报约束下召回 canonical jailbreak 语义 (NEW) |
 | **MSafeTemp** | [2610.40516](https://arxiv.org/abs/2610.40516) | 2026 (ETH Zurich) | 安全数据构建 / 锚点改写 | **框架 + 类型化槽位分离**：抽风险锚点 → 槽位化 → 只改写框架（绕过改写模型自身拒答）；44/60 语言、1.54M 有害变体；**Olmo 英语 ASR 0%→13.7%**；**TR vs PH 打穿行为 Jaccard 0.40–0.45**；**单 fill 漏掉约一半被打穿模板** (NEW) |
+| **Reweighting is not Harmless** | [2611.07258](https://arxiv.org/abs/2611.07258) | 2026 (Cedars-Sinai Medical Center) | 阈值校准 / 组间公平代价 | **组间差距收窄可以靠恶化少数群体换来**：Table 4 高基线少数组 **ΔFNR +6.08pp / 每万人多漏 82 例**；组间 FNR 差异 **15.8→2.6pp**，其中 **74% 来自该组恶化**（相等 42% / 多数 15%）；**总体准确率变化全部 <0.1pp** 所以聚合指标完全看不见；log-odds 平移 少数 **−0.26** / 相等 −0.16~−0.18 / 多数 **−0.07**；决策树出现 **4.3pp 反向差异**；建议直接"改用组特定决策阈值"(NEW) |
+| **HaloGuard 2.0** | [2611.02134](https://arxiv.org/abs/2611.02134) | 2026 (Astroware AI + Karunya Institute) | 流式输出护栏 / 捷径审计 | **匹配对判反率把"能判"与"在判什么"拆开**：**332 对匹配样本只判对 13.9%**，"只在安全孪生上触发"= **0%**；中位首次触发在 onset 前 **40 token**，但 **37.4% 误报发生在前 3 token**（首 token 分数 0.59 vs 0.24）；同模型判 prompt **95.9** vs 判回答 **71.9**（WildG 差 −24.0）；两阶段 + 权重平均 69.1/70.7/72.8 → **83.6**；**1 点 F1 换 5 点 onset 召回**；线性头必须零初始化（RMS 4.2 → 梯度 >500 塌成常数）；不能 sequence packing（隐状态差异 0.23）；Aegis 2.0 **FNR 23.9→7.9 而 FPR 27.7→27.0**（单侧改善）(NEW) |
 
 ### 基准/综述（代表性选摘）
 
@@ -1328,10 +1330,10 @@ SecureBreak 等基准提到了多语言覆盖的重要性，但目前大多数�
 
 ---
 
-*本 Survey 由 `paper-research` skill 自动生成，基于项目截至 2026-11-05 收录的 T2T 论文（120 篇）。*  
-*本次 Survey 更新：2026-11-05（新增 2 篇：2610.39802 GOAL 过度拒答的梯度正交化、2611.00447 SQM 定序 judge 分位数匹配校准）。*
+*本 Survey 由 `paper-research` skill 自动生成，基于项目截至 2026-11-08 收录的 T2T 论文（124 篇）。*  
+*本次 Survey 更新：2026-11-08（新增 2 篇：2611.07258 Reweighting is not Harmless 组间差距收窄 74% 靠在恶化少数群体、2611.02134 HaloGuard 2.0 匹配对判反率 13.9% 与流式护栏捷径审计）。*
 *本次 Survey 更新：2026-11-06（新增 2 篇迁移：2611.05851 Risk Control 率不承诺个体与准入域 47 倍价码、2611.06453 Failure-Boundary 两曲线评测与恒停/恒闯钉 0.5）。*
-*上次 Survey 更新：2026-11-05（2610.39802 GOAL 梯度正交化、2611.00447 SQM 分位数匹配校准）。*
+*本次 Survey 更新：2026-11-05（新增 2 篇：2610.39802 GOAL 过度拒答的梯度正交化、2611.00447 SQM 定序 judge 分位数匹配校准）。*
 *上次 Survey 更新：2026-11-03（2610.38076 Prompt Lottery 释义导致判定不稳、2610.37882 FYC 分组阈值与指标选择反噬）。*
 *上上次 Survey 更新：2026-10-28（2610.33813 LoRA vs 全量微调、2610.30742 UniGuard）。*  
 *上上次 Survey 更新：2026-10-27（2610.31047 Harm Is Behavioural、2610.27908 Polarity Blindness）。*  

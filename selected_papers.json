@@ -1053,5 +1053,93 @@
   "published": "2026-11-04",
   "url": "https://arxiv.org/abs/2611.06453",
   "authors": []
+ },
+ {
+  "id": "2611.07632v1",
+  "title": "TRACEMARK: Editor-Aware Watermarking for User Attribution in Text-Guided Image Editing",
+  "summary": "An image editing service records which user requests each edit, but the edited image itself does not contain this account information. Once the image is downloaded and shared, the service cannot identify the requesting user from the image alone. Embedding a user-specific watermark could enable such attribution, but semantic editing may erase the signal. We propose Tracemark, an editor-aware watermarking framework for identifying users from edited images. A shared encoder embeds a user-specific signal before editing, and a shared detector recovers the user by comparing features of the edited image with learned reference vectors. Both components are trained jointly through an editor with fixed parameters. User identification errors encourage the encoder to produce watermarks that survive editing, while fidelity losses limit changes to the input image and intended edit. Each image domain and editing instruction uses a separately trained model shared across registered users. Experiments on three image domains show that editor-aware training improves user recovery with both reference-vector matching and binary watermark decoding. Separately trained models reach 87.5% mean identification",
+  "published": "2026-11-05",
+  "url": "https://arxiv.org/abs/2611.07632",
+  "authors": [
+   "Xiaodong Wu",
+   "Xiangman Li",
+   "Jianbing Ni",
+   "Rongxing Lu"
+  ]
+ },
+ {
+  "id": "2611.07216v1",
+  "title": "Compositional Unalignment: Auditing Safety in Large Vision-Language Models",
+  "summary": "Large vision-language models (LVLMs) are vulnerable to compositional harm: an image and a prompt that are benign in isolation become harmful through the model's cross-modal reasoning. Recent alignment methods report strong scores on compositional safety benchmarks, but an LLM judge only measures observed behavior and cannot reveal how robustly safety is integrated into the model. We argue that un-alignment provides a complementary audit of alignment robustness. We first show that minimal supervised fine-tuning reaches an LLM-judge score comparable to a multi-stage reinforcement-learning pipeline, so similar benchmark scores cannot establish robustness by themselves. We then show that recognition and refusal of compositional harm are decoupled: nine standard direction-finding methods detect compositional harm with up to AUC=0.99, yet ablating the recovered directions either leaves refusal intact or destroys model coherence. We therefore propose CMaG, a training-free un-alignment method for compositional safety. CMaG measures refusal intention with a refusal-versus-compliance log-probability margin, takes its gradient with respect to mid-layer activations, and contrasts it against pa",
+  "published": "2026-11-04",
+  "url": "https://arxiv.org/abs/2611.07216",
+  "authors": [
+   "Hong kyu Lee",
+   "Kai Shu",
+   "Li Xiong"
+  ]
+ },
+ {
+  "id": "2611.02134v1",
+  "title": "HaloGuard 2.0: An Open-Weights Constitutional Output Guard for Multilingual Response Safety",
+  "summary": "An input guard decides whether a request reaches the model, but never sees what the model says. Harm that emerges during generation, because a jailbreak passed the input layer or a benign request drifted into operational detail, is visible only on the output side and only as tokens arrive. We present HaloGuard 2.0, an open-weight streaming output guard that assigns a safe/unsafe probability to every response token in a single forward pass, so a deployment can stop the stream once harm is confirmed. The guard reuses the constitution of HaloGuard 1.0, our input guard, to organise a 478,532-response training corpus, and supervises each token from the point where the response becomes harmful. We find that a guard trained on conventionally shaped data learns a shortcut specific to streaming: it judges the prompt instead of the response, and handles only 13.9% of matched safe/unsafe response pairs correctly. We correct this with a second phase on 106,043 counterfactual responses built around the base guard's own failure modes, and release the equal-weight average of the base and corrective models. On six English response-safety benchmarks, HaloGuard 2.0-0.8B reaches a macro F1 of 83.6 (8",
+  "published": "2026-11-01",
+  "url": "https://arxiv.org/abs/2611.02134",
+  "authors": [
+   "Ashmiya Lenin",
+   "Navaneeth Sangameswaran",
+   "Preetham S"
+  ]
+ },
+ {
+  "id": "2611.07392v1",
+  "title": "WeLM-Image: A Unified Image Generation Model towards Visual Intelligence",
+  "summary": "We present \\textbf{WeLM-Image}, a unified image foundation model that integrates multimodal understanding into text-to-image generation, instruction-guided editing, and multi-reference synthesis. Designed for single-GPU deployment in WeChat's large-scale consumer applications, the model processes text, reference images, and target latents as one interleaved sequence. A Mixture-of-Transformers (MoT) backbone combines shared attention with independent understanding and generation parameters to limit optimization interference. Equipping each path with Mixture-of-Experts (MoE) modules provides sparse capacity, with 31.7B stored parameters and approximately 5.4B generation parameters activated per target latent token. A generation-oriented data engine combines a knowledge-grounded visual vocabulary with large-scale visual clustering to balance semantic coverage and editing tasks, while training-time evaluation guides iterative data refinement. Bilingual annotations and verified editing supervision support progressive training up to native 1.5K resolution. We optimize generation and editing separately with rubric- and checklist-based rewards, then consolidate the specialized policies thr",
+  "published": "2026-11-05",
+  "url": "https://arxiv.org/abs/2611.07392",
+  "authors": [
+   "Canmiao Fu",
+   "Chen Li",
+   "Guohui Zhang",
+   "Hao Lu",
+   "Hongyang Wei",
+   "Huadong Wu",
+   "Huaisong Zhang",
+   "Hubery Yin",
+   "Liyuan Cui",
+   "Qixin Yan",
+   "Tong Shao",
+   "Xiaoqiang Zhou",
+   "Xinhang Leng",
+   "Ying Zhang",
+   "Zhenhai Liu",
+   "Zhipeng Huang"
+  ]
+ },
+ {
+  "id": "2611.07502v1",
+  "title": "Coverage Hides Churn: Auditing and Preserving Conformal Decisions as VLM Label Registries Grow",
+  "summary": "Vision-language classifiers can learn new labels from text alone, so the label lists they serve keep growing. We show that this growth silently changes conformal decisions about old labels. Common softmax-based conformal scores compare each label with an average over all labels; adding labels changes that average, and with it the score of every old label, even when the model, the image, and the old calibration data stay the same. Recalibrating after the update keeps the coverage guarantee, yet across eleven settings it changes at least one old decision on 53-90% of new images. Coverage cannot reveal this, because it checks only the true label: in five controlled settings that keep the old calibration, so that only the normalizer changes, old-class coverage moves by at most 0.01 while 60-67% of images change. We propose a lifecycle audit that measures these changes alongside coverage and set size, and a simple fix, PrefixCP: each class keeps the label registry that existed when it was added. Its old decisions then never change, each class keeps exact class-conditional coverage under exchangeability, and one prefix scan computes all historical normalizers at once. PrefixCP recovers 4",
+  "published": "2026-11-05",
+  "url": "https://arxiv.org/abs/2611.07502",
+  "authors": [
+   "Jai Kumar Sharma",
+   "Peeyush Tapadiya"
+  ]
+ },
+ {
+  "id": "2611.07258v1",
+  "title": "Reweighting is not Harmless: Understanding the Role of Dataset Characteristics",
+  "summary": "Reweighting is a widely used pre-processing method for promoting discrimination-free model behavior by assigning different weights to data points during model training. While it is often credited with improving fairness, particularly by mitigating systematic underestimation for underrepresented groups, it can also introduce unintended harms under certain data conditions. Using controlled simulations that vary group size and baseline event prevalence, we show how reweighting can yield misleading improvements in fairness by reducing underestimation for one group while introducing it for another. Across 3,000 simulated datasets with event prevalence of 7-14%, reweighting improved parity in positive classification and false negative rates (FNR) between groups, but did so partly by decreasing positive classifications and increasing FNR for the group with higher baseline prevalence. These effects were most pronounced when that group was a minority: its FNR rose by 6 percentage points, approximately 82 additional missed cases per 10,000 group members, and roughly three-quarters of the improvement in FNR parity came from this increase rather than from gains for the other group. The pattern",
+  "published": "2026-11-05",
+  "url": "https://arxiv.org/abs/2611.07258",
+  "authors": [
+   "Amalia Ionescu",
+   "Jose G. Hernandez",
+   "Emily F. Wong",
+   "Anil K. Saini",
+   "Jason H. Moore",
+   "Tiffani J. Bright"
+  ]
  }
 ]
