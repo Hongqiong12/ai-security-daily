@@ -2,7 +2,7 @@
 
 文生图扩散模型的安全评测基准、数据集与评估框架论文。
 
-> 最后回填: 2026-11-06 | 共 **41** 条
+> 最后回填: 2026-11-09 | 共 **46** 条
 > 延伸索引: [《T2I 安全 Benchmark 短名单（2026 年前高引用版）》](../../../insights/t2i-benchmark-shortlist-pre2026.md)
 
 ## 综述与全景
@@ -68,5 +68,11 @@
 | **CompoSET** | [2610.41118](https://arxiv.org/abs/2610.41118) | 2026 arXiv（**Caltech / Pietro Perona 组**） | **受控单点编辑的组合性基准**：既有 benchmark 的 base–foil 配对图**平均 97% 像素在变**（配对间场景/布局/内容全不同）⇒ 模型只要捕捉"整图不一样"即可答对。CompoSET 把差异压到 **8%**：**1,776 instance / 80 自然场景 / 每 base ~22 个 foil / 16 种编辑类型（4 语义类别）/ 3 档 caption 长度**；评分要求 **image→text 与 text→image 双向都对**（strict bidirectional，随机线 16.67%）。硬证据：**22 个 dual-encoder VLM 全部在或低于随机**（最好 SigLIP-2 SO400M/14 = **13.9%**，95% CI [12.3,15.5]，scene-clustered bootstrap 后 22 个上界全 <**15.55%**），而同模型 BiVLC 49.5% / ColorSwap 39.7% / MMVP 31.1%；**文本侧硬负样本不迁移**（NegCLIP 7.0 < CLIP B/16 LAION 7.8）；失败集中在 Spatial / Quantity / Activity&State。⇒ **I2I 编辑评测集改造的直接范本**（一条指令配多个单点 foil，才能把"场景难"与"编辑难"分开）✅ 已精读 |
 
 | **Coverage Hides Churn** | [2611.07502](https://arxiv.org/abs/2611.07502) | 2026 arXiv / WACV 2027（**Virginia Tech + Accenture**） | **策略更新的"判断漂移"评测协议（churn）**：把「覆盖率」与「个体决策稳定性」拆成两个必须同时报的量。协议三件套——① HPS（Homogeneous Prediction Sets）与 HPS-Refresh 逐轮刷新；② **churn / 撤销率 / 新增率**（同一图像在前后两轮的标签是否被改）；③ **PrefixCP**（每类目保留入册时注册表前缀，取前若干标签入册）。硬证据：覆盖保证有效但 HPS-Refresh 改变 **53–90%** 图像旧决策；**只动归一化项**（不改任何类目边界）时受影响图像 **60–67%**、撤销率 **8.5–34.7%**，而**旧类覆盖变化 ≤0.01**；撤销 **8.4–52.7%** vs 新增 **0.1–2.5%**（几何不对称，放开容易收回难）；PrefixCP 恢复 **40.9–58.5%** 覆盖差距、代价 **0.49–3.14** 个标签；Table 5 的排期实验让 **49.6–65.8%** 图像集合全变而 macro 覆盖 ≤0.0015。⇒ **阈值/注册表变更上线前必须报 churn，不能只报覆盖率与准确率** ✅ 已精读 |
+
+| **StitchEditBench** | [2611.07922](https://arxiv.org/abs/2611.07922) | 2026 **NeurIPS**（**香港科技大学**） | **"编辑梯度与结构梯度"逐层对齐的编辑基准 + 逐层梯度探针**：ST 60 / OM 50 / VC 40 = **150 例**，四指标 DCS（方向一致性）/ CLIP-Dir / LPIPS / User Pref.。把编辑失败从「指令没听懂」重新归因到**梯度通路的层间冲突**——逐层计算编辑梯度与深度梯度的余弦对齐剖面，发现冲突集中在中后段。硬证据：**显式条件把原图深度锁死**，源深度 CLIP-Dir 仅 **0.62**，换成 oracle 目标深度也只有 **0.79**，而**隐式条件 0.81**（即"给出正确答案"也救不回显式条件的锁死）；冲突区一起训能把 DCS 拉到 **0.92** 但 CLIP-Dir 掉到 **0.75**；Random Schedule 0.83 ⇒ **一致性指标与指令遵循指标在冲突区互为代价，必须双列报** (NEW) |
+
+| **VisionValueBench** | [2611.05578](https://arxiv.org/abs/2611.05578) | 2026 arXiv（**UW–Madison + 微软亚洲研究院**） | **把"文化价值"从模糊标签拆成可测维度的 T2I 基准**：以 **Hofstede 六维**（PDI/IDV/MAS/UAI/LTO/IVR）为坐标，配 **SAE（单属性提取）/ IAE（整体属性评估）双判据**，用 **TVD** 与 **homogeneity gap（群内−群间 cosine）** 量化 **visual value leakage**（连中性 prompt 也在表达价值取向）。硬证据：**EN→ZH 换语言后位移仅 0.07**（换语言改不了取向）；HiDream 的 UAI 从 **−0.357 翻到 +0.182**（ΔS=**+0.602**）；SAE **77.50% / κ 0.513** 明显弱于 IAE **82.92% / κ 0.731** ⇒ **拆维打分不如整体判**（与"越细越准"的直觉相反）。嵌入用 CLIP ViT-H-14 + InsightFace buffalo_l 双通道 ✅ 已精读 |
+
+| **Proxy Audit for T2I Disparity** | [2611.07132](https://arxiv.org/abs/2611.07132) | 2026 arXiv（**弗吉尼亚大学**） | **代理变量（proxy variables）审计协议**：不直接测"受保护属性"，而是沿 **职业 / 地理 / 姓氏** 三条代理轴构造配对探针，把"总分"与"失败位置"分开。硬证据：**Flux 0.310 与 Imagen 0.312 的总分几乎重合，但失败格子完全不重叠**（一致率意义上的"同分不同病"）；Stable Diffusion 在**姓氏格**掉到 **0.523**；面部嵌入 cosine **0.838** 说明失败并非"人脸不像"；**Schmidt / Chen / Kim 三姓氏的 TVD < 0.1** ⇒ 群体级分布差异小到不可见，而个体级失败已很严重。⇒ **公平性/鲁棒性验收不能只看聚合分，必须报分格矩阵** (NEW) |
 
 [← 返回文生图目录](../README.md)

@@ -2,7 +2,7 @@
 
 文生文 LLM 的基础综述、安全评测基准论文。
 
-> 最后回填: 2026-11-06 | 共 **24** 条
+> 最后回填: 2026-11-09 | 共 **26** 条
 
 ## 综述类
 
@@ -40,5 +40,9 @@
 | **Prompt Lottery** | [2610.38076](https://arxiv.org/abs/2610.38076) | 2026 arXiv（**Upwork Inc**，55 页） | **judge prompt 的释义不变性审计**：845 条件 / 12 数据集 / 5 prompt 族 / 5 判定模型；4 个释义变体（Claude 3 Opus 生成 + 人工保义审 + Gemini 语法校验）。**κ 0.89 → 0.24**（人类只掉 0.09–0.11，即 **6–9 倍**）。**反直觉核心：越客观越不稳**——SQuAD v2 二元客观题 Top-1 翻转 **43.3%**、τ=0.17，而 MTBench 主观对话 **0%**；二元任务"重叠高"是 Binary Paradox（机会校正后 κ 更低）。**语义相似度 0.44–0.49 而 κ 0.0–0.7 散布**（Pearson 0.157 / Spearman −0.022）⇒ embedding 保真度量对稳定性零信息量。聚合 **Plurality 三战全胜 / Average 三战全败**；DeBERTa-gate 2× 算力拿 86% 稳健性（Llama 8B 门控 TNR 仅 0.042）✅ 已精读 |
 
 | **Benchmark Card / Spot-Stop** | [2611.01125](https://arxiv.org/abs/2611.01125) | 2026 arXiv（**Wiqonn**，44 页） | **把「排序能力」与「打标能力」分开的审计框架**：Benchmark Card 七字段（file-only rule / metadata classifier / request-only AUROC / identical-request AUROC / threshold-overlap-within / recovery / leakage verdict）；**Spot-Stop 分解** `R − A = (A*−A) + (AUROC−A*) + (R−AUROC)`，三项分别对应「共享阈值可修 / 分布重叠不可修 / 对内顺序不可修」。硬证据：MSSBench chat 的**图片尺寸单独判标签 82.3%**（追平或超过七个商用模型中的六个）、HoliSafe 纯请求 AUROC 0.914；14 个模型 R−A 全为正，**一个共享阈值只能修 1/3–1/2**，剩下 6.9 点全是重叠；recentering 在 AUROC >0.70 时回收 77%/99%，**AUROC <0.70 时五个模型里三个变差** ✅ 已精读 |
+
+| **StreamLTT** | [2611.04062](https://arxiv.org/abs/2611.04062) | 2026 arXiv（**佐治亚大学 ECE**） | **流式数据下的风险认证：换检验救不了错的定义**。把 LTT 从 iid 扩展到非平稳流，核心不是换相依推断，而是**换"被认证的风险"**——认证 average predictable risk `R_pred,N = (1/N)Σ E[L_n | F_{n−1}]`，条件中心化后成鞅差序列，再用鞅 CLT / Hoeffding 出界。硬证据：三种相依推断（IID / HAC / BlockBootstrap）**全部停在 0.0300–0.0302**（几乎不动），只有换成条件风险口径的 StreamLTT 才到 **0.0090**；FWER 实测 **0.0902**（多重比较未控住）；认证比例 **76.7%**（即 23.3% 的流段无法认证）；Hoeffding 版 StreamLTT-H **0.0118** 略保守。⇒ **"保证覆盖率"和"保证谁的风险"是两件事，后者的定义先决于检验方法** ✅ 已精读 |
+
+| **Alignment Tax Is Graded** | [2611.06476](https://arxiv.org/abs/2611.06476) | 2026 arXiv（独立研究者） | **帮助性退化是分级的，而"崩塌 44 点"是尺子造出来的**：同一批安全干预在四类任务上量出**量级差 50 倍**的退化——extraction **−0.55**（8/8 等价检验通过，即真的没损失）、json **−3.52**（item 级 CI **−5.31** 已越界）、router **−30.16**；换成难例加权口径后 **0.550 → 0.981**（同一模型同一干预，分数翻近一倍，只因分母换了）。归因：**≥96% 的退化来自压制 rejected 行为**（而非能力损失），**margin 1–3 是唯一有损伤的窗口**（带外几乎无损）。⇒ **安全-帮助性 trade-off 必须按类目分列 + 分 margin 段报，聚合单点会同时高估与低估** ✅ 已精读 |
 
 [← 返回文生文目录](../README.md)
