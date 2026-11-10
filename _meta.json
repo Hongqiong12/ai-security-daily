@@ -1,20 +1,20 @@
 {
   "_meta_version": "1.0",
-  "last_updated": "2026-11-09",
+  "last_updated": "2026-11-10",
   "paper_counts": {
-    "t2t": 126,
-    "t2i": 144,
+    "t2t": 128,
+    "t2i": 148,
     "agentic": 40,
-    "total": 310
+    "total": 316
   },
   "survey_versions": {
     "t2t-survey": {
-      "date": "2026-11-09",
-      "count": 126
+      "date": "2026-11-10",
+      "count": 128
     },
     "t2i-survey": {
-      "date": "2026-11-09",
-      "count": 144
+      "date": "2026-11-10",
+      "count": 148
     },
     "agentic-search-survey": {
       "date": "2026-10-30",
@@ -22,19 +22,19 @@
       "count": 40
     },
     "landscape_2026": {
-      "date": "2026-11-09",
-      "version": "v3.16",
-      "total_papers": 310
+      "date": "2026-11-10",
+      "version": "v3.17",
+      "total_papers": 316
     }
   },
   "benchmark_status": {
     "t2t_benchmark": {
-      "entries": 26,
-      "last_updated": "2026-11-09"
+      "entries": 27,
+      "last_updated": "2026-11-10"
     },
     "t2i_benchmark": {
-      "entries": 46,
-      "last_updated": "2026-11-09"
+      "entries": 47,
+      "last_updated": "2026-11-10"
     },
     "agentic_benchmark": {
       "entries": 10,
@@ -42,23 +42,23 @@
     }
   },
   "daily_reports": {
-    "latest": "2026-11-09",
-    "this_month_count": 7,
+    "latest": "2026-11-10",
+    "this_month_count": 8,
     "missing_dates": []
   },
   "workflow_version": "2.3",
   "today_selection": {
     "t2i": [
-      "2611.07648_garm_tabo_bounded_reward",
-      "2611.05578_visionvaluebench_value_leakage",
-      "2611.07132_proxy_audit_t2i_disparity",
-      "2611.07922_stitchedit_per_layer_gradient_probe"
+      "2611.09304_t2i_negation_suppression",
+      "2611.06255_leno_frozen_generator_noise",
+      "2611.08996_unimore_specificity_unified",
+      "2611.08985_notarymark_multibit_watermark"
     ],
     "t2t_migration": [
-      "2611.04062_streamltt_risk_certification",
-      "2611.06476_alignment_tax_graded"
+      "2611.08845_jev_guardrail_overrefusal",
+      "2611.08048_metrics_scenario_guide"
     ],
-    "theme": "换检验，救不了错的定义"
+    "theme": "约束写下去了，绑定发生在别处"
   },
   "_note": "This file is the single source of truth for all paper counts. Automation must update this file on every run. Never estimate counts — always use search_file to scan papers/ directories."
 }

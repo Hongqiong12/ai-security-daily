@@ -1,8 +1,8 @@
 # T2I 文生图安全 Survey：攻防前沿与概念擦除技术演进
 
 > **Survey 类型**: 基于项目论文库的系统性综述（Literature-Grounded Survey）  
-> **数据基础**: 本项目收录的 **144** 篇 T2I 安全论文（2019–2026）
-> **更新日期**: 2026-11-09
+> **数据基础**: 本项目收录的 **148** 篇 T2I 安全论文（2019–2026）
+> **更新日期**: 2026-11-10
 > **关联文档**: [前瞻总览](./AI_Security_Landscape_2026.md) · [T2T Survey](./t2t-survey.md)
 
 ---
@@ -42,7 +42,7 @@
 
 ### 1.2 研究规模与分布
 
-截至 2026-11-09，本 Survey 锚定本项目已收录的 **144** 篇 T2I 安全论文。当前 T2I 安全版图已经不再是“越狱 vs 过滤器”的单线叙事，而是至少分裂成四条强主线：
+截至 2026-11-10，本 Survey 锚定本项目已收录的 **148** 篇 T2I 安全论文。当前 T2I 安全版图已经不再是“越狱 vs 过滤器”的单线叙事，而是至少分裂成四条强主线：
 
 - **概念擦除 / 机器遗忘**：从权重微调走向 closed-form projection、depth-aware removal 与 activation-level intervention；
 - **现实世界评测**：从 clean setting 转向 robustness-in-the-wild、near-duplicate 传播链、质量退化与伪造链路；
@@ -1981,10 +1981,14 @@ Flux 和 SD3 已经成为 2025–2026 年的主流 T2I 架构，但截至本 Sur
 | **GARM / TABO** | [2611.07648](https://arxiv.org/abs/2611.07648) | 2026 (中国电信 TeleAI + 悉尼大学) | **奖励上界要从真实正例量出来**：$B=-\eta\,\mathrm{softplus}((T-R)/\eta)$，$T$=真实正例 **75 分位**、$\eta$=半 IQR；**只加内容匹配硬负例，中性 prompt 泄漏 0.046→0.057（比不做还差）**，与生成器支撑匹配合起来才降到 0.029；无界最大化目标 **69.543 / VBench 0.5774** vs 有界 **68.722 / 0.5885**，**但两者都低于原模型 0.6166**；TA-GRPO 双赢（目标 +4.5、P20 +9.4、VBench 0.5893→0.6286）(NEW) |
 | **VisionValueBench** | [2611.05578](https://arxiv.org/abs/2611.05578) | 2026 (UW–Madison + 微软亚洲研究院) | **中立 prompt 的值泄漏**：Hofstede 六维 × **960 场景** × 4 语言 × 6 系统，价值中立 prompt 仍产出**高度一致**的取向；EN→ZH 位移中位数仅 **0.07**，地理线索只改强度不改方向，**无线索剖面更接近 US 线索**；两判据在 UAI 上**方向相反**（SAE 77.50%/κ 0.513 vs IAE **82.92%/κ 0.731**，正例一致率 41.3% vs **68.9%**）；**改写器使 HiDream UAI 从 −0.357 翻到 +0.182**（$\Delta S$ 最高 +0.602）(NEW) |
 | **Proxy Audit** | [2611.07132](https://arxiv.org/abs/2611.07132) | 2026 (弗吉尼亚大学) | **总分相同、失败位置不同**：代理变量审计（职业/地理/姓氏 × 50 变体 × **100 图/prompt**）；Flux **0.310** vs Imagen **0.312** 分不开，但 Imagen 职业代理白人过代表 **20%**、SD 姓氏代理 **0.523**；姓氏偏差取决于"姓氏—国别"相关强度（Schmidt/Chen/Kim 全 **<0.1**）；同 prompt 跨地点图面部 cosine **0.838**（比例对了人还是同一个）；TVD 需参考分布假设，作者自承这是它没避开的规范性问题(NEW) |
+| **T2I-NSI** | [2611.09304](https://arxiv.org/abs/2611.09304) | 2026 (IIT Jodhpur + Colorado State) | **否定约束根本没绑上**：759,869 配对原子 / 5,082 物体 / **916,272 图** / 6 生成器；**INVERSE 0.00%**（45.6 万次原子-模型评测）而 **ALWAYS_PRESENT 13.0–16.9% + PARTIAL_SUPPR 9.2–12.5%**，**干净 SUCCESS 只有 0.03–0.29%**；Robust NSI 开源 **0.0198–0.0378**、GPT-Image-1.5 **0.0934**、Gemini **0.0902**（匹配 prompt 下 **3.5×** 差，Δ=−0.067[−0.075,−0.059]）；**WEAKLY_REND 71.8–74.2% 主导聚合**；句法 **0.0110–0.0267** < 形态 < 词汇 **0.0301–0.0580**；**L2 关系否定是三者一致谷底**；人工 420 原子/**κ=0.09**、人工把度量"无从判定"的 502 原子里 **283 个(59.8%)判为 ALWAYS_PRESENT**；阈值网格下 **OTHER 占 10–97%** 而 NSI 变 ≤0.005(NEW) |
+| **LeNO** | [2611.06255](https://arxiv.org/abs/2611.06255) | 2026 (KAIST AI) | **冻结生成器 + 输入端残差 + KL 上界**：把逐样本初始噪声优化摊销成学出来的残差输运，**生成器完全冻结**；高斯先验+保范投影下 KL 上界退化为 $\|\mu_\theta\|^2$；**2 NFE 拿 ImageReward 0.761→1.019(+34%)** 且**不需奖励梯度**，同预算 HyperNoise 只 0.939；**LeNO+BoN(100 NFE) 三项全超 800 NFE 的 ψ-Sampler**（5.952/23.191/1.444 vs 5.945/23.182/1.421）；GenEval 分项不一致（Position **0.41 vs HyperNoise 0.48**、Attribution **0.54 vs 0.53**）；**σ>1.2 增益转负**；状态无关变体早期饱和(NEW) |
+| **UniMore** | [2611.08996](https://arxiv.org/abs/2611.08996) | 2026 (William & Mary + CMU + UIUC + UW–Madison + Squirrel Ai) | **统一模型两通路丢同一种特异性**：生成"物体对属性错"与理解"说不出区分性细节"是同一个病；短语→裁剪（GroundingDINO+CLIP 组合分）+ 原生视觉目标，理解路用 detail-deletion/corruption/unrelated 铰链排序（长度归一化）；**WISE 39.89→43.48(+3.59)** 而 **UEval 只 30.90→31.60(+0.70)**；**MMStar 63.20→70.13**；**DOCCI detail retention +1.55** 而 **GenEval color binding +8.25**；**G-only 的 color binding 62.50 > 合成版 62.00**；**ME +21.99 但 IC −0.94 / UGG −1.35**(NEW) |
+| **NotaryMark** | [2611.08985](https://arxiv.org/abs/2611.08985) | 2026 (西安交大 + VU Amsterdam + 浙大) | **水印被当噪声滤掉，判定与信息在不同点饱和**：把水印嵌进扩散一致潜变量 $z+\alpha E_{wm}(z,m)$（内容自适应结构化残差）；**$\alpha$=0.2 时 TPR 100%/FPR 0% 而 $BA_{img}$ 仅 60.69%**；容量 8→1024 **TPR 全线 100%** 而 $BA_{img}$ 89.50→**67.04**；对照 DwtDct $BA_{agg}$ **30.43%（反相关）**；**唯一打穿判定的朴素攻击是前置高斯模糊（TPR 83%，FID 135.91）**；"训练分类器筛水印图"完全失败（TPR 仍 100%）；**唯一真正有效是继续微调（TPR 32%、FID 155.72）**；水印率 ρ=0.1 时 TPR 仅 47%/31%(NEW) |
 
 ---
 
-*本 Survey 由 `paper-research` skill 自动生成，基于项目截至 2026-11-09 收录的 T2I 论文（144 篇）。*  
-*本次 Survey 更新：2026-11-09（新增 4 篇：2611.07922 StitchEdit 显式条件锁死输入与层间兼容探针、2611.07648 GARM/TABO 有界奖励与中性 prompt 泄漏、2611.05578 VisionValueBench 中立 prompt 的值泄漏与改写器方向反转、2611.07132 Proxy Audit 代理变量审计与"总分相同失败位置不同"）。*
-*上次 Survey 更新：2026-11-08（2611.07392 WeLM-Image、2611.07502 Coverage Hides Churn、2611.07216 Compositional Unalignment、2611.07632 TRACEMARK）。*
+*本 Survey 由 `paper-research` skill 自动生成，基于项目截至 2026-11-10 收录的 T2I 论文（148 篇）。*  
+*本次 Survey 更新：2026-11-10（新增 4 篇：2611.09304 T2I-NSI 否定约束未绑定与"太弱测不到"主导聚合、2611.06255 LeNO 冻结生成器+噪声侧残差+KL 上界、2611.08996 UniMore 统一模型两通路同源特异性损失、2611.08985 NotaryMark 多位水印"判定 100% 而信息 60%"。）*
+*上次 Survey 更新：2026-11-09（2611.07922 StitchEdit、2611.07648 GARM/TABO、2611.05578 VisionValueBench、2611.07132 Proxy Audit）。*
 *下次更新时间：跟随每日自动化任务实时更新。*
