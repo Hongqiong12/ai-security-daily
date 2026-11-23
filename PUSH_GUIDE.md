@@ -18,10 +18,12 @@
 
 ```bash
 cd /Users/ageisliu/WorkBuddy/Claw/ai-security-daily
-bash scripts/sync_remotes.sh main
+bash scripts/sync_remotes.sh all
 ```
 
-脚本会依次 push `origin` 和 `gongfeng`，**任一失败不阻断另一个**。
+> 参数只接受 `github` / `gongfeng` / `all`（不带参数默认 `all`）；**没有 `main` 这个参数**，2026-11-23 曾因照抄旧文档写成 `main` 而空跑一次，已订正。
+
+脚本会依次 push `origin` 和 `gongfeng`，**任一失败不阻断另一个**。工蜂分支为 `master`，采用「快照同步」（在远端 master 上追加一个内容取自本地 main、committer 为 aegisliu 的 commit），以绕过 committer-check。
 
 手动补推（例如工蜂凭据失效后恢复）：
 
