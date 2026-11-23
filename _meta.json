@@ -1,20 +1,20 @@
 {
   "_meta_version": "1.0",
-  "last_updated": "2026-11-10",
+  "last_updated": "2026-11-23",
   "paper_counts": {
-    "t2t": 128,
-    "t2i": 148,
+    "t2t": 132,
+    "t2i": 156,
     "agentic": 40,
-    "total": 316
+    "total": 328
   },
   "survey_versions": {
     "t2t-survey": {
-      "date": "2026-11-10",
-      "count": 128
+      "date": "2026-11-23",
+      "count": 132
     },
     "t2i-survey": {
-      "date": "2026-11-10",
-      "count": 148
+      "date": "2026-11-23",
+      "count": 156
     },
     "agentic-search-survey": {
       "date": "2026-10-30",
@@ -22,19 +22,19 @@
       "count": 40
     },
     "landscape_2026": {
-      "date": "2026-11-10",
-      "version": "v3.17",
-      "total_papers": 316
+      "date": "2026-11-23",
+      "version": "v3.18",
+      "total_papers": 328
     }
   },
   "benchmark_status": {
     "t2t_benchmark": {
-      "entries": 27,
-      "last_updated": "2026-11-10"
+      "entries": 29,
+      "last_updated": "2026-11-23"
     },
     "t2i_benchmark": {
-      "entries": 47,
-      "last_updated": "2026-11-10"
+      "entries": 50,
+      "last_updated": "2026-11-23"
     },
     "agentic_benchmark": {
       "entries": 10,
@@ -42,23 +42,36 @@
     }
   },
   "daily_reports": {
-    "latest": "2026-11-10",
-    "this_month_count": 8,
-    "missing_dates": []
+    "latest": "2026-11-23",
+    "this_month_count": 9,
+    "missing_dates": [
+      "2026-11-11",
+      "2026-11-12",
+      "2026-11-13",
+      "2026-11-14",
+      "2026-11-15",
+      "2026-11-16",
+      "2026-11-17",
+      "2026-11-18",
+      "2026-11-19",
+      "2026-11-20",
+      "2026-11-21",
+      "2026-11-22"
+    ]
   },
   "workflow_version": "2.3",
   "today_selection": {
     "t2i": [
-      "2611.09304_t2i_negation_suppression",
-      "2611.06255_leno_frozen_generator_noise",
-      "2611.08996_unimore_specificity_unified",
-      "2611.08985_notarymark_multibit_watermark"
+      "2611.26569_editsafetybench_text_aware_vision_blind",
+      "2611.20821_curse_bench_cultural_blind_spots",
+      "2611.25929_deferred_semantic_commitment",
+      "2611.25226_tripwire_wm_forgery_evident"
     ],
     "t2t_migration": [
-      "2611.08845_jev_guardrail_overrefusal",
-      "2611.08048_metrics_scenario_guide"
+      "2611.19216_operating_point_failure_frozen_guardrail",
+      "2611.20156_risk_certified_prompt_optimization"
     ],
-    "theme": "约束写下去了，绑定发生在别处"
+    "theme": "部件合格，不等于组合安全"
   },
   "_note": "This file is the single source of truth for all paper counts. Automation must update this file on every run. Never estimate counts — always use search_file to scan papers/ directories."
 }

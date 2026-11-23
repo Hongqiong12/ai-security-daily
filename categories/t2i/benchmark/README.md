@@ -2,7 +2,7 @@
 
 文生图扩散模型的安全评测基准、数据集与评估框架论文。
 
-> 最后回填: 2026-11-10 | 共 **47** 条
+> 最后回填: 2026-11-23 | 共 **50** 条
 > 延伸索引: [《T2I 安全 Benchmark 短名单（2026 年前高引用版）》](../../../insights/t2i-benchmark-shortlist-pre2026.md)
 
 ## 综述与全景
@@ -76,5 +76,9 @@
 | **Proxy Audit for T2I Disparity** | [2611.07132](https://arxiv.org/abs/2611.07132) | 2026 arXiv（**弗吉尼亚大学**） | **代理变量（proxy variables）审计协议**：不直接测"受保护属性"，而是沿 **职业 / 地理 / 姓氏** 三条代理轴构造配对探针，把"总分"与"失败位置"分开。硬证据：**Flux 0.310 与 Imagen 0.312 的总分几乎重合，但失败格子完全不重叠**（一致率意义上的"同分不同病"）；Stable Diffusion 在**姓氏格**掉到 **0.523**；面部嵌入 cosine **0.838** 说明失败并非"人脸不像"；**Schmidt / Chen / Kim 三姓氏的 TVD < 0.1** ⇒ 群体级分布差异小到不可见，而个体级失败已很严重。⇒ **公平性/鲁棒性验收不能只看聚合分，必须报分格矩阵** (NEW) |
 
 | **T2I-NSI（Negation Suppression）** | [2611.09304](https://arxiv.org/abs/2611.09304) | 2026 arXiv（**IIT Jodhpur + Colorado State**） | **第一个把"否定约束是否生效"做成基准级测量的工作**：759,869 配对 prompt 原子 / 5,082 物体目录 / **916,272 图** / 6 生成器（FLUX.2、Qwen-Image-2512、SD3.5、GPT-Image-1.5、Gemini-2.5-Flash、Midjourney v7）。**设计要点**：每个否定 prompt 配一条规范肯定对照，探针**只用肯定描述 query**（绕开探针自身的否定盲区）；NSI=$(C^+-C^-)/(C^++C^-)$∈[−1,1]；**六分类失败模式**（SUCCESS / ALWAYS_PRESENT / ALWAYS_ABSENT / INVERSE / PARTIAL_SUPPR / WEAKLY_REND）把"从不生成"与"无视否定"分开。硬证据：**INVERSE 0.00%**（45.6 万次原子-模型评测）而 **ALWAYS_PRESENT 13.0–16.9% + PARTIAL_SUPPR 9.2–12.5%**，**SUCCESS 仅 0.03–0.29%**；Robust NSI 开源 **0.0198–0.0378**、GPT-Image-1.5 **0.0934**、Gemini **0.0902**（匹配 prompt 下 **3.5×**，Δ=−0.067[−0.075,−0.059]）；**WEAKLY_REND 71.8–74.2% 主导聚合**（这些原子均 NSI 0.004–0.017，把总分拉到零）；句法 **0.0110–0.0267** < 形态 < 词汇 **0.0301–0.0580**；**L2 关系否定是三者一致谷底**；人工 420 原子 / 2,522 trials：残留率 **87.3% vs 度量 85.3%**、**κ=0.09（标签非人类等价）**、度量判"无从判定"的 502 原子中 **283 个(59.8%)人工判为 ALWAYS_PRESENT**；阈值网格下 **OTHER 占 10–97%** 而 NSI 变 ≤0.005 ✅ 已精读 |
+
+| **EditJudge Bench（合成 GT）** | [2611.12524](https://arxiv.org/abs/2611.12524) | 2026 arXiv | 11-12 补录回填：以合成 ground truth 构建编辑评测，规避人工判定方差 (NEW) |
+| **EditSafetyBench** | [2611.26569](https://arxiv.org/abs/2611.26569) | 2026 arXiv（**CISPA + 港科广 + 港科大**） | **第一个把 I2I 图文联合安全做成析因格子的工作**：5,940 配对 / 11 风险类目 / 3 编辑意图 / 4 系统；UIR **87.1%/81.6%** 而 UNR 仅 **24.2%/22.4%**，SOR **14.0%/11.5%**；审核分由视觉主导（0.195 > 0.113）而放行率由文本主导（图片安全只差 0.2–0.4%）⇒ **判定层没读图审输出** (NEW) |
+| **CuRSE-Bench** | [2611.20821](https://arxiv.org/abs/2611.20821) | 2026 arXiv（**KAIST**） | **T2I 安全评测的文化盲区基准**：10,709 文化特定 + 2,648 不变换 controls / 6 地区 × 10 harm axes / 7 评分视角；culture-blind judge 只在特定集低估、controls 一致 ⇒ 选择性盲区；**English-only 为局限**，文化视角 ≠ 语言覆盖 (NEW) |
 
 [← 返回文生图目录](../README.md)

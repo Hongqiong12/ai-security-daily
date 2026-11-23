@@ -1,8 +1,8 @@
 # T2T 大语言模型安全 Survey：攻防演进与前沿方向
 
 > **Survey 类型**: 基于项目论文库的系统性综述（Literature-Grounded Survey）  
-> **数据基础**: 本项目收录的 **128** 篇 T2T 安全论文（2022–2026）
-> **更新日期**: 2026-11-10
+> **数据基础**: 本项目收录的 **132** 篇 T2T 安全论文（2022–2026）
+> **更新日期**: 2026-11-23
 > **关联文档**: [前瞻总览](./AI_Security_Landscape_2026.md) · [T2I Survey](./t2i-survey.md)
 
 ---
@@ -1367,7 +1367,10 @@ SecureBreak 等基准提到了多语言覆盖的重要性，但目前大多数�
 *本 Survey 由 `paper-research` skill 自动生成，基于项目截至 2026-11-10 收录的 T2T 论文（128 篇）。*  
 *本次 Survey 更新：2026-11-08（新增 2 篇：2611.07258 Reweighting is not Harmless 组间差距收窄 74% 靠在恶化少数群体、2611.02134 HaloGuard 2.0 匹配对判反率 13.9% 与流式护栏捷径审计）。*
 *本次 Survey 更新：2026-11-06（新增 2 篇迁移：2611.05851 Risk Control 率不承诺个体与准入域 47 倍价码、2611.06453 Failure-Boundary 两曲线评测与恒停/恒闯钉 0.5）。*
-*本次 Survey 更新：2026-11-10（新增 2 篇：2611.08845 Jev 分级护栏——匹配误杀预算下三级 3.9% vs 重调单门 4.6%、二级精度仅 53.8%、2611.08048 指标教程——五种阈值规则代价 274 vs 473.5 且 F1 最高者最贵、聚合层级 0.691/0.700/0.857）。*
+| **Operating-Point Failure of Frozen Guardrail Probes** | [2611.19216](https://arxiv.org/abs/2611.19216) | 2026 (**Kookmin University**, IEEE TDSC 投稿) | 冻结阈值 / 多版本回归 / 策略热更新 | **AUROC 一动不动而误杀率涨 15 倍**：18 cells / 16 次公开 LM 更新，Phase 2 预注册；1% 目标下 Phase 1 **8/9** fail closed；最大 FPR **1.01%→15.12%** 而 **AUROC 变化 ≤0.0058**，staleness 判据**一个都没报**；label-free 两矩估计标记 **0.918** 受损 cells、清除 **0.898** 未受损；两矩模型 63 cells 中 **0.905** 解释到 1.5 倍内；**存储良性 prompt 重设阈值 9/9 恢复（0.96–1.02×）无需新标签**，但**参考集投毒 1% 后最多只剩 0.017 有害被标记**；攻击者控制更新在 **3/5 seeds** 压低定向类目，两种无标签检查都漏过 (NEW) |
+| **Risk-certified Prompt Optimization** | [2611.20156](https://arxiv.org/abs/2611.20156) | 2026 (**Capgemini + 埃夫里大学 + CentraleSupélec + ENSIIE**) | 约束式选点 / 分布无关风险认证 / 可配置护栏 | 把 system prompt 选点写成 `max 良性放行率 s.t. missed-attack ≤ α`；CPS（固定池 + LTT + Bonferroni + Clopper–Pearson UCB）与 CRISP（**hard example-guided rewriting** + reusable-holdout + Guess-and-Check，certified/uncertified 两种群）；**固定数据、生成假设**下靠受限 holdout 访问保住证书；4 数据集（BIPIA / Deepset / SPL / SID）三份互斥切分；留出测试持续遵守目标风险、效用随 α 放宽提升。**α 约束的是风险率不是覆盖率**；单一 α、无 per-category 阈值 (NEW) |
+
+*本次 Survey 更新：2026-11-23（新增 2 篇：2611.19216 冻结护栏 operating point 在模型更新后失效、2611.20156 风险认证式策略选点；并修复 11-12 补录造成的 128→130 计数漂移，现为 132）。*
 *本次 Survey 更新：2026-11-09（新增 2 篇：2611.04062 StreamLTT 流式风险认证——换检验 0.0300 vs 换定义 0.0090、2611.06476 Alignment Tax 分级退化——0.550 vs 0.981 与"点估计达标≠等价成立"）。*
 *上次 Survey 更新：2026-11-03（2610.38076 Prompt Lottery 释义导致判定不稳、2610.37882 FYC 分组阈值与指标选择反噬）。*
 *上上次 Survey 更新：2026-10-28（2610.33813 LoRA vs 全量微调、2610.30742 UniGuard）。*  

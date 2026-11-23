@@ -1,8 +1,8 @@
 # T2I 文生图安全 Survey：攻防前沿与概念擦除技术演进
 
 > **Survey 类型**: 基于项目论文库的系统性综述（Literature-Grounded Survey）  
-> **数据基础**: 本项目收录的 **148** 篇 T2I 安全论文（2019–2026）
-> **更新日期**: 2026-11-10
+> **数据基础**: 本项目收录的 **156** 篇 T2I 安全论文（2019–2026）
+> **更新日期**: 2026-11-23
 > **关联文档**: [前瞻总览](./AI_Security_Landscape_2026.md) · [T2T Survey](./t2t-survey.md)
 
 ---
@@ -1989,6 +1989,11 @@ Flux 和 SD3 已经成为 2025–2026 年的主流 T2I 架构，但截至本 Sur
 ---
 
 *本 Survey 由 `paper-research` skill 自动生成，基于项目截至 2026-11-10 收录的 T2I 论文（148 篇）。*  
+| **EditSafetyBench / Text-Aware, Vision-Blind** | [2611.26569](https://arxiv.org/abs/2611.26569) | 2026 (**CISPA Helmholtz + 港科广 + 港科大**) | **编辑器在读文字没在读图**：5,940 image-instruction 对 / 11 风险类目 / 3 编辑意图 / 4 系统；UIR（恶意指令拒答）Gemini **87.1%** / GPT **81.6%**，而 UNR（风险图+中性指令）只 **24.2% / 22.4%**；SOR（安全图误拒）**14.0% / 11.5%**，主题中性图降到 **3.6%**；图审核分由视觉主导（0.195 > 0.113）而放行率由文本主导（unsafe-intent 下图片安全只差 **0.4% / 0.2%**）；GPT 放行 **70.4%** 不安全政治编辑、Gemini 仅 **34.8%**；GPT 对两个文本审核分同为 **0.063** 的样本拒 **100%** vs **33%** ⇒ 关键词触发。Discussion 明确 UNR 格正确处置「取决于部署语境」，建议 policy-adaptive 图护栏 + 意图感知决策 (NEW) |
+| **CuRSE-Bench** | [2611.20821](https://arxiv.org/abs/2611.20821) | 2026 (**KAIST**) | **通用 rubric 无害、目标文化有害**：CultureCraft 构造 **10,709** 条 culture-specific + **2,648** 条不变换 controls / 6 地区 × 10 harm axes / 每条 harm vector ≥2 独立来源；7 个评分视角（6 region persona + 1 paired culture-blind）；culture-blind judge 只在 culture-specific 集低估、controls 上一致 ⇒ **选择性盲区**；5 个已部署生成管线仍可绕过且**未做针对过滤器优化**；五组配对对照（knowledge-swap / 命名指称泄漏 / 骨干消融 / 天花板 / per-cell bootstrap）。**English-only 明确列为局限** ⇒ 文化视角覆盖 ≠ 语言覆盖 (NEW) |
+| **DSC / Deferred Semantic Commitment** | [2611.25929](https://arxiv.org/abs/2611.25929) | 2026 (**夏威夷大学 + 独立研究者**) | **语义一字未改、只改承诺形式**：300 条挑战集，直接陈述 Returned **16.3%** / Endorsed **15.3%**，问句+肯定线索 **43.3% / 41.3%**；MPUP 100 条 78%→**91%**；直接陈述未返回图的 **251** 条里单次 DSC 产出 **91 张(36.3%)** 背书原命题；Qwen3.5-VL-27B 严格拒答 **29.6%→8.3%**；layer-52 activation patching 完整残差恢复 **12/13**、refusal-aligned 分量 **11/13**、减投影掉到 **1/13**、随机方向 0；natural refusal AUC **layer 31** 才 >0.95；✓ / YES / 对勾图片三线索结果一致 (NEW) |
+| **Tripwire-WM / Reject and Report** | [2611.25226](https://arxiv.org/abs/2611.25226) | 2026 (**滑铁卢 + Vector Institute + KTH**) | **拒了伪造却没留证据**：把图语义提交到初始潜噪声**幅度**（符号水印未用的信道），伪造图水印有效但 commitment 与内容不符 ⇒ 检测器既 reject 又 report；MS-COCO / 10⁻⁶ FPR 下 imprinting 伪造接受 **0%**（SemBind 最高 **55.0%**）、reprompting 最多 **1.8%**（SemBind **46.2%**）、真图 ≥**99%**；外部异常检测器 G-Cos 只标 **19.7–24.0%**、PGID-F 只标 **18.6–39.7%** 且误报真图 ⇒ 加一层外部检测器再次被证伪。与 NotaryMark 合起来要求判定/信息/事件三栏 (NEW) |
+
 *本次 Survey 更新：2026-11-10（新增 4 篇：2611.09304 T2I-NSI 否定约束未绑定与"太弱测不到"主导聚合、2611.06255 LeNO 冻结生成器+噪声侧残差+KL 上界、2611.08996 UniMore 统一模型两通路同源特异性损失、2611.08985 NotaryMark 多位水印"判定 100% 而信息 60%"。）*
 *上次 Survey 更新：2026-11-09（2611.07922 StitchEdit、2611.07648 GARM/TABO、2611.05578 VisionValueBench、2611.07132 Proxy Audit）。*
 *下次更新时间：跟随每日自动化任务实时更新。*
