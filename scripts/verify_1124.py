@@ -1,0 +1,108 @@
+#!/usr/bin/env python3
+"""2026-11-24 一致性校验：磁盘实际 papers/*.md == 各门面文件声明值 + 质量门禁。"""
+import glob, json, re, os, sys, hashlib
+
+ROOT = "/Users/ageisliu/WorkBuddy/Claw/ai-security-daily"
+os.chdir(ROOT)
+
+IDS = ["2611.27339", "2611.27905", "2611.20623", "2611.27229",
+       "2611.27155", "2611.26881"]
+FAIL = []
+
+
+def ck(cond, msg):
+    print(("  OK   " if cond else "  FAIL ") + msg)
+    if not cond:
+        FAIL.append(msg)
+
+
+counts = {
+    "t2t": len(glob.glob("categories/t2t/papers/*.md")),
+    "t2i": len(glob.glob("categories/t2i/papers/*.md")),
+    "agentic": len(glob.glob("categories/agentic-search/papers/*.md")),
+}
+counts["total"] = sum(counts.values())
+print("=== 磁盘实际 ===", counts)
+
+meta = json.load(open("_meta.json", encoding="utf-8"))
+ck(meta["paper_counts"] == counts, "_meta.paper_counts == 磁盘")
+ck(meta["last_updated"] == "2026-11-24", "_meta.last_updated")
+ck(meta["daily_reports"]["latest"] == "2026-11-24", "_meta.daily_reports.latest")
+ck(meta["daily_reports"]["this_month_count"] == len(glob.glob("daily-reports/2026-11/*.md")),
+   "_meta.this_month_count == 11 月日报文件数")
+ck(meta["survey_versions"]["landscape_2026"]["version"] == "v3.19", "_meta Landscape v3.19")
+ck(meta["benchmark_status"]["t2i_benchmark"]["entries"] == 52, "_meta t2i_benchmark 52")
+ck(meta["benchmark_status"]["t2t_benchmark"]["entries"] == 31, "_meta t2t_benchmark 31")
+
+readme = open("README.md", encoding="utf-8").read()
+badge = re.search(r"Papers-(\d+)-green", readme)
+last = re.search(r"Last-Update-(\d{4})--(\d{2})--(\d{2})-orange", readme)
+ck(badge and int(badge.group(1)) == counts["total"], "README 徽章 == total")
+ck(last and "-".join(last.groups()) == "2026-11-24", "README Last-Update")
+ck("基于 **334** 篇安全论文" in readme, "README 正文 334")
+ck("## 🔥 今日最具业务价值论文评测 (2026-11-24)" in readme, "README 今日区块 11-24")
+ck("2026-11-23_AI安全每日深度情报.md" not in readme.split("## 🔭 前沿 Survey")[0],
+   "README 今日区块不含旧日报链接")
+for aid in IDS:
+    ck(aid in readme, "README 索引含 %s" % aid)
+ck("github.com/ageisliu/ai-security-daily" not in readme, "README 无旧仓库 404 死链")
+
+t2i = open("insights/t2i-survey.md", encoding="utf-8").read()
+t2t = open("insights/t2t-survey.md", encoding="utf-8").read()
+ck(re.search(r"收录的 \*\*(\d+)\*\* 篇", t2i).group(1) == str(counts["t2i"]), "t2i-survey 数据基础 == t2i")
+ck(re.search(r"收录的 \*\*(\d+)\*\* 篇", t2t).group(1) == str(counts["t2t"]), "t2t-survey 数据基础 == t2t")
+ck("**更新日期**: 2026-11-24" in t2i and "**更新日期**: 2026-11-24" in t2t, "两份 Survey 更新日期")
+def survey_row_hits(txt, aid):
+    # 表格行（以 | ** 开头）里含该 ID 的行数；链接文本与 URL 会让 txt.count 翻倍
+    return sum(1 for ln in txt.split("\n") if ln.startswith("| **") and aid in ln)
+
+
+for aid in IDS[:4]:
+    ck(survey_row_hits(t2i, aid) == 1, "t2i-survey 恰含 1 行 %s" % aid)
+for aid in IDS[4:]:
+    ck(survey_row_hits(t2t, aid) == 1, "t2t-survey 恰含 1 行 %s" % aid)
+
+land = open("insights/AI_Security_Landscape_2026.md", encoding="utf-8").read()
+ck(re.search(r"收录的 \*\*(\d+) 篇\*\*", land).group(1) == str(counts["total"]), "Landscape 数据来源 == total")
+ck(re.search(r"累计论文数 \*\*(\d+)\*\*", land).group(1) == str(counts["total"]), "Landscape 尾部计数 == total")
+ck("### T2T 论文分布（134 篇）" in land and "### T2I 论文分布（160 篇）" in land, "Landscape 分模态计数")
+ck("v3.19 增量更新" in land and "热点三十一" in land, "Landscape v3.19 / 热点三十一")
+
+for name, declared in (("categories/t2i/benchmark/README.md", 52),
+                       ("categories/t2t/benchmark/README.md", 31)):
+    txt = open(name, encoding="utf-8").read()
+    m = re.search(r"共 \*\*(\d+)\*\* 条", txt)
+    lines = [ln for ln in txt.split("\n") if ln.startswith("|")]
+    header = sum(1 for ln in lines if "论文 |" in ln or "Paper |" in ln)
+    sep = sum(1 for ln in lines if re.fullmatch(r"\|[-: |]+\|", ln))
+    rows = len(lines) - header - sep
+    ck(m and int(m.group(1)) == declared, "%s 声明 %d" % (name.split("/")[1], declared))
+    ck(rows == declared, "%s 实际数据行 %d == 声明 %d" % (name.split("/")[1], rows, declared))
+    ck("最后回填: 2026-11-24" in txt, "%s 回填日期" % name.split("/")[1])
+
+sel = json.load(open("selected_papers.json", encoding="utf-8"))
+ck(len(sel) == 108, "selected_papers 108 条")
+ck(len({x["id"].split("v")[0] for x in sel}) == 108, "selected_papers ID 无重复")
+for aid in IDS:
+    ck(any(x["id"].startswith(aid) and x.get("title") and x.get("summary") for x in sel),
+       "selected_papers %s 有标题+摘要" % aid)
+
+print("=== 质量门禁 ===")
+for aid in IDS:
+    fs = glob.glob("categories/*/papers/%s_*.md" % aid)
+    if not fs:
+        ck(False, "精读存在 %s" % aid)
+        continue
+    txt = open(fs[0], encoding="utf-8").read()
+    mods = len(re.findall(r"^## [一二三四五六]、", txt, re.M))
+    ck(mods == 6, "%s 六模块 %d/6" % (aid, mods))
+    ck("https://arxiv.org/abs/%s" % aid in txt, "%s arXiv 链接规范" % aid)
+
+rep = open("daily-reports/2026-11/2026-11-24_AI安全每日深度情报.md", encoding="utf-8").read()
+for sec in ("业务对齐研究板块", "检索与质量记录", "候选观察"):
+    ck(sec in rep, "主日报含「%s」" % sec)
+ck("github.com/ageisliu/ai-security-daily" not in rep, "主日报无旧仓库死链")
+
+print("\n=== 结论 ===")
+print("PASS" if not FAIL else "FAIL %d 项: %s" % (len(FAIL), FAIL))
+sys.exit(1 if FAIL else 0)

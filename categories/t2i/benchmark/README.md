@@ -2,7 +2,7 @@
 
 文生图扩散模型的安全评测基准、数据集与评估框架论文。
 
-> 最后回填: 2026-11-23 | 共 **50** 条
+> 最后回填: 2026-11-24 | 共 **52** 条
 > 延伸索引: [《T2I 安全 Benchmark 短名单（2026 年前高引用版）》](../../../insights/t2i-benchmark-shortlist-pre2026.md)
 
 ## 综述与全景
@@ -81,4 +81,6 @@
 | **EditSafetyBench** | [2611.26569](https://arxiv.org/abs/2611.26569) | 2026 arXiv（**CISPA + 港科广 + 港科大**） | **第一个把 I2I 图文联合安全做成析因格子的工作**：5,940 配对 / 11 风险类目 / 3 编辑意图 / 4 系统；UIR **87.1%/81.6%** 而 UNR 仅 **24.2%/22.4%**，SOR **14.0%/11.5%**；审核分由视觉主导（0.195 > 0.113）而放行率由文本主导（图片安全只差 0.2–0.4%）⇒ **判定层没读图审输出** (NEW) |
 | **CuRSE-Bench** | [2611.20821](https://arxiv.org/abs/2611.20821) | 2026 arXiv（**KAIST**） | **T2I 安全评测的文化盲区基准**：10,709 文化特定 + 2,648 不变换 controls / 6 地区 × 10 harm axes / 7 评分视角；culture-blind judge 只在特定集低估、controls 一致 ⇒ 选择性盲区；**English-only 为局限**，文化视角 ≠ 语言覆盖 (NEW) |
 
+| **Unimodal Shortcuts（五个情境安全 benchmark 诊断）** | [2611.27339](https://arxiv.org/abs/2611.27339) | 2026 arXiv（**港科大 + 深大 + XGEN Labs + 港科广 + 清华**） | **benchmark 标签能由单模态预测**：灰图纯文本探针 **0.9645–0.9846 AUROC** vs 四路控制上界 **0.500**；提出需 I(Y;I|U)>0 且 I(Y;U|I)>0 才能验收图文联合态；跨 benchmark 泛化只有 **0.48–0.67** (NEW) |
+| **AnimalFarm（仇恨图像生成-检测审计）** | [2611.27905](https://arxiv.org/abs/2611.27905) | 2026 arXiv（**CISPA + Independent + HPE**） | **14,250 queries / 三通路**：92.1% 出图、95.9% 带仇恨而最强图审 recall 仅 **73.9%**；主体非人时检测器系统性失明；`non-generation ≠ refusal rate` 口径纪律 (NEW) |
 [← 返回文生图目录](../README.md)

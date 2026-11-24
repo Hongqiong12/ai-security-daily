@@ -2,7 +2,7 @@
 
 文生文 LLM 的基础综述、安全评测基准论文。
 
-> 最后回填: 2026-11-23 | 共 **29** 条
+> 最后回填: 2026-11-24 | 共 **31** 条
 
 ## 综述类
 
@@ -50,4 +50,6 @@
 | **Beyond AUROC: low-FPR operating point** | [2611.11067](https://arxiv.org/abs/2611.11067) | 2026 arXiv | 11-12 补录回填：低 FPR 区间下 AUROC 与决策质量脱钩 (NEW) |
 | **HC-ROCP: certify, report, refuse** | [2611.12662](https://arxiv.org/abs/2611.12662) | 2026 arXiv | 11-12 补录回填：风险受控下的认证 / 报告 / 拒答三段式 (NEW) |
 
+| **The Vulnerability Window（量化判定漂移评测）** | [2611.27155](https://arxiv.org/abs/2611.27155) | 2026 arXiv（**IIT + UW–Milwaukee**） | **聚合准确率 0.03 点 vs 1.1–12.3% 成对翻转**：量化误差双向抵消使聚合指标失明，需逐对翻转 + 分层 F1 + 安全率不劣化四栏验收 (NEW) |
+| **Your Judge Inherits Your Prompt（judge 偏置审计）** | [2611.26881](https://arxiv.org/abs/2611.26881) | 2026 arXiv（**Essex + Independent**, BlackboxNLP 2026） | **只改 few-shot 标签平衡即虚高 29.5 点**且偏置单向；单次抽样波动 18 点；每数据集 200 例人工共识 ⇒ judge 配置指纹 + 多次抽样 (NEW) |
 [← 返回文生文目录](../README.md)
