@@ -389,6 +389,7 @@
 - **机构核验**：`scripts/verify_inst_1124.py` 修掉 `curl(binary=True)` 的 `capture_output=not binary` bug（PDF 下载为空）；**8/8 HTTP 200**，HTML affiliation 全空由 PDF 首页 pypdf 回退（**第 11 次连续生效**）。**头部公司 0 篇**，如实标注。
 - **门面同步**：`scripts/sync_1124.py` 幂等（复跑 rc=0、8 个门面文件 md5 不变）。t2t 132→**134** / t2i 156→**160** / agentic 40 = **334**；benchmark t2i 50→**52**、t2t 29→**31**；selected_papers 102→**108**；Landscape v3.18→**v3.19**（+热点三十一 + v3.19 注记）；两份 Survey 头部 156→160 / 132→134 并各追加表格行；README 徽章 334、今日 6 行评测表、洞察三行、三模态索引 +6 链接；`_meta.json` month_count **10** = 11 月实际日报数。顺手修复 11-23 遗留：t2i-survey 尾部注记仍写「本次 2026-11-10」，本轮补 11-24 注记并把旧行改标「历史」。
 - **校验**：`scripts/verify_1124.py` **全绿 PASS**（334 五处对齐、benchmark 声明数 == 实际数据行数 52/31、selected_papers 108 且 ID 无重复、6 篇 **6/6 六模块**、6 条 arXiv 链接规范、日报三大板块齐全、无旧仓库 404 死链）。
+- **发布**：主提交 **5dcfb31**（22 files, +2208 −60）→ `bash scripts/sync_remotes.sh all` **成功 2 / 失败 0**：GitHub `bc6230a..5dcfb31` OK / 工蜂 `f74029a..52e66df` OK，**无待补推**。
 
 **方法论收获（跨轮可复用）**：
 1. **代理量 ≠ 目标量，且脱钩是单方向的**：六组配对（benchmark AUROC / 输入文本无害 / 二值安全通过 / SFT 生成增益 / 聚合准确率 / judge 准确率）全部是「代理量稳住、目标量整体换边」⇒ 任何聚合指标上线前必须配「逐单元」对照量（单模态控制上界 / 三通路对照 / 语义完整性 / 逐对翻转 / 人工共识）。
