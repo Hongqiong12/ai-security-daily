@@ -1,20 +1,20 @@
 {
   "_meta_version": "1.0",
-  "last_updated": "2026-11-24",
+  "last_updated": "2026-11-25",
   "paper_counts": {
-    "t2t": 134,
-    "t2i": 160,
+    "t2t": 136,
+    "t2i": 164,
     "agentic": 40,
-    "total": 334
+    "total": 340
   },
   "survey_versions": {
     "t2t-survey": {
-      "date": "2026-11-24",
-      "count": 134
+      "date": "2026-11-25",
+      "count": 136
     },
     "t2i-survey": {
-      "date": "2026-11-24",
-      "count": 160
+      "date": "2026-11-25",
+      "count": 164
     },
     "agentic-search-survey": {
       "date": "2026-10-30",
@@ -22,19 +22,19 @@
       "count": 40
     },
     "landscape_2026": {
-      "date": "2026-11-24",
-      "version": "v3.19",
-      "total_papers": 334
+      "date": "2026-11-25",
+      "version": "v3.20",
+      "total_papers": 340
     }
   },
   "benchmark_status": {
     "t2t_benchmark": {
-      "entries": 31,
-      "last_updated": "2026-11-24"
+      "entries": 33,
+      "last_updated": "2026-11-25"
     },
     "t2i_benchmark": {
-      "entries": 52,
-      "last_updated": "2026-11-24"
+      "entries": 54,
+      "last_updated": "2026-11-25"
     },
     "agentic_benchmark": {
       "entries": 10,
@@ -42,8 +42,8 @@
     }
   },
   "daily_reports": {
-    "latest": "2026-11-24",
-    "this_month_count": 10,
+    "latest": "2026-11-25",
+    "this_month_count": 11,
     "missing_dates": [
       "2026-11-11",
       "2026-11-12",
@@ -62,16 +62,16 @@
   "workflow_version": "2.3",
   "today_selection": {
     "t2i": [
-      "2611.27339_unimodal_shortcuts_scene_intent",
-      "2611.27905_animalfarm_hateful_image_audit",
-      "2611.20623_ebsg_example_based_spatial_guidance",
-      "2611.27229_p2e_supervision_redundancy"
+      "2611.25382_silent_text_rewrite_guidance_cache",
+      "2611.30545_batch_dependent_nondeterminism_t2i",
+      "2611.30117_sae_audit_concept_erasure_residue",
+      "2611.30592_hose_hierarchical_orthogonal_erasure"
     ],
     "t2t_migration": [
-      "2611.27155_vulnerability_window_quantized_judges",
-      "2611.26881_judge_inherits_prompt_directional_bias"
+      "2611.23685_latent_safety_filter_conservatism",
+      "2611.29629_operating_point_contamination"
     ],
-    "theme": "分数没动，判定全换了 —— 代理量与目标量的六次脱钩"
+    "theme": "钉死了输入，也钉不住出图 —— 输入改写够不到的四层：生成过程、执行环境、权重残留、验收装置"
   },
   "_note": "This file is the single source of truth for all paper counts. Automation must update this file on every run. Never estimate counts — always use search_file to scan papers/ directories."
 }

@@ -2,7 +2,7 @@
 
 文生文 LLM 的基础综述、安全评测基准论文。
 
-> 最后回填: 2026-11-24 | 共 **31** 条
+> 最后回填: 2026-11-25 | 共 **33** 条
 
 ## 综述类
 
@@ -52,4 +52,6 @@
 
 | **The Vulnerability Window（量化判定漂移评测）** | [2611.27155](https://arxiv.org/abs/2611.27155) | 2026 arXiv（**IIT + UW–Milwaukee**） | **聚合准确率 0.03 点 vs 1.1–12.3% 成对翻转**：量化误差双向抵消使聚合指标失明，需逐对翻转 + 分层 F1 + 安全率不劣化四栏验收 (NEW) |
 | **Your Judge Inherits Your Prompt（judge 偏置审计）** | [2611.26881](https://arxiv.org/abs/2611.26881) | 2026 arXiv（**Essex + Independent**, BlackboxNLP 2026） | **只改 few-shot 标签平衡即虚高 29.5 点**且偏置单向；单次抽样波动 18 点；每数据集 200 例人工共识 ⇒ judge 配置指纹 + 多次抽样 (NEW) |
+| **Latent Safety Filter Conservatism（over-refusal 下界度量）** | [2611.23685](https://arxiv.org/abs/2611.23685) | 2026 arXiv（**UCSD + SDSU**, PMLR 2027） | **overlap 是必须拒绝的最小安全转移比例**：planner 0.96–0.97 → safety latent 0.44–0.46，误杀 0.302→0.161、任务达成 0.39→0.72；`K_z` 口径必报、200 次校准抽样分位 (NEW) |
+| **Contamination at the Operating Point（评测集重叠审计）** | [2611.29629](https://arxiv.org/abs/2611.29629) | 2026 arXiv（**首页未列机构**） | **低 FPR 区 FNMR 被重叠乘性抬高 3.6×/6.3×/13.9×**，随机删除无效、偏差不跨模型抵消；null-calibrated 审计 + 2×2 + `N_eff` + 最小可报告 FPR (NEW) |
 [← 返回文生文目录](../README.md)

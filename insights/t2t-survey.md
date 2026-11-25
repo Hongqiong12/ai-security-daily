@@ -1,8 +1,8 @@
 # T2T 大语言模型安全 Survey：攻防演进与前沿方向
 
 > **Survey 类型**: 基于项目论文库的系统性综述（Literature-Grounded Survey）  
-> **数据基础**: 本项目收录的 **134** 篇 T2T 安全论文（2022–2026）
-> **更新日期**: 2026-11-24
+> **数据基础**: 本项目收录的 **136** 篇 T2T 安全论文（2022–2026）
+> **更新日期**: 2026-11-25
 > **关联文档**: [前瞻总览](./AI_Security_Landscape_2026.md) · [T2I Survey](./t2i-survey.md)
 
 ---
@@ -1371,8 +1371,11 @@ SecureBreak 等基准提到了多语言覆盖的重要性，但目前大多数�
 | **Risk-certified Prompt Optimization** | [2611.20156](https://arxiv.org/abs/2611.20156) | 2026 (**Capgemini + 埃夫里大学 + CentraleSupélec + ENSIIE**) | 约束式选点 / 分布无关风险认证 / 可配置护栏 | 把 system prompt 选点写成 `max 良性放行率 s.t. missed-attack ≤ α`；CPS（固定池 + LTT + Bonferroni + Clopper–Pearson UCB）与 CRISP（**hard example-guided rewriting** + reusable-holdout + Guess-and-Check，certified/uncertified 两种群）；**固定数据、生成假设**下靠受限 holdout 访问保住证书；4 数据集（BIPIA / Deepset / SPL / SID）三份互斥切分；留出测试持续遵守目标风险、效用随 α 放宽提升。**α 约束的是风险率不是覆盖率**；单一 α、无 per-category 阈值 (NEW) |
 | **The Vulnerability Window** | [2611.27155](https://arxiv.org/abs/2611.27155) | 2026 (**Illinois Institute of Technology + UW–Milwaukee**) | 量化后判定漂移 / 推理加速不劣化 / 成对验收 | **聚合准确率几乎没动是最接近盲的检查**：4-bit 量化同时修掉和引入错误、聚合互相抵消，于是 **1.1–12.3%** 成对判定翻转而 aggregate accuracy 只动 **0.03 点**；Llama-3.2-1B/NF4 **3.99%**；harmful:helpful 翻转 **146:54**；脆弱窗口随规模 **25%→7%**（小模型 judge 风险显著更高）；best-of-64 选中项变 **14.6–65.7%** 而最终答案只 **2.6–9.6%**（**5–8×**）、top-k 仅 **+0.35** ⇒ fp8/fp4 与跨硬件迁移必须做逐对翻转四栏验收 (NEW) |
 | **Your Judge Inherits Your Prompt** | [2611.26881](https://arxiv.org/abs/2611.26881) | 2026 (**Independent Researcher + University of Essex**, BlackboxNLP 2026 Workshop) | LLM-as-judge 偏差 / VLM 图审 AB / 评测装置冻结 | **偏置是单向的**：generator–judge 全冻结、只改 Yes/No few-shot 标签平衡，偏向接受在 NExT-QA S3 虚高 **+29.5 点**（FP:FN **9.4**）、MSVD-QA **+19.5**（**4.0**），而 balanced / refusal-skew 都在 **±2.5** 内 ⇒ **inflation-only asymmetry**；单次示例抽样波动达 **18 点**、超过任意两套演示集之间的差异；每数据集 **200 例人工共识** ⇒ AB 看板必须冻结「judge 配置指纹」并多次抽样 (NEW) |
+| **Measuring the Conservatism of Latent Safety Filters** | [2611.23685](https://arxiv.org/abs/2611.23685) | 2026 (**UCSD + SDSU**, PMLR 2027) | over-refusal 结构性下界 / conformal / per-category 阈值 | **误杀不是模型弱，是表示逼的**：证明 **overlap 是「接受 0 个不安全转移」时必须拒绝的最小安全转移比例**；planner latent **0.96–0.97** / jointly trained 0.94–0.96 / 独立 safety latent **0.44–0.46**，δ=0.02 下拒安全动作 **0.302/0.318/0.161**、任务达成 **0.39/0.32/0.72**（无过滤器 0.72）；`K_z=50/200` 会改 overlap 读数，200 次校准抽样 10–90 分位 `z_s` **0.14–0.18**。⇒ 调阈值降不下去，只能换表示；「能改则不拒」有了数学下界 (NEW) |
+| **Contamination at the Operating Point** | [2611.29629](https://arxiv.org/abs/2611.29629) | 2026 (**Fu Dai, K. Taha, N. Werghi, M. Assefa**；PDF 首页未列机构) | 评测集重叠审计 / operating point / 最小可报告 FPR | **误杀率读数本身可能是假的**：偏差不是加性小量（旧工作最多 +1.01pp）而是**随 FMR 下降增长的乘性误差**；null-calibrated 审计（β=0.1%）标出 **88.6% MS1MV3 身份 / 14.3% IJB-C**，人工复核 **69.2%** ⇒ 残留 ~**9.9%**；固定模型只删重叠身份，FNMR 抬 **3.6×/6.3×/13.9×**（10⁻⁴/10⁻⁵/10⁻⁶），随机删除无效，偏差**不跨模型抵消**（优势削一半）；IJB-C 在 10⁻⁶ 仅 **2.7M** 有效独立比较、最小可报 FMR ≈ **6×10⁻⁵**。⇒ 5.2% 误杀基线要先审计评测集 (NEW) |
 
-*本次 Survey 更新：2026-11-24（新增 2 篇方法论迁移：2611.27155 量化后 1.1–12.3% 成对判定翻转而聚合准确率只动 0.03 点、2611.26881 judge 的 in-context 标签偏置只会单向抬高分数；现为 **134** 篇）。*
+*本次 Survey 更新：2026-11-25（新增 2 篇方法论迁移：2611.23685 误杀有表示决定的结构性下界 overlap 0.96→0.44 且换表示才降、2611.29629 低 FPR 区 FNMR 被评测集重叠乘性抬高 3.6×→13.9×；现为 **136** 篇）。*
+*上次 Survey 更新：2026-11-24（新增 2 篇方法论迁移：2611.27155 量化后 1.1–12.3% 成对判定翻转而聚合准确率只动 0.03 点、2611.26881 judge 的 in-context 标签偏置只会单向抬高分数；现为 **134** 篇）。*
 *上次 Survey 更新：2026-11-23（新增 2 篇：2611.19216 冻结护栏 operating point 在模型更新后失效、2611.20156 风险认证式策略选点；并修复 11-12 补录造成的 128→130 计数漂移，现为 132）。*
 *本次 Survey 更新：2026-11-09（新增 2 篇：2611.04062 StreamLTT 流式风险认证——换检验 0.0300 vs 换定义 0.0090、2611.06476 Alignment Tax 分级退化——0.550 vs 0.981 与"点估计达标≠等价成立"）。*
 *上次 Survey 更新：2026-11-03（2610.38076 Prompt Lottery 释义导致判定不稳、2610.37882 FYC 分组阈值与指标选择反噬）。*

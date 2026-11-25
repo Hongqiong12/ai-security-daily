@@ -2,7 +2,7 @@
 
 文生图扩散模型的安全评测基准、数据集与评估框架论文。
 
-> 最后回填: 2026-11-24 | 共 **52** 条
+> 最后回填: 2026-11-25 | 共 **54** 条
 > 延伸索引: [《T2I 安全 Benchmark 短名单（2026 年前高引用版）》](../../../insights/t2i-benchmark-shortlist-pre2026.md)
 
 ## 综述与全景
@@ -83,4 +83,6 @@
 
 | **Unimodal Shortcuts（五个情境安全 benchmark 诊断）** | [2611.27339](https://arxiv.org/abs/2611.27339) | 2026 arXiv（**港科大 + 深大 + XGEN Labs + 港科广 + 清华**） | **benchmark 标签能由单模态预测**：灰图纯文本探针 **0.9645–0.9846 AUROC** vs 四路控制上界 **0.500**；提出需 I(Y;I|U)>0 且 I(Y;U|I)>0 才能验收图文联合态；跨 benchmark 泛化只有 **0.48–0.67** (NEW) |
 | **AnimalFarm（仇恨图像生成-检测审计）** | [2611.27905](https://arxiv.org/abs/2611.27905) | 2026 arXiv（**CISPA + Independent + HPE**） | **14,250 queries / 三通路**：92.1% 出图、95.9% 带仇恨而最强图审 recall 仅 **73.9%**；主体非人时检测器系统性失明；`non-generation ≠ refusal rate` 口径纪律 (NEW) |
+| **SAE-Audit（概念擦除残留审计协议）** | [2611.30117](https://arxiv.org/abs/2611.30117) | 2026 arXiv（**上海 AI Lab + Mila + McGill + 大阪大学**） | **行为层归零 ≠ 移除**：6 擦除器 × 4 域，nudity 原模型 0.91 → 擦除 0.00 → 固定稀疏方向注入恢复 **0.48–0.77**（随机对照 ≤0.06）；67 cells 恢复 38 格、31/40 满足 scene consistency；Seurat relabel 使判定 0.94→0.19 ⇒ 检测器代理量体检 (NEW) |
+| **Batch-Dependent Non-Determinism（生成侧执行环境评测）** | [2611.30545](https://arxiv.org/abs/2611.30545) | 2026 arXiv（**马德里理工 + 电子科大**） | **同 prompt + 同 seed 仍不可复现**：6 模型 × 4 精度 × 3 GPU，**bit-identity 全 0.0**、SSIM 低至 **0.580/0.551/0.261/0.229**；作者点名 safety audits / A/B 必须报 serving setup ⇒ 生成侧不劣化验收协议 (NEW) |
 [← 返回文生图目录](../README.md)

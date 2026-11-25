@@ -1,8 +1,8 @@
 # T2I 文生图安全 Survey：攻防前沿与概念擦除技术演进
 
 > **Survey 类型**: 基于项目论文库的系统性综述（Literature-Grounded Survey）  
-> **数据基础**: 本项目收录的 **160** 篇 T2I 安全论文（2019–2026）
-> **更新日期**: 2026-11-24
+> **数据基础**: 本项目收录的 **164** 篇 T2I 安全论文（2019–2026）
+> **更新日期**: 2026-11-25
 > **关联文档**: [前瞻总览](./AI_Security_Landscape_2026.md) · [T2T Survey](./t2t-survey.md)
 
 ---
@@ -1997,8 +1997,13 @@ Flux 和 SD3 已经成为 2025–2026 年的主流 T2I 架构，但截至本 Sur
 | **AnimalFarm** | [2611.27905](https://arxiv.org/abs/2611.27905) | 2026 (**CISPA Helmholtz + Independent + HPE**) | **输入干净、出图侧照样内生风险**：14,250 queries / 12,900 attempts，两名标注员独立接受才保留；**92.1% 出图、其中 95.9% 含仇恨**；三通路（T2I / 图像编辑 / 多轮会话）GPT Image 2 **66.6/68.0/75.3**；最强 GPT-5.5 图审 recall **73.9%**、LlavaGuard **28.0**，Prompt Enhancement 使 LlavaGuard **28.8→64.4**；SFT+GRPO 检测器 F1 **0.962/0.979**，奖励正确性/格式/checklist/群体 **0.7/0.1/0.1/0.1**；`1−G/Q` 为 non-generation **≠ 拒答率**；未见过的 LABUBU 仍 **96.6%** (NEW) |
 | **EBSG / Example-Based Spatial Guidance** | [2611.20623](https://arxiv.org/abs/2611.20623) | 2026 (**KAIST**, NeurIPS 2026 poster) | **二值安全分是语义完整性的坏代理**：一个塌成无信息噪声、没人物也没内容的模型能通过 NudeNet/Q16（model collapse bypass safety checks）。把宽泛负向概念拆成**细粒度子概念 + 空间局部引导**，training-free、不改输入不改权重；VLM rubric 与人工一致 **82.6%**、新增 `NOTRELEVANT` 档；SR **97.2/96.2/84.2/97.4** 而 NR **1.4/1.3/0.4/0.0**，FID **6.31 vs 7.83**、CLIP **0.263 vs 0.259**；h/τ/βtxt/βimg 按概念配置 ⇒ 第三条降风险通路 (NEW) |
 | **P2E / Prune to Expand** | [2611.27229](https://arxiv.org/abs/2611.27229) | 2026 (**港城大 + 港中深**) | **「生成变好的 caption 就是好监督目标」被配对证伪**：按 Δq 取最高/最低各 10K 得 `D_H` **3.20** vs `D_M` **0.13**（**25×**），同初始化同配置训出的 Prompt Enhancer 在 200 条留出短 prompt 上只差 **+0.14 HPS v2 / +0.05 PicS / +0.002 MIQA / +0.000 VQ-R1**；dense caption 里大量图像专属细节与用户意图弱相关 = **冗余监督**；无约束剪枝 **27.27→26.46**，视觉守护剪枝 **→27.59**；K=3 / τ=0.4 / 800 prompts / 4 generators / Qwen3.5-9B (NEW) |
+| **Text Lives in the Guidance / GuideCache** | [2611.25382](https://arxiv.org/abs/2611.25382) | 2026 (**北师大 + 北京交大**；主干 Z-Image / Qwen-Image) | **生成过程会静默改写输出语义**：缓存 **2.9×** 使 word accuracy **62%→46%**（0.621→0.464）而 ImageReward / CLIP 几乎不动；误差沿 CFG 分解主要来自 **guidance term**（文本区占比为背景 **1.66×**，中英一致），同等算力只减步数恢复 **83%/90%** ⇒ 损失在缓存对跳步的预测；消融 plain 0.386 / **unconditional only 0.235（更差）** / conditional only 0.481 / both **0.532**；GuideCache `r=10%` 在 **2.46×** 下 **46%→61%**（恢复 91%，Qwen-Image 73%）；13 anchors 3.85× 时 0.124/0.057→0.388/0.334；Qwen-Image 关掉 conditional-norm 重缩放损失翻倍 **0.169 vs 0.084**；中文恢复多于拉丁文本 (NEW) |
+| **Reproducible by Seed? Not on GPUs** | [2611.30545](https://arxiv.org/abs/2611.30545) | 2026 (**马德里理工 + 电子科大**；含 Qwen-Image-2.1) | **同 prompt + 同 seed 仍固定不住出图**：6 模型 × 4 精度 × 3 GPU，所有配置 **bit-identity = 0.0**、replay control bit-exact；Emu3.5 bf16/int8 SSIM **0.580/0.551**、Janus-Pro-7B sampled/greedy **0.261/0.229**、Qwen-Image-2.1 fp8 **0.811–0.863**、HiDream-O1 fp8 **0.748/0.731/0.686**、FLUX bf16 0.999 而 **fp8 破例 0.829**；跨 GPU 差异与 batch 效应同量级。作者原文：**safety audits / A/B tests 必须报 serving setup**；以 image editing「改一个对象其余保持原样」为例 ⇒ **I2I 0/0% 第六种归因** (NEW) |
+| **SAE-Audit / What Remains After Concept Erasure?** | [2611.30117](https://arxiv.org/abs/2611.30117) | 2026 (**上海 AI Lab + Mila + McGill + 大阪大学**) | **行为层归零不构成移除证据**：共享 SAE 找擦除后响应变弱的特征，把原模型导出的固定稀疏方向注入编辑后模型（不改权重不改 prompt）；6 擦除器 × 4 域，**NSFW nudity 原模型 0.91 → 擦除 0.00 → 注入 0.71/0.48/0.59/0.74/0.77**，随机对照 ≤**0.06**；67 cells 上 Ours **0.40 / nudity 0.66**、恢复 **38** 格，Reverse-SAeUron 0.35，Wrong-concept 0.04、random 0.02；**31/40** 恢复格满足 scene consistency；**Seurat relabel 使 ours 0.94→0.19**（检测器是代理量）；SAE round-trip 单独对 UCE/cat **+0.16~+0.34**；top-10 Jaccard 0.154。⇒ 权重侧只是压制 (NEW) |
+| **HOSE / Hierarchical Orthogonal Subspace Erasure** | [2611.30592](https://arxiv.org/abs/2611.30592) | 2026 (**上海大学 + 中科大**) | **赢的是 trade-off 不是擦除率**：参数更新投到通用知识正交子空间 + Tripartite 分层 `ε`（一般概念 5×10⁻²/6×10⁻²/**2×10⁻¹**，风格 1×10⁻³/3×10⁻³/1.6×10⁻¹）；harmful content **−80%**；组一 `%HARM` **2.14%** 高于 RECE **1.49%** / UCE 1.82%，但 **FID 34.87 为编辑类最低、CLIP 26.12 最高**，组二 Total **19** 最低；消融 Uniform(shallow) FID **31.26** 但 Total **178**、Uniform(deep) Total **45** 但 FID **40.28**；5 次运行 95% CI，Genitalia 6.50→1.10 (p=4.5×10⁻⁵)。局限：SD1.4/U-Net、多概念依赖语义重叠 (NEW) |
 
-*本次 Survey 更新：2026-11-24（新增 4 篇：2611.27339 五个情境安全 benchmark 的单模态捷径与 0.9645 AUROC 灰图探针、2611.27905 AnimalFarm 三通路出图侧内生风险 92.1%/95.9%/73.9%、2611.20623 EBSG 子概念+空间局部引导与二值评测塌缩、2611.27229 P2E 冗余监督使生成增益与改写器脱钩 25×；现为 **160** 篇）。*
+*本次 Survey 更新：2026-11-25（新增 4 篇：2611.25382 缓存经 CFG guidance 静默改写文本 62%→46%、2611.30545 同 seed 下 batch/GPU/精度决定出图且 bit-identity 全 0、2611.30117 SAE 注入使擦除归零的 nudity 恢复到 0.48–0.77、2611.30592 HOSE 层次正交子空间赢 trade-off 而非擦除率；现为 **164** 篇）。*
+*上次 Survey 更新：2026-11-24（新增 4 篇：2611.27339 五个情境安全 benchmark 的单模态捷径与 0.9645 AUROC 灰图探针、2611.27905 AnimalFarm 三通路出图侧内生风险 92.1%/95.9%/73.9%、2611.20623 EBSG 子概念+空间局部引导与二值评测塌缩、2611.27229 P2E 冗余监督使生成增益与改写器脱钩 25×；现为 **160** 篇）。*
 *历史 Survey 更新：2026-11-10（新增 4 篇：2611.09304 T2I-NSI 否定约束未绑定与"太弱测不到"主导聚合、2611.06255 LeNO 冻结生成器+噪声侧残差+KL 上界、2611.08996 UniMore 统一模型两通路同源特异性损失、2611.08985 NotaryMark 多位水印"判定 100% 而信息 60%"。）*
 *上次 Survey 更新：2026-11-09（2611.07922 StitchEdit、2611.07648 GARM/TABO、2611.05578 VisionValueBench、2611.07132 Proxy Audit）。*
 *下次更新时间：跟随每日自动化任务实时更新。*
