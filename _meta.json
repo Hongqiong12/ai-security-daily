@@ -1,20 +1,20 @@
 {
   "_meta_version": "1.0",
-  "last_updated": "2026-11-25",
+  "last_updated": "2026-11-26",
   "paper_counts": {
-    "t2t": 136,
-    "t2i": 164,
+    "t2t": 137,
+    "t2i": 169,
     "agentic": 40,
-    "total": 340
+    "total": 346
   },
   "survey_versions": {
     "t2t-survey": {
-      "date": "2026-11-25",
-      "count": 136
+      "date": "2026-11-26",
+      "count": 137
     },
     "t2i-survey": {
-      "date": "2026-11-25",
-      "count": 164
+      "date": "2026-11-26",
+      "count": 169
     },
     "agentic-search-survey": {
       "date": "2026-10-30",
@@ -22,19 +22,19 @@
       "count": 40
     },
     "landscape_2026": {
-      "date": "2026-11-25",
-      "version": "v3.20",
-      "total_papers": 340
+      "date": "2026-11-26",
+      "version": "v3.21",
+      "total_papers": 346
     }
   },
   "benchmark_status": {
     "t2t_benchmark": {
-      "entries": 33,
-      "last_updated": "2026-11-25"
+      "entries": 34,
+      "last_updated": "2026-11-26"
     },
     "t2i_benchmark": {
-      "entries": 54,
-      "last_updated": "2026-11-25"
+      "entries": 56,
+      "last_updated": "2026-11-26"
     },
     "agentic_benchmark": {
       "entries": 10,
@@ -42,8 +42,8 @@
     }
   },
   "daily_reports": {
-    "latest": "2026-11-25",
-    "this_month_count": 11,
+    "latest": "2026-11-26",
+    "this_month_count": 12,
     "missing_dates": [
       "2026-11-11",
       "2026-11-12",
@@ -62,16 +62,16 @@
   "workflow_version": "2.3",
   "today_selection": {
     "t2i": [
-      "2611.25382_silent_text_rewrite_guidance_cache",
-      "2611.30545_batch_dependent_nondeterminism_t2i",
-      "2611.30117_sae_audit_concept_erasure_residue",
-      "2611.30592_hose_hierarchical_orthogonal_erasure"
+      "2611.31048_hint_distill_correction_not_rewrite",
+      "2611.31774_bodybench_nudification_defense_audit",
+      "2611.32407_tide_per_instruction_token_budget",
+      "2611.27388_crie_redundant_instruction_final_intent",
+      "2611.30523_veriorigin_watermark_edit_survival"
     ],
     "t2t_migration": [
-      "2611.23685_latent_safety_filter_conservatism",
-      "2611.29629_operating_point_contamination"
+      "2611.32848_quantized_eval_instrument_artifacts"
     ],
-    "theme": "钉死了输入，也钉不住出图 —— 输入改写够不到的四层：生成过程、执行环境、权重残留、验收装置"
+    "theme": "判定的单位错了 —— 六篇把「一个总数」拆成按部件、按栏、按仪器；HinT 首次给出外科式替换风险锚点在表示层不成立的机制级证据"
   },
   "_note": "This file is the single source of truth for all paper counts. Automation must update this file on every run. Never estimate counts — always use search_file to scan papers/ directories."
 }
