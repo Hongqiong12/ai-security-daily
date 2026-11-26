@@ -1,8 +1,8 @@
 # T2T 大语言模型安全 Survey：攻防演进与前沿方向
 
 > **Survey 类型**: 基于项目论文库的系统性综述（Literature-Grounded Survey）  
-> **数据基础**: 本项目收录的 **137** 篇 T2T 安全论文（2022–2026）
-> **更新日期**: 2026-11-26
+> **数据基础**: 本项目收录的 **139** 篇 T2T 安全论文（2022–2026）
+> **更新日期**: 2026-11-27
 > **关联文档**: [前瞻总览](./AI_Security_Landscape_2026.md) · [T2I Survey](./t2i-survey.md)
 
 ---
@@ -1374,8 +1374,11 @@ SecureBreak 等基准提到了多语言覆盖的重要性，但目前大多数�
 | **Measuring the Conservatism of Latent Safety Filters** | [2611.23685](https://arxiv.org/abs/2611.23685) | 2026 (**UCSD + SDSU**, PMLR 2027) | over-refusal 结构性下界 / conformal / per-category 阈值 | **误杀不是模型弱，是表示逼的**：证明 **overlap 是「接受 0 个不安全转移」时必须拒绝的最小安全转移比例**；planner latent **0.96–0.97** / jointly trained 0.94–0.96 / 独立 safety latent **0.44–0.46**，δ=0.02 下拒安全动作 **0.302/0.318/0.161**、任务达成 **0.39/0.32/0.72**（无过滤器 0.72）；`K_z=50/200` 会改 overlap 读数，200 次校准抽样 10–90 分位 `z_s` **0.14–0.18**。⇒ 调阈值降不下去，只能换表示；「能改则不拒」有了数学下界 (NEW) |
 | **Contamination at the Operating Point** | [2611.29629](https://arxiv.org/abs/2611.29629) | 2026 (**Fu Dai, K. Taha, N. Werghi, M. Assefa**；PDF 首页未列机构) | 评测集重叠审计 / operating point / 最小可报告 FPR | **误杀率读数本身可能是假的**：偏差不是加性小量（旧工作最多 +1.01pp）而是**随 FMR 下降增长的乘性误差**；null-calibrated 审计（β=0.1%）标出 **88.6% MS1MV3 身份 / 14.3% IJB-C**，人工复核 **69.2%** ⇒ 残留 ~**9.9%**；固定模型只删重叠身份，FNMR 抬 **3.6×/6.3×/13.9×**（10⁻⁴/10⁻⁵/10⁻⁶），随机删除无效，偏差**不跨模型抵消**（优势削一半）；IJB-C 在 10⁻⁶ 仅 **2.7M** 有效独立比较、最小可报 FMR ≈ **6×10⁻⁵**。⇒ 5.2% 误杀基线要先审计评测集 (NEW) |
 | **Measurement Artifacts in Trustworthiness Evaluations of Quantized Small LMs** | [2611.32848](https://arxiv.org/abs/2611.32848) | 2026 (**COMSATS University Islamabad + Middlesex University London**) | 量化不劣化验收 / 误杀率读数审计 / 判定装置校准 | **量化后「安全率下降」有一半是尺子写的**：$\Delta_{measured}=\Delta_{true}+\Delta_{inst}$，与量化交互的仪器误差能**造出或反转**效应。8 个 135M–1.7B 模型 × float16/LLM.int8()/NF4 配对；两名标注者 100 条（κ=0.380/0.425）下 baseline keyword detector 只召回 **33.3%** 的拒答（印刷体撇号 / 长前言两种失败模式），corrected **80.0%/80.0%**；人工校准后 4-bit harmful compliance **+2.6 点**（WildGuard +3.0）而 detector 记的 refusal 降 **4.7 点**；2,000 条 HaluEval 上同一模型同一精度四种评分给 **+9.8/+0.8/−13.6/−7.3**、cloze vs lettered **ρ=0.10**（天花板 ≈0.77）；NF4 在 **8/8** 模型改首选位置率（最多 +59.5 点）；**LLM.int8() 确定性但非 batch-invariant**（重排 batch 改变答案数达量化本身的 **57–119%**、仅 padding 就改答案），NF4 batch-invariant。⇒ 与 overlap 下界、评测集重叠并列的**第三种读数污染**；顺序固定「审计评测集→体检表示→**体检尺子**→约束式选点」 (NEW) |
+| **Lost in Translation, Not in Confidence** | [2611.33307](https://arxiv.org/abs/2611.33307) | 2026 (**南洋理工 + NUS + VinUniversity**) | 跨语言阈值漂移 / guardrail 校准 / 分层宏平均背离 | **英文设的 95% 阈值，中文只有 93.1%、泰米尔语 90.0%**：25 决策模型 × 17 子类 × 14 语言 × **25,626** 平行条目；**325/325** model–language pair 掉准确率、**301** 个过度自信上升；`ΔAcc −3.5` 而 `ΔConf −1.8`（**置信度只掉一半**）、Gap 均值 **+1.6**；中文 −2.2/−1.0/+1.2/93.1%；语言 **60%** + 底座 **34%** 解释方差、与排行榜名次无关；per-language temperature scaling 500 items 把 pooled ECE **4.1%→2.9%** 但**准确率不回**。⇒ 微调修校准易、修准确率难；英文阈值不得全局下发 (NEW) |
+| **What, Who, and When / MindGuard2** | [2611.33263](https://arxiv.org/abs/2611.33263) | 2026 (**Sword Health + Yale + IST**) | 策略可配置护栏 / 层级标签 / tag-weighted / 误杀体感 / 短 CoT | **「判有害」与「怎么处置」拆成两层**：模型只输出 (what, who, when) 三元组，`triplet → safety protocol` 是**权重外临床医生策展、可编辑可审计的决策树**，换策略**不重标注、不重训**；3WS 分维加权，what/who 一致率 **>89%** 而 when 仅 **0.53**（故降权）；short-rollout SFT → RL with reasoning-length penalty，BA 与 GLM-5.3 相当而 median latency 低 **~10×**，发布版 FPR **0.09/0.02/0.03**、R 0.92/0.84/0.87；**推理收益集中在 3W 0.72→0.90 而非 BA 0.81→0.91** ⇒ 细粒度才开 CoT。原文点名 over-flagging 破坏信任 (NEW) |
 
-*本次 Survey 更新：2026-11-26（新增 1 篇方法论迁移：2611.32848 量化评测的仪器交互项 / 拒答检测器召回 33.3%→80.0% / 8-bit 非 batch-invariant，作为量化不劣化验收与误杀率读数审计协议；现为 **137** 篇）。*
+*本次 Survey 更新：2026-11-27（新增 2 篇方法论迁移：2611.33307 跨语言置信度滞后——325/325 pair 掉准确率、英文 95% 阈值中文 93.1% 泰米尔 90.0%、温度缩放修 ECE 不修准确率；2611.33263 策略与权重解耦——what/who/when 三元组 + 权重外可热更新映射表 + 3WS 分维加权 + 短 CoT 低 10× 延迟，`t14_policy_guard` 六周零供给终结；现为 **139** 篇）。*
+*上次 Survey 更新：2026-11-26（新增 1 篇方法论迁移：2611.32848 量化评测的仪器交互项 / 拒答检测器召回 33.3%→80.0% / 8-bit 非 batch-invariant，作为量化不劣化验收与误杀率读数审计协议；现为 **137** 篇）。*
 *上次 Survey 更新：2026-11-25（新增 2 篇方法论迁移：2611.23685 误杀有表示决定的结构性下界 overlap 0.96→0.44 且换表示才降、2611.29629 低 FPR 区 FNMR 被评测集重叠乘性抬高 3.6×→13.9×；现为 **136** 篇）。*
 *上次 Survey 更新：2026-11-24（新增 2 篇方法论迁移：2611.27155 量化后 1.1–12.3% 成对判定翻转而聚合准确率只动 0.03 点、2611.26881 judge 的 in-context 标签偏置只会单向抬高分数；现为 **134** 篇）。*
 *上次 Survey 更新：2026-11-23（新增 2 篇：2611.19216 冻结护栏 operating point 在模型更新后失效、2611.20156 风险认证式策略选点；并修复 11-12 补录造成的 128→130 计数漂移，现为 132）。*

@@ -2,7 +2,7 @@
 
 文生图扩散模型的安全评测基准、数据集与评估框架论文。
 
-> 最后回填: 2026-11-26 | 共 **56** 条
+> 最后回填: 2026-11-27 | 共 **58** 条
 > 延伸索引: [《T2I 安全 Benchmark 短名单（2026 年前高引用版）》](../../../insights/t2i-benchmark-shortlist-pre2026.md)
 
 ## 综述与全景
@@ -87,4 +87,6 @@
 | **Batch-Dependent Non-Determinism（生成侧执行环境评测）** | [2611.30545](https://arxiv.org/abs/2611.30545) | 2026 arXiv（**马德里理工 + 电子科大**） | **同 prompt + 同 seed 仍不可复现**：6 模型 × 4 精度 × 3 GPU，**bit-identity 全 0.0**、SSIM 低至 **0.580/0.551/0.261/0.229**；作者点名 safety audits / A/B 必须报 serving setup ⇒ 生成侧不劣化验收协议 (NEW) |
 | **BODYBENCH（AI 裸体化 inpainting 防护评测）** | [2611.31774](https://arxiv.org/abs/2611.31774) | 2026 arXiv（**密歇根 + 普林斯顿**） | **问题定义失败**：648 合成主体 × 11 掩码，性化/自然度/可辨认性三栏判据替代 PSNR；四防护仅 1 配置达 **0.951** 且需掩码精确对齐，dilation d=7 掉 **0.739**；PSNR/SSIM 与防护基本不相关 (NEW) |
 | **CRIE-S（复杂冗余指令编辑评测）** | [2611.27388](https://arxiv.org/abs/2611.27388) | 2026 arXiv（**中山大学**） | **完整成功率 0.0% 是判据无分辨率**：10,000 条带精确最终意图标注；O./A./R. 54–84 而 S.=0.0，折叠意图 + 从源图重执行后 **27.5–50.0%** ⇒ 报方向覆盖数而非 0/1 (NEW) |
+| **T2ISpec（投机解码分层基准）** | [2611.29029](https://arxiv.org/abs/2611.29029) | 2026 arXiv（**密歇根 + 斯坦福 + 宾大 + 俄亥俄州立 + 南洋理工**） | **聚合加速比掩盖 topic 差异**：1,400 prompts × 7 topic × 2 难度、paired Target-only 三列同报；AR 偏离 **±20%**；**ADT-Tree −42.0% work → 仅 1.0889×**；Overall **0.0000** 掩盖 text +0.0233 / commonsense −0.0242；阈值跨难度方向相反 (NEW) |
+| **Flow-GRPO Skill-Wise pass@k 解剖** | [2611.33316](https://arxiv.org/abs/2611.33316) | 2026 arXiv（**NCSU + Purdue**） | **把一个奖励增益拆成锐化/解锁**：553 held-out prompts × 32 共享种子；四技能 k*=4–10 且 Δceiling ≤0.013，关系技能 Δceiling **+0.31**、零覆盖 93% 被救、pass@128 0.89 仍低于 RL pass@1 0.94；best-of-4 回收 76% vs 41% ⇒ 锐化可推理侧买、解锁只能训练侧给 (NEW) |
 [← 返回文生图目录](../README.md)

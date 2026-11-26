@@ -1,20 +1,20 @@
 {
   "_meta_version": "1.0",
-  "last_updated": "2026-11-26",
+  "last_updated": "2026-11-27",
   "paper_counts": {
-    "t2t": 137,
-    "t2i": 169,
+    "t2t": 139,
+    "t2i": 173,
     "agentic": 40,
-    "total": 346
+    "total": 352
   },
   "survey_versions": {
     "t2t-survey": {
-      "date": "2026-11-26",
-      "count": 137
+      "date": "2026-11-27",
+      "count": 139
     },
     "t2i-survey": {
-      "date": "2026-11-26",
-      "count": 169
+      "date": "2026-11-27",
+      "count": 173
     },
     "agentic-search-survey": {
       "date": "2026-10-30",
@@ -22,19 +22,19 @@
       "count": 40
     },
     "landscape_2026": {
-      "date": "2026-11-26",
-      "version": "v3.21",
-      "total_papers": 346
+      "date": "2026-11-27",
+      "version": "v3.22",
+      "total_papers": 352
     }
   },
   "benchmark_status": {
     "t2t_benchmark": {
-      "entries": 34,
-      "last_updated": "2026-11-26"
+      "entries": 35,
+      "last_updated": "2026-11-27"
     },
     "t2i_benchmark": {
-      "entries": 56,
-      "last_updated": "2026-11-26"
+      "entries": 58,
+      "last_updated": "2026-11-27"
     },
     "agentic_benchmark": {
       "entries": 10,
@@ -42,8 +42,8 @@
     }
   },
   "daily_reports": {
-    "latest": "2026-11-26",
-    "this_month_count": 12,
+    "latest": "2026-11-27",
+    "this_month_count": 13,
     "missing_dates": [
       "2026-11-11",
       "2026-11-12",
@@ -62,16 +62,16 @@
   "workflow_version": "2.3",
   "today_selection": {
     "t2i": [
-      "2611.31048_hint_distill_correction_not_rewrite",
-      "2611.31774_bodybench_nudification_defense_audit",
-      "2611.32407_tide_per_instruction_token_budget",
-      "2611.27388_crie_redundant_instruction_final_intent",
-      "2611.30523_veriorigin_watermark_edit_survival"
+      "2611.33316_flowgrpo_sharpening_unlocking",
+      "2611.34446_preservereward_edit_consistency",
+      "2611.26627_rl_is_activation_steering",
+      "2611.29029_t2ispec_topic_disparity"
     ],
     "t2t_migration": [
-      "2611.32848_quantized_eval_instrument_artifacts"
+      "2611.33307_multilingual_confidence_lag",
+      "2611.33263_what_who_when_policy_decoupling"
     ],
-    "theme": "判定的单位错了 —— 六篇把「一个总数」拆成按部件、按栏、按仪器；HinT 首次给出外科式替换风险锚点在表示层不成立的机制级证据"
+    "theme": "把「一个增益」拆开 —— RL 涨点、加速比、置信阈值、安全标签全都装错了单位；Flow-GRPO 解剖与 Activation Steering 构成「安全率上涨不等于策略变强」的独立双证据"
   },
   "_note": "This file is the single source of truth for all paper counts. Automation must update this file on every run. Never estimate counts — always use search_file to scan papers/ directories."
 }

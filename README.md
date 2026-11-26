@@ -9,11 +9,11 @@
   <a href="https://img.shields.io/badge/Reports-Today-blue.svg">
     <img src="https://img.shields.io/badge/Reports-Today-blue.svg" alt="Reports Today"/>
   </a>
-  <a href="https://img.shields.io/badge/Papers-346-green.svg">
-    <img src="https://img.shields.io/badge/Papers-346-green.svg" alt="Total Papers"/>
+  <a href="https://img.shields.io/badge/Papers-352-green.svg">
+    <img src="https://img.shields.io/badge/Papers-352-green.svg" alt="Total Papers"/>
   </a>
-  <a href="https://img.shields.io/badge/Last-Update-2026--11--26-orange.svg">
-    <img src="https://img.shields.io/badge/Last-Update-2026--11--26-orange.svg" alt="Last Update"/>
+  <a href="https://img.shields.io/badge/Last-Update-2026--11--27-orange.svg">
+    <img src="https://img.shields.io/badge/Last-Update-2026--11--27-orange.svg" alt="Last Update"/>
   </a>
   <a href="https://github.com/Hongqiong12/ai-security-daily/stargazers">
     <img src="https://img.shields.io/github/stars/Hongqiong12/ai-security-daily.svg?style=social&label=Star" alt="GitHub stars"/>
@@ -22,39 +22,39 @@
 
 ---
 
-## 🔥 今日最具业务价值论文评测 (2026-11-26)
+## 🔥 今日最具业务价值论文评测 (2026-11-27)
 
-> **今天六篇把「判安全」这件事从「一个总数」拆成按部件、按栏、按仪器。最扎的一刀来自快手可灵：单 slot 的「外科式替换风险锚点」会被文本编码器扩散到全句，59%–74% 的改写还擅自加了场景和光照。**
+> **今天六篇把「一个增益」拆开：RL 涨的 0.32 分里四个技能只是锐化、一个才是解锁；1/65 参数的常数向量能复现 90–96.3% 的 RL 奖励增益。最扎的一刀：英文上钉 95% 的阈值，中文只有 93.1%、泰米尔语 90.0%——因为置信度只掉一半。**
 >
-> **✅ 供给侧**：网页端十分类 `/list/<cat>/recent?show=2000` 串行全批扫描，公告批次 **11-19→11-25**（740/718/563/1442/**845**）；全批池 **4308 篇**（1982 篇带摘要），复用昨日 1871 条摘要缓存回填 1566、仅新抓 **416** 篇，主题词 **26 路** + 形态 **12 路**全部本地正则复现、零第二次检索请求。`t2_prompt_rewrite` 严格词表 3 命中**全为误命中**（空窗第 **19** 周），但 ② 全批扫描 + ④ 厂商兜底「捡」出本轮头条 HinT —— **零命中不等于供给为零**最有力的一次验证。
+> **✅ 供给侧**：网页端十分类 `/list/<cat>/recent?show=2000` 串行全批扫描，公告批次 **11-20→11-26**（717/562/1440/844/**775**）；全批池 **4338 篇**（2056 篇带摘要），复用昨日 1982 条摘要缓存回填 1671、仅新抓 **385** 篇；主题词 **26 路** + 形态 **12 路**全部本地正则复现、零第二次检索请求。`t2_prompt_rewrite` 严格词表 3 命中**全为误命中**（空窗第 **20** 周），但三条长期空窗通道同日补齐 —— **GRPO 奖励解剖 / 跨语言阈值 / 策略可配置护栏**。
 >
-> **🎯 头部公司首次命中 2 篇**：**KlingAI Research（快手可灵）** 的 HinT、**Adobe Inc.** 的 TIDE；另有阿里 Qwen-Image-2512 / Qwen-Image-2.1 / Qwen-Image-Edit-2511 作为被测主干出现在 3 篇里。**T2I 占比 83.3%，历史最高。**
+> **🎯 工业界连续两轮命中 3 篇**：**JD.com（京东）** PreserveReward（被优化主干 **Qwen-Image-2.1**）、**IBM Research** 参与 RL=Activation Steering、**Sword Health** 策略护栏。**T2I 占比 66.7%。**
 >
-> **⚠️ 仍零供给**：I2I 安全改写方法 / 统一生成-编辑改写面 / GRPO 安全改写 / 跨语言安全改写 / 风险知识召回护栏（`t14_policy_guard` 5 命中全 RAG、0 可迁移，「有量不等于有供给」**第六次**）/ i2v-t2v 生成安全（主线⑥不给建议）。
+> **⚠️ 仍零供给**：输入侧安全改写方法（第 20 周）/ I2I 安全改写方法 / 统一生成-编辑改写面 / NSFW 图审 SFT / i2v-t2v 生成安全（主线⑥不给建议）。
 
 | 核心威胁领域 | 🚨 今日优先论文 | 一句话快评 | 深度拆解 |
 |---|---|---|---|
-| **外科式替换在表示层不成立** | [HinT：蒸馏修正而非改写](./categories/t2i/papers/2611.31048_hint_distill_correction_not_rewrite.md) | **KlingAI Research 快手可灵 + 复旦 + 华南师大 + 浙大**（主干 Qwen-Image-2512 / SD3.5-M / FLUX.2-klein）。critic 把 **10 词 → 22–25 词**，**59%–74%** 修订加了未要求的场景/光照；**单 slot 编辑经文本编码器传播到全句**；改写习惯 **2.2%→98–100%（2 轮内）**而 HinT **<4%**；twin 速度差使 GenEval2 EMA **+11.4/+11.1/+1.9**，比标量奖励 RL 高 **21.6 点**，训练 **+<4%**、推理零开销。⇒ 输入改写有效性上界补第五栏「表示层漂移」，但**修法是换监督单位，不是加严改写**。 | [📄 立即阅读](./daily-reports/2026-11/2026-11-26_AI安全每日深度情报.md) |
-| **防护成功率几乎全是假的** | [BODYBENCH](./categories/t2i/papers/2611.31774_bodybench_nudification_defense_audit.md) | **密歇根 + 普林斯顿**（11-25 新批次）。648 合成主体 × 11 掩码；三种 harm-aligned 判据（性化/自然度/可辨认性）替代 PSNR。四种防护仅 **AdvPaint 一个配置**达 DefenseScore **0.951** 且要求掩码**精确对齐**；dilation d=7 掉 **0.739**，d=15/31 全崩；**PSNR/SSIM 与裸体化防护基本不相关**。⇒ 「掩码精确对齐」在结构上等价于评测集重叠；图审 AB 必须补三栏判据 + 扰动格。 | [📄 立即阅读](./daily-reports/2026-11/2026-11-26_AI安全每日深度情报.md) |
-| **一个阈值先杀掉最细的编辑** | [TIDE：每部件自己的预算](./categories/t2i/papers/2611.32407_tide_per_instruction_token_budget.md) | **IIT Delhi + Adobe Inc.**（主干 Qwen-Image-Edit-2511）。**Theorem 2 证明 part-agnostic 规则无法保证异构预算**；单一全局阈值在 **89%** 的 MICE-Bench 图上破坏至少一个编辑；per-part 少丢 **48%/最高 77%** 且 **2.09×→2.20× 更快**。⇒ 「改写强度分级下沉」第一次有可证伪定理与「分档不牺牲延迟」实测；I2I 0/0% 的**第八种**归因。 | [📄 立即阅读](./daily-reports/2026-11/2026-11-26_AI安全每日深度情报.md) |
-| **完整成功率 0.0% 是判据坏了** | [CRIE-Agent / CRIE-S](./categories/t2i/papers/2611.27388_crie_redundant_instruction_final_intent.md) | **中山大学**（主干 Qwen-Image-2.1 / FLUX.2-klein-4B）。10,000 条冗余/撤销编辑指令；五个后端直接编辑 O. 54–58 / A. 69–84 / R. 57–70 而**完整成功全部 0.0%**；CRIE-Agent 折叠成最终编辑目标 + 从源图重执行，抬到 **27.5–50.0%**。⇒ 0/0% 的**第九种**归因：验收判据没有可判的正例；报「方向覆盖数」而非 0/1。 | [📄 立即阅读](./daily-reports/2026-11/2026-11-26_AI安全每日深度情报.md) |
-| **编辑后水印存活率有基线了** | [VeriOrigin](./categories/t2i/papers/2611.30523_veriorigin_watermark_edit_survival.md) | **北理工 + 澳门理工 + 深北理莫斯科 + 宁大 + 深大 + 中关村实验室**（兑现 11-25 优先精读）。XOnet 可逆 CNN + 两阶段训练；clean 定位 F1 **0.995**、JPEG70 payload **0.949**、Gaussian σ23 **0.998**、resize 0.35 **0.999**，载荷代价 ≤**2.3 F1 点**，无损通道 **bit-exact 恢复**。⇒ 判定 / 信息 / 事件三栏做进同一框架；属**输出凭证层**，不阻止风险内容生成。 | [📄 立即阅读](./daily-reports/2026-11/2026-11-26_AI安全每日深度情报.md) |
-| **安全率下降有一半是尺子写的** | [Measurement Artifacts](./categories/t2t/papers/2611.32848_quantized_eval_instrument_artifacts.md) | **COMSATS + Middlesex**（迁移）。$\Delta_{measured}=\Delta_{true}+\Delta_{inst}$：与量化交互的仪器误差能**造出或反转**效应。基线拒答检测器只召回 **33.3%** 的拒答（corrected **80.0%**）；人工校准后 4-bit harmful compliance **+2.6 点**而检测器记的 refusal 降 **4.7 点**；同一模型四种评分给 **+9.8/+0.8/−13.6/−7.3**；**LLM.int8() 非 batch-invariant**（重排 batch 改变答案数达量化本身的 **57–119%**）。⇒ 与 overlap 下界、评测集重叠并列的**第三种读数污染**。 | [📄 立即阅读](./daily-reports/2026-11/2026-11-26_AI安全每日深度情报.md) |
+| **安全率涨了 ≠ 策略变强** | [Flow-GRPO 按技能解剖](./categories/t2i/papers/2611.33316_flowgrpo_sharpening_unlocking.md) | **NCSU + Purdue**（SD3.5-M）。GenEval **0.63→0.95** 拆成：四技能**锐化**（RL 的 pass@1 = base 的 4–10 个样本，pass@32 动 ≤0.013，best-of-4 回收 76%）；空间关系**解锁**（pass@32 **0.76→1.00**、Δceiling +0.31、31 个零覆盖 prompt **93%** 被救、**128 个 base 样本仍买不到**）。⇒ 锐化转 best-of-k + verifier，解锁才动训练；**D2 的零训练闸门**。 | [📄 立即阅读](./daily-reports/2026-11/2026-11-27_AI安全每日深度情报.md) |
+| **1/65 参数复现 90–96.3% RL 增益** | [RL = Activation Steering](./categories/t2i/papers/2611.26627_rl_is_activation_steering.md) | **Virginia Tech + fal + Georgia Tech + IBM Research**。188 个常数向量 **0.29M 参数 = rank-32 LoRA 的 1/65**，对每个 prompt/token/seed 完全相同，拟合目标**不含奖励**，恢复六个 image ckpt **90.0–96.3%**；只训向量跑 Flow-GRPO 反超权重 RL **104.6%/103.6%**。⇒ 策略容量不是瓶颈，奖励稀疏才是；与上篇构成独立双证据。 | [📄 立即阅读](./daily-reports/2026-11/2026-11-27_AI安全每日深度情报.md) |
+| **奖励器自己没被验收** | [PreserveReward](./categories/t2i/papers/2611.34446_preservereward_edit_consistency.md) | **JD.com 京东 + 中科大 + 华南理工 + 南京大学**（主干 Qwen-Image-2.1）。双教师 OPSD + minimum-KL 校准 + 梯度路由（双负则跳过）；**84.70%/84.60%/80.73%** 人类偏好对齐、9B 超所有开源 reward model。**Table 2 反例**：EditScore-72B / RationalRewards / UnifiedReward 做 RL 后 GEdit-v1 **反不如 Base**（8.73/8.47/8.57 vs 8.86）而 KRIS 却涨 ⇒ 同一奖励器跨集方向反转。 | [📄 立即阅读](./daily-reports/2026-11/2026-11-27_AI安全每日深度情报.md) |
+| **减 42% 的活只快 1.09 倍** | [T2ISpec](./categories/t2i/papers/2611.29029_t2ispec_topic_disparity.md) | **密歇根 + 斯坦福 + 宾大 + 俄亥俄州立 + 南洋理工**（兑现 11-26 优先精读）。1,400 prompts × 7 topic × 2 难度；AR topic 偏离 **±20%**；ADT-Tree **−42.0% work → 仅 1.0889×**；Overall criterion **0.0000** 掩盖 text **+0.0233** / commonsense **−0.0242**；SpeCa 阈值 5→9 使 Easy **+0.0383** / Hard **−0.0517**。⇒ 加速比必须按类目 × 难度拆开报。 | [📄 立即阅读](./daily-reports/2026-11/2026-11-27_AI安全每日深度情报.md) |
+| **英文阈值在中文只有 93.1%** | [Lost in Translation](./categories/t2t/papers/2611.33307_multilingual_confidence_lag.md) | **南洋理工 + NUS + VinUniversity**（迁移）。25 模型 × 17 子类 × 14 语言 × 25,626 平行条目；**325** 个 model–language pair 全掉准确率、**301** 个过度自信上升；`ΔAcc −3.5` 而 `ΔConf −1.8`；英文 τ 的实际准确率 **泰米尔 90.0% / 中文 93.1% / 均值 92.6%**；温度缩放修 ECE **4.1%→2.9%** 但修不回准确率。⇒ 英文 ASR 飙升的机制级解释，先分语言校准再谈合并训练。 | [📄 立即阅读](./daily-reports/2026-11/2026-11-27_AI安全每日深度情报.md) |
+| **策略不写进权重** | [What, Who, and When](./categories/t2t/papers/2611.33263_what_who_when_policy_decoupling.md) | **Sword Health + Yale + IST**（迁移，`t14_policy_guard` 六周零供给终结）。模型只输出 (what, who, when) 三元组，`triplet → safety protocol` 是**权重外可热更新、可审计的决策树**；3WS 分维加权（what/who >89% vs when **0.53** 一致率）；短 CoT + 长度惩罚使 median latency 低 **~10×**，高 recall 下 **FPR 0.02–0.09**；推理收益集中在 3W **0.72→0.90** 而非 BA。⇒ 换策略不重训、不重标注。 | [📄 立即阅读](./daily-reports/2026-11/2026-11-27_AI安全每日深度情报.md) |
 
-⏱ **今日一句话**：**别再调那个总数了**。先把「五栏归因（含改写表示层漂移）、三栏图审判据、按部件/方向覆盖数的分流输出、检测器人工校准、生成侧+判定侧 serving setup 指纹」补进验收；输入改写优化预算继续冻结，重心留在出图侧生成过程干预与验收单位重构。
+⏱ **今日一句话**：**别急着把涨分记成能力**。动训练前先报 `k*` / Δceiling / 常数臂解释率；阈值先按语言 × 难度体检；策略表换一次要比换 ckpt 更优先。输入改写优化预算继续冻结，重心留在出图侧生成过程干预与验收单位重构。
 
 ---
 
 ## 🔭 前沿 Survey & 洞察简报 (Must-Read)
 
-我们不仅搬运论文，更系统沉淀方法论。以下是基于 **346** 篇安全论文萃取的全局视野：
+我们不仅搬运论文，更系统沉淀方法论。以下是基于 **352** 篇安全论文萃取的全局视野：
 
 | 研究洞察精华 | 解决的核心问题 | 更新状态 |
 |------|------|----------|
-| 🏆 **[2026 AI 大模型安全前沿洞察](./insights/AI_Security_Landscape_2026.md)** | **判定的单位错了（热点三十三）**（NEW） · **按部件/按栏/按仪器拆开一个总数**（NEW） · **头部公司首次命中 2 篇：快手可灵 + Adobe**（NEW） | 2026-11-26 |
+| 🏆 **[2026 AI 大模型安全前沿洞察](./insights/AI_Security_Landscape_2026.md)** | **把「一个增益」拆开（热点三十四）**（NEW） · **RL 涨分分锐化/解锁 + 常数参数自由度**（NEW） · **阈值语言漂移与策略表解耦**（NEW） | 2026-11-27 |
 | 🧭 **[T2I 主线模型评测地图（2026）](./insights/t2i-mainline-model-eval-map-2026.md)** | 当前主线模型测哪些指标 · 对应 benchmark / evaluation set 有哪些 · 训练集透明度与闭源程度如何分层 | 2026-04-22 |
-| 🛡️ **[T2T LLM 安全全局图谱](./insights/t2t-survey.md)** | **量化后安全率下降有一半是尺子写的**（NEW） · **拒答检测器只召回 33.3% 的拒答**（NEW） · **第三种读数污染：测量仪器交互可造出/反转效应**（NEW） | 2026-11-26 |
-| 🖼️ **[T2I 文生图安全七年演进](./insights/t2i-survey.md)** | **HinT：单 slot 外科替换扩散到全句、改写 59–74% 加未要求场景**（NEW） · **BODYBENCH：掩码精确对齐才 0.951**（NEW） · **TIDE Theorem 2 分级是数学必要**（NEW） · **CRIE-S 完整成功 0.0%**（NEW） | 2026-11-26 |
+| 🛡️ **[T2T LLM 安全全局图谱](./insights/t2t-survey.md)** | **英文 95% 阈值中文只有 93.1%**（NEW） · **置信度只掉一半**（NEW） · **策略写在权重外可热更新**（NEW） | 2026-11-27 |
+| 🖼️ **[T2I 文生图安全七年演进](./insights/t2i-survey.md)** | **Flow-GRPO：128 个 base 样本买不到 RL 的 pass@1**（NEW） · **1/65 参数复现 90–96.3% RL 增益**（NEW） · **奖励器跨评测集方向反转**（NEW） · **−42% work 只换 1.0889×**（NEW） | 2026-11-27 |
 | 🤖 **[Agentic Search 攻防全景](./insights/agentic-search-survey.md)** | **StressSim 保真/失败位次**(NEW) · 手工策略跨模型方向会反(NEW) · SkillGuard-Robust · SnapGuard | 2026-10-30 |
 | 🔪 **[Abliteration 与概念擦除范式](./insights/alignment-paradigm-shift-abliteration.md)** | 剖析大模型对齐的脆弱性，以及定向消融攻击的底层逻辑 | 2026-04-07 |
 
